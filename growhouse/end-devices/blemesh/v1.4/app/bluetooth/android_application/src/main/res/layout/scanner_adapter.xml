@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/adapter_item_background"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.Light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/adapter_layout_padding">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/adapter_item_padding"
+            android:src="@drawable/ic_mesh_red" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/adapter_item_padding"
+                android:text="Unknown"
+                android:textColor="@color/adapter_item_title_color"
+                android:textSize="@dimen/adapter_label_big_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_device_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:text="00:00:00:00:00:00"
+                    android:textColor="@color/adapter_item_label_color"
+                    android:textSize="@dimen/adapter_label_medium_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:src="@drawable/ic_blueetooth" />
+
+                <TextView
+                    android:id="@+id/tv_device_rssi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:text="-59 dBm"
+                    android:textColor="@color/adapter_item_label_color"
+                    android:textSize="@dimen/adapter_label_medium_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_provision_device"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_provision_button"
+            android:padding="@dimen/adapter_item_padding"
+            android:text="@string/scanner_adapter_provision"
+            android:textColor="@color/silicon_labs_white"
+            android:textSize="@dimen/adapter_label_medium_size" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@color/adapter_item_divider" />
+</LinearLayout>

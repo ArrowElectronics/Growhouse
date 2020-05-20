@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.Light">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_device_config_category_background"
+                android:padding="@dimen/dialog_item_padding"
+                android:text="@string/device_dialog_info_device_category_label"
+                android:textColor="@color/dialog_device_config_category_label" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_device_name_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/device_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_separator_height"
+                android:foreground="@color/dialog_device_config_separator" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_address_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/device_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_separator_height"
+                android:foreground="@color/dialog_device_config_separator" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_uuid_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/device_uuid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_device_config_category_background"
+                android:padding="@dimen/dialog_item_padding"
+                android:text="@string/device_dialog_info_network_category_label"
+                android:textColor="@color/dialog_device_config_category_label" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_network_name_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/network_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dialog_device_config_category_background"
+                android:padding="@dimen/dialog_item_padding"
+                android:text="@string/device_dialog_info_keys_category_label"
+                android:textColor="@color/dialog_device_config_category_label" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_net_key_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/key_net"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_separator_height"
+                android:foreground="@color/dialog_device_config_separator" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_app_key_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/key_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_separator_height"
+                android:foreground="@color/dialog_device_config_separator" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dialog_config_item_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_dialog_info_dev_key_label"
+                    android:textSize="@dimen/dialog_label_size" />
+
+                <TextView
+                    android:id="@+id/key_dev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dialog_value_size" />
+            </LinearLayout>
+
+            <TableLayout
+                android:id="@+id/elements_table"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="3">
+
+                <TableRow android:background="@color/dialog_device_config_table_dark_background">
+
+                    <TextView
+                        android:gravity="center"
+                        android:padding="@dimen/dialog_config_table_padding"
+                        android:text="@string/device_dialog_info_table_first_col_label"
+                        android:textSize="@dimen/dialog_value_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:padding="@dimen/dialog_config_table_padding"
+                        android:text="@string/device_dialog_info_table_second_col_label"
+                        android:textSize="@dimen/dialog_value_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:padding="@dimen/dialog_config_table_padding"
+                        android:text="@string/device_dialog_info_table_third_col_label"
+                        android:textSize="@dimen/dialog_value_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:padding="@dimen/dialog_config_table_padding"
+                        android:text="@string/device_dialog_info_table_fourth_col_label"
+                        android:textSize="@dimen/dialog_value_size"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

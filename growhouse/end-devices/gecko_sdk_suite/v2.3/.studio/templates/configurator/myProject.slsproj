@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hwconf_project" partCompatibility="" toolchainCompatibility="" contentRoot=".">
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib" />
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+  </folder>
+  <includePath languageCompatibility="c asm" uri="unresolved:$%7BProjDirPath%7D/hal-config/"/>
+  <includePath languageCompatibility="c asm" uri="studio:/sdk/platform/halconfig/inc/hal-config/"/>
+  <includePath languageCompatibility="c asm" uri="studio:/sdk/hardware/kit/common/halconfig/"/>
+  <macroDefinition languageCompatibility="c asm" name="HAL_CONFIG" value="1"/>
+</project>

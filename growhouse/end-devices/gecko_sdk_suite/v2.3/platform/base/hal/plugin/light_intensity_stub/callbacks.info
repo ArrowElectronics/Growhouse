@@ -1,0 +1,5 @@
+void halRGBIntensityReadingCompleteCallback(int r,int g, int b,bool status)
+{
+  return true;
+}
+

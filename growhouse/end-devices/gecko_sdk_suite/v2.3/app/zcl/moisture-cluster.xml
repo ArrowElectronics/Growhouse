@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configurator>
+  <cluster>
+    <name>Soil Moisture Measurement</name>
+    <domain>Measurement &amp; Sensing</domain>
+    <description>Attributes for reporting soil moisture measurement in %.</description>
+    <code>0xfd01</code>
+    <define>SOIL_MOISTURE_MEASUREMENT_CLUSTER</define>
+    <client init="false" tick="false">true</client>
+    <server init="false" tick="false">true</server>
+    <attribute side="server" code="0x0000" define="MOISTURE_MEASURED_VALUE" type="INT16U" writable="false" reportable="true" default="0x0000" optional="false">Moisture</attribute> <!-- MOISTURE_MEASURED_VALUE -->
+  </cluster>
+</configurator>

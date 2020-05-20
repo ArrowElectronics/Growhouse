@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="primary">@color/alizarin_crimson</color>
+    <color name="primaryDarker">@color/alizarin_crimson_darker</color>
+
+    <color name="alizarin_crimson">#d91f2a</color>
+    <color name="alizarin_crimson_darker">#a0171f</color>
+
+    <color name="masala">#FF504E4E</color>
+    <color name="masala_50a">#7F504E4E</color>
+    <color name="boulder">#FF7A7878</color>
+    <color name="silver_chalice">#FFA5A5A5</color>
+    <color name="line_grey">#FFD9D9D9</color>
+    <color name="dark_grey">#FF555555</color>
+
+    <color name="cerulean">#FF0099E8</color>
+    <color name="silver1">#FFCCCCCC</color>
+
+    <!-- key fob signal strength indicator -->
+    <color name="key_fob_signal_strength_indicator_light_gray">#FFCCCCCC</color>
+    <color name="key_fob_signal_strength_indicator_medium_gray">#FF888888</color>
+    <color name="key_fob_signal_strength_indicator_dark_gray">#FF7A7878</color>
+
+    <!-- key fob list view item colors -->
+    <color name="dark_gray_id_text">#FF444444</color>
+    <color name="light_gray_signal_strength_text">#FF555555</color>
+    <color name="other_fobs_header_background">#FFDFDFDF</color>
+    <color name="key_fob_listview_header_text">#FF6F6F6F</color>
+    <color name="key_fob_divider">#FFCFCFCF</color>
+
+    <!-- loading spinner (dialog) -->
+    <color name="dialog_loading_spinner_center">#FF999999</color>
+    <color name="dialog_loading_spinner_end">#FF666666</color>
+    <color name="dialog_loading_spinner_start">#FFE6E6E6</color>
+    <color name="dialog_loading_veil_gradient_center">#22D1D1D1</color>
+    <color name="dialog_loading_veil_gradient_end">#883F3F3F</color>
+    <color name="dialog_loading_veil_gradient_start">#22D1D1D1</color>
+
+    <!-- device config dialog -->
+    <color name="dialog_device_config_separator">#bbbbbb</color>
+    <color name="dialog_device_config_category_background">#D8D8D8</color>
+    <color name="dialog_device_config_category_label">#656565</color>
+    <color name="dialog_device_config_table_light_background">#EBEBEB</color>
+    <color name="dialog_device_config_table_dark_background">#D8D8D8</color>
+
+    <!-- adapter item -->
+    <color name="adapter_item_divider">#656565</color>
+    <color name="adapter_item_background">#545454</color>
+    <color name="adapter_item_background_pressed">#656565</color>
+    <color name="adapter_item_label_color">#B3FFFFFF</color>
+    <color name="adapter_item_title_color">#FFFFFF</color>
+    <color name="adapter_item_value_color">#FFFFFF</color>
+
+
+    <!-- general -->
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="background">#424242</color>
+
+    <!-- Silicon Labs Debug Mode -->
+    <color name="silicon_labs_white">#FFFFFFFF</color>
+</resources>
+

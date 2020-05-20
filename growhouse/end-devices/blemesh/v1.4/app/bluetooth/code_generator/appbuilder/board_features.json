@@ -1,0 +1,1014 @@
+{
+  "boards": {
+    "BRD4100A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG1P232F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32bg1p232f256gm48-brd4100a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4101B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "IOEXPANDER", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG1B232F256GJ43", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32bg1b232f256gj43-brd4101b/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4103A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG12P332F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32bg12p332f1024gl125-brd4103a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4104A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG13P632F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4105A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG14P732F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32bg14p732f256gm48-brd4105a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4150A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P233F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4150B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P233F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4150C": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P133F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4151A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P232F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4153A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P132F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4158A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P733F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4159A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P632F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4160A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH"
+      ], 
+      "Part": "EFR32MG1P132F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4161A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P432F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4162A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P332F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4163A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4164A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4165B": {
+      "Features": [
+        "BOARD", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P832F512IM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4166A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH"
+      ], 
+      "Part": "EFR32MG12P332F1024GL125", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4167A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P733F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4168A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P732F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4169A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG14P733F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4169B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG14P733F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4170A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "EXP_HEADER_USART3", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GM68", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4171A": {
+      "Features": [
+        "BOARD", 
+        "DISPEN_SENSEN_VCOMEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM"
+      ], 
+      "Part": "RM21Z000F1024IM32", 
+      "SDK": [
+        "BLE", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/rm21z000f1024im32-brd4171a/bootloader-uart-bgapi.s37"
+      }
+    }, 
+    "BRD4172A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4172B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4173A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG12P433F1024GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4174A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P733F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4174B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P733F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4175A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG13P733F512GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ]
+    }, 
+    "BRD4180A": {
+      "Features": [
+        "BOARD", 
+        "DISPEN_SENSEN_VCOMEN_ON_SAME_PIN", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG21A020F1024IM32", 
+      "SDK": [
+        "BLE", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32mg21a020f1024im32-brd4180a/bootloader-uart-bgapi.s37"
+      }
+    }, 
+    "BRD4181A": {
+      "Features": [
+        "BOARD", 
+        "DISPEN_SENSEN_VCOMEN_ON_SAME_PIN", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG21A010F1024IM32", 
+      "SDK": [
+        "BLE", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/efr32mg21a010f1024im32-brd4181a/bootloader-uart-bgapi.s37"
+      }
+    }, 
+    "BRD4300A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "I2C_SENSOR_HW_EN", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM111A256V2", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm111a256v2-brd4300a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4300C": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32BG1B232F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4300D": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "EFR32MG1P132F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4301A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM113A256V2", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm113a256v2-brd4301a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4302A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM121A256V2", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }, 
+    "BRD4303A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM11S22F256GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm11s22f256ga-brd4303a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4304A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "FEM", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "MGM12P32F1024GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/mgm12p32f1024ga-brd4304a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4305A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM13S32F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm13s32f512ga-brd4305a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4305C": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM13S22F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm13s22f512ga-brd4305c/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4305D": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "MGM13S02F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/mgm13s02f512ga-brd4305d/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4305E": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "MGM13S12F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/mgm13s12f512ga-brd4305e/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4306A": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM13P22F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm13p22f512ga-brd4306a/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4306B": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "BGM13P32F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/bgm13p32f512ga-brd4306b/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4306C": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "MGM13P02F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/mgm13p02f512ga-brd4306c/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "BRD4306D": {
+      "Features": [
+        "BOARD", 
+        "DCDC", 
+        "DISPEN_SENSEN_ON_SAME_PIN", 
+        "I2C_SENSOR", 
+        "LCD", 
+        "LED_BUTTON_ON_SAME_PIN", 
+        "LFXO", 
+        "PA_INPUT_FROM_VBAT", 
+        "PTI", 
+        "SPI_FLASH", 
+        "VCOM", 
+        "HW_FLOW_CONTROL"
+      ], 
+      "Part": "MGM13P12F512GA", 
+      "SDK": [
+        "BLE", 
+        "Homekit", 
+        "Mesh"
+      ], 
+      "btl": {
+        "uart_bgapi": "../../../../platform/bootloader/sample-apps/bootloader-uart-bgapi/mgm13p12f512ga-brd4306d/bootloader-uart-bgapi-combined.s37"
+      }
+    }, 
+    "RD-0057-0101": {
+      "Features": [], 
+      "Part": "EFR32BG1B232F256GM48", 
+      "SDK": [
+        "BLE", 
+        "Homekit"
+      ]
+    }
+  }
+}

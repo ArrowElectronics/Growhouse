@@ -1,0 +1,11 @@
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<set>
+    <translate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromXDelta="0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toXDelta="-100%" />
+</set>

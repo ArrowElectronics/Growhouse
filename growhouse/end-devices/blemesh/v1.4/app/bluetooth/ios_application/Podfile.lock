@@ -1,0 +1,47 @@
+PODS:
+  - CocoaLumberjack/Default (3.3.0)
+  - CocoaLumberjack/Swift (3.3.0):
+    - CocoaLumberjack/Default
+  - Expecta (1.0.6)
+  - OCMock (3.4.1)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - Specta (1.0.7)
+  - SVProgressHUD (2.2.5)
+  - SWTableViewCell (0.3.7)
+
+DEPENDENCIES:
+  - CocoaLumberjack/Swift (= 3.3.0)
+  - Expecta (= 1.0.6)
+  - OCMock (= 3.4.1)
+  - RxCocoa (= 4.1.2)
+  - RxSwift (= 4.1.2)
+  - Specta (= 1.0.7)
+  - SVProgressHUD (= 2.2.5)
+  - SWTableViewCell (= 0.3.7)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
+    - Expecta
+    - OCMock
+    - RxCocoa
+    - RxSwift
+    - Specta
+    - SVProgressHUD
+    - SWTableViewCell
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  OCMock: 2cd0716969bab32a2283ff3a46fd26a8c8b4c5e3
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+
+PODFILE CHECKSUM: d0fa8b3521199f307f47bed23d5622a3eb4dc9ac
+
+COCOAPODS: 1.5.3

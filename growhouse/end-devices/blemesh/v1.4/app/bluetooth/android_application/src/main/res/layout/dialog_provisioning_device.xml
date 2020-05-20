@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:theme="@style/AppTheme.Light">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/device_name_text_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/device_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/scanner_dialog_provisioning_device_name_label"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="@dimen/dialog_value_size" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dialog_item_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scanner_dialog_provisioning_device_network_label"
+            android:textSize="@dimen/dialog_label_size" />
+
+        <Spinner
+            android:id="@+id/sp_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dialog_value_size" />
+    </LinearLayout>
+
+</LinearLayout>

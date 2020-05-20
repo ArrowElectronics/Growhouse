@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems>
+  <contentItemData category="Quick Start Guides" itemURI="qsg148-bluetooth-mesh-demo-quick-start-guide.pdf" label="QSG148: Getting Started with the Silicon Labs Bluetooth Mesh Demonstration Software">
+    <description>Introduction how to setup and test the Bluetooth Mesh Lighting demonstration.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1098-understanding-bluetooth-mesh-lighting-demo.pdf" label="AN1098: Understanding the Silicon Labs Bluetooth Lighting Demonstration">
+    <description>Contains a technical walkthrough of the Bluetooth Mesh lighting demo and introduction how to get started with Bluetooth mesh development.</description>
+  </contentItemData>
+  <contentItemData category="API References" itemURI="bluetooth-le-and-mesh-software-api-reference-manual.pdf" label="Bluetooth Mesh Software API Reference Manual">
+    <description>Describes commands, events, enumerations and error codes in the Bluetooth Mesh stack and SDK.</description>
+  </contentItemData>
+  <contentItemData category="Release Notes" itemURI="bt-mesh-software-release-notes.pdf" label="Bluetooth Mesh Software Release Notes">
+    <description>Lists improvements and fixed and known issues.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1140-bluetooth-mesh-for-android-adk.pdf" label="AN1140: Bluetooth Mesh for Android ADK">
+    <description>Describes how to get started with Bluetooth mesh application development for Android smart phones and tablets using the Silicon Labs Bluetooth mesh  for Android Application Development Kit (ADK).</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1137-bluetooth-mesh-network-performance.pdf" label="AN1137: Bluetooth Mesh Network Performance">
+    <description>Details methods for testing Bluetooth mesh network performance; results are intended to provide guidance on design practices and principles as well as expected field performance results.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1142-mesh-network-performance-comparison.pdf" label="AN1142: Mesh Network Performance Comparison">
+    <description>Reviews the Zigbee, Thread, and Bluetooth mesh networks to evaluate their differences in performance and behavior.</description>
+  </contentItemData>
+</contentItems>

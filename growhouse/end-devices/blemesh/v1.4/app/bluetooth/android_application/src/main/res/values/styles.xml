@@ -1,0 +1,53 @@
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="actionModeBackground">@color/primaryDarker</item>
+        <item name="colorPrimary">@color/alizarin_crimson</item>
+        <item name="colorPrimaryDark">@color/alizarin_crimson_darker</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/alizarin_crimson</item>
+        <item name="colorPrimaryDark">@color/alizarin_crimson_darker</item>
+        <item name="colorAccent">@color/alizarin_crimson</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Light.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/alizarin_crimson</item>
+        <item name="colorPrimaryDark">@color/alizarin_crimson_darker</item>
+        <item name="colorAccent">@color/alizarin_crimson</item>
+    </style>
+
+    <style name="AppTheme.Light.Dialog.Alert.Wrap" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowMinWidthMajor">70%</item>
+        <item name="android:windowMinWidthMinor">70%</item>
+        <item name="colorPrimary">@color/alizarin_crimson</item>
+        <item name="colorPrimaryDark">@color/alizarin_crimson_darker</item>
+        <item name="colorAccent">@color/alizarin_crimson</item>
+    </style>
+
+    <style name="AppTheme.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowMinWidthMajor">70%</item>
+        <item name="android:windowMinWidthMinor">70%</item>
+        <item name="colorPrimary">@color/alizarin_crimson</item>
+        <item name="colorPrimaryDark">@color/alizarin_crimson_darker</item>
+        <item name="colorAccent">@color/alizarin_crimson</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
+</resources>

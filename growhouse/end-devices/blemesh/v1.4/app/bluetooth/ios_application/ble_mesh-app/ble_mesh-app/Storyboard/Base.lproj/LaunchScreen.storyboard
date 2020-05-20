@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-9s-2Hc">
+                                <rect key="frame" x="0.0" y="730" width="375" height="82"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gr5-Cx-G0C">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silicon Labs© 2018 | Bluetooth Mesh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXA-AQ-7mX">
+                                                <rect key="frame" x="46" y="13.666666666666629" width="283" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.84313725490196079" green="0.12156862745098039" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="OXA-AQ-7mX" firstAttribute="centerY" secondItem="gr5-Cx-G0C" secondAttribute="centerY" id="EBI-SC-YN5"/>
+                                            <constraint firstAttribute="height" constant="48" id="I6a-nq-mFx"/>
+                                            <constraint firstItem="OXA-AQ-7mX" firstAttribute="centerX" secondItem="gr5-Cx-G0C" secondAttribute="centerX" id="zzi-3v-2pN"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84313725490000002" green="0.1215686275" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gr5-Cx-G0C" secondAttribute="trailing" id="KXi-n7-chf"/>
+                                    <constraint firstItem="gr5-Cx-G0C" firstAttribute="leading" secondItem="yJT-9s-2Hc" secondAttribute="leading" id="YkI-Zv-Bb1"/>
+                                    <constraint firstItem="gr5-Cx-G0C" firstAttribute="top" secondItem="yJT-9s-2Hc" secondAttribute="top" id="iaL-IP-HRx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfZ-eT-A1i">
+                                <rect key="frame" x="0.0" y="44" width="375" height="686"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="silicon_labs_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uTo-ZR-7Ot">
+                                        <rect key="frame" x="96.666666666666686" y="298" width="182" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="182" id="lul-w2-ErO"/>
+                                            <constraint firstAttribute="height" constant="90" id="zYu-0F-SOW"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uTo-ZR-7Ot" firstAttribute="centerX" secondItem="HfZ-eT-A1i" secondAttribute="centerX" id="BFR-gp-zWW"/>
+                                    <constraint firstItem="uTo-ZR-7Ot" firstAttribute="centerY" secondItem="HfZ-eT-A1i" secondAttribute="centerY" id="X3i-KF-def"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HfZ-eT-A1i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DPf-wk-xpG"/>
+                            <constraint firstItem="yJT-9s-2Hc" firstAttribute="top" secondItem="HfZ-eT-A1i" secondAttribute="bottom" id="EXM-nt-LUJ"/>
+                            <constraint firstItem="gr5-Cx-G0C" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JiE-tW-yAO"/>
+                            <constraint firstAttribute="bottom" secondItem="yJT-9s-2Hc" secondAttribute="bottom" id="TH9-rC-S9t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HfZ-eT-A1i" secondAttribute="trailing" id="Ycs-WW-Edr"/>
+                            <constraint firstItem="yJT-9s-2Hc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dL6-n1-ero"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yJT-9s-2Hc" secondAttribute="trailing" id="hiU-Pm-R3e"/>
+                            <constraint firstItem="HfZ-eT-A1i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kDU-oR-odG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="silicon_labs_logo" width="182" height="90"/>
+    </resources>
+</document>

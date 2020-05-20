@@ -1,0 +1,6 @@
+framework module Pods_ble_mesh_app_dev {
+  umbrella header "Pods-ble_mesh-app-dev-umbrella.h"
+
+  export *
+  module * { export * }
+}

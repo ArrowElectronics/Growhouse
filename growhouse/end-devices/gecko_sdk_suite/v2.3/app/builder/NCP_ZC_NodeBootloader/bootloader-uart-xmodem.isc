@@ -1,0 +1,64 @@
+#ISD afv6
+# Simplicity Studio version: 4.27.4.201806291938-1240
+
+# Application configuration
+appId: bootloader
+frameworkRoot: platform/bootloader
+architecture: efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc
+exactArchitectureToolchain: com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904
+deviceName: bootloader-uart-xmodem
+sourceSampleAppId: bootloader-uart-xmodem
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: bgapi-uart-dfu=false
+appPlugin: core=true
+appPlugin: crc=true
+appPlugin: crypto=true
+appPlugin: debug=false
+appPlugin: delay-driver=true
+appPlugin: emlib=true
+appPlugin: ezsp-spi=false
+appPlugin: gbl-compression-lz4=false
+appPlugin: gbl-compression-lzma=false
+appPlugin: gpio-activation=true
+appPlugin: internal_flash=false
+appPlugin: mbedtls=true
+appPlugin: parser=true
+appPlugin: parser-eblv2=false
+appPlugin: parser-noenc=false
+appPlugin: spi-driver=false
+appPlugin: spiflash=false
+appPlugin: spislave-driver=false
+appPlugin: storage-common=false
+appPlugin: storage-common-single=false
+appPlugin: token-management=true
+appPlugin: uart-driver=true
+appPlugin: xmodem-parser=true
+appPlugin: xmodem-uart=true
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:bootloaderStorage
+}
+{setupId:callbackConfiguration
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+lastHwConfFileUsed=PATH(STACK_RELATIVE):app/builder/NCP_ZC_NodeBootloader/brd4306c_efr32mg13p632f512gm48.hwconf
+}
+{setupId:information
+\{key:description
+
+\}
+}
+{setupId:macros
+}
+{setupId:template
+}
+
+# Plugin options

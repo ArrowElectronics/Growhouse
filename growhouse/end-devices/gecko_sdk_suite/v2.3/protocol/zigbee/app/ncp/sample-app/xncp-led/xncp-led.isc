@@ -1,0 +1,208 @@
+#ISD afv6
+# Simplicity Studio version: 4.28.3.qualifier
+
+# Application configuration
+appId: ncp
+frameworkRoot: app/ncp
+architecture: em357+iar
+deviceName: xncp-led
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: accelerometer-led=false
+appPlugin: adc=true
+appPlugin: antenna=false
+appPlugin: antenna-stub=true
+appPlugin: battery-monitor=false
+appPlugin: binding-table-library=true
+appPlugin: binding-table-stub-library=false
+appPlugin: bulb-pwm-driver=false
+appPlugin: button=false
+appPlugin: button-interface=false
+appPlugin: button-stub=true
+appPlugin: buzzer=false
+appPlugin: buzzer-stub=false
+appPlugin: cbke-163k1-library=false
+appPlugin: cbke-163k1-stub-library=true
+appPlugin: cbke-283k1-library=false
+appPlugin: cbke-283k1-stub-library=true
+appPlugin: cbke-library-core=false
+appPlugin: cbke-library-dsa-sign=false
+appPlugin: cbke-library-dsa-sign-stub=true
+appPlugin: cbke-library-dsa-verify=false
+appPlugin: cbke-library-dsa-verify-283k1=false
+appPlugin: cbke-library-dsa-verify-283k1-stub=true
+appPlugin: cbke-library-dsa-verify-stub=true
+appPlugin: cbke-stub-library=true
+appPlugin: cjson=false
+appPlugin: coexistence=true
+appPlugin: concentrator-support-library=true
+appPlugin: concentrator-support-stub-library=false
+appPlugin: debug-basic-library=true
+appPlugin: debug-basic-stub-library=false
+appPlugin: debug-channel=true
+appPlugin: debug-channel-stub=false
+appPlugin: debug-extended-library=true
+appPlugin: debug-extended-stub-library=false
+appPlugin: diagnostic=false
+appPlugin: diagnostic-stub=true
+appPlugin: dmp-demo-ui=false
+appPlugin: ecc-library-163k1=false
+appPlugin: ecc-library-283k1=false
+appPlugin: eeprom=false
+appPlugin: eeprom-powerdown=false
+appPlugin: ember-minimal-printf=true
+appPlugin: end-device-bind-library=true
+appPlugin: end-device-bind-stub-library=false
+appPlugin: ext-device=true
+appPlugin: extdev=false
+appPlugin: ezradiopro=false
+appPlugin: ezsp-binding=true
+appPlugin: ezsp-cbke=true
+appPlugin: ezsp-gp=true
+appPlugin: ezsp-mfglib=true
+appPlugin: ezsp-security=true
+appPlugin: ezsp-zigbee-pro=true
+appPlugin: ezsp-zll=true
+appPlugin: fem-control=false
+appPlugin: generic-interrupt-control=false
+appPlugin: glib=false
+appPlugin: gp-library=true
+appPlugin: gp-stub-library=false
+appPlugin: gpio-sensor=false
+appPlugin: hal-library=true
+appPlugin: heartbeat=false
+appPlugin: humidity-si7021-stub=false
+appPlugin: i2c-driver=false
+appPlugin: i2c-driver-stub=false
+appPlugin: illuminance-si1141-stub=false
+appPlugin: infrared-led=false
+appPlugin: install-code-library=false
+appPlugin: install-code-library-stub=true
+appPlugin: key-matrix=false
+appPlugin: led=true
+appPlugin: led-blink=false
+appPlugin: led-stub=false
+appPlugin: libcoap=false
+appPlugin: linked-list=false
+appPlugin: mfglib-library=true
+appPlugin: mfglib-stub-library=false
+appPlugin: microphone-codec-msadpcm=false
+appPlugin: microphone-imaadpcm=false
+appPlugin: mpsi=false
+appPlugin: mpsi-ipc=false
+appPlugin: mpsi-storage=false
+appPlugin: multi-network-library=false
+appPlugin: multi-network-stub-library=true
+appPlugin: ncp-spi=false
+appPlugin: ncp-uart=true
+appPlugin: ncp-usb=false
+appPlugin: occupancy-pyd1698=false
+appPlugin: occupancy-pyd1698-stub=false
+appPlugin: pa=false
+appPlugin: packet-validate-library=true
+appPlugin: packet-validate-stub-library=false
+appPlugin: paho.mqtt.c=false
+appPlugin: power-meter-cs5463=false
+appPlugin: psstore=false
+appPlugin: pti=false
+appPlugin: rail-library=true
+appPlugin: rail-library-mp=false
+appPlugin: sb1-gesture-sensor=false
+appPlugin: secure-ezsp=false
+appPlugin: secure-ezsp-stub=true
+appPlugin: security-library-core=true
+appPlugin: security-library-link-keys=true
+appPlugin: security-library-link-keys-stub=false
+appPlugin: serial=true
+appPlugin: sim-eeprom1=false
+appPlugin: sim-eeprom2=true
+appPlugin: sim-eeprom2-1to2-upgrade=true
+appPlugin: sim-eeprom2-1to2-upgrade-stub=false
+appPlugin: slot-manager=false
+appPlugin: stm32f103ret-library=false
+appPlugin: stub-security-library=false
+appPlugin: tamper-switch=false
+appPlugin: temperature-si7053-stub=false
+appPlugin: transport-mqtt=false
+appPlugin: unix-library=false
+appPlugin: xncp=true
+appPlugin: xncp-stub=false
+appPlugin: zigbee-pro-stack=true
+appPlugin: zigbee-r22-support-library=false
+appPlugin: zigbee-r22-support-stub-library=true
+appPlugin: zll-library=false
+appPlugin: zll-stub-library=true
+
+# Setup configurations
+{setupId:additionalFiles
+PATH(ISC_RELATIVE):xncp-led-implementation.c
+}
+{setupId:boardHeader
+allowMissingHeader:false
+useHeaderInPlace:false
+em357=BOARD,em35x/dev0680uart,,
+em3588+ZICM3588SP2-1=BOARD,em35x/dev0680uart,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+}
+{setupId:callbackConfiguration
+emberAfPluginXncpInit:false
+emberAfPluginXncpIncomingCustomFrameCallback:false
+emberAfMainInitCallback:false
+emberAfPluginXncpGetXncpInformation:false
+}
+{setupId:eventConfiguration
+ledEventControl,ledEventHandler
+}
+{setupId:ezsp
+}
+{setupId:genConfig
+}
+{setupId:halOptions
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+XNCP LED Sample Applications
+
+This sample scenario presents an NCP application for communicating with a
+UNIX HOST using custom EZSP commands. This application is meant to be
+used with the HOST sample application XncpLedHost.
+
+Both of these sample applications use a very simple protocol for controlling
+an LED. The LED exists on the NCP, and the HOST can control it by sending custom
+EZSP commands defined in the header led-protocol.h. For example, the HOST can
+command the NCP to set its LED by issuing a custom EZSP command consisting of
+the single byte 0x00. The HOST can also clear the LED, strobe the LED, and get
+or set the frequency at which the LED strobes.
+
+The main interface to this application exists on the HOST side, where a user can
+issue CLI commands to alter the state of the LED on the NCP.
+
+These sample applications can easily be altered to add extra functionality,
+while using the LED commands for testing.
+\}
+}
+{setupId:macros
+}
+{setupId:quizz
+}
+{setupId:template
+simeepromSize=36864
+}
+{setupId:token
+}
+
+# Plugin options
+pluginOption(em357): EMBER_AF_PLUGIN_SIM_EEPROM2_PASSWORD,!spoon
+pluginOption(em357): EMBER_MAX_END_DEVICE_CHILDREN,32
+pluginOption(em357): EMBER_BINDING_TABLE_SIZE,32
+pluginOption(em357): EMBER_KEY_TABLE_SIZE,12

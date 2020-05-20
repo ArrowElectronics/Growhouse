@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Silicon Labs, http://www.silabs.com -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Silicon Labs MPSI Control In" type="com.silabs.characteristic.mpsi_control_in" uuid="D5C082D7-5959-431D-9213-94F570E73851" last-modified="2017-03-01">
+    <InformativeText>
+        <Abstract>Silicon Labs MPSI Control In</Abstract>
+    </InformativeText>
+    <Value>
+        <Field name="Control">
+            <Requirement>Mandatory</Requirement>
+            <Format>uint8</Format>
+        </Field>
+        <Field name="CRC">
+            <Requirement>Mandatory</Requirement>
+            <Format>uint32</Format>
+        </Field>
+    </Value>
+</Characteristic>

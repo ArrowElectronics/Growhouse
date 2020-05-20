@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SBMConfigurationControl Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/SBMConfigurationControl" class="dashAnchor"></a>
+    <a title="SBMConfigurationControl Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">BluetoothMesh Docs</a> (99% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">BluetoothMesh Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SBMConfigurationControl Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SBMApplicationKey.html">SBMApplicationKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMesh.html">SBMBluetoothMesh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMeshConfiguration.html">SBMBluetoothMeshConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMeshConfigurationLimits.html">SBMBluetoothMeshConfigurationLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMConfigurationControl.html">SBMConfigurationControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMConnectableDeviceHelper.html">SBMConnectableDeviceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlElement.html">SBMControlElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlGroup.html">SBMControlGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlRequestParameters.html">SBMControlRequestParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceCompositionData.html">SBMDeviceCompositionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceKey.html">SBMDeviceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMElement.html">SBMElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMExportKeysJob.html">SBMExportKeysJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMFunctionalityBinder.html">SBMFunctionalityBinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericBattery.html">SBMGenericBattery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevel.html">SBMGenericLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevelDelta.html">SBMGenericLevelDelta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericLevelHalt">SBMGenericLevelHalt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevelMove.html">SBMGenericLevelMove</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLocationGlobal.html">SBMGenericLocationGlobal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLocationLocal.html">SBMGenericLocationLocal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericOnOff.html">SBMGenericOnOff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericOnPowerUp.html">SBMGenericOnPowerUp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevel.html">SBMGenericPowerLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelDefault.html">SBMGenericPowerLevelDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelLast.html">SBMGenericPowerLevelLast</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelRange.html">SBMGenericPowerLevelRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericProperty.html">SBMGenericProperty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyAdmin">SBMGenericPropertyAdmin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPropertyList.html">SBMGenericPropertyList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListAdmin">SBMGenericPropertyListAdmin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListClient">SBMGenericPropertyListClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListManufacturer">SBMGenericPropertyListManufacturer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListUser">SBMGenericPropertyListUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyManufacturer">SBMGenericPropertyManufacturer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyUser">SBMGenericPropertyUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericTransitionTime.html">SBMGenericTransitionTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGroup.html">SBMGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGroupRemovalErrorResult.html">SBMGroupRemovalErrorResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMKeyRefresh.html">SBMKeyRefresh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLDefault.html">SBMLightningCTLDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLGet.html">SBMLightningCTLGet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLSet.html">SBMLightningCTLSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLTemperature.html">SBMLightningCTLTemperature</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLTemperatureRange.html">SBMLightningCTLTemperatureRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessActual.html">SBMLightningLightnessActual</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessDefault.html">SBMLightningLightnessDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessLast.html">SBMLightningLightnessLast</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessLinear.html">SBMLightningLightnessLinear</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessRange.html">SBMLightningLightnessRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorCryptoBinder.html">SBMLocalVendorCryptoBinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorModel.html">SBMLocalVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorRegistrator.html">SBMLocalVendorRegistrator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorSettings.html">SBMLocalVendorSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLogger.html">SBMLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNetwork.html">SBMNetwork</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNetworkKey.html">SBMNetworkKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNode.html">SBMNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNodeControl.html">SBMNodeControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNotificationSettings.html">SBMNotificationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProvisionerConnection.html">SBMProvisionerConnection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProvisionerParameters.html">SBMProvisionerParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProxyConnection.html">SBMProxyConnection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMPublicationSettings.html">SBMPublicationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSigModel.html">SBMSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubnet.html">SBMSubnet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubnetRemovalErrorResult.html">SBMSubnetRemovalErrorResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubscriptionControl.html">SBMSubscriptionControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMSubscriptionSettings">SBMSubscriptionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMTuple.html">SBMTuple</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorModel.html">SBMVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorModelNotifications.html">SBMVendorModelNotifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorRegistrationSettings.html">SBMVendorRegistrationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorSubscriptionControl.html">SBMVendorSubscriptionControl</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionNumber">BluetoothMeshVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionString">BluetoothMeshVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SBMControlValueSetVendorModelFlag.html">SBMControlValueSetVendorModelFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsChargingState.html">SBMGenericBatteryFlagsChargingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsIndicatorState.html">SBMGenericBatteryFlagsIndicatorState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsPresenceState.html">SBMGenericBatteryFlagsPresenceState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsServiceabilityState.html">SBMGenericBatteryFlagsServiceabilityState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericOnOffState.html">SBMGenericOnOffState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericOnPowerUpState.html">SBMGenericOnPowerUpState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericPowerLevelRangeState.html">SBMGenericPowerLevelRangeState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMModelIdentifier.html">SBMModelIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMNotificationSettingsKind.html">SBMNotificationSettingsKind</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedAuthMethods.html">SBMProvisionerOOBAllowedAuthMethods</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedInputActions.html">SBMProvisionerOOBAllowedInputActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedOutputActions.html">SBMProvisionerOOBAllowedOutputActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBECPublicKeyAllowed.html">SBMProvisionerOOBECPublicKeyAllowed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBInputAction.html">SBMProvisionerOOBInputAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBOutputAction.html">SBMProvisionerOOBOutputAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBResult.html">SBMProvisionerOOBResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMConnectableDevice.html">SBMConnectableDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMConnectableDeviceDelegate.html">SBMConnectableDeviceDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/c:objc(pl)SBMControlValueGetSigModel">SBMControlValueGetSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/c:objc(pl)SBMControlValueSetSigModel">SBMControlValueSetSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMControlValueSetVendorModel.html">SBMControlValueSetVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMLoggerDelegate.html">SBMLoggerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMModel.html">SBMModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMProvisionerOOB.html">SBMProvisionerOOB</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemovalErrorResult.h@T@ErrorResultOfRemovalNode">ErrorResultOfRemovalNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindNode">ErrorResultOfUnbindNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindSigModel">ErrorResultOfUnbindSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindVendorModel">ErrorResultOfUnbindVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMKeyRefresh.h@T@KeyRefreshCallback">KeyRefreshCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelBindingErrorCallback">ModelBindingErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelBindingSuccessCallback">ModelBindingSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelUnbindingErrorCallback">ModelUnbindingErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelUnbindingSuccessCallback">ModelUnbindingSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendError">SBMCheckNodeFriendError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendSuccess">SBMCheckNodeFriendSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationError">SBMCheckNodeHeartbeatPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationSuccess">SBMCheckNodeHeartbeatPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionError">SBMCheckNodeHeartbeatSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionSuccess">SBMCheckNodeHeartbeatSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentityError">SBMCheckNodeIdentityError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentitySuccess">SBMCheckNodeIdentitySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxyError">SBMCheckNodeProxyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxySuccess">SBMCheckNodeProxySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelayError">SBMCheckNodeRelayError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelaySuccess">SBMCheckNodeRelaySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationError">SBMCheckNodeRetransmissionConfigurationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationSuccess">SBMCheckNodeRetransmissionConfigurationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceConnectionCallback">SBMConnectableDeviceConnectionCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceHasServiceCallback">SBMConnectableDeviceHasServiceCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceMTUCallback">SBMConnectableDeviceMTUCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceOperationCallback">SBMConnectableDeviceOperationCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementGetError">SBMControlElementGetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementGetSuccess">SBMControlElementGetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetError">SBMControlElementSetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetSuccess">SBMControlElementSetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetVendorError">SBMControlElementSetVendorError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetVendorSuccess">SBMControlElementSetVendorSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupGetError">SBMControlGroupGetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupGetSuccess">SBMControlGroupGetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetError">SBMControlGroupSetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetSuccess">SBMControlGroupSetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetVendorError">SBMControlGroupSetVendorError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetVendorSuccess">SBMControlGroupSetVendorSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetError">SBMFactoryResetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetSuccess">SBMFactoryResetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataError">SBMGetDeviceCompositionDataError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataSuccess">SBMGetDeviceCompositionDataSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupForceRemovalError">SBMGroupForceRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupRemovalError">SBMGroupRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupRemovalSuccess">SBMGroupRemovalSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMLocalVendorSettings.h@T@SBMLocalVendorSettingsMessageHandler">SBMLocalVendorSettingsMessageHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions/SBMLogLevel.html">SBMLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlAddToSubnetError">SBMNodeControlAddToSubnetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlAddToSubnetSuccess">SBMNodeControlAddToSubnetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlBindGroupError">SBMNodeControlBindGroupError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlBindGroupSuccess">SBMNodeControlBindGroupSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlRemoveFromSubnetError">SBMNodeControlRemoveFromSubnetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlRemoveFromSubnetSuccess">SBMNodeControlRemoveFromSubnetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlUnbindGroupError">SBMNodeControlUnbindGroupError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlUnbindGroupSuccess">SBMNodeControlUnbindGroupSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProvisionerConnection.h@T@SBMProvisionerProvisioningCallback">SBMProvisionerProvisioningCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyConnectionError">SBMProxyConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyConnectionSuccess">SBMProxyConnectionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyDisconnectionError">SBMProxyDisconnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyDisconnectionSuccess">SBMProxyDisconnectionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendError">SBMSetNodeFriendError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendSuccess">SBMSetNodeFriendSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationError">SBMSetNodeHeartbeatPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationSuccess">SBMSetNodeHeartbeatPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionError">SBMSetNodeHeartbeatSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionSuccess">SBMSetNodeHeartbeatSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentityError">SBMSetNodeIdentityError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentitySuccess">SBMSetNodeIdentitySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxyError">SBMSetNodeProxyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxySuccess">SBMSetNodeProxySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelayError">SBMSetNodeRelayError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelaySuccess">SBMSetNodeRelaySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationError">SBMSetNodeRetransmissionConfigurationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationSuccess">SBMSetNodeRetransmissionConfigurationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetForceRemovalError">SBMSubnetForceRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetRemovalError">SBMSubnetRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetRemovalSuccess">SBMSubnetRemovalSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlPublicationError">SBMSubscriptionControlPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlPublicationSuccess">SBMSubscriptionControlPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSetSubscriptionSuccess">SBMSubscriptionControlSetSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSubscriptionError">SBMSubscriptionControlSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSubscriptionSuccess">SBMSubscriptionControlSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorRegistrationSettings.h@T@SBMVendorRegistrationSettingsMessageHandler">SBMVendorRegistrationSettingsMessageHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorRegistrationSettings.h@T@SBMVendorRegistrationSettingsPublishHandler">SBMVendorRegistrationSettingsPublishHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlError">SBMVendorSubscriptionControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlGetPublicationSettings">SBMVendorSubscriptionControlGetPublicationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlIsRegistered">SBMVendorSubscriptionControlIsRegistered</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlSuccess">SBMVendorSubscriptionControlSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemovalErrorResult.h@T@SuccessResultOfRemovalNode">SuccessResultOfRemovalNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindNode">SuccessResultOfUnbindNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindSigModel">SuccessResultOfUnbindSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindVendorModel">SuccessResultOfUnbindVendorModel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SBMConfigurationControl</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SBMConfigurationControl</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>SBMConfigurationControl methods are for configuring a node over the mesh network by sending configuration model messages. Note that the API is asynchronous; unless there is an immediate local failure.
+Important: It is not needed to keep object by application. Framework will do it.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(py)node"></a>
+                    <a name="//apple_ref/objc/Property/node" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(py)node">node</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Node to configure.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/SBMNode.html">SBMNode</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">node</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="../Classes/SBMNode.html">SBMNode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)initWithNode:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithNode:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)initWithNode:">-initWithNode:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>SBMConfigurationControl initialization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithNode</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMNode.html">SBMNode</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">node</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="../Classes/SBMNode.html">SBMNode</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>node</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SBMNode object to configure.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SBMConfigurationControl(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Not available. Use initWithNode instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span> <span class="n">new</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SBMConfigurationControl(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Not available. Use initWithNode instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkProxyStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkProxyStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkProxyStatus:errorCallback:">-checkProxyStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check proxy state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkProxyStatus</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxySuccess">SBMCheckNodeProxySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+           <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxyError">SBMCheckNodeProxyError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkProxyStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxySuccess">SBMCheckNodeProxySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxyError">SBMCheckNodeProxyError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkRelayStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkRelayStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkRelayStatus:errorCallback:">-checkRelayStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check relay state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkRelayStatus</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelaySuccess">SBMCheckNodeRelaySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+           <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelayError">SBMCheckNodeRelayError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkRelayStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelaySuccess">SBMCheckNodeRelaySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelayError">SBMCheckNodeRelayError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkFriendStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkFriendStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkFriendStatus:errorCallback:">-checkFriendStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check friend state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkFriendStatus</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendSuccess">SBMCheckNodeFriendSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+            <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendError">SBMCheckNodeFriendError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkFriendStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendSuccess">SBMCheckNodeFriendSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendError">SBMCheckNodeFriendError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkNodeIdentityStatus:successCallback:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkNodeIdentityStatus:successCallback:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkNodeIdentityStatus:successCallback:errorCallback:">-checkNodeIdentityStatus:successCallback:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check node identity state for subnet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">checkNodeIdentityStatus</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMSubnet.html">SBMSubnet</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">subnet</span>
+        <span class="nf">successCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentitySuccess">SBMCheckNodeIdentitySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+          <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentityError">SBMCheckNodeIdentityError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkNodeIdentityStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">subnet</span><span class="p">:</span> <span class="kt"><a href="../Classes/SBMSubnet.html">SBMSubnet</a></span><span class="p">,</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentitySuccess">SBMCheckNodeIdentitySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentityError">SBMCheckNodeIdentityError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkHeartbeatPublicationStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkHeartbeatPublicationStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkHeartbeatPublicationStatus:errorCallback:">-checkHeartbeatPublicationStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a node&rsquo;s heartbeat publish parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkHeartbeatPublicationStatus</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationSuccess">SBMCheckNodeHeartbeatPublicationSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+                          <span class="nf">errorCallback</span><span class="p">:</span>
+                              <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationError">SBMCheckNodeHeartbeatPublicationError</a></span><span class="p">)</span>
+                                  <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkHeartbeatPublicationStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationSuccess">SBMCheckNodeHeartbeatPublicationSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationError">SBMCheckNodeHeartbeatPublicationError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull heartbeat publication check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed heartbeat publication check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkHeartbeatSubscriptionStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkHeartbeatSubscriptionStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkHeartbeatSubscriptionStatus:errorCallback:">-checkHeartbeatSubscriptionStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a node&rsquo;s heartbeat subscription parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">checkHeartbeatSubscriptionStatus</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionSuccess">SBMCheckNodeHeartbeatSubscriptionSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+                           <span class="nf">errorCallback</span><span class="p">:</span>
+                               <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionError">SBMCheckNodeHeartbeatSubscriptionError</a></span><span class="p">)</span>
+                                   <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkHeartbeatSubscriptionStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionSuccess">SBMCheckNodeHeartbeatSubscriptionSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionError">SBMCheckNodeHeartbeatSubscriptionError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull heartbeat subscription check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed heartbeat subscription check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)checkRetransmissionConfigurationStatus:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-checkRetransmissionConfigurationStatus:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)checkRetransmissionConfigurationStatus:errorCallback:">-checkRetransmissionConfigurationStatus:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a node&rsquo;s retransmission configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">checkRetransmissionConfigurationStatus</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationSuccess">SBMCheckNodeRetransmissionConfigurationSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+                         <span class="nf">errorCallback</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">nonnull</span>
+                                  <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationError">SBMCheckNodeRetransmissionConfigurationError</a></span><span class="p">)</span>
+                                 <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkRetransmissionConfigurationStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationSuccess">SBMCheckNodeRetransmissionConfigurationSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationError">SBMCheckNodeRetransmissionConfigurationError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull retransmission configuration check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed retransmission configuration check operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setProxy:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setProxy:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setProxy:with:errorCallback:">-setProxy:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set proxy state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setProxy</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">enabled</span>
+             <span class="nf">with</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxySuccess">SBMSetNodeProxySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+    <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxyError">SBMSetNodeProxyError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setProxy</span><span class="p">(</span><span class="n">_</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxySuccess">SBMSetNodeProxySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxyError">SBMSetNodeProxyError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setRelay:retransmissionCount:retransmissionInterval:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setRelay:retransmissionCount:retransmissionInterval:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setRelay:retransmissionCount:retransmissionInterval:with:errorCallback:">-setRelay:retransmissionCount:retransmissionInterval:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set relay state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setRelay</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">enabled</span>
+       <span class="nf">retransmissionCount</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">retransmissionCount</span>
+    <span class="nf">retransmissionInterval</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">retransmissionInterval</span>
+                      <span class="nf">with</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelaySuccess">SBMSetNodeRelaySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+             <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelayError">SBMSetNodeRelayError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setRelay</span><span class="p">(</span><span class="n">_</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">retransmissionCount</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="nv">retransmissionInterval</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelaySuccess">SBMSetNodeRelaySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelayError">SBMSetNodeRelayError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setFriend:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setFriend:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setFriend:with:errorCallback:">-setFriend:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set friend state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setFriend</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">enabled</span>
+             <span class="nf">with</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendSuccess">SBMSetNodeFriendSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+    <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendError">SBMSetNodeFriendError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setFriend</span><span class="p">(</span><span class="n">_</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendSuccess">SBMSetNodeFriendSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendError">SBMSetNodeFriendError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setNodeIdentity:enabled:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setNodeIdentity:enabled:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setNodeIdentity:enabled:with:errorCallback:">-setNodeIdentity:enabled:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set node identity state for subnet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setNodeIdentity</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMSubnet.html">SBMSubnet</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">subnet</span>
+                <span class="nf">enabled</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">enabled</span>
+                   <span class="nf">with</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentitySuccess">SBMSetNodeIdentitySuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+          <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentityError">SBMSetNodeIdentityError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setNodeIdentity</span><span class="p">(</span><span class="n">_</span> <span class="nv">subnet</span><span class="p">:</span> <span class="kt"><a href="../Classes/SBMSubnet.html">SBMSubnet</a></span><span class="p">,</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentitySuccess">SBMSetNodeIdentitySuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentityError">SBMSetNodeIdentityError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setHeartbeatPublication:publishCountLogarithm:publishPeriodLogarithm:timeToLive:features:publishCryptoSubnetKeyIndex:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setHeartbeatPublication:publishCountLogarithm:publishPeriodLogarithm:timeToLive:features:publishCryptoSubnetKeyIndex:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setHeartbeatPublication:publishCountLogarithm:publishPeriodLogarithm:timeToLive:features:publishCryptoSubnetKeyIndex:with:errorCallback:">-setHeartbeatPublication:publishCountLogarithm:publishPeriodLogarithm:timeToLive:features:publishCryptoSubnetKeyIndex:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a node&rsquo;s heartbeat publish parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setHeartbeatPublication</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">publicationAddress</span>
+          <span class="nf">publishCountLogarithm</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">publishCountLogarithm</span>
+         <span class="nf">publishPeriodLogarithm</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">publishPeriodLogarithm</span>
+                     <span class="nf">timeToLive</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">timeToLive</span>
+                       <span class="nf">features</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">features</span>
+    <span class="nf">publishCryptoSubnetKeyIndex</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">publishCryptoSubnetKeyIndex</span>
+                           <span class="nf">with</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationSuccess">SBMSetNodeHeartbeatPublicationSuccess</a></span><span class="p">)</span>
+                                    <span class="n">successCallback</span>
+                  <span class="n">errorCallback</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationError">SBMSetNodeHeartbeatPublicationError</a></span><span class="p">)</span>
+                                    <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setHeartbeatPublication</span><span class="p">(</span><span class="n">_</span> <span class="nv">publicationAddress</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="nv">publishCountLogarithm</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="nv">publishPeriodLogarithm</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="nv">timeToLive</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="nv">features</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="nv">publishCryptoSubnetKeyIndex</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationSuccess">SBMSetNodeHeartbeatPublicationSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationError">SBMSetNodeHeartbeatPublicationError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publicationAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat publication address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publishCountLogarithm</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat publish count 2&rsquo;s logarithm value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publishPeriodLogarithm</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat publish period 2&rsquo;s logarithm value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeToLive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat time to live.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>features</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Feature bitmask for heartbeat triggering.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publishCryptoSubnetKeyIndex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Network key index of the key used to encrypt the published messages.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull heartbeat publication set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed heartbeat publication set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setHeartbeatSubscription:destinationAddress:period:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setHeartbeatSubscription:destinationAddress:period:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setHeartbeatSubscription:destinationAddress:period:with:errorCallback:">-setHeartbeatSubscription:destinationAddress:period:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a node&rsquo;s heartbeat subscription parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setHeartbeatSubscription</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">sourceAddress</span>
+              <span class="nf">destinationAddress</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">destinationAddress</span>
+                          <span class="nf">period</span><span class="p">:(</span><span class="n">UInt16</span><span class="p">)</span><span class="nv">period</span>
+                            <span class="nf">with</span><span class="p">:</span>
+                                <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionSuccess">SBMSetNodeHeartbeatSubscriptionSuccess</a></span><span class="p">)</span>
+                                    <span class="n">successCallback</span>
+                   <span class="n">errorCallback</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionError">SBMSetNodeHeartbeatSubscriptionError</a></span><span class="p">)</span>
+                                     <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setHeartbeatSubscription</span><span class="p">(</span><span class="n">_</span> <span class="nv">sourceAddress</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="nv">destinationAddress</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="nv">period</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionSuccess">SBMSetNodeHeartbeatSubscriptionSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionError">SBMSetNodeHeartbeatSubscriptionError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sourceAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat source address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>destinationAddress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat destination address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>period</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Heartbeat subscription period.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull heartbeat subscription set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed heartbeat subscription set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)setRetransmissionConfiguration:retransmissionInterval:with:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-setRetransmissionConfiguration:retransmissionInterval:with:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)setRetransmissionConfiguration:retransmissionInterval:with:errorCallback:">-setRetransmissionConfiguration:retransmissionInterval:with:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a node&rsquo;s retransmission configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">setRetransmissionConfiguration</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">retransmissionCount</span>
+        <span class="nf">retransmissionInterval</span><span class="p">:(</span><span class="n">UInt8</span><span class="p">)</span><span class="nv">retransmissionInterval</span>
+                          <span class="nf">with</span><span class="p">:</span>
+                              <span class="p">(</span><span class="n">nonnull</span>
+                                   <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationSuccess">SBMSetNodeRetransmissionConfigurationSuccess</a></span><span class="p">)</span>
+                                  <span class="n">successCallback</span>
+                 <span class="n">errorCallback</span><span class="o">:</span>
+                     <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationError">SBMSetNodeRetransmissionConfigurationError</a></span><span class="p">)</span>
+                         <span class="n">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setRetransmissionConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">retransmissionCount</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="nv">retransmissionInterval</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">,</span> <span class="n">with</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationSuccess">SBMSetNodeRetransmissionConfigurationSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationError">SBMSetNodeRetransmissionConfigurationError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retransmissionCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Network retransmission count. Use 0 to turn retransmissions off.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retransmissionInterval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Network retransmission interval.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>successCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on successfull retransmission configuration set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Action invoked on failed retransmission configuration set operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)factoryReset:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-factoryReset:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)factoryReset:errorCallback:">-factoryReset:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send factory reset node message.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">factoryReset</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetSuccess">SBMFactoryResetSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+       <span class="nf">errorCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetError">SBMFactoryResetError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">factoryReset</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetSuccess">SBMFactoryResetSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetError">SBMFactoryResetError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMConfigurationControl(im)getDeviceCompositionData:errorCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-getDeviceCompositionData:errorCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMConfigurationControl(im)getDeviceCompositionData:errorCallback:">-getDeviceCompositionData:errorCallback:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get device composition data state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getDeviceCompositionData</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataSuccess">SBMGetDeviceCompositionDataSuccess</a></span><span class="p">)</span><span class="nv">successCallback</span>
+                   <span class="nf">errorCallback</span><span class="p">:</span>
+                       <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataError">SBMGetDeviceCompositionDataError</a></span><span class="p">)</span><span class="nv">errorCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getDeviceCompositionData</span><span class="p">(</span><span class="n">_</span> <span class="nv">successCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataSuccess">SBMGetDeviceCompositionDataSuccess</a></span><span class="p">,</span> <span class="nv">errorCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataError">SBMGetDeviceCompositionDataError</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-03-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".App.Activities.MainActivity">
+    <item
+        android:id="@+id/about_bluetooth_mesh"
+        android:orderInCategory="1"
+        android:title="@string/network_menu_about_bluetooth_mesh"
+        android:visible="true"
+        app:showAsAction="never" />
+</menu>

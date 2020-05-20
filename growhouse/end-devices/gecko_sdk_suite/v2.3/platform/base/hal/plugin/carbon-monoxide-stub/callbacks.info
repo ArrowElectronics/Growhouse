@@ -1,0 +1,6 @@
+void halCarbonmonoxideReadingCompleteCallback(int a,bool b)
+{
+  return true;
+}
+
+

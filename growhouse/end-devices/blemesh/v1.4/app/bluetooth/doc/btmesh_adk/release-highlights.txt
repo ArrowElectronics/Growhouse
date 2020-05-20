@@ -1,0 +1,3 @@
+What's new in Bluetooth Mesh ADK 2.0.1.0
+* Vendor model documentation for iOS added
+* Selected quality improvements and bug fixes

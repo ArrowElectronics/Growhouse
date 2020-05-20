@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_size_xlarge">16sp</dimen>
+    <dimen name="text_size_large">14sp</dimen>
+    <dimen name="text_size_normal">12sp</dimen>
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_xsmall">8sp</dimen>
+    <dimen name="border">2dp</dimen>
+
+    <!-- DIALOGS -->
+    <dimen name="dialog_item_padding">5dp</dimen>
+    <dimen name="dialog_config_item_padding">15dp</dimen>
+    <dimen name="dialog_label_size">15sp</dimen>
+    <dimen name="dialog_value_size">12sp</dimen>
+    <dimen name="dialog_separator_height">1dp</dimen>
+    <dimen name="dialog_config_table_padding">5dp</dimen>
+
+    <!-- ADAPTER ITEM -->
+    <dimen name="adapter_layout_padding">10dp</dimen>
+    <dimen name="adapter_item_padding">5dp</dimen>
+    <dimen name="adapter_label_big_size">15sp</dimen>
+    <dimen name="adapter_label_medium_size">12sp</dimen>
+</resources>

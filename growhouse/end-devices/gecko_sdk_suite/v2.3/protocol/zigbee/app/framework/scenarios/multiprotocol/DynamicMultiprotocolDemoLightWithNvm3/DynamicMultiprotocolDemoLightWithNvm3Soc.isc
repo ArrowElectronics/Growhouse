@@ -1,0 +1,1460 @@
+#ISD App Configuration:3.1
+# ISD version: 4.21.0.201709202024-1504
+#  Identified of a stack descriptor used for this configuration. This should not
+#  be changed manually, unless you really know what you are doing.
+ConfiguratorID:auto-EM35X
+
+#  Output directory which is used as a root for all generated files. The actual
+#  files relative to that directory are defined by individual file name.
+GenerationDirectory:__SAMPLE_APPLICATION__
+
+#  Unique identifier for this device. This string should be in a form of a C
+#  identifier, as it will be used in both generated variable, macros, as well as
+#  file names. You should generally not use characters which are not valid
+#  characters in a C identifier here.
+DeviceName:DynamicMultiprotocolDemoLightWithNvm3
+
+#  Type of the endpoint. Each endpoint implement one endpoint type. There can be
+#  one or more endpoint types, regardless of number of actual endpoints.
+EndpointType:Primary,-1
+
+#  The ZCL device that this particular endpoint is implementing.
+DeviceType:Primary,zcustom
+
+#  Overrides a particular client configuration. This happens when you have
+#  chosen to include/exclude a client cluster that is optional. Contains
+#  'clusterId', 'exclude/include' and the endpoint type name.
+OverrideClient:0,exclude,Primary
+
+OverrideClient:1,exclude,Primary
+
+OverrideClient:2,exclude,Primary
+
+OverrideClient:3,exclude,Primary
+
+OverrideClient:4,exclude,Primary
+
+OverrideClient:5,exclude,Primary
+
+OverrideClient:6,exclude,Primary
+
+OverrideClient:7,exclude,Primary
+
+OverrideClient:8,exclude,Primary
+
+OverrideClient:9,exclude,Primary
+
+OverrideClient:a,exclude,Primary
+
+OverrideClient:b,exclude,Primary
+
+OverrideClient:f,exclude,Primary
+
+OverrideClient:15,exclude,Primary
+
+OverrideClient:16,exclude,Primary
+
+OverrideClient:19,exclude,Primary
+
+OverrideClient:1a,exclude,Primary
+
+OverrideClient:1b,exclude,Primary
+
+OverrideClient:20,exclude,Primary
+
+OverrideClient:21,exclude,Primary
+
+OverrideClient:25,exclude,Primary
+
+OverrideClient:100,exclude,Primary
+
+OverrideClient:101,exclude,Primary
+
+OverrideClient:102,exclude,Primary
+
+OverrideClient:103,exclude,Primary
+
+OverrideClient:200,exclude,Primary
+
+OverrideClient:201,exclude,Primary
+
+OverrideClient:202,exclude,Primary
+
+OverrideClient:203,exclude,Primary
+
+OverrideClient:204,exclude,Primary
+
+OverrideClient:300,exclude,Primary
+
+OverrideClient:301,exclude,Primary
+
+OverrideClient:400,exclude,Primary
+
+OverrideClient:401,exclude,Primary
+
+OverrideClient:402,exclude,Primary
+
+OverrideClient:403,exclude,Primary
+
+OverrideClient:404,exclude,Primary
+
+OverrideClient:405,exclude,Primary
+
+OverrideClient:406,exclude,Primary
+
+OverrideClient:40c,exclude,Primary
+
+OverrideClient:40d,exclude,Primary
+
+OverrideClient:40e,exclude,Primary
+
+OverrideClient:40f,exclude,Primary
+
+OverrideClient:410,exclude,Primary
+
+OverrideClient:411,exclude,Primary
+
+OverrideClient:412,exclude,Primary
+
+OverrideClient:413,exclude,Primary
+
+OverrideClient:414,exclude,Primary
+
+OverrideClient:415,exclude,Primary
+
+OverrideClient:416,exclude,Primary
+
+OverrideClient:417,exclude,Primary
+
+OverrideClient:418,exclude,Primary
+
+OverrideClient:419,exclude,Primary
+
+OverrideClient:41a,exclude,Primary
+
+OverrideClient:41b,exclude,Primary
+
+OverrideClient:41c,exclude,Primary
+
+OverrideClient:41d,exclude,Primary
+
+OverrideClient:41e,exclude,Primary
+
+OverrideClient:41f,exclude,Primary
+
+OverrideClient:420,exclude,Primary
+
+OverrideClient:421,exclude,Primary
+
+OverrideClient:422,exclude,Primary
+
+OverrideClient:423,exclude,Primary
+
+OverrideClient:424,exclude,Primary
+
+OverrideClient:425,exclude,Primary
+
+OverrideClient:426,exclude,Primary
+
+OverrideClient:427,exclude,Primary
+
+OverrideClient:428,exclude,Primary
+
+OverrideClient:429,exclude,Primary
+
+OverrideClient:500,exclude,Primary
+
+OverrideClient:501,exclude,Primary
+
+OverrideClient:502,exclude,Primary
+
+OverrideClient:600,exclude,Primary
+
+OverrideClient:601,exclude,Primary
+
+OverrideClient:614,exclude,Primary
+
+OverrideClient:615,exclude,Primary
+
+OverrideClient:700,exclude,Primary
+
+OverrideClient:701,exclude,Primary
+
+OverrideClient:702,exclude,Primary
+
+OverrideClient:703,exclude,Primary
+
+OverrideClient:704,exclude,Primary
+
+OverrideClient:705,exclude,Primary
+
+OverrideClient:706,exclude,Primary
+
+OverrideClient:707,exclude,Primary
+
+OverrideClient:708,exclude,Primary
+
+OverrideClient:709,exclude,Primary
+
+OverrideClient:70a,exclude,Primary
+
+OverrideClient:70b,exclude,Primary
+
+OverrideClient:800,exclude,Primary
+
+OverrideClient:900,exclude,Primary
+
+OverrideClient:901,exclude,Primary
+
+OverrideClient:902,exclude,Primary
+
+OverrideClient:903,exclude,Primary
+
+OverrideClient:904,exclude,Primary
+
+OverrideClient:905,exclude,Primary
+
+OverrideClient:a01,exclude,Primary
+
+OverrideClient:a02,exclude,Primary
+
+OverrideClient:b00,exclude,Primary
+
+OverrideClient:b01,exclude,Primary
+
+OverrideClient:b02,exclude,Primary
+
+OverrideClient:b03,exclude,Primary
+
+OverrideClient:b04,exclude,Primary
+
+OverrideClient:b05,exclude,Primary
+
+OverrideClient:1000,include,Primary
+
+OverrideClient:fc00,exclude,Primary
+
+OverrideClient:fc01,exclude,Primary
+
+OverrideClient:fc02,exclude,Primary
+
+#  Overrides a particular server configuration. This happens when you have
+#  chosen to include/exclude a server cluster that is optional. Contains
+#  'clusterId', 'exclude/include' and the endpoint type name.
+OverrideServer:0,include,Primary
+
+OverrideServer:1,exclude,Primary
+
+OverrideServer:2,exclude,Primary
+
+OverrideServer:3,include,Primary
+
+OverrideServer:4,include,Primary
+
+OverrideServer:5,include,Primary
+
+OverrideServer:6,include,Primary
+
+OverrideServer:7,exclude,Primary
+
+OverrideServer:8,exclude,Primary
+
+OverrideServer:9,exclude,Primary
+
+OverrideServer:a,exclude,Primary
+
+OverrideServer:b,exclude,Primary
+
+OverrideServer:f,exclude,Primary
+
+OverrideServer:15,exclude,Primary
+
+OverrideServer:16,exclude,Primary
+
+OverrideServer:19,exclude,Primary
+
+OverrideServer:1a,exclude,Primary
+
+OverrideServer:1b,exclude,Primary
+
+OverrideServer:20,exclude,Primary
+
+OverrideServer:21,exclude,Primary
+
+OverrideServer:25,exclude,Primary
+
+OverrideServer:100,exclude,Primary
+
+OverrideServer:101,exclude,Primary
+
+OverrideServer:102,exclude,Primary
+
+OverrideServer:103,exclude,Primary
+
+OverrideServer:200,exclude,Primary
+
+OverrideServer:201,exclude,Primary
+
+OverrideServer:202,exclude,Primary
+
+OverrideServer:203,exclude,Primary
+
+OverrideServer:204,exclude,Primary
+
+OverrideServer:300,exclude,Primary
+
+OverrideServer:301,exclude,Primary
+
+OverrideServer:400,exclude,Primary
+
+OverrideServer:401,exclude,Primary
+
+OverrideServer:402,exclude,Primary
+
+OverrideServer:403,exclude,Primary
+
+OverrideServer:404,exclude,Primary
+
+OverrideServer:405,exclude,Primary
+
+OverrideServer:406,exclude,Primary
+
+OverrideServer:40c,exclude,Primary
+
+OverrideServer:40d,exclude,Primary
+
+OverrideServer:40e,exclude,Primary
+
+OverrideServer:40f,exclude,Primary
+
+OverrideServer:410,exclude,Primary
+
+OverrideServer:411,exclude,Primary
+
+OverrideServer:412,exclude,Primary
+
+OverrideServer:413,exclude,Primary
+
+OverrideServer:414,exclude,Primary
+
+OverrideServer:415,exclude,Primary
+
+OverrideServer:416,exclude,Primary
+
+OverrideServer:417,exclude,Primary
+
+OverrideServer:418,exclude,Primary
+
+OverrideServer:419,exclude,Primary
+
+OverrideServer:41a,exclude,Primary
+
+OverrideServer:41b,exclude,Primary
+
+OverrideServer:41c,exclude,Primary
+
+OverrideServer:41d,exclude,Primary
+
+OverrideServer:41e,exclude,Primary
+
+OverrideServer:41f,exclude,Primary
+
+OverrideServer:420,exclude,Primary
+
+OverrideServer:421,exclude,Primary
+
+OverrideServer:422,exclude,Primary
+
+OverrideServer:423,exclude,Primary
+
+OverrideServer:424,exclude,Primary
+
+OverrideServer:425,exclude,Primary
+
+OverrideServer:426,exclude,Primary
+
+OverrideServer:427,exclude,Primary
+
+OverrideServer:428,exclude,Primary
+
+OverrideServer:429,exclude,Primary
+
+OverrideServer:500,exclude,Primary
+
+OverrideServer:501,exclude,Primary
+
+OverrideServer:502,exclude,Primary
+
+OverrideServer:600,exclude,Primary
+
+OverrideServer:601,exclude,Primary
+
+OverrideServer:614,exclude,Primary
+
+OverrideServer:615,exclude,Primary
+
+OverrideServer:700,exclude,Primary
+
+OverrideServer:701,exclude,Primary
+
+OverrideServer:702,exclude,Primary
+
+OverrideServer:703,exclude,Primary
+
+OverrideServer:704,exclude,Primary
+
+OverrideServer:705,exclude,Primary
+
+OverrideServer:706,exclude,Primary
+
+OverrideServer:707,exclude,Primary
+
+OverrideServer:708,exclude,Primary
+
+OverrideServer:709,exclude,Primary
+
+OverrideServer:70a,exclude,Primary
+
+OverrideServer:70b,exclude,Primary
+
+OverrideServer:800,exclude,Primary
+
+OverrideServer:900,exclude,Primary
+
+OverrideServer:901,exclude,Primary
+
+OverrideServer:902,exclude,Primary
+
+OverrideServer:903,exclude,Primary
+
+OverrideServer:904,exclude,Primary
+
+OverrideServer:905,exclude,Primary
+
+OverrideServer:a01,exclude,Primary
+
+OverrideServer:a02,exclude,Primary
+
+OverrideServer:b00,exclude,Primary
+
+OverrideServer:b01,exclude,Primary
+
+OverrideServer:b02,exclude,Primary
+
+OverrideServer:b03,exclude,Primary
+
+OverrideServer:b04,exclude,Primary
+
+OverrideServer:b05,exclude,Primary
+
+OverrideServer:1000,include,Primary
+
+OverrideServer:fc00,exclude,Primary
+
+OverrideServer:fc01,exclude,Primary
+
+OverrideServer:fc02,exclude,Primary
+
+#  Type of the endpoint. Each endpoint implement one endpoint type. There can be
+#  one or more endpoint types, regardless of number of actual endpoints.
+EndpointType:Green Power,97
+
+#  The ZCL device that this particular endpoint is implementing.
+DeviceType:Green Power,GP-proxy-basic
+
+#  ZigBee PRO network configuration.  Each endpoint belongs to a single network
+#  configuration.  There can be one or more network configurations.
+ZigbeeProNetwork:*Primary,ZA_COORDINATOR,HA
+
+#  A list of optional attributes that are included in this configuration. Format
+#  is a list of "clusterId,attributeId,<server|client>,manufacturerCode"
+#  entries, separated by semicolon.
+OptionalAttributes:0,1,server,0:0,5,server,0
+
+#  Attributes that support min/max setting.
+BoundAttributes:0,7,server,0:0,3,server,0:0,2,server,0:0,1,server,0:0,0,server,0:3,0,server,0:4,0,server,0:5,4,server,0:5,3,server,0:5,2,server,0:5,1,server,0:5,0,server,0:6,16386,server,0:6,16385,server,0:6,16384,server,0:6,0,server,0
+
+#  Lists the channels that this application will be configured to use.
+Channels:11
+
+#  Definitions of individual endpoints. For each endpoint the endpoint number
+#  (1-254) is listed, as well as the endpoint type that this endpoint will
+#  serve.
+ConfiguredEndpoints:*1&260&256&2&Primary&Primary,242&260&256&2&Green Power&Primary
+
+#  A single specification version for each profile defining the max version of
+#  the spec supported by this configuration.
+SpecVersions:
+
+#  In case of a network coprocessor, this lists a host processor used.
+Host:unknown
+
+#  Ember network processor targeted for this application.
+Platform:efr32~family[M]~series[1]~device_configuration[2]~performance[P]~radio[332]~flash[1024K]~temp[G]~package[L]~pins[125]+BRD4162A+iar
+
+#  Enable callbacks.
+Callbacks:emberAfStackStatusCallback,emberAfMainInitCallback,emberAfPluginOnOffClusterServerPostInitCallback,emberAfOnOffClusterServerAttributeChangedCallback,emberAfPluginBleEventCallback,emberAfPluginBleGetConfigCallback,emberAfMessageSentCallback,emberAfPreCommandReceivedCallback,emberAfPreMessageReceivedCallback,emberAfPreMessageSendCallback,emberAfPreZDOMessageReceivedCallback,emberAfTrustCenterJoinCallback,emberAfHalButtonIsrCallback,
+
+#  Any customer-specific general purpose custom events.
+CustomEvents:bleEventControl,bleEventHandler
+
+CustomEvents:bleTxEventControl,bleTxEventHandler
+
+CustomEvents:buttonEventControl,buttonEventHandler
+
+CustomEvents:lcdMainMenuDisplayEventControl,lcdMainMenuDisplayEventHandler
+
+CustomEvents:lcdPermitJoinEventControl,lcdPermitJoinEventHandler
+
+#  If bindings are enabled then this is the maximum number of supported
+#  bindings.
+NumberOfBindings:2
+
+#  The size of the stack address table which will be used by the stack to
+#  maintain IEEE to ZigBee short id mappings.
+AddressTableSize:2
+
+#  The size of the portion of the address table used by the trust center as an
+#  address cache. The total size of the address table will be equal to this
+#  value plus the size of the address table set in the AddressTableSize.
+TrustCenterCacheSize:2
+
+#  Manufacturing code user in reporting.
+ManufacturingCode:4098
+
+#  Maximum number of supported reported attributes.
+ReportTableSize:5
+
+#  The mode of the link key handling on a trust center.
+LinkKeyMode:2
+
+#  If not using multiple endpoint support, this value contains the default
+#  endpoint. With multiple endpoint support, this number is ignored.
+Endpoint:10
+
+#  Version of this device.
+DeviceVersion:0
+
+#  Master endpoint which contains global information.
+DefaultDestinationEndpoint:10
+
+#  Profile Id used for the application.
+ProfileId:-1
+
+#  Device Id used for the application.
+DeviceId:-1
+
+#  The largest size for a fragment buffer.
+FragmentationMaxSize:255
+
+#  Size of the table for source routing.
+SourceRouteTableSize:7
+
+#  Default response policy.
+DefaultResponsePolicy:0
+
+#  The level of debugging supported.
+DebugLevel:0
+
+#  Configuration of command-line interface.
+CLIMode:2
+
+#  If key switching is enabled, this value describes the kind of switch type
+#  that the application does.
+KeySwitchType:0
+
+#  If key switch is time based, then this value contains the number of seconds
+#  between switches.
+KeySwitchInterval:604800
+
+#  The type of key generation, random or ping-pong.
+KeyGenerationType:0
+
+#  Configuration of heartbeat.
+HeartbeatLed:0
+
+#  Configuration of first application button.
+FirstButton:1
+
+#  Configuration of second application button.
+SecondButton:2
+
+#  If this option is set to true, standard reporting is enabled.
+EnableStandardReporting:false
+
+#  If the device needs to perform inter-PAN sends, then this option should be
+#  enabled.
+EnableInterPanSend:false
+
+#  If the device needs to perform inter-PAN receives, then this option should be
+#  enabled.
+EnableInterPanReceive:false
+
+#  Enable serial commands for ZDO.
+EnableZdoSerialCommands:false
+
+#  Enable this option if you wish to enable device bindings.
+EnableBindings:true
+
+#  Turn this option on, if end-device binding is enabled.
+EnableEndDeviceBind:false
+
+#  Enables the statistics receiving.
+EnableReceiveStatistics:false
+
+#  If true, then command discovery commands are supported.
+SupportCommandDiscovery:true
+
+#  Selects whether application will use the ECC 163k1 library.
+UseEcc163k1:false
+
+#  Selects whether application will use the ECC 283k1 library.
+UseEcc283k1:false
+
+#  Enable preconfigured keys for security.
+PreconfiguredKeyEnabled:false
+
+#  Enable network key.
+NetworkKeyEnabled:false
+
+#  If this option is turned on, then appBuilder will automatically generate the
+#  files, immediately upon saving the ISC file.
+AutoGenerate:false
+
+#  Enable key switching.
+EnableKeySwitch:false
+
+#  Use this setting to turn on fragmentation.
+FragmentationEnable:false
+
+#  Enables concentrator support
+EnableConcentrator:false
+
+#  If true, then this concentrator is low ram, otherwise high ram
+LowRamConcentrator:true
+
+#  If this option is set to true, then MFG_INSTALL_CODE token is used for
+#  setting the security install code.
+UseSeInstallCodes:false
+
+#  If this option is turned on, then the code will enable the checking of the
+#  attributes.
+EnableAttributeRangeChecking:false
+
+#  Enable application handling of supported ZigBee Device Object messages.
+ReceiveSupportedZdoRequests:false
+
+#  Enable application handling of unsupported ZigBee Device Object messages.
+HandleUnsupportedZdoRequests:false
+
+#  Enable application handling of ZigBee Device Object requests related to
+#  endpoints.
+HandleEndpointZdoRequests:false
+
+#  Enable application handling of ZigBee Device Object requests related to
+#  bindings.
+HandleBindingZdoRequests:false
+
+#  Use token for TX power mode.
+TxPowerModeUseToken:true
+
+#  Enable boost power mode.
+BoostMode:false
+
+#  Enable the alternate transmitter output.
+AlternatePowerMode:false
+
+#  Use legacy CLI instead of generated CLI.
+LegacyCli:false
+
+#  Add Custom CLI sub-menu
+AddCustomCli:true
+
+#  Include command and argument descriptions in the embedded code.
+IncludeCommandDescriptions:true
+
+#  If set, then project-specific callbacks file will be generated.
+GenerateCallbacksFile:false
+
+#  The manufacturer code for this app defaults to 0.
+ManufacturerCodeDefaultIsZero:true
+
+#  Actual preconfigured key, if it is enabled.
+PreconfiguredKey:56777777777777777777777777777777
+
+#  Actual network key.
+NetworkKey:12333333333333333333333333333333
+
+#  Actual second network key.
+NetworkKey2:ABCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:bleGattConfigurator
+<?xml version="1.0" encoding="UTF-8"?><gatt generic_attribute_service="true" header="gatt_db.h" name="Custom BLE GATT" out="gatt_db.c" prefix="gattdb_">
+  <service advertise="false" id="device_information" name="Device Information" requirement="mandatory" sourceId="org.bluetooth.service.device_information" type="primary" uuid="180A">
+    <informativeText>Abstract: The Device Information Service exposes manufacturer and/or vendor information about a device. Summary: This service exposes manufacturer information about a device. The Device Information Service is instantiated as a Primary Service. Only one instance of the Device Information Service is exposed on a device. </informativeText>
+    <characteristic id="manufacturer_name_string" name="Manufacturer Name String" sourceId="org.bluetooth.characteristic.manufacturer_name_string" uuid="2A29">
+      <informativeText>Abstract: The value of this characteristic is a UTF-8 string representing the name of the manufacturer of the device. </informativeText>
+      <value length="12" type="utf-8" variable_length="true">Silicon Labs</value>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="excluded" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="excluded"/>
+    </characteristic>
+    <characteristic id="model_number_string" name="Model Number String" sourceId="org.bluetooth.characteristic.model_number_string" uuid="2A24">
+      <informativeText>Abstract: The value of this characteristic is a UTF-8 string representing the model number of the device. </informativeText>
+      <value length="8" type="utf-8" variable_length="false">DMP-001A</value>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="optional" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="excluded"/>
+    </characteristic>
+    <characteristic id="serial_number_string" name="Serial Number String" sourceId="org.bluetooth.characteristic.serial_number_string" uuid="2A25">
+      <informativeText>Abstract: The value of this characteristic is a UTF-8 string representing the serial number of the device. </informativeText>
+      <value length="3" type="utf-8" variable_length="false">001</value>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="excluded" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="excluded"/>
+    </characteristic>
+    <characteristic id="firmware_revision_string" name="Firmware Revision String" sourceId="org.bluetooth.characteristic.firmware_revision_string" uuid="2A26">
+      <informativeText>Abstract: The value of this characteristic is a UTF-8 string representing the firmware version of the device. </informativeText>
+      <value length="5" type="utf-8" variable_length="false">0.0.1</value>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="excluded" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="excluded"/>
+    </characteristic>
+  </service>
+  <service advertise="false" id="device_information" name="Generic Access" requirement="mandatory" sourceId="org.bluetooth.service.generic_access" type="primary" uuid="1800">
+    <informativeText>Abstract: The generic_access service contains generic information about the device. All available Characteristics are readonly. </informativeText>
+    <characteristic id="device_name" name="Device Name" sourceId="org.bluetooth.characteristic.gap.device_name" uuid="2A00">
+      <informativeText/>
+      <value length="8" type="utf-8" variable_length="true">DMP Demo</value>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="excluded" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="optional"/>
+    </characteristic>
+    <characteristic id="appearance" name="Appearance" sourceId="org.bluetooth.characteristic.gap.appearance" uuid="2A01">
+      <informativeText/>
+      <value length="2" type="hex" variable_length="false"/>
+      <properties indicate="false" indicate_requirement="excluded" notify="false" notify_requirement="excluded" read="true" read_requirement="mandatory" reliable_write="false" reliable_write_requirement="excluded" write="false" write_no_response="false" write_no_response_requirement="excluded" write_requirement="excluded"/>
+    </characteristic>
+  </service>
+  <service advertise="false" name="Silabs DMP Light" requirement="mandatory" type="primary" uuid="bae55b96-7d19-458d-970c-50613d801bc9">
+    <informativeText/>
+    <characteristic id="light_state" name="Light" sourceId="custom.type" uuid="76e137ac-b15f-49d7-9c4c-e278e6492ad9">
+      <informativeText/>
+      <value length="1" type="user" variable_length="false">0x00</value>
+      <properties indicate="true" indicate_requirement="optional" read="true" read_requirement="optional" write="true" write_requirement="optional"/>
+    </characteristic>
+    <characteristic id="trigger_source" name="Trigger Source" sourceId="custom.type" uuid="2f16ee52-0bfd-4597-85d4-a5141fdbae15">
+      <informativeText/>
+      <value length="1" type="user" variable_length="false">0x00</value>
+      <properties indicate="true" indicate_requirement="optional" read="true" read_requirement="optional" write="true" write_requirement="optional"/>
+    </characteristic>
+    <characteristic id="source_address" name="Source Address" sourceId="custom.type" uuid="82a1cb54-3921-4c9c-ba34-34f78bab9a1b">
+      <informativeText/>
+      <value length="8" type="user" variable_length="false">0x00</value>
+      <properties indicate="true" indicate_requirement="optional" read="true" read_requirement="optional"/>
+    </characteristic>
+  </service>
+</gatt>
+}
+{setupId:boardHeader
+allowMissingHeader:false
+useHeaderInPlace:false
+efr32~family[M]~series[1]~device_configuration[2]~performance[P]~radio[332]~flash[1024K]~temp[G]~package[L]~pins[125]+BRD4162A+iar=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+em357=application,
+efr32~series[1]~device_configuration[1]=application,
+efr32~series[1]~device_configuration[2]=application,
+efr32~series[1]~device_configuration[3]=application,
+efr32~series[1]~device_configuration[4]=application,
+}
+{setupId:callbackConfiguration
+}
+{setupId:debugConfiguration
+on
+area name off
+appSerial=1
+compile,OTA_BOOTLOAD_CLUSTER
+enable,OTA_BOOTLOAD_CLUSTER
+}
+{setupId:halOptions
+}
+{setupId:hwConfig
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+Sample application demonstrating a light application using dynamic
+multiprotocol (ZigBee + BLE) and NVM3 for persistent storage
+
+The Dynamic Multiprotocol Demo Light application demonstrate the dynamic
+multiprotocol feature from Silabs. In particular, these applications
+demonstrate the ZigBee and BLE stacks running concurrently as MicriumOS tasks.
+
+The Demo is set up to run on the WSTK6000B Mesh Development Kit. The Demo makes
+use of the LEDs and Buttons on the WSTK.
+
+The Light is configured to host a zigbee network as a coordinator and allow
+other devices to join. A complementary
+application named DynamicMultiprotocolDemoSwitchSoc is available to run on a
+WSTK board and join the network formed by the Light and control the state of
+Light via buttons on the WSTK running the Switch application.
+
+On the BLE interface the Light is setup to advertise itself using Eddystone and
+iBeacon in an alternate manner. The Light advertises itself as available for a
+connection by a smartphone running Wireless Gecko application. Once connected
+the user can control the Light (represented by LEDs on the WSTK board) using
+Wireless Gecko smartphone application.
+
+A change in the Light state initiated by the either the smartphone over the BLE
+connection or via the zigbee only Switch is propagated to connected device over
+both the zigbee and BLE interface.
+
+All application code is contained in the _callbacks.c files within each
+application directory.
+
+To use each application:
+
+   1. Load the included application configuration file (i.e., the .isc file)
+      into Simplicity Studio.
+
+   2. Enter a new name for the application in the pop-up window.
+
+   3. Generate the application's header and project/workspace files by
+      clicking on the "Generate" button in Simplicity Studio.  The application
+      files will be generated in the app/builder/<name> directory in the stack
+      installation location.
+
+   4. Load the generated project file into the appropriate compiler and build
+      the project.
+
+   5. Load the binary image onto a device using Simplicity Studio.
+\}
+}
+{setupId:macros
+EMBER_END_DEVICE_POLL_TIMEOUT=225
+EMBER_END_DEVICE_POLL_TIMEOUT_SHIFT=6
+-DDISABLE_WATCHDOG
+-DEMBER_RETRY_QUEUE_SIZE=29
+-DEMBER_QA
+-DDEVICE_TYPE="Light"
+-DNO_LED=1
+}
+{setupId:mpsi
+- mappings
+- custom messages
+}
+{setupId:quizz
+}
+{setupId:rf4ce
+nodeCapabilities=0
+vendorId=65521
+vendorString=
+userString=
+deviceTypes=[254]
+profileIds=[0]
+power=3
+}
+{setupId:rf4ceMso
+}
+{setupId:rf4ceZrc
+}
+{setupId:serial
+useHwConfigurator=true
+}
+{setupId:template
+}
+{setupId:token
+}
+#  The name of the set of Command Line Interface (CLI) commands that are
+#  compiled into the application by default.
+CliCommandSet:Full
+
+#  These are the various Command Line Interface (CLI) commands that can be
+#  included, or excluded (if they are included by default), in the application.
+CliCommands:compile,plugin counter print-counter-type
+
+CliCommands:compile,plugin counters clear
+
+CliCommands:compile,plugin counters print
+
+CliCommands:compile,plugin counters print-thresholds
+
+CliCommands:compile,plugin counters reset-threshold
+
+CliCommands:compile,plugin counters send-request
+
+CliCommands:compile,plugin counters set-threshold
+
+CliCommands:compile,plugin counters simple-print
+
+CliCommands:compile,plugin find-and-bind initiator
+
+CliCommands:compile,plugin find-and-bind target
+
+CliCommands:compile,plugin fragmentation artificial-block-drop
+
+CliCommands:compile,plugin fragmentation set-rx-window-size
+
+CliCommands:compile,plugin mn-price-passthrough print
+
+CliCommands:compile,plugin mn-price-passthrough set-routing
+
+CliCommands:compile,plugin mn-price-passthrough start
+
+CliCommands:compile,plugin mn-price-passthrough stop
+
+CliCommands:compile,plugin network-creator form
+
+CliCommands:compile,plugin network-creator mask add
+
+CliCommands:compile,plugin network-creator mask set
+
+CliCommands:compile,plugin network-creator mask subtract
+
+CliCommands:compile,plugin network-creator start
+
+CliCommands:compile,plugin network-creator status
+
+CliCommands:compile,plugin network-creator stop
+
+CliCommands:remove,plugin ota-storage-common data-print
+
+CliCommands:remove,plugin ota-storage-common delete
+
+CliCommands:remove,plugin ota-storage-common printImages
+
+CliCommands:remove,plugin ota-storage-common reload
+
+CliCommands:remove,plugin ota-storage-common storage-info
+
+CliCommands:remove,plugin ota-storage-eeprom wipe
+
+#  Plugin configuration
+appPlugin:address-table,true
+
+appPlugin:aes-cmac,false
+
+appPlugin:basic,false
+
+appPlugin:button-joining,false
+
+appPlugin:calendar-client,false
+
+appPlugin:calendar-common,false
+
+appPlugin:calendar-server,false
+
+appPlugin:coexistence,true
+
+appPlugin:color-control,false
+
+appPlugin:color-control-server,false
+
+appPlugin:command-relay,false
+
+appPlugin:comms-hub-function,false
+
+appPlugin:concentrator,true
+
+appPlugin:counters,true
+
+appPlugin:device-database,false
+
+appPlugin:device-management-client,false
+
+appPlugin:device-management-server,false
+
+appPlugin:device-query-service,false
+
+appPlugin:device-table,false
+
+appPlugin:diagnostic-server,false
+
+appPlugin:dmp-ui-demo,false
+
+appPlugin:dmp-ui-demo-stub,true
+
+appPlugin:door-lock-server,false
+
+appPlugin:drlc,false
+
+appPlugin:drlc-server,false
+
+appPlugin:ember-minimal-printf,true
+
+appPlugin:end-device-support,false
+
+appPlugin:esi-management,false
+
+appPlugin:events-client,false
+
+appPlugin:events-server,false
+
+appPlugin:exosite-demo,false
+
+appPlugin:ezmode-commissioning,false
+
+appPlugin:find-and-bind-initiator,false
+
+appPlugin:find-and-bind-target,true
+
+appPlugin:form-and-join,true
+
+appPlugin:fragmentation,false
+
+appPlugin:gas-proxy-function,false
+
+appPlugin:gbcs-device-log,false
+
+appPlugin:gbcs-gas-meter,false
+
+appPlugin:gbz-message-controller,false
+
+appPlugin:general-response-commands,false
+
+appPlugin:green-power-client,true
+
+appPlugin:green-power-common,true
+
+appPlugin:green-power-server,false
+
+appPlugin:green-power-test-device,false
+
+appPlugin:groups-client,false
+
+appPlugin:groups-server,true
+
+appPlugin:hc-11073-tunnel,false
+
+appPlugin:heartbeat,false
+
+appPlugin:ias-zone-client,false
+
+appPlugin:ias-zone-server,false
+
+appPlugin:identify,true
+
+appPlugin:identify-feedback,true
+
+appPlugin:infrared-led,false
+
+appPlugin:interpan,true
+
+appPlugin:key-establishment,false
+
+appPlugin:level-control,true
+
+appPlugin:lwip,false
+
+appPlugin:lwip-callback-tests,false
+
+appPlugin:lwip-interface,false
+
+appPlugin:lwip-stats,false
+
+appPlugin:lwip-udp-wrapper,false
+
+appPlugin:manufacturing-library-cli,false
+
+appPlugin:messaging-client,false
+
+appPlugin:messaging-server,false
+
+appPlugin:meter-mirror,false
+
+appPlugin:meter-snapshot-client,false
+
+appPlugin:meter-snapshot-server,false
+
+appPlugin:meter-snapshot-storage,false
+
+appPlugin:mn-price-passthrough,false
+
+appPlugin:network-creator,true
+
+appPlugin:network-creator-security,true
+
+appPlugin:network-find,false
+
+appPlugin:network-steering,false
+
+appPlugin:on-off,true
+
+appPlugin:ota-bootload,true
+
+appPlugin:ota-client,true
+
+appPlugin:ota-client-policy,true
+
+appPlugin:ota-common,true
+
+appPlugin:ota-server,false
+
+appPlugin:ota-server-policy,false
+
+appPlugin:ota-storage-common,false
+
+appPlugin:ota-storage-posix-filesystem,false
+
+appPlugin:ota-storage-simple,false
+
+appPlugin:ota-storage-simple-eeprom,false
+
+appPlugin:ota-storage-simple-ram,false
+
+appPlugin:partner-link-key-exchange,false
+
+appPlugin:permit-join-manager,false
+
+appPlugin:poll-control-client,false
+
+appPlugin:poll-control-server,false
+
+appPlugin:power-consumption-model,false
+
+appPlugin:prepayment-client,false
+
+appPlugin:prepayment-server,false
+
+appPlugin:prepayment-snapshot-storage,false
+
+appPlugin:price-client,false
+
+appPlugin:price-common,false
+
+appPlugin:price-server,false
+
+appPlugin:reporting,true
+
+appPlugin:scan-dispatch,true
+
+appPlugin:scenes,true
+
+appPlugin:scenes-client,false
+
+appPlugin:simple-clock,false
+
+appPlugin:simple-main,false
+
+appPlugin:simple-metering-client,false
+
+appPlugin:simple-metering-server,false
+
+appPlugin:sleepy-message-queue,false
+
+appPlugin:smart-energy-registration,false
+
+appPlugin:stack-diagnostics,false
+
+appPlugin:standalone-bootloader-client,false
+
+appPlugin:standalone-bootloader-common,false
+
+appPlugin:standalone-bootloader-server,false
+
+appPlugin:standard-printf-support,false
+
+appPlugin:sub-ghz-client,false
+
+appPlugin:sub-ghz-server,false
+
+appPlugin:test-harness,false
+
+appPlugin:test-harness-z3,false
+
+appPlugin:throughput,false
+
+appPlugin:throughput-library,false
+
+appPlugin:time-server,false
+
+appPlugin:trust-center-backup,false
+
+appPlugin:trust-center-keepalive,false
+
+appPlugin:trust-center-nwk-key-update-broadcast,false
+
+appPlugin:trust-center-nwk-key-update-periodic,false
+
+appPlugin:trust-center-nwk-key-update-unicast,false
+
+appPlugin:tunneling-client,false
+
+appPlugin:tunneling-server,false
+
+appPlugin:update-tc-link-key,true
+
+appPlugin:xmodem-sender,false
+
+appPlugin:zcl-ip,false
+
+appPlugin:zll-commissioning,true
+
+appPlugin:zll-identify-server,true
+
+appPlugin:zll-level-control-server,false
+
+appPlugin:zll-on-off-server,true
+
+appPlugin:zll-scenes-client,false
+
+appPlugin:zll-scenes-server,true
+
+appPlugin:zll-utility-client,false
+
+appPlugin:zll-utility-server,true
+
+appPlugin:ble,true
+
+appPlugin:bulb-pwm-cli,false
+
+appPlugin:bulb-ui,false
+
+appPlugin:configuration-server,false
+
+appPlugin:connection-manager,false
+
+appPlugin:electrical-measurement-server,false
+
+appPlugin:em4,false
+
+appPlugin:idle-sleep,true
+
+appPlugin:illuminance-measurement-server,false
+
+appPlugin:led-dim-pwm,false
+
+appPlugin:led-rgb-pwm,false
+
+appPlugin:led-temp-pwm,false
+
+appPlugin:low-voltage-shutdown,false
+
+appPlugin:mac-address-filtering,false
+
+appPlugin:manufacturing-library-ota,false
+
+appPlugin:mbedtls,true
+
+appPlugin:metering-server,false
+
+appPlugin:micrium-rtos,true
+
+appPlugin:occupancy-pyd1698-cli,false
+
+appPlugin:occupancy-sensor-server,false
+
+appPlugin:power-configuration-server,false
+
+appPlugin:relative-humidity-measurement-server,false
+
+appPlugin:security-sensor,false
+
+appPlugin:silabs-device-ui,false
+
+appPlugin:temperature-measurement-server,false
+
+appPlugin:binding-table-library,true
+
+appPlugin:cbke-163k1-library,false
+
+appPlugin:cbke-283k1-library,false
+
+appPlugin:cbke-library-core,false
+
+appPlugin:cbke-library-dsa-sign,false
+
+appPlugin:cbke-library-dsa-verify,false
+
+appPlugin:cbke-library-dsa-verify-283k1,false
+
+appPlugin:debug-basic-library,true
+
+appPlugin:debug-extended-library,false
+
+appPlugin:ecc-library-163k1,false
+
+appPlugin:ecc-library-283k1,false
+
+appPlugin:end-device-bind-library,false
+
+appPlugin:gp-library,true
+
+appPlugin:install-code-library,true
+
+appPlugin:manufacturing-library,false
+
+appPlugin:multi-network-library,false
+
+appPlugin:packet-validate-library,true
+
+appPlugin:security-library-core,true
+
+appPlugin:security-link-keys-library,true
+
+appPlugin:zigbee-pro-bc-table-library,false
+
+appPlugin:zigbee-pro-bc-table-mbedtls-library,true
+
+appPlugin:zigbee-pro-leaf-library,false
+
+appPlugin:zigbee-pro-library,false
+
+appPlugin:zigbee-r22-support-library,false
+
+appPlugin:zll-library,true
+
+appPlugin:debug-jtag,true
+
+appPlugin:debug-jtag-stub,false
+
+appPlugin:hal-library,true
+
+appPlugin:hal-library-rtos,false
+
+appPlugin:humidity-si7021,false
+
+appPlugin:i2c-driver,false
+
+appPlugin:illuminance-si1141,false
+
+appPlugin:psstore,false
+
+appPlugin:serial,true
+
+appPlugin:sim-eeprom1,false
+
+appPlugin:sim-eeprom2,false
+
+appPlugin:sim-eeprom2-1to2-upgrade,false
+
+appPlugin:sim-eeprom2-1to2-upgrade-stub,false
+
+appPlugin:sim-eeprom2-to-nvm3-upgrade,false
+
+appPlugin:sim-eeprom2-to-nvm3-upgrade-stub,true
+
+appPlugin:temperature-si7021,false
+
+appPlugin:temperature-si7021-stub,false
+
+appPlugin:temperature-si7053,false
+
+appPlugin:wstk-display,false
+
+appPlugin:adc,true
+
+appPlugin:antenna,false
+
+appPlugin:antenna-stub,true
+
+appPlugin:extdev,false
+
+appPlugin:ezradiopro,false
+
+appPlugin:fem-control,false
+
+appPlugin:glib,false
+
+appPlugin:humidity-si7021-stub,false
+
+appPlugin:i2c-driver-stub,false
+
+appPlugin:illuminance-si1141-stub,false
+
+appPlugin:pa,true
+
+appPlugin:pti,true
+
+appPlugin:temperature-si7053-stub,false
+
+appPlugin:rail-library,false
+
+appPlugin:rail-library-mp,true
+
+appPlugin:mpsi,false
+
+appPlugin:battery-monitor,false
+
+appPlugin:battery-monitor-stub,false
+
+appPlugin:bulb-pwm-driver,false
+
+appPlugin:button-interface,false
+
+appPlugin:button-interface-stub,false
+
+appPlugin:eeprom,true
+
+appPlugin:generic-interrupt-control,false
+
+appPlugin:generic-interrupt-control-stub,false
+
+appPlugin:gpio-sensor,false
+
+appPlugin:gpio-sensor-stub,false
+
+appPlugin:led-blink,false
+
+appPlugin:led-blink-stub,false
+
+appPlugin:occupancy-pyd1698,false
+
+appPlugin:occupancy-pyd1698-stub,false
+
+appPlugin:power-meter-cs5463,false
+
+appPlugin:power-meter-cs5463-stub,false
+
+appPlugin:sb1-gesture-sensor,false
+
+appPlugin:sb1-gesture-sensor-stub,false
+
+appPlugin:tamper-switch,false
+
+appPlugin:tamper-switch-stub,false
+
+appPlugin:linked-list,false
+
+appPlugin:module-lna,false
+
+appPlugin:mpsi-ipc,false
+
+appPlugin:mpsi-storage,false
+
+appPlugin:transport-mqtt,false
+
+appPlugin:slot-manager,false
+
+appPlugin:cjson,false
+
+appPlugin:libcoap,false
+
+appPlugin:paho.mqtt.c,false
+
+appPlugin:nvm3,true
+
+#  Plugin specific options
+AppPluginOption:EMBER_AF_PLUGIN_INTERPAN_ALLOW_REQUIRED_SMART_ENERGY_MESSAGES,false
+
+AppPluginOption:EMBER_AF_PLUGIN_ZLL_COMMISSIONING_LINK_INITIATOR,false
+
+AppPluginOption:EMBER_AF_PLUGIN_ZLL_COMMISSIONING_TOUCH_LINK_SECONDS_DELAY,3
+
+AppPluginOption:EMBER_AF_PLUGIN_ZLL_COMMISSIONING_SUB_DEVICE_TABLE_SIZE,1
+
+AppPluginOption:EMBER_AF_PLUGIN_ZLL_COMMISSIONING_SCAN_POWER_LEVEL,0
+
+AppPluginOption:EMBER_AF_PLUGIN_ZLL_COMMISSIONING_IDENTIFY_DURATION,65535
+
+AppPluginOption:EMBER_AF_PLUGIN_IDLE_SLEEP_STAY_AWAKE_WHEN_NOT_JOINED,true
+
+AppPluginOption:EMBER_AF_PLUGIN_MICRIUM_RTOS_POLL_CLI,true
+
+AppPluginOption:EMBER_AF_PLUGIN_BLE_MAX_CONNECTIONS,5
+
+AppPluginOption:EMBER_BROADCAST_TABLE_SIZE,35
+
+AppPluginOption:EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_IMAGE_TYPE_ID,4
+
+AppPluginOption:EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_FIRMWARE_VERSION,2
+
+AppPluginOption:EMBER_AF_PLUGIN_OTA_STORAGE_SIMPLE_EEPROM_STORAGE_END,524288

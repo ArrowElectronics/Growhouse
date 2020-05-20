@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_network"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_adapter"
+    android:orientation="horizontal"
+    android:padding="@dimen/adapter_layout_padding"
+    android:theme="@style/AppTheme.Light">
+
+    <CheckBox
+        android:id="@+id/cb_selected"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:buttonTint="@android:color/white"
+        android:clickable="false"
+        android:focusable="false"
+        android:padding="@dimen/adapter_item_padding"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_device_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/adapter_item_padding"
+                        android:text="Generic Network"
+                        android:textColor="@color/adapter_item_title_color"
+                        android:textSize="@dimen/adapter_label_big_size" />
+
+                    <TextView
+                        android:id="@+id/tv_device_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/adapter_item_padding"
+                        android:text="0"
+                        android:textColor="@color/adapter_item_label_color"
+                        android:textSize="@dimen/adapter_label_medium_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_device_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:src="@drawable/ic_unknown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_controlls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minWidth="80dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:padding="@dimen/adapter_item_padding"
+                        android:text="@string/device_adapter_lightness_label"
+                        android:textColor="@color/adapter_item_label_color"
+                        android:textSize="@dimen/adapter_label_medium_size" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <SeekBar
+                            android:id="@+id/sb_level_control"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:max="100"
+                            android:maxHeight="2dp"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/seekbar" />
+
+                        <TextView
+                            android:id="@+id/tv_level_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:minWidth="80dp"
+                            android:text="100%"
+                            android:textColor="@color/adapter_item_value_color"
+                            android:textSize="@dimen/adapter_label_big_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_slider_CTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minWidth="80dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="@dimen/adapter_item_padding"
+                            android:text="@string/device_adapter_temperature_label"
+                            android:textColor="@color/adapter_item_label_color"
+                            android:textSize="@dimen/adapter_label_medium_size" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <SeekBar
+                                android:id="@+id/sb_temperature_control"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:max="100"
+                                android:maxHeight="2dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/ctl_gradient" />
+
+                            <TextView
+                                android:id="@+id/tv_temperature_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:minWidth="80dp"
+                                android:text="2000 K"
+                                android:textColor="@color/adapter_item_value_color"
+                                android:textSize="@dimen/adapter_label_big_size" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="@dimen/adapter_item_padding"
+                            android:text="@string/device_adapter_delta_uv_label"
+                            android:textColor="@color/adapter_item_label_color"
+                            android:textSize="@dimen/adapter_label_medium_size" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <SeekBar
+                                android:id="@+id/sb_uv_control"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:max="100"
+                                android:maxHeight="2dp"
+                                android:progress="0"
+                                android:progressDrawable="@drawable/seekbar" />
+
+                            <TextView
+                                android:id="@+id/tv_uv_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:minWidth="80dp"
+                                android:text="0.02"
+                                android:textColor="@color/adapter_item_value_color"
+                                android:textSize="@dimen/adapter_label_big_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_config"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:padding="@dimen/adapter_item_padding"
+        android:src="@drawable/baseline_settings_black_18dp"
+        android:visibility="gone" />
+</LinearLayout>

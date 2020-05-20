@@ -1,0 +1,5 @@
+/*
+ * Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+ */
+
+include ':ble_mesh-android_api-v2_high-release', ':ble_mesh-android_api-v2_low-release'

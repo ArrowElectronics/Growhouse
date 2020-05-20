@@ -1,0 +1,465 @@
+{# get list of files, include paths, or macros; ignore duplicates
+   possible types: 'file_c',
+                   'file_h',
+                   'file_ao',
+                   'include',
+                   'macros_dashd',
+                   'macros_conf' #}
+{%- macro getFilesIncludesMacros(context, type, prefix, postfix) -%}
+  {% set dir = "" %}
+  {% set pattern = "" %}
+  {% set list = [] %}
+  {% if type == "file_c" %}{% set pattern = "*.c" %}
+  {% elif type == "file_s" %}{% set pattern = "*.[sS]" %}
+  {% elif type == "file_asm" %}{% set pattern = "*.asm" %}
+  {% elif type == "file_h" %}{% set pattern = "*.h" %}
+  {% elif type == "file_ao" %}{% set pattern = "*.[ao]" %}
+  {% endif %}
+  {# get files from Code Generator's meta-files #}
+  {% for configModule in context["CODEGEN"] %}
+    {% if "sampleApps" in configModule %}
+      {% for sa in configModule["sampleApps"] %}
+        {% if sa["id"] == context["DEVICE_NAME"]["id"] %}
+          {% if "requiredCgm" in sa %}
+            {% for rcgm in sa["requiredCgm"] %}
+              {% if "groups" in rcgm %}
+                {% for rcgmg in rcgm["groups"] %}
+                  {% for configModule in context["CODEGEN"] %}
+                    {% if "codeGenModules" in configModule %}
+                      {% for cgm in configModule["codeGenModules"] %}
+                        {% if cgm["targetCompat"]|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+                          {% if cgm["id"] == rcgm["id"] %}
+                            {% if "groups" in cgm %}
+                              {% for cgmg in cgm["groups"] %}
+                                {% if cgmg["targetCompat"]|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+                                  {% if cgmg["id"]|fnmatch(rcgmg["id"]) %}
+                                    {% if type == "file_c"
+                                       or type == "file_asm"
+                                       or type == "file_h"
+                                       or type == "file_ao" %}
+                                      {% if cgmg["command"] == "copy" %}
+                                        {% set dir = cgmg["dstDir"] %}
+                                        {% if "files" in cgmg %}
+                                          {% for f in cgmg["files"] %}
+                                            {% if f|fnmatch(pattern) %}
+                                              {% set v = dir|pathjoinnormalise(f) %}
+                                              {% if v not in list %}
+                                                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+                                              {% endif %}
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% elif cgmg["command"] == "render" %}
+                                        {% set dir = cgmg["dstDir"] %}
+                                        {% if "files" in cgmg %}
+                                          {% for f in cgmg["files"] %}
+                                            {% if f|fnmatch(pattern ~ ".template") %}
+                                              {% set fRendered = f|regexsub("\.template$","") %}
+                                              {% set v = dir|pathjoinnormalise(fRendered) %}
+                                              {% if v not in list %}
+                                                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+                                              {% endif %}
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% endif %}
+                                    {% elif type == "include" %}
+                                      {% if cgmg["command"] == "include" %}
+                                        {% set dir = cgmg["dstDir"] %}
+                                        {% if "incDirs" in cgmg %}
+                                          {% for d in cgmg["incDirs"] %}
+                                            {% set v = dir|pathjoinnormalise(d) %}
+                                            {% if v not in list %}
+                                              {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% elif cgmg["command"] == "copy" %}
+                                        {% set dir = cgmg["dstDir"] %}
+                                        {% if "files" in cgmg %}
+                                          {% for f in cgmg["files"] %}
+                                            {% if f|fnmatch("*.h") %}
+                                              {% set fDir = f|pathdirname %}
+                                              {% set v = dir|pathjoinnormalise(fDir) %}
+                                              {% if v not in list %}
+                                                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+                                              {% endif %}
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% endif %}
+                                    {% elif type == "macros_dashd"
+                                         or type == "macros_conf" %}
+                                      {% if cgmg["command"] == "macro" %}
+                                        {% if type in cgmg %}
+                                          {% for m in cgmg[type] %}
+                                            {%- if m not in list -%}
+                                              {%- if list.append(m) -%}{%- endif -%}
+{{ prefix }}{{ m }}{{ postfix }}
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% endif %}
+                                    {% endif %}
+                                  {% endif %}
+                                {% endif %}
+                              {% endfor %}
+                            {% endif %}
+                            {% break %}
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  {# get .c files from Appbuilder plugins' meta-files #}
+{#   {% if type == "file_c" %}
+    {% for p in context["PLUGINS"] %}
+      {% if p["enabled"] %}
+        {% for k in p["Common source files"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Common source files"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f) %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% for k in p["Per-architecture source files"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Per-architecture source files"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f) %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% for f in context["DEVICE_NAME"]["include"] %}
+      {% if f|pathisdir %}
+        {% set baseDir = f|pathdirname %}
+        {% set files = f|listallfiles %}
+        {% for ff in files %}
+          {% if ff|regexsearch("[\S]*\.c\Z") %}
+            {% set v = ff|replace(baseDir, context["PROJECT_INFO"]["rootDir"]) %}
+            {% if v not in list %}
+              {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if f|regexsearch("[\S]*\.c\Z") %}
+          {% set baseDir = f|pathdirname %}
+          {% set v = f|replace(baseDir, context["PROJECT_INFO"]["rootDir"]) %}
+          {% if v not in list %}
+            {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% for f in context["GENERATED_SOURCE_FILES"] %}
+      {% if f not in list %}
+        {%- if list.append(f) -%}{%- endif -%}
+{{ prefix }}{{ f }}{{ postfix }}
+      {% endif %}
+    {% endfor %} #}
+  {# get .h files from Appbuilder plugins' meta-files #}
+{#   {% elif type == "file_h" %}
+    {% for p in context["PLUGINS"] %}
+      {% if p["enabled"] %}
+        {% for k in p["Header files"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Header files"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f) %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% for f in context["DEVICE_NAME"]["include"] %}
+      {% if f|pathisdir %}
+        {% set baseDir = f|pathdirname %}
+        {% set files = f|listallfiles %}
+        {% for ff in files %}
+          {% if ff|regexsearch("[\S]*\.h\Z") %}
+            {% set v = f|replace(baseDir, context["PROJECT_INFO"]["rootDir"]) %}
+            {% if v not in list %}
+              {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if f|regexsearch("[\S]*\.h\Z") %}
+          {% set baseDir = f|pathdirname %}
+          {% set v = f|replace(baseDir, context["PROJECT_INFO"]["rootDir"]) %}
+          {% if v not in list %}
+            {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %} #}
+  {# get .a and .o files from Appbuilder plugins' meta-files #}
+{#   {% elif type == "file_ao" %}
+    {% for p in context["PLUGINS"] %}
+      {% if p["enabled"] %}
+        {% for k in p["Precompiled libraries"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Precompiled libraries"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f) %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %} #}
+  {# get include paths from Appbuilder plugins' meta-files #}
+{#   {% elif type == "include" %}
+    {% for p in context["PLUGINS"] %}
+      {% if p["enabled"] %}
+        {% for k in p["Include paths"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Include paths"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f) %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% for k in p["Header files"] %}
+          {% if k|isarchcompatible(context["ARCHITECTURE_ID"]) %}
+            {% for f in p["Header files"][k] %}
+              {% set v = p["Location"]|pathjoinnormalise(f)|pathdirname %}
+              {% if v not in list %}
+                {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% for f in context["DEVICE_NAME"]["include"] %}
+      {% if f|pathisdir %}
+        {% set baseDir = f|pathdirname %}
+        {% set files = f|listallfiles %}
+        {% for ff in files %}
+          {% if ff|regexsearch("[\S]*\.h\Z") %}
+            {% set v = f|replace(baseDir, context["PROJECT_INFO"]["rootDir"]) %}
+            {% if v not in list %}
+              {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{ v }}{{ postfix }}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %} #}
+  {# get dashd macros from Appbuilder plugins' meta-files #}
+{#   {% elif type == "macros_dashd" %}
+    {% for m in context["MACROS"] %}
+      {% if m["is_dashd"] == "true" %}
+        {% set v = m["macro_id"] %}
+        {% if m["value"] %}
+          {% set v = v ~ "=" ~ m["value"] %}
+        {% endif %}
+        {% if v not in list %}
+          {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{m["macro_id"]-}}
+          {% if m["value"] %}
+={{m["value"]-}}
+          {% endif %}
+{{- postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %} #}
+  {# get configuration macros from Appbuilder plugins' meta-files #}
+{#   {% elif type == "macros_conf" %}
+    {% for m in context["MACROS"] %}
+      {% if m["is_dashd"] == "false" %}
+        {% set v = m["macro_id"] %}
+        {% if m["value"] %}
+          {% set v = v ~ "=" ~ m["value"] %}
+        {% endif %}
+        {% if v not in list %}
+          {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{m["macro_id"]-}}
+          {% if m["value"] %}
+={{m["value"]-}}
+          {% endif %}
+{{- postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %} #}
+  {# get .c, .asm or .h files from Appbuilder setup contributions #}
+  {% if type == "file_c"
+     or type == "file_s"
+     or type == "file_asm"
+     or type == "file_h" %}
+    {% for f in context["SETUP_CONFIG"]["sourceFiles"] %}
+      {% set f = f|pathrelpath(context["PROJECT_INFO"]["rootDir"]) %}
+      {% if f|fnmatch(pattern) %}
+        {% if f not in list %}
+          {%- if list.append(f) -%}{%- endif -%}
+{{ prefix }}{{ f }}{{ postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {# get .a or .o files from Appbuilder setup contributions #}
+  {% elif type == "file_ao" %}
+    {% for f in context["SETUP_CONFIG"]["libraries"] %}
+      {% set f = f|pathrelpath(context["PROJECT_INFO"]["rootDir"]) %}
+      {% if f|fnmatch(pattern) %}
+        {% if f not in list %}
+          {%- if list.append(f) -%}{%- endif -%}
+{{ prefix }}{{ f }}{{ postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {# get include paths from Appbuilder setup contributions #}
+  {% elif type == "include" %}
+    {% for f in context["SETUP_CONFIG"]["includePaths"] %}
+      {% if f not in list %}
+        {%- if list.append(f) -%}{%- endif -%}
+{{ prefix }}{{ f }}{{ postfix }}
+      {% endif %}
+    {% endfor %}
+  {# get dashd macros from Appbuilder setup contributions #}
+  {% elif type == "macros_dashd" %}
+    {% for m in context["SETUP_CONFIG"]["macros"] %}
+      {% if m["is_dashd"] %}
+        {% set v = m["macro_id"] %}
+        {% if m["value"] %}
+          {% set v = v ~ "=" ~ m["value"] %}
+        {% endif %}
+        {% if v not in list %}
+          {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{m["macro_id"]-}}
+          {% if m["value"] %}
+={{m["value"]-}}
+          {% endif %}
+{{- postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {# get configuration macros from Appbuilder setup contributions #}
+  {% elif type == "macros_conf" %}
+    {% for m in context["SETUP_CONFIG"]["macros"] %}
+      {% if not m["is_dashd"] %}
+        {% set v = m["macro_id"] %}
+        {% if m["value"] %}
+          {% set v = v ~ "=" ~ m["value"] %}
+        {% endif %}
+        {% if v not in list %}
+          {%- if list.append(v) -%}{%- endif -%}
+{{ prefix }}{{m["macro_id"]-}}
+          {% if m["value"] %}
+={{m["value"]-}}
+          {% endif %}
+{{- postfix }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
+{%- macro getSourceFiles(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "file_c", prefix, postfix)}}
+{{getFilesIncludesMacros(context, "file_s", prefix, postfix)}}
+{{getFilesIncludesMacros(context, "file_asm", prefix, postfix)}}
+{%- endmacro -%}
+
+{%- macro getHeaderFiles(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "file_h", prefix, postfix)}}
+{%- endmacro -%}
+
+{%- macro getLibraryFiles(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "file_ao", prefix, postfix)}}
+{%- endmacro -%}
+
+{%- macro getIncludePaths(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "include", prefix, postfix)}}
+{%- endmacro -%}
+
+{%- macro getDashDMacros(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "macros_dashd", prefix, postfix)}}
+{%- endmacro -%}
+
+{%- macro getConfigurationMacros(context, prefix, postfix) -%}
+{{getFilesIncludesMacros(context, "macros_conf", prefix, postfix)}}
+{%- endmacro -%}
+
+{# get callbacks #}
+{%- macro getCallbacks(context) -%}
+  {% for c in context["CALLBACKS"] %}
+    {% if c["isCustomerImplementedCallback"] == "true"
+      and c["isStubRequested"] == "true" %}
+{{c["text"]}}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{# get callback prototypes #}
+{%- macro getCallbackPrototypes(context) -%}
+  {% for c in context["CALLBACKS"] %}
+{{c["prototype"]}}
+
+  {% endfor %}
+{% endmacro %}
+
+{# get callback stubs #}
+{%- macro getCallbackStubs(context) -%}
+  {% for c in context["CALLBACKS"] %}
+    {% if c["isCustomerImplementedCallback"] == "false"
+      and c["isStubRequested"] == "true" %}
+{{c["text"]}}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{# find value in dict and get corresponding key #}
+{% macro dictGetKeyByValue(d, v) %}
+  {% for k in d %}
+    {% if d[k] == v %}
+{{ v }}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{%- macro getArchIdModifier(arch, modifier) -%}
+  {% set modifierRegex = ".*~"~modifier~"\[([a-zA-Z0-9]+)\].*" %}
+  {% if arch[0]|regexsearch(modifierRegex) %}
+{{- arch[0]|regexsub(modifierRegex, "\g<1>") -}}
+  {% endif %}
+{% endmacro %}
+

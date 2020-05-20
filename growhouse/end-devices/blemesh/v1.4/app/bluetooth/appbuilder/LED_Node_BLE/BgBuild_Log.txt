@@ -1,0 +1,12 @@
+// Copyright 2019 Silicon Laboratories, Inc.
+//
+//
+
+Executing: bgbuild (/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/blemesh/v1.4/protocol/bluetooth/bin/bgbuild)
+Standard output
+ALL OK
+
+Error/Warning output
+WARNING: 2a26 max length attribute is 36 but actual value length is 30. 36 will be used.
+
+
