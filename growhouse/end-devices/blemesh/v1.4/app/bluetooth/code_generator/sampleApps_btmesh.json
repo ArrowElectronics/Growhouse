@@ -1,0 +1,384 @@
+{
+  "sampleAppRoot": "../appbuilder/sample-apps",
+  "sampleApps": [
+    {
+      "id": "soc-btmesh-empty",
+      "rootDir": "soc-btmesh-empty",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_*"},
+            {"id": "psstore_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_soc-btmesh-empty_files"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "dcd_config"}
+          ]
+        }, 
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "board_features_generate"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ncp-btmesh-empty-target",
+      "rootDir": "ncp-btmesh-empty-target",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_stack_*"},
+            {"id": "mesh_precompiled_coex_*"},
+            {"id": "nvm3_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_ncp-btmesh-empty-target"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "dcd_config"}
+          ]
+        }, 
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "common_ncp_files_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "plugin_uartdrv_sourceFiles_1"},
+            {"id": "plugin_bgapi_sourceFiles_*"},
+            {"id": "plugin_bgapi_headerFiles_*"},
+            {"id": "board_features_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ncp-secure-btmesh-empty-target",
+      "rootDir": "ncp-btmesh-empty-target",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_stack_*"},
+            {"id": "mesh_precompiled_coex_*"},
+            {"id": "macro_secure_ncp_mbedtls_config"},
+            {"id": "nvm3_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_secure-ncp-btmesh-empty-target"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "securencp_mbedtls_headerFiles"},
+            {"id": "dcd_config"}
+          ]
+        }, 
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "common_ncp_files_2"},
+            {"id": "common_ncp_files_3"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "plugin_uartdrv_sourceFiles_1"},
+            {"id": "plugin_bgapi_sourceFiles_*"},
+            {"id": "plugin_bgapi_headerFiles_*"},
+            {"id": "board_features_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soc-btmesh-light",
+      "rootDir": "soc-btmesh-light",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_*"},
+            {"id": "psstore_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_soc-btmesh-light_files"},
+            {"id": "sampleapp_common-btmesh-light_*"},
+            {"id": "graphics_files"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "dcd_config"},
+            {"id": "display_interface_files"},
+            {"id": "lcd_driver_files"},
+            {"id": "led_driver_files"},
+            {"id": "led_control_files"},
+            {"id": "led_routeloc_file"}
+          ]
+        },
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "platform_middleware_glib"},
+            {"id": "plugin_kit_lcd_sourceFiles_common"},
+            {"id": "plugin_kit_lcd_headerFiles_common"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "plugin_gpiointerrupt"},
+            {"id": "app_init_serial_*"},
+            {"id": "board_features_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_kit_config_headerFiles_tb2"},
+            {"id": "thunderboard_sense_drivers_util_common"},
+            {"id": "thunderboard_sense_drivers_board_common"},
+            {"id": "thunderboard_sense_drivers_board_tbsense2"},
+            {"id": "app_init_i2cspm"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soc-btmesh-hsl",
+      "rootDir": "soc-btmesh-hsl",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_*"},
+            {"id": "psstore_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_soc-btmesh-hsl_files"},
+            {"id": "sampleapp_common-btmesh-light_*"},
+            {"id": "graphics_files"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "dcd_config"},
+            {"id": "display_interface_files"},
+            {"id": "lcd_driver_files"},
+            {"id": "led_driver_files"},
+            {"id": "led_control_files"},
+            {"id": "led_routeloc_file"}
+          ]
+        }, 
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "platform_middleware_glib"},
+            {"id": "plugin_kit_lcd_sourceFiles_common"},
+            {"id": "plugin_kit_lcd_headerFiles_common"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "plugin_gpiointerrupt"},
+            {"id": "app_init_serial_*"},
+            {"id": "board_features_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_kit_config_headerFiles_tb2"},
+            {"id": "thunderboard_sense_drivers_util_common"},
+            {"id": "thunderboard_sense_drivers_board_common"},
+            {"id": "thunderboard_sense_drivers_board_tbsense2"},
+            {"id": "app_init_i2cspm"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soc-btmesh-switch",
+      "rootDir": "soc-btmesh-switch",
+      "requiredCgm": [
+        {
+          "id": "appbuilder-mesh",
+          "groups": [
+            {"id": "mesh_precompiled_*"},
+            {"id": "psstore_*"},
+            {"id": "linker_*"},
+            {"id": "plugin_mesh_sourceFiles"},
+            {"id": "plugin_mesh_headerFiles"},
+            {"id": "macro_gcc_linker_config"},
+            {"id": "sampleapp_soc-btmesh-switch_files"},
+            {"id": "graphics_files"},
+            {"id": "mesh_native_macros"},
+            {"id": "dfu_files"},
+            {"id": "dcd_config"},
+            {"id": "display_interface_files"},
+            {"id": "lcd_driver_files"}
+          ]
+        }, 
+        {
+          "id": "appbuilder",
+          "groups": [
+            {"id": "plugin_emlib_*"},
+            {"id": "plugin_device_*"},
+            {"id": "module_headerFiles_*"},
+            {"id": "plugin_emdrv_*"},
+            {"id": "plugin_cmsis_*"},
+            {"id": "pti_files"},
+            {"id": "plugin_rail_headerFiles_*"},
+            {"id": "static_hal_config_ioexp"},
+            {"id": "device_SiliconLabs_system_*"},
+            {"id": "platform_middleware_glib"},
+            {"id": "plugin_kit_lcd_sourceFiles_common"},
+            {"id": "plugin_kit_lcd_headerFiles_common"},
+            {"id": "plugin_kit_flashpwr_sourceFiles_*"},
+            {"id": "plugin_kit_flashpwr_headerFiles_*"},
+            {"id": "plugin_kit_config_headerFiles_halconfig_*"},
+            {"id": "plugin_gecko_bootloader_headerFiles_1"},
+            {"id": "plugin_kit_common_*"},
+            {"id": "app_init_serial_*"},
+            {"id": "plugin_gpiointerrupt"},
+            {"id": "platform_emdrv_dmadrv_config"},
+            {"id": "plugin_kit_hal_config_*"},
+            {"id": "hal_config_app_common_generate"},
+            {"id": "hal_config_custom_board_generate"},
+            {"id": "board_features_generate"},
+            {"id": "init_mcu_*"},
+            {"id": "init_board_*"},
+            {"id": "init_app_*"},
+            {"id": "hardware_kit_common_*"},
+            {"id": "plugin_module_fem_*"},
+            {"id": "iar_ew"},
+            {"id": "configuration"},
+            {"id": "postbuild_windows"},
+            {"id": "postbuild_posix"}
+          ]
+        }
+      ]
+    }
+  ]
+}

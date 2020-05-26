@@ -1,0 +1,13 @@
+<map id="btl_errorcode.h" name="btl_errorcode.h">
+<area shape="rect" id="node2" href="$btl__interface_8h.html" title="Application interface to the bootloader. " alt="" coords="47,80,161,107"/>
+<area shape="rect" id="node5" href="$btl__driver__spislave_8h.html" title="Universal SPI slave driver for the Silicon Labs Bootloader. " alt="" coords="185,80,335,107"/>
+<area shape="rect" id="node6" href="$btl__driver__uart_8h.html" title="Universal UART driver for the Silicon Labs Bootloader. " alt="" coords="359,80,486,107"/>
+<area shape="rect" id="node7" href="$btl__communication_8h.html" title="Communication interface for Silicon Labs Bootloader. " alt="" coords="510,80,666,107"/>
+<area shape="rect" id="node9" href="$btl__decompress__lz4_8h.html" title="LZ4 decompression functionality for Gecko Bootloader. " alt="" coords="690,80,851,107"/>
+<area shape="rect" id="node10" href="$btl__decompress__lzma_8h.html" title="LZMA decompression functionality for Gecko Bootloader. " alt="" coords="875,80,1050,107"/>
+<area shape="rect" id="node11" href="$btl__security__ecdsa_8h.html" title="ECDSA signing functionality for Silicon Labs bootloader. " alt="" coords="1075,80,1227,107"/>
+<area shape="rect" id="node12" href="$ecc_8h.html" title="ECC API definition. " alt="" coords="1251,80,1307,107"/>
+<area shape="rect" id="node3" href="$btl__storage_8h.html" title="Storage plugin for Silicon Labs Bootloader. " alt="" coords="5,155,112,181"/>
+<area shape="rect" id="node4" href="$btl__storage__internal_8h.html" title="Internal header for the storage plugin of the Silicon Labs Bootloader. " alt="" coords="23,229,185,256"/>
+<area shape="rect" id="node8" href="$btl__ezsp__spi_8h.html" title="XMODEM parser plugin for Silicon Labs Bootloader. " alt="" coords="532,155,644,181"/>
+</map>

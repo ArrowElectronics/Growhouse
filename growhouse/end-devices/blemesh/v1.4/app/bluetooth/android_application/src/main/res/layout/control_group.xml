@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.Light">
+
+    <LinearLayout
+        android:id="@+id/ll_master_control"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingEnd="@dimen/adapter_layout_padding"
+            android:paddingStart="@dimen/adapter_layout_padding"
+            android:paddingTop="15dp"
+            android:text="@string/control_group_device_master_control_label"
+            android:textColor="@color/adapter_item_label_color"
+            android:textSize="@dimen/adapter_label_medium_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/adapter_item_background"
+            android:orientation="vertical"
+            android:padding="@dimen/adapter_layout_padding">
+
+            <LinearLayout
+                android:id="@+id/ll_switch_control"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/adapter_item_padding"
+                        android:text="@string/control_group_device_switch_label"
+                        android:textColor="@color/adapter_item_title_color"
+                        android:textSize="@dimen/adapter_label_big_size" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:src="@drawable/toggle_off" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_light_control"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/adapter_item_padding"
+                    android:text="@string/control_group_device_light_label"
+                    android:textColor="@color/adapter_item_title_color"
+                    android:textSize="@dimen/adapter_label_big_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <SeekBar
+                        android:id="@+id/sb_light_control"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:max="100"
+                        android:maxHeight="2dp"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/seekbar" />
+
+                    <TextView
+                        android:id="@+id/tv_light_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:text="0 %"
+                        android:textColor="@color/adapter_item_value_color"
+                        android:textSize="@dimen/adapter_label_big_size" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingEnd="@dimen/adapter_layout_padding"
+            android:paddingStart="@dimen/adapter_layout_padding"
+            android:paddingTop="15dp"
+            android:text="@string/control_group_device_devices_label"
+            android:textColor="@color/adapter_item_label_color"
+            android:textSize="@dimen/adapter_label_medium_size" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/devices_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/adapter_item_divider"
+            android:dividerHeight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_empty_view"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/adapter_item_padding"
+                android:text="@string/device_adapter_empty_list_title"
+                android:textColor="@color/adapter_item_title_color"
+                android:textSize="@dimen/adapter_label_big_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/adapter_item_padding"
+                android:text="@string/device_adapter_empty_list_message"
+                android:textColor="@color/adapter_item_title_color"
+                android:textSize="@dimen/adapter_label_big_size" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

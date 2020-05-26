@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems>
+  <contentItemData category="API References" itemURI="http://devtools.silabs.com/dl/documentation/doxygen/5.6/" label="Gecko HAL and Driver API Reference Guide">
+    <description>Covers CMSIS, EMLIB Peripheral Library, EnergyAware Driver library, middleware and development kit support.</description>
+  </contentItemData>
+  <contentItemData category="-&gt; Start Here" itemURI="https://www.silabs.com/community/wireless/bluetooth/knowledge-base.entry.html/2018/04/08/kba_master_list-MxiO" label="Knowledge Base">
+    <description>If you cannot find information in these documents or in on-line help, try the knowledge base.</description>
+  </contentItemData>
+  <contentItemData category="-&gt; Start Here" itemURI="https://www.silabs.com/support/training/bluetooth" label="Bluetooth Training">
+    <description>Here you can find our Bluetooth training curriculum with a collection of relevant documents, tutorials and lab manuals.</description>
+  </contentItemData>
+  <contentItemData category="Additional Resources" itemURI="asset://examples/ble_2000/examples_thunderboard_sense/doc/index.html" label="Thunderboard Sense Documentation">
+    <description>Covers BSP reference, Thunderboard Sense examples, instructions for IAR EWARM, and links to additional online resources.</description>
+  </contentItemData>
+  <contentItemData category="Quick Start Guides" itemURI="qsg139-getting-started-with-bluetooth.pdf" label="QSG139: Getting Started with Bluetooth Software Development">
+    <description>Describes using the Simplicity Studio IDE and tools for Bluetooth application development.</description>
+  </contentItemData>
+  <contentItemData category="-&gt; Start Here" itemURI="qsg139-getting-started-with-bluetooth.pdf" label="QSG139: Getting Started with Bluetooth Software Development">
+    <description>Describes using the Simplicity Studio IDE and tools for Bluetooth application development.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug136-ble-c-soc-dev-guide.pdf" label="UG136: Silicon Labs Bluetooth C Application Developer's Guide">
+    <description>Covers the Bluetooth stack architecture, application development flow, using the MCU core and peripherals, stack configuration options, and stack resource usage. </description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug118-bluegecko-bt-profile-toolkit.pdf" label="UG118: Blue Gecko Bluetooth Profile Toolkit Developer's Guide">
+    <description>Reviews using this XML-based mark-up language to describe the Bluetooth GATT database, configure access and security properties, and include the GATT database as part of the firmware.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug365-gatt-configurator-users-guide.pdf" label="UG365: GATT Configurator User's Guide">
+    <description>Describes how to use the GATT Configurator, an intuitive interface providing access to all the Profiles, Services, Characteristics, and Descriptors as defined in the Bluetooth specification.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug305-dynamic-multiprotocol-users-guide.pdf" label="UG305: Dynamic Multiprotocol User's Guide">
+    <description>Describes how to implement a dynamic multiprotocol solution.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug266-gecko-bootloader-user-guide.pdf" label="UG266: Silicon Labs Gecko Bootloader User's Guide">
+    <description>Details implementing the Silicon Labs Gecko Bootloader for EFR32 SoCs and NCPs with Silicon Labs wireless protocol stacks.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug162-simplicity-commander-reference-guide.pdf" label="UG162: Simplicity Commander Reference Guide">
+    <description>Describes using Simplicity Commander's Command-Line Interface to configure and flash applications, and create binary images of them.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-14-fundamentals-ble.pdf" label="UG103.14: Bluetooth LE Fundamentals">
+    <description>Offers an overview for those new to the Bluetooth low energy technology.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-06-fundamentals-bootloading.pdf" label="UG103.6: Bootloader Fundamentals">
+    <description>Introduces bootloading for Silicon Labs networking devices.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-07-non-volatile-data-storage-fundamentals.pdf" label="UG103.7: Non-Volatile Data Storage Fundamentals">
+    <description>Introduces non-volatile data storage using flash and the three different storage implementations offered for Silicon Labs microcontrollers and SoCs: Simulated EEPROM, PS Store, and NVM3.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-16-multiprotocol-fundamentals.pdf" label="UG103.16: Multiprotocol Fundamentals">
+    <description>Described the four multiprotocol modes, discusses considerations when selecting protocols for multiprotocol implementations, and reviews the Radio Scheduler, a required component of a dynamic multiprotocol solution.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1086-gecko-bootloader-bluetooth.pdf" label="AN1086: Using the Gecko Bootloader with the Silicon Labs Bluetooth Applications">
+    <description>Includes detailed information on using the Silicon Labs Gecko Bootloader with Silicon Labs Bluetooth applications. It supplements the general Gecko Bootloader implementation information provided in UG266: Silicon Labs Gecko Bootloader User's Guide.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1135-using-third-generation-nonvolatile-memory.pdf" label="AN1135: Using Third Generation Non-Volatile Memory (NVM3) Data Storage">
+    <description>Explains how NVM3 can be used as non-volatile data storage in various protocol implementations.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1114-integrating-bluetooth-applications-with-rtos.pdf" label="AN1114: Integrating Silicon Labs Bluetooth Applications with the Micrium RTOS">
+    <description>Describes how to integrate a Silicon Labs Bluetooth application with an RTOS, using the Thermometer example as an illustration.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an971-efr32-radio-configurator-guide.pdf" label="AN971: EFR32 Radio Configurator Guide">
+    <description>Describes the radio configurator GUI for RAIL framework applications. With it, you can create standard or custom radio configurations on which to run your RAIL-based applications. The role of each GUI item is explained.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1134-bluetooth-rail-dynamic-multiprotocol.pdf" label="AN1134: Dynamic Multiprotocol Development with Bluetooth and Proprietary Protocols on RAIL">
+    <description>Provides details on how to develop a dynamic multiprotocol application running Bluetooth and a proprietary protocol on RAIL.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1128-bluetooth-coexistence-with-wifi.pdf" label="AN1128: Bluetooth Coexistence with Wi-Fi">
+    <description>Describes the Wi-Fi impact on Bluetooth and methods to improve Bluetooth coexistence with Wi-Fi. Explains design considerations to improve coexistence without direct interaction between Bluetooth and Wi-Fi radios. These techniques are applicable to the Silicon Labs Mighty Gecko (EFR32MGx series) and Blue Gecko (EFR32BGx series). Discusses the Silicon Labs Packet Traffic Arbitration (PTA) support to coordinate 2.4GHz RF traffic for co-located Bluetooth and Wi-Fi radios.</description>
+  </contentItemData>
+  <contentItemData category="API References" itemURI="bluetooth-api-reference.pdf" label="Bluetooth Software API Reference Manual">
+    <description>Describes commands, events, enumerations and error codes in the Bluetooth stack and SDK.</description>
+  </contentItemData>
+  <contentItemData category="Release Notes" itemURI="bt-software-release-notes.pdf" label="Bluetooth Software Release Notes">
+    <description>Bluetooth: Lists improvements and fixed and known issues.</description>
+  </contentItemData>
+</contentItems>

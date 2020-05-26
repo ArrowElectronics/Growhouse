@@ -1,0 +1,157 @@
+device "EM3xx NCP" {
+  # HAL.
+  required:adc
+  required:ember-minimal-printf
+  required:ext-device
+  required:hal-library
+  required:serial
+
+  # HAL.
+  recommended:antenna-stub
+  recommended:button-stub
+  recommended:diagnostic
+  recommended:led
+  recommended:sim-eeprom2
+  recommended:sim-eeprom2-1to2-upgrade-stub
+
+  optional:antenna
+  optional:diagnostic-stub
+  optional:antenna-stub
+  optional:led-stub
+  optional:sim-eeprom1
+
+  # STACK.
+  required:rail-library
+  required:security-library-core
+  required:zigbee-pro-stack
+
+  recommended:binding-table-library
+  recommended:cbke-163k1-stub-library
+  recommended:cbke-283k1-stub-library
+  recommended:cbke-library-dsa-sign-stub
+  recommended:cbke-library-dsa-verify-stub
+  recommended:cbke-library-dsa-verify-283k1-stub
+  recommended:cbke-stub-library
+  recommended:debug-basic-library
+  recommended:debug-extended-library
+  recommended:end-device-bind-library
+  recommended:gp-library
+  recommended:install-code-library
+  recommended:mfglib-library
+  recommended:multi-network-library
+  recommended:packet-validate-library
+  recommended:security-library-link-keys
+  recommended:zigbee-r22-support-stub-library
+  recommended:zll-library
+  
+  optional:binding-table-stub-library
+  optional:cbke-163k1-library
+  optional:cbke-283k1-library
+  optional:cbke-library-core
+  optional:cbke-library-dsa-sign
+  optional:cbke-library-dsa-verify
+  optional:cbke-library-dsa-verify-283k1
+  optional:debug-basic-stub-library
+  optional:debug-extended-stub-library
+  optional:end-device-bind-stub-library
+  optional:gp-stub-library
+  optional:install-code-library-stub
+  optional:mfglib-stub-library
+  optional:multi-network-stub-library
+  optional:packet-validate-stub-library
+  optional:security-library-link-keys-stub
+  optional:zigbee-r22-support-library
+  optional:zll-stub-library
+  
+  # APP.
+  required:ezsp-security
+  required:ezsp-zigbee-pro
+
+  recommended:ezsp-binding
+  recommended:ezsp-cbke
+  recommended:ezsp-gp
+  recommended:ezsp-mfglib
+  recommended:ezsp-zll
+
+  # UTIL.
+  recommended:concentrator-support-library
+  recommended:xncp-stub
+  
+  optional:concentrator-support-stub-library
+  optional:xncp
+}
+
+device "EFR32" {
+  # HAL.
+  required:adc
+  required:ember-minimal-printf
+  required:ext-device
+  required:hal-library
+  required:serial
+
+  # HAL.
+  recommended:antenna-stub
+  recommended:button-stub
+  recommended:diagnostic
+  recommended:led
+  recommended:sim-eeprom2
+  recommended:sim-eeprom2-1to2-upgrade-stub
+
+  optional:antenna
+  optional:diagnostic-stub
+  optional:antenna-stub
+  optional:led-stub
+  optional:sim-eeprom1
+
+  # STACK.
+  required:security-library-core
+  required:zigbee-pro-stack
+
+  recommended:alarm-stub-library
+  recommended:binding-table-library
+  recommended:cbke-163k1-library
+  recommended:cbke-283k1-library
+  recommended:cbke-library-core
+  recommended:cbke-library-dsa-sign-stub
+  recommended:cbke-library-dsa-verify
+  recommended:cbke-library-dsa-verify-283k1
+  recommended:debug-basic-library
+  recommended:debug-extended-stub-library
+  recommended:end-device-bind-stub-library
+  recommended:gp-stub-library
+  recommended:install-code-library
+  recommended:mfglib-stub-library
+  recommended:multi-network-stub-library
+  recommended:ncp-uart
+  recommended:packet-validate-library
+  recommended:security-library-link-keys
+  recommended:zigbee-r22-support-library
+  recommended:zll-stub-library
+
+  optional:alarm-library
+  optional:binding-table-stub-library
+  optional:cbke-163k1-stub-library
+  optional:cbke-283k1-stub-library
+  optional:cbke-library-dsa-sign
+  optional:cbke-library-dsa-verify-283k1-stub
+  optional:cbke-library-dsa-verify-stub
+  optional:cbke-stub-library
+  optional:debug-basic-stub-library
+  optional:debug-extended-library
+  optional:end-device-bind-library
+  optional:install-code-library-stub
+  optional:packet-validate-stub-library
+  optional:security-library-link-keys-stub
+  optional:zll-library
+
+  # APP.
+  required:ezsp-security
+  required:ezsp-zigbee-pro
+
+  recommended:ezsp-binding
+  recommended:ezsp-cbke
+
+  # UTIL.
+  recommended:concentrator-support-library
+  recommended:xncp-stub
+}

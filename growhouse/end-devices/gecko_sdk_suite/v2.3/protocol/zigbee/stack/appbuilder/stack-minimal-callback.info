@@ -1,0 +1,112 @@
+#include PLATFORM_HEADER
+#include EMBER_AF_API_STACK
+
+/** @brief Invoked to inform the application of the
+ * occurrence of an event defined by ::EmberCounterType, for example,
+ * transmissions and receptions at different layers of the stack.
+ *
+ * The application must define ::EMBER_APPLICATION_HAS_COUNTER_HANDLER
+ * in its CONFIGURATION_HEADER to use this.
+ * This function may be called in ISR context, so processing should
+ * be kept to a minimum.
+ *
+ * @param type  The type of the event.
+ * @param info could map to:
+ * 1. data: For transmission events, the number of retries used.
+ * For most other events, this parameter is unused and is set to zero.
+ * 2. phyIndex: use for mac specific counters specifying if they belong to SubGhz or 2.4
+ * 3. destinationNodeId: identifying which connection/destinationId a specific counter refers to
+ * 4. Any combination of parameters above
+ */
+void emberCounterHandler(EmberCounterType type, EmberCounterInfo info)
+{
+
+}
+
+/** @brief Allows the application to manage idling the MCU.
+ *
+ * @return   True if the application is managing idling the MCU, false otherwise.
+ * If this function returns false, the stack will manage idling the MCU.
+ */
+bool emberRtosIdleHandler(uint32_t *idleTimeMs)
+{
+  return false;
+}
+
+/** @brief Requests the application to wake up the stack task.
+ */
+void emberRtosStackWakeupIsrHandler(void)
+{
+}
+
+/** @brief Invoked when the status of the stack changes.
+ * If the
+ * status parameter equals ::EMBER_NETWORK_UP, the
+ * ::emberGetNetworkParameters()
+ * function can be called to obtain the new network parameters. If any of the
+ * parameters are being stored in nonvolatile memory by the application, the
+ * stored values should be updated.
+ *
+ * The application is free to begin messaging once it receives the
+ * ::EMBER_NETWORK_UP status. However, routes discovered immediately after
+ * the stack comes up may be suboptimal. This is because the routes are based
+ * on the neighbor table's information about two-way links with neighboring nodes,
+ * which is obtained from periodic Zigbee Link Status messages. It can take
+ * two or three link status exchange periods (of 16 seconds each) before the
+ * neighbor table has a good estimate of link quality to neighboring nodes.
+ * Therefore, the application may improve the quality of initially discovered
+ * routes by waiting after startup to give the neighbor table time
+ * to be populated.
+ *
+ * @param status  Stack status. One of the following:
+ * - ::EMBER_NETWORK_UP
+ * - ::EMBER_NETWORK_DOWN
+ * - ::EMBER_JOIN_FAILED
+ * - ::EMBER_MOVE_FAILED
+ * - ::EMBER_CANNOT_JOIN_AS_ROUTER
+ * - ::EMBER_NODE_ID_CHANGED
+ * - ::EMBER_PAN_ID_CHANGED
+ * - ::EMBER_CHANNEL_CHANGED
+ * - ::EMBER_NO_BEACONS
+ * - ::EMBER_RECEIVED_KEY_IN_THE_CLEAR
+ * - ::EMBER_NO_NETWORK_KEY_RECEIVED
+ * - ::EMBER_NO_LINK_KEY_RECEIVED
+ * - ::EMBER_PRECONFIGURED_KEY_REQUIRED
+ */
+void emberStackStatusHandler(EmberStatus status)
+{
+}
+
+/** @brief Reports the maximum RSSI value measured on the channel.
+ *
+ * @param channel       The 802.15.4 channel number on which the RSSI value
+ *   was measured.
+ *
+ * @param maxRssiValue  The maximum RSSI value measured (in units of dBm).
+ *
+ */
+void emberEnergyScanResultHandler(uint8_t channel, int8_t maxRssiValue)
+{
+}
+
+/** @brief The radio calibration callback function.
+ *
+ * The Voltage Controlled Oscillator (VCO) can drift with
+ * temperature changes. During every call to ::emberTick(), the stack will
+ * check to see if the VCO has drifted. If the VCO has drifted, the stack
+ * will call ::emberRadioNeedsCalibratingHandler() to inform the application
+ * that it should perform calibration of the current channel as soon as
+ * possible. Calibration can take up to 150 ms. The default callback function
+ * implementation provided here performs calibration immediately. The
+ * application can define its own callback by defining
+ * ::EMBER_APPLICATION_HAS_CUSTOM_RADIO_CALIBRATION_CALLBACK in its
+ * CONFIGURATION_HEADER. It can then failsafe any critical processes or
+ * peripherals before calling ::emberCalibrateCurrentChannel(). The
+ * application must call ::emberCalibrateCurrentChannel() in
+ * response to this callback to maintain expected radio performance.
+ */
+void emberRadioNeedsCalibratingHandler(void)
+{
+  // TODO: Failsafe any critical processes or peripherals.
+  emberCalibrateCurrentChannel();
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<paths>
+<files-path name="mesh_files" path="." />
+<external-files-path name="mesh_external_files" path="." />
+<cache-path name="mesh_cache" path="." />
+</paths>

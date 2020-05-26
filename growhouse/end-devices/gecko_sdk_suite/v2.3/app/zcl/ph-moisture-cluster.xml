@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configurator>
+  <cluster>
+    <name>pH Moisture Measurement</name>
+    <domain>Measurement &amp; Sensing</domain>
+    <description>Attributes for reporting ph and moisture measurements.</description>
+    <code>0xfd00</code>
+    <define>PH_MOISTURE_MEASUREMENT_CLUSTER</define>
+    <client init="false" tick="false">true</client>
+    <server init="false" tick="false">true</server>
+    <attribute side="server" code="0x0000" define="PH_MOISTURE_MEASURED_VALUE" type="INT32U" writable="false" reportable="true" default="0x0000" optional="false">measured value</attribute>     <!-- MEASURED_VALUE -->
+  </cluster>
+</configurator>

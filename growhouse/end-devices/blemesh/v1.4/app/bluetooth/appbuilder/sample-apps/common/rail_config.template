@@ -1,0 +1,361 @@
+{% set channel_config_entries %}
+      <channel_config_entries>
+        <channel_config_entry name="Channel Group 1">
+          <physical_channel_offset>SAME_AS_FIRST_CHANNEL</physical_channel_offset>
+          <channel_number_start>0</channel_number_start>
+          <channel_number_end>20</channel_number_end>
+          <max_power>RAIL_TX_POWER_MAX</max_power>
+        </channel_config_entry>
+      </channel_config_entries>
+    </base_channel_configuration>
+{% endset %}
+
+{% set efr32xg1_868m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="868M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_868M_2GFSK_38p4Kbps_20K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg1_915m_2gfsk_50kbps_25k %}
+    <base_channel_configuration name="915M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_915M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg1_2450m_2gfsk_1mbps_500k %}
+    <base_channel_configuration name="2450M_1Mbps" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg1_2450M_2gfsk_250kbps_125k %}
+    <base_channel_configuration name="2450M_250Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:DUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:DUMBO:Base:PHY_Datasheet_2450M_2GFSK_250Kbps_125K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_169m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="169M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_169M_2GFSK_38p4Kbps_20K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_434m_2gfsk_50kbps_25k %}
+    <base_channel_configuration name="434M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_434M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_490m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="490M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_490M_2GFSK_38p4Kbps_20"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_868m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="868M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_868M_2GFSK_38p4Kbps_20K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_915m_2gfsk_50kbps_25k %}
+    <base_channel_configuration name="915M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_915M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_2450m_2gfsk_1mbps_500k %}
+    <base_channel_configuration name="2450M_1Mbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg12_2450m_2gfsk_250kbps_125k %}
+    <base_channel_configuration name="2450M_250Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_2450M_2GFSK_250Kbps_125K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_169m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="169M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_169M_2GFSK_38p4Kbps_20K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_434m_2gfsk_50kbps_25k %}
+    <base_channel_configuration name="434M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_434M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_490m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="490M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_490M_2GFSK_38p4Kbps_20"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_868m_2gfsk_38_4kbps_20k %}
+    <base_channel_configuration name="868M_38p4Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_868M_2GFSK_38p4Kbps_20K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_915m_2gfsk_50kbps_25k %}
+    <base_channel_configuration name="915M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_915M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_2450m_2gfsk_1mbps_500k %}
+    <base_channel_configuration name="2450M_1Mbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg13_2450m_2gfsk_250kbps_125k %}
+    <base_channel_configuration name="2450M_250Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NERIO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NERIO:Base:PHY_Datasheet_2450M_2GFSK_250Kbps_125K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg14_2450m_2gfsk_1mbps_500k %}
+    <base_channel_configuration name="2450M_1Mbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NIXI:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NIXI:Base:PHY_Datasheet_2450M_2GFSK_1Mbps_500K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg14_2450m_2gfsk_250kbps_125k %}
+    <base_channel_configuration name="2450M_250Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:NIXI:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:NIXI:Base:PHY_Datasheet_2450M_2GFSK_250Kbps_125K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+{% set efr32xg1x_default %}
+    <base_channel_configuration name="434M_50Kbps" profile="serializableObject:Efr32RadioConfiguratorProfile:JUMBO:Base">
+      <phy name="serializableObject:Efr32RadioConfiguratorPhy:JUMBO:Base:PHY_Datasheet_434M_2GFSK_50Kbps_25K"/>
+{{ channel_config_entries -}}
+{% endset %}
+
+
+{% macro efr32xg1_skeleton(board) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="dumbo" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+{# First protocol #}
+  {% if "brd4150a" == board %}
+{{-efr32xg1_868m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4150b" == board
+       or "brd4150c" == board %}
+{{-efr32xg1_915m_2gfsk_50kbps_25k-}}
+  {% elif "brd4100a" == board
+       or "brd4101b" == board
+       or "brd4151a" == board
+       or "brd4153a" == board
+       or "brd4160a" == board
+       or "brd4300a" == board
+       or "brd4300c" == board
+       or "brd4300d" == board
+       or "brd4301a" == board
+       or "brd4302a" == board
+       or "brd4303a" == board
+       or "rd-0057-0101" == board %}
+{{-efr32xg1_2450m_2gfsk_1mbps_500k-}}
+  {% else %}
+{{-efr32xg1x_default-}}
+  {% endif %}
+{# Second protocol #}
+  {% if "brd4100a" == board
+       or "brd4101b" == board
+       or "brd4151a" == board
+       or "brd4153a" == board
+       or "brd4160a" == board
+       or "brd4300a" == board
+       or "brd4300c" == board
+       or "brd4300d" == board
+       or "brd4301a" == board
+       or "brd4302a" == board
+       or "brd4303a" == board
+       or "rd-0057-0101" == board %}
+{{-efr32xg1_2450M_2gfsk_250kbps_125k-}} 
+  {% else %}
+{{-efr32xg1_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+  </base_channel_configurations>
+</multi_phy_configuration>
+{% endmacro %}
+
+{% macro efr32xg12_skeleton(board) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="jumbo" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+{# First protocol #}
+  {% if "brd4172b" == board %}
+{{-efr32xg12_169m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4173a" == board %}
+{{-efr32xg12_434m_2gfsk_50kbps_25k-}}
+  {% elif "brd4172a" == board %}
+{{-efr32xg12_490m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4163a" == board %}
+{{-efr32xg12_868m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4164a" == board %}
+{{-efr32xg12_915m_2gfsk_50kbps_25k-}}
+  {% elif "brd4103a" == board
+       or "brd4161a" == board
+       or "brd4162a" == board
+       or "brd4166a" == board
+       or "brd4304a" == board %}
+{{-efr32xg12_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+{# Second protocol #}
+  {% if "brd4103a" == board
+       or "brd4161a" == board
+       or "brd4162a" == board
+       or "brd4166a" == board
+       or "brd4304a" == board %}
+{{-efr32xg12_2450m_2gfsk_250kbps_125k-}}
+  {% else %}
+{{-efr32xg12_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+  </base_channel_configurations>
+</multi_phy_configuration>
+{% endmacro %}
+
+{% macro efr32xg13_skeleton(board) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="nerio" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+{# First protocol #}
+  {% if "brd4174b" == board %}
+{{-efr32xg13_169m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4175a" == board %}
+{{-efr32xg13_434m_2gfsk_50kbps_25k-}}
+  {% elif "brd4174a" == board %}
+{{-efr32xg13_490m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4167a" == board %}
+{{-efr32xg13_868m_2gfsk_38_4kbps_20k-}}
+  {% elif "brd4158a" == board %}
+{{-efr32xg13_915m_2gfsk_50kbps_25k-}}
+  {% elif "brd4104a" == board
+       or "brd4159a" == board
+       or "brd4165b" == board
+       or "brd4168a" == board
+       or "brd4305a" == board
+       or "brd4305c" == board
+       or "brd4305d" == board
+       or "brd4305e" == board
+       or "brd4306a" == board
+       or "brd4306b" == board
+       or "brd4306c" == board
+       or "brd4306d" == board %}
+{{-efr32xg13_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+{# Second protocol #}
+  {% if "brd4104a" == board
+       or "brd4159a" == board
+       or "brd4165b" == board
+       or "brd4168a" == board
+       or "brd4305a" == board
+       or "brd4305c" == board
+       or "brd4305d" == board
+       or "brd4305e" == board
+       or "brd4306a" == board
+       or "brd4306b" == board
+       or "brd4306c" == board
+       or "brd4306d" == board %}
+{{-efr32xg13_2450m_2gfsk_250kbps_125k-}}    
+  {% else %}
+{{-efr32xg13_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+  </base_channel_configurations>
+</multi_phy_configuration>
+{% endmacro %}
+
+{% macro efr32xg14_skeleton(board) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="nixi" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+{# First protocol #}
+  {% if "brd4105a" == board
+       or "brd4169a" == board
+       or "brd4169b" == board %}
+{{-efr32xg14_2450m_2gfsk_1mbps_500k-}}
+  {% endif %}
+{# Second protocol #}
+  {% if "brd4105a" == board
+       or "brd4169a" == board
+       or "brd4169b" == board %}
+{{-efr32xg14_2450m_2gfsk_250kbps_125k-}}
+  {% endif %}
+  </base_channel_configurations>
+</multi_phy_configuration>
+{% endmacro %}
+
+{% macro efr32xg2_skeleton(board) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<multi_phy_configuration part_family="panther" part_revision="A0" rail_adapter_version="rail_api_2.x" status_code="0" xsd_version="0.0.13">
+  <base_channel_configurations>
+{# prepaird for later use #}
+  </base_channel_configurations>
+</multi_phy_configuration>
+{% endmacro %}
+
+
+{% macro getPhy(arch) -%}
+{# For all dumbo boards #}
+  {% if "brd4150a" == arch[1]
+       or "brd4150b" == arch[1]
+       or "brd4150c" == arch[1]
+       or "brd4100a" == arch[1]
+       or "brd4101b" == arch[1]
+       or "brd4151a" == arch[1]
+       or "brd4153a" == arch[1]
+       or "brd4160a" == arch[1]
+       or "brd4300a" == arch[1]
+       or "brd4300c" == arch[1]
+       or "brd4300d" == arch[1]
+       or "brd4301a" == arch[1]
+       or "brd4302a" == arch[1]
+       or "brd4303a" == arch[1]
+       or "rd-0057-0101" == arch[1] %}
+{{- efr32xg1_skeleton(arch[1]) -}}
+{# For all jumbo boards #}
+  {% elif "brd4172b" == arch[1]
+       or "brd4173a" == arch[1]
+       or "brd4172a" == arch[1]
+       or "brd4163a" == arch[1]
+       or "brd4164a" == arch[1]
+       or "brd4103a" == arch[1]
+       or "brd4161a" == arch[1]
+       or "brd4162a" == arch[1]
+       or "brd4166a" == arch[1]
+       or "brd4304a" == arch[1] %}
+{{- efr32xg12_skeleton(arch[1]) -}}
+{# For all nerio boards #}
+  {% elif "brd4174b" == arch[1]
+       or "brd4175a" == arch[1]
+       or "brd4174a" == arch[1]
+       or "brd4167a" == arch[1]
+       or "brd4158a" == arch[1]
+       or "brd4104a" == arch[1]
+       or "brd4159a" == arch[1]
+       or "brd4165b" == arch[1]
+       or "brd4168a" == arch[1]
+       or "brd4305a" == arch[1]
+       or "brd4305c" == arch[1]
+       or "brd4305d" == arch[1]
+       or "brd4305e" == arch[1]
+       or "brd4306a" == arch[1]
+       or "brd4306b" == arch[1]
+       or "brd4306c" == arch[1]
+       or "brd4306d" == arch[1] %}
+{{- efr32xg13_skeleton(arch[1]) -}}
+{# For all nixi boards #}
+  {% elif "brd4105a" == arch[1]
+       or "brd4169a" == arch[1]
+       or "brd4169b" == arch[1] %}
+{{- efr32xg14_skeleton(arch[1]) -}}
+{# For all other boards #}
+  {% else %}
+{{- efr32xg1_skeleton(arch[1]) -}}
+  {% endif %}
+{% endmacro %}

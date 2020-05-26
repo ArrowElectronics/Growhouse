@@ -1,0 +1,9 @@
+// Copyright 2019 Silicon Laboratories, Inc.
+//
+//
+
+Executing: bgbuild (/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/blemesh/v1.3/protocol/bluetooth/bin/bgbuild)
+Standard output
+ALL OK
+
+

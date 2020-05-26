@@ -1,0 +1,5 @@
+What's new in Bluetooth Mesh SDK 1.3.0
+  * Friend node functionality added
+  * Low power node functionality added
+  * Stack feature selection at application level
+  * Color temperature light models added

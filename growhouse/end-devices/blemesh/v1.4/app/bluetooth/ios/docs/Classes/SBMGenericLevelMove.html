@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SBMGenericLevelMove Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/SBMGenericLevelMove" class="dashAnchor"></a>
+    <a title="SBMGenericLevelMove Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">BluetoothMesh Docs</a> (99% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">BluetoothMesh Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SBMGenericLevelMove Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SBMApplicationKey.html">SBMApplicationKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMesh.html">SBMBluetoothMesh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMeshConfiguration.html">SBMBluetoothMeshConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMeshConfigurationLimits.html">SBMBluetoothMeshConfigurationLimits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMConfigurationControl.html">SBMConfigurationControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMConnectableDeviceHelper.html">SBMConnectableDeviceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlElement.html">SBMControlElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlGroup.html">SBMControlGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMControlRequestParameters.html">SBMControlRequestParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceCompositionData.html">SBMDeviceCompositionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceKey.html">SBMDeviceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMElement.html">SBMElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMExportKeysJob.html">SBMExportKeysJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMFunctionalityBinder.html">SBMFunctionalityBinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericBattery.html">SBMGenericBattery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevel.html">SBMGenericLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevelDelta.html">SBMGenericLevelDelta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericLevelHalt">SBMGenericLevelHalt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLevelMove.html">SBMGenericLevelMove</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLocationGlobal.html">SBMGenericLocationGlobal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericLocationLocal.html">SBMGenericLocationLocal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericOnOff.html">SBMGenericOnOff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericOnPowerUp.html">SBMGenericOnPowerUp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevel.html">SBMGenericPowerLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelDefault.html">SBMGenericPowerLevelDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelLast.html">SBMGenericPowerLevelLast</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPowerLevelRange.html">SBMGenericPowerLevelRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericProperty.html">SBMGenericProperty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyAdmin">SBMGenericPropertyAdmin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericPropertyList.html">SBMGenericPropertyList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListAdmin">SBMGenericPropertyListAdmin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListClient">SBMGenericPropertyListClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListManufacturer">SBMGenericPropertyListManufacturer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyListUser">SBMGenericPropertyListUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyManufacturer">SBMGenericPropertyManufacturer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMGenericPropertyUser">SBMGenericPropertyUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGenericTransitionTime.html">SBMGenericTransitionTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGroup.html">SBMGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMGroupRemovalErrorResult.html">SBMGroupRemovalErrorResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMKeyRefresh.html">SBMKeyRefresh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLDefault.html">SBMLightningCTLDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLGet.html">SBMLightningCTLGet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLSet.html">SBMLightningCTLSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLTemperature.html">SBMLightningCTLTemperature</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningCTLTemperatureRange.html">SBMLightningCTLTemperatureRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessActual.html">SBMLightningLightnessActual</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessDefault.html">SBMLightningLightnessDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessLast.html">SBMLightningLightnessLast</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessLinear.html">SBMLightningLightnessLinear</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLightningLightnessRange.html">SBMLightningLightnessRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorCryptoBinder.html">SBMLocalVendorCryptoBinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorModel.html">SBMLocalVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorRegistrator.html">SBMLocalVendorRegistrator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLocalVendorSettings.html">SBMLocalVendorSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLogger.html">SBMLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNetwork.html">SBMNetwork</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNetworkKey.html">SBMNetworkKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNode.html">SBMNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNodeControl.html">SBMNodeControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMNotificationSettings.html">SBMNotificationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProvisionerConnection.html">SBMProvisionerConnection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProvisionerParameters.html">SBMProvisionerParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMProxyConnection.html">SBMProxyConnection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMPublicationSettings.html">SBMPublicationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSigModel.html">SBMSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubnet.html">SBMSubnet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubnetRemovalErrorResult.html">SBMSubnetRemovalErrorResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMSubscriptionControl.html">SBMSubscriptionControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)SBMSubscriptionSettings">SBMSubscriptionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMTuple.html">SBMTuple</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorModel.html">SBMVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorModelNotifications.html">SBMVendorModelNotifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorRegistrationSettings.html">SBMVendorRegistrationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMVendorSubscriptionControl.html">SBMVendorSubscriptionControl</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionNumber">BluetoothMeshVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionString">BluetoothMeshVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SBMControlValueSetVendorModelFlag.html">SBMControlValueSetVendorModelFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsChargingState.html">SBMGenericBatteryFlagsChargingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsIndicatorState.html">SBMGenericBatteryFlagsIndicatorState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsPresenceState.html">SBMGenericBatteryFlagsPresenceState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericBatteryFlagsServiceabilityState.html">SBMGenericBatteryFlagsServiceabilityState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericOnOffState.html">SBMGenericOnOffState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericOnPowerUpState.html">SBMGenericOnPowerUpState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGenericPowerLevelRangeState.html">SBMGenericPowerLevelRangeState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMModelIdentifier.html">SBMModelIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMNotificationSettingsKind.html">SBMNotificationSettingsKind</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedAuthMethods.html">SBMProvisionerOOBAllowedAuthMethods</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedInputActions.html">SBMProvisionerOOBAllowedInputActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBAllowedOutputActions.html">SBMProvisionerOOBAllowedOutputActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBECPublicKeyAllowed.html">SBMProvisionerOOBECPublicKeyAllowed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBInputAction.html">SBMProvisionerOOBInputAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBOutputAction.html">SBMProvisionerOOBOutputAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMProvisionerOOBResult.html">SBMProvisionerOOBResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMConnectableDevice.html">SBMConnectableDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMConnectableDeviceDelegate.html">SBMConnectableDeviceDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/c:objc(pl)SBMControlValueGetSigModel">SBMControlValueGetSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/c:objc(pl)SBMControlValueSetSigModel">SBMControlValueSetSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMControlValueSetVendorModel.html">SBMControlValueSetVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMLoggerDelegate.html">SBMLoggerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMModel.html">SBMModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMProvisionerOOB.html">SBMProvisionerOOB</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemovalErrorResult.h@T@ErrorResultOfRemovalNode">ErrorResultOfRemovalNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindNode">ErrorResultOfUnbindNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindSigModel">ErrorResultOfUnbindSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@ErrorResultOfUnbindVendorModel">ErrorResultOfUnbindVendorModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMKeyRefresh.h@T@KeyRefreshCallback">KeyRefreshCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelBindingErrorCallback">ModelBindingErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelBindingSuccessCallback">ModelBindingSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelUnbindingErrorCallback">ModelUnbindingErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMFunctionalityBinder.h@T@ModelUnbindingSuccessCallback">ModelUnbindingSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendError">SBMCheckNodeFriendError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeFriendSuccess">SBMCheckNodeFriendSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationError">SBMCheckNodeHeartbeatPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatPublicationSuccess">SBMCheckNodeHeartbeatPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionError">SBMCheckNodeHeartbeatSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeHeartbeatSubscriptionSuccess">SBMCheckNodeHeartbeatSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentityError">SBMCheckNodeIdentityError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeIdentitySuccess">SBMCheckNodeIdentitySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxyError">SBMCheckNodeProxyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeProxySuccess">SBMCheckNodeProxySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelayError">SBMCheckNodeRelayError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRelaySuccess">SBMCheckNodeRelaySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationError">SBMCheckNodeRetransmissionConfigurationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMCheckNodeRetransmissionConfigurationSuccess">SBMCheckNodeRetransmissionConfigurationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceConnectionCallback">SBMConnectableDeviceConnectionCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceHasServiceCallback">SBMConnectableDeviceHasServiceCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceMTUCallback">SBMConnectableDeviceMTUCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConnectableDevice.h@T@SBMConnectableDeviceOperationCallback">SBMConnectableDeviceOperationCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementGetError">SBMControlElementGetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementGetSuccess">SBMControlElementGetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetError">SBMControlElementSetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetSuccess">SBMControlElementSetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetVendorError">SBMControlElementSetVendorError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlElement.h@T@SBMControlElementSetVendorSuccess">SBMControlElementSetVendorSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupGetError">SBMControlGroupGetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupGetSuccess">SBMControlGroupGetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetError">SBMControlGroupSetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetSuccess">SBMControlGroupSetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetVendorError">SBMControlGroupSetVendorError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMControlGroup.h@T@SBMControlGroupSetVendorSuccess">SBMControlGroupSetVendorSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetError">SBMFactoryResetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMFactoryResetSuccess">SBMFactoryResetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataError">SBMGetDeviceCompositionDataError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMGetDeviceCompositionDataSuccess">SBMGetDeviceCompositionDataSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupForceRemovalError">SBMGroupForceRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupRemovalError">SBMGroupRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemoval.h@T@SBMGroupRemovalSuccess">SBMGroupRemovalSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMLocalVendorSettings.h@T@SBMLocalVendorSettingsMessageHandler">SBMLocalVendorSettingsMessageHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions/SBMLogLevel.html">SBMLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlAddToSubnetError">SBMNodeControlAddToSubnetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlAddToSubnetSuccess">SBMNodeControlAddToSubnetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlBindGroupError">SBMNodeControlBindGroupError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlBindGroupSuccess">SBMNodeControlBindGroupSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlRemoveFromSubnetError">SBMNodeControlRemoveFromSubnetError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlRemoveFromSubnetSuccess">SBMNodeControlRemoveFromSubnetSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlUnbindGroupError">SBMNodeControlUnbindGroupError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMNodeControl.h@T@SBMNodeControlUnbindGroupSuccess">SBMNodeControlUnbindGroupSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProvisionerConnection.h@T@SBMProvisionerProvisioningCallback">SBMProvisionerProvisioningCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyConnectionError">SBMProxyConnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyConnectionSuccess">SBMProxyConnectionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyDisconnectionError">SBMProxyDisconnectionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMProxyConnection.h@T@SBMProxyDisconnectionSuccess">SBMProxyDisconnectionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendError">SBMSetNodeFriendError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeFriendSuccess">SBMSetNodeFriendSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationError">SBMSetNodeHeartbeatPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatPublicationSuccess">SBMSetNodeHeartbeatPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionError">SBMSetNodeHeartbeatSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeHeartbeatSubscriptionSuccess">SBMSetNodeHeartbeatSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentityError">SBMSetNodeIdentityError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeIdentitySuccess">SBMSetNodeIdentitySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxyError">SBMSetNodeProxyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeProxySuccess">SBMSetNodeProxySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelayError">SBMSetNodeRelayError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRelaySuccess">SBMSetNodeRelaySuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationError">SBMSetNodeRetransmissionConfigurationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMConfigurationControl.h@T@SBMSetNodeRetransmissionConfigurationSuccess">SBMSetNodeRetransmissionConfigurationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetForceRemovalError">SBMSubnetForceRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetRemovalError">SBMSubnetRemovalError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemoval.h@T@SBMSubnetRemovalSuccess">SBMSubnetRemovalSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlPublicationError">SBMSubscriptionControlPublicationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlPublicationSuccess">SBMSubscriptionControlPublicationSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSetSubscriptionSuccess">SBMSubscriptionControlSetSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSubscriptionError">SBMSubscriptionControlSubscriptionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubscriptionControl.h@T@SBMSubscriptionControlSubscriptionSuccess">SBMSubscriptionControlSubscriptionSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorRegistrationSettings.h@T@SBMVendorRegistrationSettingsMessageHandler">SBMVendorRegistrationSettingsMessageHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorRegistrationSettings.h@T@SBMVendorRegistrationSettingsPublishHandler">SBMVendorRegistrationSettingsPublishHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlError">SBMVendorSubscriptionControlError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlGetPublicationSettings">SBMVendorSubscriptionControlGetPublicationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlIsRegistered">SBMVendorSubscriptionControlIsRegistered</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMVendorSubscriptionControl.h@T@SBMVendorSubscriptionControlSuccess">SBMVendorSubscriptionControlSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMSubnetRemovalErrorResult.h@T@SuccessResultOfRemovalNode">SuccessResultOfRemovalNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindNode">SuccessResultOfUnbindNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindSigModel">SuccessResultOfUnbindSigModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:SBMGroupRemovalErrorResult.h@T@SuccessResultOfUnbindVendorModel">SuccessResultOfUnbindVendorModel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SBMGenericLevelMove</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SBMGenericLevelMove</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols.html#/c:objc(pl)SBMControlValueSetSigModel">SBMControlValueSetSigModel</a></span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Generic LevelMove functionality object. It represents the step to calculate move speed of the element&rsquo;s level state.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMGenericLevelMove(py)level"></a>
+                    <a name="//apple_ref/objc/Property/level" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMGenericLevelMove(py)level">level</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Level step to calculate move speed of the level state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">SInt16</span> <span class="n">level</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int16</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMGenericLevelMove(im)initWithLevel:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithLevel:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SBMGenericLevelMove(im)initWithLevel:">-initWithLevel:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize new Generic LevelMove functionality object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithLevel</span><span class="p">:(</span><span class="n">SInt16</span><span class="p">)</span><span class="nv">level</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">level</span><span class="p">:</span> <span class="kt">Int16</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Delta value that functionality should be initialized with.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized Generic LevelMove functionality object, or nil if an object could not be created.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMGenericLevelMove(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SBMGenericLevelMove(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Not available. Use initWithLevel instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span> <span class="n">new</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SBMGenericLevelMove(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)SBMGenericLevelMove(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Not available. Use initWithLevel instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-03-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

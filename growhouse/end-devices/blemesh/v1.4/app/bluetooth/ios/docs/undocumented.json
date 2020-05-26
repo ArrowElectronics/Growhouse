@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/armarsza/Documents/Development/ble_mesh-ios_api/BluetoothMesh/BluetoothMesh/FunctionalityControl/SBMVendorModelNotifications.h",
+      "line": 16,
+      "symbol": "SBMVendorModelNotifications",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armarsza/Documents/Development/ble_mesh-ios_api/BluetoothMesh/BluetoothMesh/Logger/SBMLogger.h",
+      "line": 14,
+      "symbol": "SBMLogLevel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/armarsza/Documents/Development/ble_mesh-ios_api/BluetoothMesh"
+}

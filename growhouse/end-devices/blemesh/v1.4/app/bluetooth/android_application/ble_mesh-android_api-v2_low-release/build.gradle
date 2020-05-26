@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('ble_mesh-android_api-v2_low-release.aar'))

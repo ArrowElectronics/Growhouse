@@ -1,0 +1,62 @@
+{% set arch = context["ARCHITECTURE_ID"].split("+") %}
+{% if arch|length == 3 %}
+  {% set board = arch[1]|upper%}
+  {% set part  = arch[0].split("~")%}
+{% endif %}
+/***************************************************************************//**
+ * @file
+ * @brief hal-config-board.h
+ *******************************************************************************
+ * # License
+ * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
+ *******************************************************************************
+ *
+ * The licensor of this software is Silicon Laboratories Inc. Your use of this
+ * software is governed by the terms of Silicon Labs Master Software License
+ * Agreement (MSLA) available at
+ * www.silabs.com/about-us/legal/master-software-license-agreement. This
+ * software is distributed to you in Source Code format and is governed by the
+ * sections of the MSLA applicable to Source Code.
+ *
+ ******************************************************************************/
+
+#ifndef HAL_CONFIG_BOARD_H
+#define HAL_CONFIG_BOARD_H
+
+#include "em_device.h"
+#include "hal-config-types.h"
+
+{% if board == "NONE" %}
+{# VHU: 
+    - Why this file is included instead of just having the content here?
+    - This file is included as we might need to include different configurations here
+    for different parts. This is because the factory firmware for a specific part might 
+    need different configurations. 
+
+    - Why no other file is included then? 
+    - This is because at the time of writing this we only give out factory firmware 
+      for parts (ie. parts of brd4305*, brd4306*) that happens to need the exact same 
+      configuration.
+      In case factory firmware for other parts is needed later, we might include
+      configuration files in a per part basis.
+
+    - Note, that the only parts specific configuration for boards brd4305*, brd4306* are the 
+      PA power configuration which is done in the following lines. These might move to 
+      specific *.part file in case they are added later down the road.
+#}
+{% include 'hal-config-standalone-default.h.part' %}
+
+// Note: These might be necessary for the selected mcu or board as well.
+{% if "[3]" in part[3] and "[632]" in part[5] %}
+#define HAL_PA_ENABLE                                 (1)
+// #define FEATURE_PA_HIGH_POWER
+{% elif "[3]" in part[3] and "[732]" in part[5] %}
+#define HAL_PA_ENABLE                                 (1)
+#define FEATURE_PA_HIGH_POWER
+{% else %}
+// #define HAL_PA_ENABLE                                 (1)
+// #define FEATURE_PA_HIGH_POWER
+{% endif %}
+
+{% endif %}
+#endif /* HAL_CONFIG_BOARD_H */

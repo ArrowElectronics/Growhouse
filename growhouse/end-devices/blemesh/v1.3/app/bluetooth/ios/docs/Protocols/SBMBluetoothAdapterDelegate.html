@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SBMBluetoothAdapterDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/SBMBluetoothAdapterDelegate" class="dashAnchor"></a>
+    <a title="SBMBluetoothAdapterDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">BluetoothMesh Docs</a> (98% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">BluetoothMesh Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SBMBluetoothAdapterDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SBMApplicationKey.html">SBMApplicationKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothAdapter.html">SBMBluetoothAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMBluetoothMesh.html">SBMBluetoothMesh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceCompositionData.html">SBMDeviceCompositionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMDeviceFunctionality.html">SBMDeviceFunctionality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMElement.html">SBMElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMLogger.html">SBMLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMMeshGroup.html">SBMMeshGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMMeshNetwork.html">SBMMeshNetwork</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMMeshNode.html">SBMMeshNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMMeshNodeConfiguration.html">SBMMeshNodeConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMModel.html">SBMModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBMModelConfiguration.html">SBMModelConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionNumber">BluetoothMeshVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@BluetoothMeshVersionString">BluetoothMeshVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@characteristicMeshProvisioningDataInUUID">characteristicMeshProvisioningDataInUUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@characteristicMeshProvisioningDataOutUUID">characteristicMeshProvisioningDataOutUUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@characteristicMeshProxyDataInUUID">characteristicMeshProxyDataInUUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@characteristicMeshProxyDataOutUUID">characteristicMeshProxyDataOutUUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@meshProvisioningServiceUUID">meshProvisioningServiceUUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:SBMBluetoothAdapter.h@meshProxyServiceUUID">meshProxyServiceUUID</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SBMGattServiceType.html">SBMGattServiceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SBMModelIdentifier.html">SBMModelIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMBluetoothAdapterDelegate.html">SBMBluetoothAdapterDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SBMLoggerDelegate.html">SBMLoggerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions/SBMLogLevel.html">SBMLogLevel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SBMBluetoothAdapterDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">SBMBluetoothAdapterDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>SBMBluetoothAdapterDelegate it is a delegate used by Mesh library to send messages to Bluetooth devices. It is necessary to prepare implantation for BluetoothAdapter delegate.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:gattRequestToGattHandle::"></a>
+                    <a name="//apple_ref/objc/Method/-bluetoothAdapter:gattRequestToGattHandle::" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:gattRequestToGattHandle::">-bluetoothAdapter:gattRequestToGattHandle::</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request send by Mesh library to prepare Bluetooth connection with the specified Mesh service. GATT connection must be already opened. After this call the platform must do a GATT service discovery, locate the data out characteristic for the requested service, and turn notifications on for it. After this the connection is considered open.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bluetoothAdapter</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMBluetoothAdapter.html">SBMBluetoothAdapter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">bluetoothAdapter</span>
+    <span class="nf">gattRequestToGattHandle</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">gattHandle</span>
+                           <span class="o">:</span><span class="p">(</span><span class="n"><a href="../Enums/SBMGattServiceType.html">SBMGattServiceType</a></span><span class="p">)</span><span class="n">gattServiceType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bluetoothAdapter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SBMBluetoothAdapter object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gattHandle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Integer value. It is a value containing a GATT connection handler for a Bluetooth device.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gattServiceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Enum value. Contain information with which service connection should be established.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:disconnectionRequestToGattHandle:"></a>
+                    <a name="//apple_ref/objc/Method/-bluetoothAdapter:disconnectionRequestToGattHandle:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:disconnectionRequestToGattHandle:">-bluetoothAdapter:disconnectionRequestToGattHandle:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request send by Mesh Library to close a Bluetooth connection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bluetoothAdapter</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMBluetoothAdapter.html">SBMBluetoothAdapter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">bluetoothAdapter</span>
+    <span class="nf">disconnectionRequestToGattHandle</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">gattHandle</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bluetoothAdapter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SBMBluetoothAdapter object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gattHandle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Integer value. It is a value containing a GATT connection handler for a Bluetooth device.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:gattWriteToGattHandle:data:serviceUUID:characteristic:"></a>
+                    <a name="//apple_ref/objc/Method/-bluetoothAdapter:gattWriteToGattHandle:data:serviceUUID:characteristic:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)SBMBluetoothAdapterDelegate(im)bluetoothAdapter:gattWriteToGattHandle:data:serviceUUID:characteristic:">-bluetoothAdapter:gattWriteToGattHandle:data:serviceUUID:characteristic:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request send by Mesh Library to send data over a GATT connection. Send the data to the remote device.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bluetoothAdapter</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/SBMBluetoothAdapter.html">SBMBluetoothAdapter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">bluetoothAdapter</span>
+    <span class="nf">gattWriteToGattHandle</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">gattHandle</span>
+                     <span class="nf">data</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+              <span class="nf">serviceUUID</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">serviceUUID</span>
+           <span class="nf">characteristic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">characteristicUUID</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bluetoothAdapter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SBMBluetoothAdapter object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gattHandle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Integer value. It is a value containing a GATT connection handler for a Bluetooth device.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data object. Data needed to send to the Bluetooth device.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>serviceUUID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String object. Send data to characteristic from this Bluetooth service for Bluetooth device. It is string for meshProvisioningServiceUUID or meshProxyServiceUUID.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-07-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

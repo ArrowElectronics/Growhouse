@@ -1,0 +1,443 @@
+diff --git a/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/hal-config/hal-config.h b/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/hal-config/hal-config.h
+index da38f1f..f95caff 100644
+--- a/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/hal-config/hal-config.h
++++ b/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/hal-config/hal-config.h
+@@ -304,6 +304,10 @@
+ // [USART2]$
+ 
+ // $[VCOM]
++#define HAL_VCOM_ENABLE                              (1)
++
++#define BSP_VCOM_ENABLE_PIN                          (5U)
++#define BSP_VCOM_ENABLE_PORT                         (gpioPortA)
+ // [VCOM]$
+ 
+ // $[VDAC0]
+diff --git a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.h b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.h
+index 29beab3..3b29f7f 100644
+--- a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.h
++++ b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.h
+@@ -35,6 +35,7 @@
+ 
+ /**** CLI Section ****/
+ #define EMBER_AF_GENERATE_CLI
++#define EMBER_AF_ENABLE_CUSTOM_COMMANDS
+ #define EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD
+ 
+ /**** Security Section ****/
+@@ -45,7 +46,7 @@
+ #define EMBER_AF_NETWORK_INDEX_PRIMARY (0)
+ #define EMBER_AF_DEFAULT_NETWORK_INDEX EMBER_AF_NETWORK_INDEX_PRIMARY
+ #define EMBER_AF_HAS_END_DEVICE_NETWORK
+-#define EMBER_AF_HAS_SLEEPY_NETWORK
++#define EMBER_AF_HAS_RX_ON_WHEN_IDLE_NETWORK
+ #define EMBER_AF_TX_POWER_MODE EMBER_TX_POWER_MODE_USE_TOKEN
+ 
+ /**** HAL Section ****/
+@@ -53,6 +54,8 @@
+ 
+ /**** Callback Section ****/
+ #define EMBER_CALLBACK_STACK_STATUS
++#define EMBER_CALLBACK_PRE_MSG
++#define EMBER_CALLBACK_HAL_BUTTON_ISR
+ #define EMBER_CALLBACK_COUNTER_HANDLER
+ #define EMBER_APPLICATION_HAS_COUNTER_HANDLER
+ #define EMBER_CALLBACK_EZSP_COUNTER_ROLLOVER_HANDLER
+@@ -169,7 +172,7 @@
+ // Use this macro to check if Ph Measurement Server Cluster plugin is included
+ #define EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER
+ // User options for plugin Ph Measurement Server Cluster
+-#define EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S 5
++#define EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S 60
+ #define EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER_DEFAULT_REPORTABLE_PH_CHANGE 0
+ 
+ // Use this macro to check if ADC plugin is included
+@@ -195,6 +198,11 @@
+ // User options for plugin Binding Table Library
+ #define EMBER_BINDING_TABLE_SIZE 3
+ 
++// Use this macro to check if Button Interface plugin is included
++#define EMBER_AF_PLUGIN_BUTTON_INTERFACE
++// User options for plugin Button Interface
++#define EMBER_AF_PLUGIN_BUTTON_INTERFACE_BUTTON_TIMEOUT_MS 2500
++
+ // Use this macro to check if Radio Coexistence plugin is included
+ #define EMBER_AF_PLUGIN_COEXISTENCE
+ 
+@@ -256,7 +264,7 @@
+ // Use this macro to check if Moisture Measurement Server Cluster plugin is included
+ #define EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER
+ // User options for plugin Moisture Measurement Server Cluster
+-#define EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S 5
++#define EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S 60
+ #define EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER_DEFAULT_REPORTABLE_MOISTURE_CHANGE_M_C 0
+ 
+ // Use this macro to check if Network Steering plugin is included
+@@ -413,6 +421,9 @@
+ // API battery-monitor from Battery Monitor plugin
+ #define EMBER_AF_API_BATTERY_MONITOR "util/plugin/plugin-common/battery-monitor/battery-monitor.h"
+ 
++// API button-interface from Button Interface plugin
++#define EMBER_AF_API_BUTTON_INTERFACE "util/plugin/plugin-common/button-interface/button-interface.h"
++
+ // API coexistence from Radio Coexistence plugin
+ #define EMBER_AF_API_COEXISTENCE "platform/radio/rail_lib/plugin/coexistence/protocol/ieee802154/coexistence-802154.h"
+ 
+diff --git a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.isc b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.isc
+index 1e53d82..f3eb6a7 100644
+--- a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.isc
++++ b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node.isc
+@@ -477,7 +477,7 @@ OverrideServer:fd02,exclude,Primary
+ 
+ #  ZigBee PRO network configuration.  Each endpoint belongs to a single network
+ #  configuration.  There can be one or more network configurations.
+-ZigbeeProNetwork:*Primary,ZA_SLEEPY_END_DEVICE,Z3
++ZigbeeProNetwork:*Primary,ZA_END_DEVICE,Z3
+ 
+ #  A list of optional attributes that are included in this configuration. Format
+ #  is a list of "clusterId,attributeId,<server|client>,manufacturerCode"
+@@ -509,7 +509,7 @@ Platform:efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[
+ ExactArchitectureToolchain:com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904
+ 
+ #  Enable callbacks.
+-Callbacks:emberAfStackStatusCallback,
++Callbacks:emberAfStackStatusCallback,emberAfPluginButtonInterfaceButton0PressedLongCallback,emberAfPreMessageReceivedCallback,
+ 
+ #  If bindings are enabled then this is the maximum number of supported
+ #  bindings.
+@@ -650,7 +650,7 @@ AlternatePowerMode:false
+ LegacyCli:false
+ 
+ #  Add Custom CLI sub-menu
+-AddCustomCli:false
++AddCustomCli:true
+ 
+ #  Include command and argument descriptions in the embedded code.
+ IncludeCommandDescriptions:true
+@@ -775,7 +775,7 @@ appPlugin:bulb-pwm-driver,false
+ 
+ appPlugin:bulb-ui,false
+ 
+-appPlugin:button-interface,false
++appPlugin:button-interface,true
+ 
+ appPlugin:button-interface-stub,false
+ 
+@@ -1266,6 +1266,10 @@ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]
+ 
+ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_IMAGE_TYPE_ID,114
+ 
++AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S,60
++
++AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S,60
++
+ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_BATTERY_MONITOR_MONITOR_TIMEOUT_M,1
+ 
+ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_BATTERY_MONITOR_SAMPLE_FIFO_SIZE,1
+@@ -1274,7 +1278,5 @@ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]
+ 
+ AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_IDLE_SLEEP_BACKOFF_SLEEP_MS,2000
+ 
+-AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_MOISTURE_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S,5
+-
+-AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_PH_MEASUREMENT_SERVER_MAX_MEASUREMENT_FREQUENCY_S,5
++AppPluginOption(efr32~family[M]~series[1]~device_configuration[3]~performance[P]~radio[632]~flash[512K]~temp[G]~package[M]~pins[48]+BRD4306C+gcc):EMBER_AF_PLUGIN_BUTTON_INTERFACE_BUTTON_TIMEOUT_MS,2500
+ 
+diff --git a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_callbacks.c b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_callbacks.c
+index b2bfed8..ecb01ea 100644
+--- a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_callbacks.c
++++ b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_callbacks.c
+@@ -7,6 +7,45 @@
+ #include EMBER_AF_API_NETWORK_STEERING
+ #include PLATFORM_HEADER
+ 
++void readSoildata(void);
++void SendSoilNode_firmware_version_ToCoordinator(void);
++extern void halPhStartRead(void);
++extern void halMoistureStartRead(void);
++extern void scheduleNetworkSteering(void);
++
++#define SOIL_NODE_FIRMWARE_VERSION_REQUEST 0x18
++#define END_NODE_TRANSRECEIVER_COMMAND     0x20
++
++/* Array for custom command */
++EmberCommandEntry emberAfCustomCommands[] = {
++		/*
++		 * Use "custom read-soil-data" command in Soil node ZigBee
++		 * console to read soil node pH and Moisture data command line.
++		 * If Soil node pH and Moisture clusters are binded with ZC than
++		 * it will report that data to ZC also.
++		 */
++		emberCommandEntryAction("read-soil-data",
++				readSoildata,
++				"",
++				"Read Soil pH and Moisture data"),
++		emberCommandEntryTerminator()
++};
++
++/* Buffer for Transreceiver test */
++uint8_t TxBuffer[5];
++/* Frame for Transreceiver test */
++EmberApsFrame TxFrame;
++
++
++void readSoildata()
++{
++	// Read pH value and send it to ZC
++	halPhStartRead();
++
++	// Read Moisture value and sent it to ZC
++	halMoistureStartRead();
++}
++
+ /** @brief Stack Status
+  *
+  * This function is called by the application framework from the stack status
+@@ -56,3 +95,186 @@ boolean emberAfStackStatusCallback(EmberStatus status)
+ 	}
+ 	return true;
+ }
++
++/** @brief Called when Button 0 is pressed long
++ *
++ * @param timePressedMs Amount of time button 0 was pressed.
++ * @param pressedAtReset Was the button pressed at startup.
++ */
++void emberAfPluginButtonInterfaceButton0PressedLongCallback(uint16_t timePressedMs,
++                                                            bool pressedAtReset)
++{
++	EmberStatus status = 0xF;
++	emberAfCorePrintln("Factory Reset: Long press detected");
++	/* Clearing binding table */
++	emberClearBindingTable();
++
++	/* Leaving Network */
++	status = emberLeaveNetwork();
++	emberAfCorePrintln("Status : %d",status);
++}
++
++/***************************************************************************/
++/**
++ * @brief API to Send Soil Node Firmware version data to co-ordinator
++ *
++ * @params	None
++ *
++ * @return	None
++ ***************************************************************************/
++void SendSoilNode_firmware_version_ToCoordinator()
++{
++	if (emberAfNetworkState() == EMBER_JOINED_NETWORK) {
++		uint16_t destination = 0x0000;  //	coordinator node Id
++		uint8_t srcEndpoint = 1;        //	Source endpoint
++		uint8_t dstEndpoint = 1;        //	Destination endpoint
++
++		EmberStatus status = 0;
++		uint8_t appZclBuffer[12];
++		uint16_t appZclBufferLen = 0;
++
++		EmberApsFrame ConfigurationApsFrame;
++
++		ConfigurationApsFrame.options = EMBER_AF_DEFAULT_APS_OPTIONS;
++		ConfigurationApsFrame.clusterId = (uint16_t) 0x0008;	//cluster ID
++		ConfigurationApsFrame.sourceEndpoint = srcEndpoint;
++		ConfigurationApsFrame.destinationEndpoint = dstEndpoint;
++
++		MEMSET(appZclBuffer, 0, sizeof(appZclBuffer));
++
++		appZclBuffer[0] = 0x01;                               // Cluster specific
++		appZclBuffer[1] = emberAfNextSequence();              // sequence number
++		appZclBuffer[2] = SOIL_NODE_FIRMWARE_VERSION_REQUEST; // Command ID
++
++		/* Fill the buffer */
++		appZclBuffer[3] = 0;	// fieldControl
++		appZclBuffer[4] = LOW_BYTE(EMBER_AF_MANUFACTURER_CODE);
++		appZclBuffer[5] = HIGH_BYTE(EMBER_AF_MANUFACTURER_CODE);
++		appZclBuffer[6] = LOW_BYTE(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_IMAGE_TYPE_ID);
++		appZclBuffer[7] = HIGH_BYTE(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_IMAGE_TYPE_ID);
++		appZclBuffer[8] = BYTE_0(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_FIRMWARE_VERSION);
++		appZclBuffer[9] = BYTE_1(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_FIRMWARE_VERSION);
++		appZclBuffer[10] = BYTE_2(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_FIRMWARE_VERSION);
++		appZclBuffer[11] = BYTE_3(EMBER_AF_PLUGIN_OTA_CLIENT_POLICY_FIRMWARE_VERSION);
++
++		appZclBufferLen = 12;
++
++		//print buffer
++		emberAfCorePrintln("Msg: cluster 0x%2x, Command 0x%x, Length %d",
++				ConfigurationApsFrame.clusterId, appZclBuffer[2],
++				appZclBufferLen);
++		emberAfCorePrintln("buffer: ");
++		emberAfCorePrintBuffer(appZclBuffer, appZclBufferLen, true);
++
++		status = emberAfSendUnicast(EMBER_OUTGOING_DIRECT, destination,
++				&ConfigurationApsFrame, appZclBufferLen, appZclBuffer);
++
++		if (status != EMBER_SUCCESS) {
++			emberAfCorePrintln("Error: Send failed, status: 0x%X", status);
++		}
++	}
++}
++
++/** @brief Pre Message Received
++ *
++ * This callback is the first in the Application Framework's message processing
++ * chain. The Application Framework calls it when a message has been received
++ * over the air but has not yet been parsed by the ZCL command-handling code. If
++ * you wish to parse some messages that are completely outside the ZCL
++ * specification or are not handled by the Application Framework's command
++ * handling code, you should intercept them for parsing in this callback.
++
++ *   This callback returns a Boolean value indicating whether or not the message
++ * has been handled. If the callback returns a value of true, then the
++ * Application Framework assumes that the message has been handled and it does
++ * nothing else with it. If the callback returns a value of false, then the
++ * application framework continues to process the message as it would with any
++ * incoming message.
++        Note: 	This callback receives a pointer to an
++ * incoming message struct. This struct allows the application framework to
++ * provide a unified interface between both Host devices, which receive their
++ * message through the ezspIncomingMessageHandler, and SoC devices, which
++ * receive their message through emberIncomingMessageHandler.
++ *
++ * @param incomingMessage   Ver.: always
++ */
++boolean emberAfPreMessageReceivedCallback(
++		EmberAfIncomingMessage* incomingMessage) {
++	EmberApsFrame *incomingApsFrame = incomingMessage->apsFrame;
++	static uint8_t intensity = 0;
++	static uint8_t packet_pre = 0;
++	static uint8_t packet_cur = 0;
++	static uint8_t packet_lost = 0;
++	static bool is_first_trasnsreceiver = false;
++	EmberStatus status = 0;
++
++	if (incomingApsFrame->clusterId == 0x0008) {
++		switch (incomingMessage->message[2]) {
++		case SOIL_NODE_FIRMWARE_VERSION_REQUEST:
++			emberAfCorePrintln("Send Soil node firmware version");
++			SendSoilNode_firmware_version_ToCoordinator();
++			return true;
++			break;
++		case END_NODE_TRANSRECEIVER_COMMAND:
++			if (!is_first_trasnsreceiver) {
++				/* Create Transmit frame */
++				TxFrame.options = EMBER_AF_DEFAULT_APS_OPTIONS;
++				TxFrame.clusterId = (uint16_t) 0x0008;	//cluster ID
++				TxFrame.sourceEndpoint = 1;
++				TxFrame.destinationEndpoint = 1;
++
++				MEMSET(TxBuffer, 0, sizeof(TxBuffer));
++
++				TxBuffer[0] = 0x09;                     // ZCL Header frame control field
++				TxBuffer[1] = emberAfNextSequence();    // sequence number
++				TxBuffer[2] = 0x20;                     // Command ID
++
++				is_first_trasnsreceiver = true;
++			}
++
++			packet_cur = incomingMessage->message[3];
++			emberAfCorePrintln("Rx : %d", packet_cur);
++
++			// Send it to ZC
++			TxBuffer[3] = packet_cur;
++
++			/* Send data and check status */
++			status = emberAfSendUnicast(EMBER_OUTGOING_DIRECT, 0x0000, &TxFrame,
++					4, TxBuffer);
++			if (status != EMBER_SUCCESS) {
++				emberAfCorePrintln("Error: Send failed, status: 0x%X", status);
++			}
++
++			if (packet_cur - packet_pre > 1)
++			{
++				emberAfCorePrintln("packet lost : %d",
++						(packet_cur - packet_pre) - 1);
++				packet_lost += (packet_cur - packet_pre) - 1;
++			}
++			else if ((packet_cur - packet_pre) < 0)
++			{
++				emberAfCorePrintln(
++						"TEST Result: PER %d% , Total Packet lost : %d",
++						(packet_lost * 100) / 255, packet_lost);
++				packet_pre = 0;
++				packet_lost = 0;
++			}
++			packet_pre = packet_cur;
++			if (packet_cur >= 255)
++			{
++				emberAfCorePrintln(
++						"Test Result: PER %d% , Total Packet lost : %d",
++						(packet_lost * 100) / 255, packet_lost);
++				packet_pre = 0;
++				packet_lost = 0;
++			}
++			if (incomingMessage->message[3] % 5 == 0)
++				readSoildata();
++			return true;
++
++		default:
++			break;
++		}
++	}
++	return false;
++}
+diff --git a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_endpoint_config.h b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_endpoint_config.h
+index d678192..3bd9b4f 100644
+--- a/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_endpoint_config.h
++++ b/end-devices/gecko_sdk_suite/v2.3/app/builder/Soil_Node/Soil_Node_endpoint_config.h
+@@ -90,7 +90,7 @@ PGM EmberAfGenericClusterFunction emberAfFuncArrayPollControlClusterServer[] = {
+ #define EM_AF_GENERATED_ZIGBEE_PRO_NETWORKS { \
+   { \
+     /* Primary */ \
+-    ZA_SLEEPY_END_DEVICE, \
++    ZA_END_DEVICE, \
+     EMBER_AF_SECURITY_PROFILE_Z3, \
+   }, \
+ }
+@@ -144,6 +144,11 @@ PGM EmberAfGenericClusterFunction emberAfFuncArrayPollControlClusterServer[] = {
+   EmberEventControl emberAfOtaBootloadClusterClientTickCallbackControl1; \
+   EmberEventControl emberAfPollControlClusterServerTickCallbackControl1; \
+   extern EmberEventControl emberAfPluginBatteryMonitorReadADCEventControl; \
++  extern EmberEventControl emberAfPluginButtonInterfaceButton0PressedEventControl; \
++  extern EmberEventControl emberAfPluginButtonInterfaceButton0ReleasedEventControl; \
++  extern EmberEventControl emberAfPluginButtonInterfaceButton1PressedEventControl; \
++  extern EmberEventControl emberAfPluginButtonInterfaceButton1ReleasedEventControl; \
++  extern EmberEventControl emberAfPluginButtonInterfaceButtonTimeoutEventControl; \
+   extern EmberEventControl emberAfPluginFormAndJoinCleanupEventControl; \
+   extern EmberEventControl emberAfPluginMoistureMeasurementServerReadEventControl; \
+   extern EmberEventControl emberAfPluginNetworkSteeringAutomateMonitorEventControl; \
+@@ -154,6 +159,11 @@ PGM EmberAfGenericClusterFunction emberAfFuncArrayPollControlClusterServer[] = {
+   extern EmberEventControl emberAfPluginScanDispatchScanEventControl; \
+   extern EmberEventControl emberAfPluginUpdateTcLinkKeyBeginTcLinkKeyUpdateEventControl; \
+   extern void emberAfPluginBatteryMonitorReadADCEventHandler(void); \
++  extern void emberAfPluginButtonInterfaceButton0PressedEventHandler(void); \
++  extern void emberAfPluginButtonInterfaceButton0ReleasedEventHandler(void); \
++  extern void emberAfPluginButtonInterfaceButton1PressedEventHandler(void); \
++  extern void emberAfPluginButtonInterfaceButton1ReleasedEventHandler(void); \
++  extern void emberAfPluginButtonInterfaceButtonTimeoutEventHandler(void); \
+   extern void emberAfPluginFormAndJoinCleanupEventHandler(void); \
+   extern void emberAfPluginMoistureMeasurementServerReadEventHandler(void); \
+   extern void emberAfPluginNetworkSteeringAutomateMonitorEventHandler(void); \
+@@ -200,6 +210,11 @@ PGM EmberAfGenericClusterFunction emberAfFuncArrayPollControlClusterServer[] = {
+   { &emberAfOtaBootloadClusterClientTickCallbackControl1, emberAfOtaBootloadClusterClientTickCallbackWrapperFunction1 }, \
+   { &emberAfPollControlClusterServerTickCallbackControl1, emberAfPollControlClusterServerTickCallbackWrapperFunction1 }, \
+   { &emberAfPluginBatteryMonitorReadADCEventControl, emberAfPluginBatteryMonitorReadADCEventHandler }, \
++  { &emberAfPluginButtonInterfaceButton0PressedEventControl, emberAfPluginButtonInterfaceButton0PressedEventHandler }, \
++  { &emberAfPluginButtonInterfaceButton0ReleasedEventControl, emberAfPluginButtonInterfaceButton0ReleasedEventHandler }, \
++  { &emberAfPluginButtonInterfaceButton1PressedEventControl, emberAfPluginButtonInterfaceButton1PressedEventHandler }, \
++  { &emberAfPluginButtonInterfaceButton1ReleasedEventControl, emberAfPluginButtonInterfaceButton1ReleasedEventHandler }, \
++  { &emberAfPluginButtonInterfaceButtonTimeoutEventControl, emberAfPluginButtonInterfaceButtonTimeoutEventHandler }, \
+   { &emberAfPluginFormAndJoinCleanupEventControl, emberAfPluginFormAndJoinCleanupEventHandler }, \
+   { &emberAfPluginMoistureMeasurementServerReadEventControl, emberAfPluginMoistureMeasurementServerReadEventHandler }, \
+   { &emberAfPluginNetworkSteeringAutomateMonitorEventControl, emberAfPluginNetworkSteeringAutomateMonitorEventHandler }, \
+@@ -220,6 +235,11 @@ PGM EmberAfGenericClusterFunction emberAfFuncArrayPollControlClusterServer[] = {
+   "Over the Air Bootloading Cluster Client EP 1",  \
+   "Poll Control Cluster Server EP 1",  \
+   "Battery Monitor Plugin ReadADC",  \
++  "Button Interface Plugin Button0Pressed",  \
++  "Button Interface Plugin Button0Released",  \
++  "Button Interface Plugin Button1Pressed",  \
++  "Button Interface Plugin Button1Released",  \
++  "Button Interface Plugin ButtonTimeout",  \
+   "Form and Join Library Plugin Cleanup",  \
+   "Moisture Measurement Server Cluster Plugin Read",  \
+   "Network Steering Plugin FinishSteering",  \

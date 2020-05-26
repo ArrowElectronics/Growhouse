@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2016 Silicon Labs, http://www.silabs.com -->
+<Service xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Silicon Labs MPSI Joining Device" type="com.silabs.service.mpsi_joining_device" uuid="5B44155E-2C17-4D7B-8508-1B900C32D524" last-modified="2017-03-01">
+    <InformativeText>
+        <Abstract>The MPSI Joining Device Service contains information about the Role (Joining Device) of the Device.</Abstract>
+    </InformativeText>
+    <Dependencies>
+        <Dependency>This service has no dependencies on other GATT-based services.</Dependency>
+    </Dependencies>
+    <Transports>
+        <LowEnergy>true</LowEnergy>
+    </Transports>
+</Service>

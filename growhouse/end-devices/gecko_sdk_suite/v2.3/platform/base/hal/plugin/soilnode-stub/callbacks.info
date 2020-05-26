@@ -1,0 +1,9 @@
+void halPhReadingCompleteCallback(int a,bool b)
+{
+  return false;
+}
+
+void halMoistureReadingCompleteCallback(int a, bool b)
+{
+  return false;
+}

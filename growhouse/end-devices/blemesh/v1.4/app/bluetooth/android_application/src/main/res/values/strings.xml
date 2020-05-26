@@ -1,0 +1,213 @@
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<resources>
+    <string name="app_name">Bluetooth Mesh</string>
+    <string name="config_device">Config Device</string>
+    <string name="config">Config</string>
+    <string name="multi_choice_adapter_title">%d selected</string>
+
+    <string name="dialog_positive_add">ADD</string>
+    <string name="dialog_positive_ok">OK</string>
+    <string name="dialog_positive_save">SAVE</string>
+    <string name="dialog_positive_delete">DELETE</string>
+    <string name="dialog_negative_cancel">CANCEL</string>
+
+    <string name="network_adapter_empty_list_title">No networks</string>
+    <string name="network_adapter_empty_list_message">Tap + to add a new network.</string>
+    <string name="network_adapter_devices_label">%1$d devices</string>
+    <string name="network_adapter_groups_label">%1$d groups</string>
+    <string name="network_update_successful_message">Network updated</string>
+    <string name="device_scanner_turn_on_scan">Scan</string>
+    <string name="device_scanner_turn_off_scan">Stop</string>
+    <string name="network_delete_successful_message">DB Flushed</string>
+    <string name="network_add_successful_message">Network added</string>
+    <string name="network_update_error_empty_name_message">Name is empty</string>
+    <string name="network_create_error">Error creating network</string>
+    <string name="network_menu_about_bluetooth_mesh">About Bluetooth Mesh</string>
+    <string name="network_dialog_delete_title">Delete selected?</string>
+    <string name="network_dialog_delete_locally_title">Delete locally?</string>
+    <string name="network_dialog_delete_locally_message">%1$s\nDo you want to delete %2$s from the app?</string>
+    <string name="network_dialog_add_name_label">Name</string>
+    <string name="network_dialog_add_title">Add network</string>
+    <string name="network_dialog_edit_title">Network configuration</string>
+    <string name="network_dialog_edit_name_label">Name</string>
+    <string name="network_dialog_edit_id_label">NID</string>
+    <string name="network_dialog_edit_key_label">Key</string>
+    <string name="network_dialog_edit_export_button">Export</string>
+    <string name="network_dialog_loading_text_removing_network">Removing network %1$s</string>
+    <string name="network_dialog_loading_text_removing_network_error">Error removing network %1$s</string>
+    <string name="network_dialog_loading_text_connecting_to_network">Connecting to network %1$s</string>
+    <string name="network_dialog_loading_text_connecting_to_network_error">Connecting to network error %1$s</string>
+
+    <string name="group_adapter_empty_list_title">No groups</string>
+    <string name="group_adapter_empty_list_message">Tap + to add a new group.</string>
+    <string name="group_adapter_devices_label">%1$d devices</string>
+    <string name="group_delete_error_existed_nodes">Remove nodes from this group first</string>
+    <string name="group_create_group_error">Error creating group</string>
+    <string name="group_update_error_empty_name_message">Name is empty</string>
+    <string name="group_dialog_delete_title">Delete selected?</string>
+    <string name="group_dialog_delete_locally_title">Delete locally?</string>
+    <string name="group_dialog_delete_locally_message">%1$s\nDo you want to delete %2$s from the app?</string>
+    <string name="group_dialog_add_name_label">Name</string>
+    <string name="group_dialog_add_title">Add group</string>
+    <string name="group_dialog_edit_title">Group configuration</string>
+    <string name="group_dialog_edit_name_label">Name</string>
+    <string name="group_dialog_edit_id_label">ID</string>
+    <string name="group_dialog_edit_network_label">Network</string>
+    <string name="group_dialog_loading_text_removing_group">Removing group %1$s</string>
+    <string name="group_dialog_loading_text_removing_group_error">Error removing group %1$s</string>
+
+    <string name="scanner_dialog_loading_text">Connecting…</string>
+    <string name="scanner_dialog_alert_title">ATTENTION!</string>
+    <string name="scanner_dialog_alert_message">This device is already provisioned for this network, and its previous information is going to be deleted!</string>
+
+    <string name="scanner_dialog_loading_text_device_provisioned_gatt_disconnected">Device provisioned - Gatt Disconnected</string>
+    <string name="scanner_dialog_loading_text_device_successfully_provisioned">Device Successfully Provisioned</string>
+    <string name="scanner_dialog_loading_text_disconnected_during_provisioning">Error during provisioning</string>
+    <string name="scanner_dialog_loading_text_provisioning">Provisioning…</string>
+    <string name="scanner_dialog_loading_text_redirecting_to_devices">Redirecting to Devices</string>
+    <string name="scanner_dialog_provisioning_device_title">Provisioning device</string>
+    <string name="scanner_dialog_provisioning_device_name_label">Name</string>
+    <string name="scanner_dialog_provisioning_device_network_label">Network</string>
+    <string name="scanner_dialog_empty_name">Name is empty</string>
+    <string name="scanner_adapter_empty_list_title">No devices</string>
+    <string name="scanner_adapter_empty_list_message">Tap Scan to start searching for Bluetooth mesh devices.</string>
+
+    <string name="devices_dialog_delete_title">Delete selected?</string>
+    <string name="devices_dialog_delete_from_proxy_message">One of the selected devices is a proxy. You will be disconnected.</string>
+
+    <string name="device_dialog_delete_message">Are you sure you want to delete this device?</string>
+    <string name="device_dialog_delete_locally_title">Delete locally?</string>
+    <string name="device_dialog_delete_locally_message">%1$s\nDo you want to delete %2$s from the app?</string>
+    <string name="device_dialog_config_page_title">CONFIGURATION</string>
+    <string name="device_dialog_config_name_label">Name</string>
+    <string name="device_dialog_config_proxy_label">Proxy</string>
+    <string name="device_dialog_config_relay_label">Relay</string>
+    <string name="device_dialog_config_friend_label">Friend</string>
+    <string name="device_dialog_config_group_label">Group</string>
+    <string name="device_dialog_config_low_power_label">Low Power</string>
+    <string name="device_dialog_config_low_power_supported">Is supported</string>
+    <string name="device_dialog_config_functionality_label">Functionality</string>
+    <string name="device_dialog_info_page_title">INFO</string>
+    <string name="device_dialog_info_device_category_label">Device</string>
+    <string name="device_dialog_info_device_name_label">Name</string>
+    <string name="device_dialog_info_address_label">Unicast Address</string>
+    <string name="device_dialog_info_uuid_label">UUID</string>
+    <string name="device_dialog_info_network_category_label">Network</string>
+    <string name="device_dialog_info_network_name_label">Name</string>
+    <string name="device_dialog_info_keys_category_label">Keys</string>
+    <string name="device_dialog_info_net_key_label">Net Key</string>
+    <string name="device_dialog_info_app_key_label">App Key</string>
+    <string name="device_dialog_info_dev_key_label">Dev Key</string>
+    <string name="device_dialog_info_table_first_col_label">ELEMENT</string>
+    <string name="device_dialog_info_table_second_col_label">VENDOR</string>
+    <string name="device_dialog_info_table_third_col_label">ID</string>
+    <string name="device_dialog_info_table_fourth_col_label">DESCRIPTION</string>
+    <string name="device_dialog_empty_name">Name is empty</string>
+    <string name="device_adapter_empty_list_title">No devices</string>
+    <string name="device_adapter_empty_list_message">Go to Provision to start searching for Bluetooth mesh devices.</string>
+    <string name="device_adapter_lightness_label">Lightness</string>
+    <string name="device_adapter_lightness_value">%d %%</string>
+    <string name="device_adapter_temperature_label">Temperature</string>
+    <string name="device_adapter_temperature_value">%d K</string>
+    <string name="device_adapter_delta_uv_label">Delta UV</string>
+    <string name="device_adapter_delta_uv_value">%.2f</string>
+    <string name="device_adapter_remove_device_error">Error deleting device</string>
+
+    <string name="device_config_connecting_error">Connecting error: %1$s</string>
+    <string name="device_config_connecting">Connecting with Device</string>
+    <string name="device_config_error">Device configuration failed: error %1$s</string>
+    <string name="device_config_success">Device configuration successful</string>
+    <string name="device_config_missing">No configuration selected</string>
+    <string name="device_config_no_group">No group selected</string>
+    <string name="device_config_adding_to_group">Adding to %1$s</string>
+    <string name="device_config_removing_from_group">Removing from %1$s</string>
+    <string name="device_config_device_deleted">Device Deleted</string>
+    <string name="device_config_device_deleting">Deleting Device</string>
+    <string name="device_config_proxy_enabling">Enabling Proxy</string>
+    <string name="device_config_proxy_disabling">Disabling Proxy</string>
+    <string name="device_config_proxy_enabled">Proxy is Enabled</string>
+    <string name="device_config_proxy_disabled">Proxy is Disabled</string>
+    <string name="device_config_proxy_deleted">Deleting proxy successful</string>
+    <string name="device_config_proxy_disabling_timeout">Disabling proxy, device is will not answer</string>
+    <string name="device_config_proxy_disable_attention_title">Attention</string>
+    <string name="device_config_proxy_disable_attention_message">Disabling this proxy will cause you to lose access to the network. Continue anyways?</string>
+    <string name="device_config_model_adding">Adding model 0x%1$s</string>
+    <string name="device_config_model_removing">Removing model 0x%1$s</string>
+    <string name="device_config_model_added">Added model 0x%1$s</string>
+    <string name="device_config_model_removed">Removed model 0x%1$s</string>
+    <string name="device_config_model_invalid_model">Couldn\'t configure model: 0x%1$s</string>
+    <string name="device_config_subscription_adding">Adding subscription: 0x%1$s</string>
+    <string name="device_config_subscription_removing">Removing subscription: 0x%1$s</string>
+    <string name="device_config_publication_setting">Setting publication: 0x%1$s</string>
+    <string name="device_config_publication_clearing">Clearing publication: 0x%1$s</string>
+    <string name="device_config_friend_enabling">Enabling Friend</string>
+    <string name="device_config_friend_disabling">Disabling Friend</string>
+    <string name="device_config_client_identity_enabling">Enabling Client Identity</string>
+    <string name="device_config_client_identity_disabling">Disabling Client Identity</string>
+    <string name="device_config_relay_enabling">Enabling Relay</string>
+    <string name="device_config_relay_disabling">Disabling Relay</string>
+    <string name="device_config_relay_enabled">Relay Enabled</string>
+    <string name="device_config_relay_disabled">Relay Disabled</string>
+    <string name="device_config_dcd_requesting">Requesting DCD</string>
+    <string name="device_config_dcd_timeout_requesting">Timeout Requesting DCD</string>
+    <string name="device_config_dcd_error_requesting">Requesting DCD: error %1$s</string>
+    <string name="device_config_dcd_success_requesting">DCD Received Successfully</string>
+
+    <string name="control_group_not_connected_to_mesh_network">NOT CONNECTED TO MESH NETWORK</string>
+    <string name="control_group_device_master_control_label">Master Control</string>
+    <string name="control_group_device_devices_label">Devices</string>
+    <string name="control_group_device_switch_label">Switch</string>
+    <string name="control_group_device_light_label">Light</string>
+
+    <string name="scanner_adapter_rssi">%d dBm</string>
+    <string name="scanner_adapter_device_unknown">Unknown</string>
+    <string name="scanner_adapter_provision">PROVISION</string>
+    <string name="scanner_adapter_no_network_on_provisioning">You have to have at least one network to provision a device</string>
+    <string name="scanner_dialog_toast_error_discovering_services">Error Discovering Services</string>
+    <string name="scanner_dialog_toast_gatt_not_connected">Gatt is not connected</string>
+    <string name="scanner_dialog_toast_no_mesh_service">Device doesn\'t contain Mesh Service</string>
+    <string name="scanner_dialog_toast_no_mesh_characteristic">Device doesn\'t contain Mesh Characteristic</string>
+    <string name="scanner_dialog_toast_no_mesh_descriptor">Characteristic doesn\'t contain Mesh Descriptor</string>
+
+    <string name="main_activity_networks_page_title">NETWORKS</string>
+    <string name="main_activity_provision_page_title">PROVISION</string>
+    <string name="main_activity_enable_button">ENABLE</string>
+    <string name="main_activity_bluetooth_adapter_disabled">BLUETOOTH ADAPTER IS DISABLED</string>
+    <string name="main_activity_location_adapter_disabled">LOCATION ADAPTER IS DISABLED</string>
+    <string name="main_activity_dialog_not_support_ble_title">ATTENTION</string>
+    <string name="main_activity_dialog_not_support_ble_message">This device do not support BLE</string>
+    <string name="main_activity_dialog_not_support_ble_positive_button">QUIT</string>
+    <string name="main_activity_dialog_location_permission_not_granted_title">Functionality limited</string>
+    <string name="main_activity_dialog_location_permission_not_granted_message">Since location access has not been granted, this app will not be able to discover beacons when in the background.</string>
+
+    <string name="network_fragment_groups_page_title">GROUPS</string>
+    <string name="network_fragment_devices_page_title">DEVICES</string>
+    <string name="network_fragment_mesh_network_disconnected">DISCONNECTED FROM MESH NETWORK</string>
+    <string name="network_fragment_gatt_proxy_disconnected">Remote proxy disconnected</string>
+    <string name="network_fragment_gatt_error_discovering_services">Error Discovering Services</string>
+    <string name="network_fragment_toast_no_node_in_network">No node in this network</string>
+    <string name="network_fragment_toast_no_proxy_node_in_network">No proxy node in this network</string>
+    <string name="network_fragment_toast_gatt_not_connected">Bluetooth Gatt is not connected</string>
+    <string name="network_fragment_toast_no_mesh_proxy_service">Mesh GATT Service is not found</string>
+    <string name="network_fragment_toast_no_mesh_proxy_characteristic">Mesh GATT Characteristic is not found</string>
+    <string name="network_fragment_toast_no_mesh_proxy_descriptor">Mesh GATT Descriptor is not found</string>
+    <string name="network_fragment_toast_connection_timeout">Connection timeout</string>
+
+    <string name="dialog_about_app_version">APP Version: v%s</string>
+    <string name="dialog_about_adk_version">ADK Version: v%s</string>
+    <string name="dialog_about_copyright">Copyright \u00A9 2019| All Rights Reserved</string>
+
+    <string name="error_message_timeout">Request timeout</string>
+    <string name="error_message_unknown">Unknown error</string>
+    <string name="error_message_api_error">Bluetooth mesh error</string>
+    <string name="error_message_could_not_connect_to_device">Connecting to the device failed</string>
+    <string name="error_message_could_not_disconnect_from_device">Disconnecting from the device failed</string>
+    <string name="error_message_max_connections_active">Attempt to exceed the maximum number of connections</string>
+    <string name="error_message_could_not_provision">Provisioning failed</string>
+    <string name="error_message_cannot_save_to_database">Saving to local storage failed</string>
+    <string name="error_message_code">Error %1$d</string>
+    <string name="error_message_code_and_content">Error %1$d: %2$s</string>
+</resources>

@@ -1,0 +1,89 @@
+/*
+ * Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+ */
+
+def versionMajor = 2
+def versionMinor = 0
+def versionPatch = 0
+def buildNumber = 10
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+kapt {
+    generateStubs = true
+}
+
+buildscript {
+    ext.kotlin_version = '1.2.71'
+    ext.dagger_version = '2.16'
+    repositories {
+        maven { url 'https://maven.google.com' }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'org.ajoberstar:grgit:1.5.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.siliconlabs.bluetoothmesh"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode versionMajor * 10000000 + versionMinor * 100000 + versionPatch * 1000 + buildNumber
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        buildConfigField "Integer", "BUILD_NUMBER", "${buildNumber}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        debug {
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    //ble mesh lib
+    implementation project(':ble_mesh-android_api-v2_low-release')
+    implementation project(':ble_mesh-android_api-v2_high-release')
+    // Android
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.3-alpha', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    //Test
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1'
+
+}

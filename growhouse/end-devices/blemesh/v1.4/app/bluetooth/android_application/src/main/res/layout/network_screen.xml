@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2019 Silicon Labs, http://www.silabs.com. All rights reserved.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_add_24"
+        app:backgroundTint="@color/alizarin_crimson" />
+
+    <ListView
+        android:id="@+id/network_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/adapter_item_divider"
+        android:dividerHeight="1dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_empty_view"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/adapter_item_padding"
+            android:text="@string/network_adapter_empty_list_title"
+            android:textColor="@color/adapter_item_title_color"
+            android:textSize="@dimen/adapter_label_big_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/adapter_item_padding"
+            android:text="@string/network_adapter_empty_list_message"
+            android:textColor="@color/adapter_item_title_color"
+            android:textSize="@dimen/adapter_label_big_size" />
+    </LinearLayout>
+
+</RelativeLayout>
