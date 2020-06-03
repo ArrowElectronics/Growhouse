@@ -1,0 +1,26 @@
+From 428b348e2b82f957d9d6350dffda8e44a3005b38 Mon Sep 17 00:00:00 2001
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Wed, 16 Aug 2017 13:17:19 +0100
+Subject: [PATCH] disable acceleration as we are building for ilp32
+
+Signed-off-by: Vishal Bhoj <vishal.bhoj@linaro.org>
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 20845bc..fb3a7d7 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -155,7 +155,7 @@ use_padlock=no
+ if test "$use_accel" != "no"; then
+ case $host_cpu in
+   armv8 | aarch64)
+-      hw_accel="aarch64"
++      hw_accel="none"
+   ;;
+   i?86 | x86_64 | amd64)
+       AC_CHECK_HEADERS(cpuid.h)
+-- 
+2.13.0
+

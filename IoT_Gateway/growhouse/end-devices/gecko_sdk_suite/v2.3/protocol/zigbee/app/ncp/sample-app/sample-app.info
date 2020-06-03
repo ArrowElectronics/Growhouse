@@ -1,0 +1,61 @@
+ncp-spi {
+  name=NCP SPI
+  dir=ncp-spi
+  isc=ncp-spi/ncp-spi.isc
+  include=.internal_hwconfig
+  This network coprocessor (NCP) application supports communication with a host
+  application over a SPI interface.  This NCP application can be built as
+  configured, or optionally can be augmented with customized extensions for
+  initialization, main loop processing, event definition/handling, and
+  messaging with the host.
+}
+
+ncp-uart-hw {
+  name=NCP UART HW (Hardware Flow Control)
+  dir=ncp-uart-hw
+  isc=ncp-uart-hw/ncp-uart-hw.isc
+  include=.internal_hwconfig
+  This network coprocessor (NCP) application supports communication with a host
+  application over a UART interface with hardware flow control. This NCP
+  application can be built as configured, or optionally can be augmented with
+  customized extensions for initialization, main loop processing, event
+  definition/handling, and messaging with the host.
+}
+
+ncp-uart-sw {
+  name=NCP UART SW (Software Flow Control)
+  dir=ncp-uart-sw
+  isc=ncp-uart-sw/ncp-uart-sw.isc
+  include=.internal_hwconfig
+  This network coprocessor (NCP) application supports communication with a host
+  application over a UART interface with software flow control. This NCP
+  application can be built as configured, or optionally can be augmented with
+  customized extensions for initialization, main loop processing, event
+  definition/handling, and messaging with the host.
+}
+
+xncp-led {
+  name=xNCP LED
+  dir=xncp-led
+  isc=xncp-led/xncp-led.isc
+  include=xncp-led-implementation.c
+  include=led-protocol.h, .internal_hwconfig
+  An extensible network co-processor (xNCP) application with an LED controlled by a HOST.
+}
+
+SecureEzspNcp {
+  name=SecureEzspNcp
+  dir=secure-ezsp
+  isc=secure-ezsp/SecureEzspNcp.isc
+  include=.internal_hwconfig
+  This is a demonstration of a NCP application that securely communicates with the Host.
+}
+
+xncp-commshub-uart-dual {
+  name=xNCP CommsHub Dual
+  dir=xncp-commshub-uart-dual
+  isc=xncp-commshub-uart-dual/xncp-commshub-uart-dual.isc
+  include=.internal_hwconfig
+  This is a demonstration of a network coprocessor application for simultaneous dual phy device
+  (2.4Ghz and subghz bands) that communicates to a host application over a UART interface.
+}

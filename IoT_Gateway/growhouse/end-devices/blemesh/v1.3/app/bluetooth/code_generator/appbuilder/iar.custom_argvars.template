@@ -1,0 +1,11 @@
+{% import "common.template" as common %}
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<iarUserArgVars>
+  <group active="true" name="BLE SDK">
+    <variable>
+      <name>BGBUILD_EXECUTABLE_PATH</name>
+      <value>{{context["BGBUILD_EXECUTABLE"]}}</value>
+    </variable>
+  </group>
+</iarUserArgVars>

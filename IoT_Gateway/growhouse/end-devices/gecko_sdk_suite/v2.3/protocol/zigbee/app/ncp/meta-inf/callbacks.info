@@ -1,0 +1,41 @@
+#include PLATFORM_HEADER
+
+/** @brief Provides the main application entry point.
+ *
+ * This callback provides the main application entry point for an NCP
+ * application.
+ */
+int main(MAIN_FUNCTION_PARAMETERS);
+
+void emberAfCounterHandler(EmberCounterType type, EmberCounterInfo info)
+{
+}
+
+/** @brief NCP Application hook callback for green power messages.
+ *
+ * This function is called by the application hook plugin to allow
+ * user to take an action gpd message is received. The return code
+ * true indicate the user handled the message and false allows the
+ * stack to handle it.
+ *
+ * @param status                     Ver.: always
+ * @param gpdLink                    Ver.: always
+ * @param sequenceNumber             Ver.: always
+ * @param *addr                      Ver.: always
+ * @param gpdfSecurityLevel          Ver.: always
+ * @param gpdfSecurityKeyType        Ver.: always
+ * @param autoCommissioning          Ver.: always
+ * @param rxAfterTx                  Ver.: always
+ * @param gpdSecurityFrameCounter    Ver.: always
+ * @param gpdCommandId               Ver.: always
+ * @param mic                        Ver.: always
+ * @param proxyTableIndex            Ver.: always
+ * @param gpdCommandPayloadLength    Ver.: always
+ * @param *gpdCommandPayload         Ver.: always
+ */
+bool emberAfNcpGpepIncomingMessageHandler(GP_PARAMS)
+{
+  // return false so that stack will handle it, return true
+  // if the message has been handled by user.
+  return false;
+}

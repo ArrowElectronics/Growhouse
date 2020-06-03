@@ -1,0 +1,53 @@
+Introduction
+------------
+
+This repository contains Linaro layers for OpenEmbedded.
+
+meta-aarch64:
+
+  This repo provides support for AArch64 (64-bit ARM) architecture.
+
+meta-linaro:
+
+  This repo provides additional recipes required for Linaro targets.
+
+meta-linaro-integration:
+
+  This repo provides an integration area *for upstreaming*. Recipes are meant
+  to be contributed to the relevant projects (oe-core, meta-oe, etc...).
+
+meta-linaro-toolchain:
+
+  This layer adds support for building with GCC Linaro and Linaro external
+  toolchain.
+
+Contributing
+------------
+
+If you want to contribute changes, you can send Gerrit merge requests at
+https://review.linaro.org/#/q/project:openembedded/meta-linaro.
+
+Alternatively you can send patches to openembedded@lists.linaro.org, in which
+case, please:
+
+* When creating patches, please use something like:
+
+`git format-patch -s --subject-prefix='meta-foo][PATCH' origin`
+
+* When sending patches, please use something like:
+
+`git send-email --to openembedded@lists.linaro.org <generated patch>`
+
+You can discuss about this layer, on `#linaro` on FreeNode IRC network.
+
+Reporting bugs
+--------------
+
+Please report any issue on:
+https://bugs.linaro.org/enter_bug.cgi?product=Linaro%20OpenEmbedded
+
+Maintainer(s)
+-------------
+
+Koen Kooi <koen.kooi@linaro.org>
+Fathi Boudra <fathi.boudra@linaro.org>

@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+doc/XMODEM.TXT
+doc/XMODEM1K.TXT
+doc/XMODMCRC.TXT
+doc/ymodem.txt
+xmodem/__init__.py
+xmodem.egg-info/PKG-INFO
+xmodem.egg-info/SOURCES.txt
+xmodem.egg-info/dependency_links.txt
+xmodem.egg-info/top_level.txt

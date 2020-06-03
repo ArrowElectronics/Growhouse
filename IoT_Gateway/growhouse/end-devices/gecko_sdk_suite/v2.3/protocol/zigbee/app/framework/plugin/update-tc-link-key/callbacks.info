@@ -1,0 +1,13 @@
+/** @brief Status
+ *
+ * This callback is fired when the Update Link Key exchange process is updated
+ * with a status from the stack. Implementations should return true if they are
+ * done receiving updates from the stack.
+ *
+ * @param keyStatus An ::EmberKeyStatus value describing the success or failure
+ * of the key exchange process. Ver.: always
+ */
+bool emberAfPluginUpdateTcLinkKeyStatusCallback(EmberKeyStatus keyStatus)
+{
+  return true;
+}

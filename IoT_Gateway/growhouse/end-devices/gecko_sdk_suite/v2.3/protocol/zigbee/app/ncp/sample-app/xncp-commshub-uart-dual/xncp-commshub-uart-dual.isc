@@ -1,0 +1,184 @@
+#ISD afv6
+# Simplicity Studio version: 4.28.3.qualifier
+
+# Application configuration
+appId: ncp
+frameworkRoot: app/ncp
+architecture: EFR32MG1P132F256GM48+BRD4155A+iar
+deviceName: xncp-commshub-uart-dual
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: accelerometer-led=false
+appPlugin: adc=true
+appPlugin: antenna=false
+appPlugin: antenna-stub=true
+appPlugin: battery-monitor=false
+appPlugin: binding-table-library=true
+appPlugin: binding-table-stub-library=false
+appPlugin: bulb-pwm-driver=false
+appPlugin: button=false
+appPlugin: button-interface=false
+appPlugin: button-stub=true
+appPlugin: buzzer=false
+appPlugin: buzzer-stub=false
+appPlugin: cbke-163k1-library=false
+appPlugin: cbke-163k1-stub-library=true
+appPlugin: cbke-283k1-library=false
+appPlugin: cbke-283k1-stub-library=true
+appPlugin: cbke-library-core=false
+appPlugin: cbke-library-dsa-sign=false
+appPlugin: cbke-library-dsa-sign-stub=true
+appPlugin: cbke-library-dsa-verify=false
+appPlugin: cbke-library-dsa-verify-283k1=false
+appPlugin: cbke-library-dsa-verify-283k1-stub=true
+appPlugin: cbke-library-dsa-verify-stub=true
+appPlugin: cbke-stub-library=true
+appPlugin: cjson=false
+appPlugin: coexistence=true
+appPlugin: concentrator-support-library=true
+appPlugin: concentrator-support-stub-library=false
+appPlugin: debug-basic-library=true
+appPlugin: debug-basic-stub-library=false
+appPlugin: debug-channel=true
+appPlugin: debug-channel-stub=false
+appPlugin: debug-extended-library=true
+appPlugin: debug-extended-stub-library=false
+appPlugin: diagnostic=true
+appPlugin: diagnostic-stub=false
+appPlugin: dmp-demo-ui=false
+appPlugin: ecc-library-163k1=false
+appPlugin: ecc-library-283k1=false
+appPlugin: eeprom=false
+appPlugin: eeprom-powerdown=false
+appPlugin: ember-minimal-printf=true
+appPlugin: end-device-bind-library=true
+appPlugin: end-device-bind-stub-library=false
+appPlugin: ext-device=true
+appPlugin: extdev=false
+appPlugin: ezradiopro=false
+appPlugin: ezsp-binding=true
+appPlugin: ezsp-cbke=true
+appPlugin: ezsp-gp=false
+appPlugin: ezsp-mfglib=true
+appPlugin: ezsp-security=true
+appPlugin: ezsp-zigbee-pro=true
+appPlugin: ezsp-zll=false
+appPlugin: fem-control=false
+appPlugin: generic-interrupt-control=false
+appPlugin: glib=false
+appPlugin: gp-library=false
+appPlugin: gp-stub-library=true
+appPlugin: gpio-sensor=false
+appPlugin: hal-library=true
+appPlugin: heartbeat=true
+appPlugin: humidity-si7021-stub=false
+appPlugin: i2c-driver=false
+appPlugin: i2c-driver-stub=false
+appPlugin: illuminance-si1141-stub=false
+appPlugin: infrared-led=false
+appPlugin: install-code-library=true
+appPlugin: install-code-library-stub=false
+appPlugin: key-matrix=false
+appPlugin: led=true
+appPlugin: led-blink=false
+appPlugin: led-stub=false
+appPlugin: libcoap=false
+appPlugin: linked-list=false
+appPlugin: mfglib-library=true
+appPlugin: mfglib-stub-library=false
+appPlugin: microphone-codec-msadpcm=false
+appPlugin: microphone-imaadpcm=false
+appPlugin: mpsi=false
+appPlugin: mpsi-ipc=false
+appPlugin: mpsi-storage=false
+appPlugin: multi-network-library=false
+appPlugin: multi-network-stub-library=true
+appPlugin: ncp-spi=false
+appPlugin: ncp-uart=true
+appPlugin: ncp-usb=false
+appPlugin: occupancy-pyd1698=false
+appPlugin: occupancy-pyd1698-stub=false
+appPlugin: pa=true
+appPlugin: packet-validate-library=true
+appPlugin: packet-validate-stub-library=false
+appPlugin: paho.mqtt.c=false
+appPlugin: power-meter-cs5463=false
+appPlugin: psstore=false
+appPlugin: pti=true
+appPlugin: rail-library=false
+appPlugin: rail-library-mp=false
+appPlugin: sb1-gesture-sensor=false
+appPlugin: secure-ezsp=false
+appPlugin: secure-ezsp-stub=true
+appPlugin: security-library-core=true
+appPlugin: security-library-link-keys=true
+appPlugin: security-library-link-keys-stub=false
+appPlugin: serial=true
+appPlugin: sim-eeprom1=false
+appPlugin: sim-eeprom2=true
+appPlugin: sim-eeprom2-1to2-upgrade=false
+appPlugin: sim-eeprom2-1to2-upgrade-stub=true
+appPlugin: slot-manager=false
+appPlugin: stm32f103ret-library=false
+appPlugin: stub-security-library=false
+appPlugin: tamper-switch=false
+appPlugin: temperature-si7053-stub=false
+appPlugin: transport-mqtt=false
+appPlugin: unix-library=false
+appPlugin: xncp=false
+appPlugin: xncp-stub=true
+appPlugin: zigbee-pro-stack=true
+appPlugin: zigbee-r22-support-library=true
+appPlugin: zigbee-r22-support-stub-library=false
+appPlugin: zll-library=false
+appPlugin: zll-stub-library=true
+
+# Setup configurations
+{setupId:additionalFiles
+}
+{setupId:boardHeader
+allowMissingHeader:true
+useHeaderInPlace:false
+EFR32MG1P132F256GM48+BRD4155A=USE_HARDWARE_CONFIGURATOR,,,
+}
+{setupId:bookkeeping
+}
+{setupId:bootloader
+}
+{setupId:callbackConfiguration
+}
+{setupId:eventConfiguration
+}
+{setupId:ezsp
+}
+{setupId:halOptions
+}
+{setupId:hwConfig
+lastArchitectureId=EFR32MG1P132F256GM48+BRD4155A+iar
+featureLevel=1
+active=true
+}
+{setupId:information
+\{key:description
+This is a demo network coprocessor application for a simultaneous dual phy device (2.4Ghz and subghz) that communicates to a host application over a UART interface. This application does not include ECC libraries. If you want to create an application with ECC support select cbke core, cbke 163k and cbke 283k libraries and add dependent libraries as per configuration error window if any.
+\}
+}
+{setupId:macros
+}
+{setupId:quizz
+q1=a3
+}
+{setupId:serial
+}
+{setupId:template
+simeepromSize=36864
+}
+{setupId:token
+}
+
+# Plugin options
+pluginOption(): EMBER_AF_PLUGIN_SIM_EEPROM2_PASSWORD,!spoon
+pluginOption(): EMBER_BINDING_TABLE_SIZE,32

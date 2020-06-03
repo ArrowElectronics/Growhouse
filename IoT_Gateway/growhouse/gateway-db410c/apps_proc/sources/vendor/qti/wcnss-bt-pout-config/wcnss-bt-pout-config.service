@@ -1,0 +1,11 @@
+[Unit]
+Description=Configure the BT Pout to class 2 (~4dB)
+After=bluetooth.service
+
+[Service]
+ExecStart=-/bin/sh -c '_BTON=`rfkill list | grep -i -A2 "bluetooth" | grep "Soft blocked: yes"`; if [ ! -z "$_BTON" ]; then echo Unblocking bluetooth; rfkill unblock bluetooth; sleep 1s; fi; hcitool cmd 0x3f 0x000B 01 24 0C FF 03 05 05 05 00 00 00 05 05 04 00; hcitool cmd 0x03 0x0003 0; if [ ! -z "$_BTON" ]; then echo Reblocking bluetooth; rfkill block bluetooth; fi'
+Type=oneshot
+
+[Install]
+WantedBy=bluetooth.target
+

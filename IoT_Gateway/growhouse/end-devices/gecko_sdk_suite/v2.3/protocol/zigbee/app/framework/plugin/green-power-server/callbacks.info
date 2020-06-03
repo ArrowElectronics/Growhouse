@@ -1,0 +1,12 @@
+/** @brief Gpd Commissioning
+ *
+ * This function is called by the Green Power Sink Plugin to notify the
+ * application of a Green Power Device that has requested commissioning with
+ * this sink. Return true to accept, false to reject.
+ *
+ * @param appInfo   Ver.: always
+ */
+bool emberAfPluginGreenPowerServerGpdCommissioningCallback(EmberGpApplicationInfo *appInfo)
+{
+  return true;
+}

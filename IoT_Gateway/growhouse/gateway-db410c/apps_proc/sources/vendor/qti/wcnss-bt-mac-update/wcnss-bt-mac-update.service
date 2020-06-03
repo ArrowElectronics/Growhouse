@@ -1,0 +1,20 @@
+[Unit]
+Description=Update the BT MAC address from the DT
+After=bluetooth.service wcnss-start.service
+
+[Service]
+ExecStart=-/bin/sh -c "\
+MAC=$(hexdump -C /proc/device-tree/soc/wcnss@a21b000/smd-edge/wcnss/bt/local-mac-address | head -n1 | cut -b11-27 | cut -d' ' -f1-6 --output-delimiter=:); \
+RFKILL_STATE="$(</var/lib/systemd/rfkill/platform-a204000.wcnss-platform-a204000.wcnss\:smd-edge\:wcnss\:bt\:bluetooth)"; \
+rfkill block bluetooth; \
+/usr/bin/btmgmt public-addr $MAC; \
+if [ $RFKILL_STATE = "0" ]; \
+then rfkill unblock bluetooth; \
+fi; \
+"
+
+Type=oneshot
+
+[Install]
+WantedBy=bluetooth.target
+

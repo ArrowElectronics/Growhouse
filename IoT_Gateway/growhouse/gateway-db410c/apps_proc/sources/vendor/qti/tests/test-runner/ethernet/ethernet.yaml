@@ -1,0 +1,69 @@
+#Copyright (c) 2018, The Linux Foundation. All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are
+#met:
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above
+#      copyright notice, this list of conditions and the following
+#      disclaimer in the documentation and/or other materials provided
+#      with the distribution.
+#    * Neither the name of The Linux Foundation nor the names of its
+#      contributors may be used to endorse or promote products derived
+#      from this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+#WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+#ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+#BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+#SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+#BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+#OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+#IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+metadata:
+    format: Lava-Test Test Definition 1.0
+    name: ethernet-test
+
+    description: "Checking Ethernet speed by sending ping to router and checking results.
+                  Prerequisites:
+                    1. Router working and connected to DUT with LAN
+                    2. No other Ethernet connection for DUT
+                  Test process:
+                    1. Get router IP
+                    2. Disable other connections
+                    3. Ping router
+                    4. Enable other connections
+                    5. Check response speed"
+
+    maintainer:
+
+    os:
+        - debian
+        - openembedded
+    scope:
+        - functional
+    devices:
+        - apq8016-sbc
+        - apq8096-sbc
+
+params:
+    # max_response_time_ms      : maximum time in ms, it could take to recieve ping response, in order for test to pass
+    #                             if ping response time will be bigger than the given value, the test will fail 
+    # ping_timeout_s            : time the ping should last
+    
+    # max_response_time_ms default value is 5 ms
+    # ping_timeout_s minimum value is 2 s (if less number is given, test defaults to 2 s) 
+
+    max_response_time_ms: "5"
+    ping_timeout_s: "5" 
+
+run:
+    steps:
+        - cd ./automated/linux/ethernet
+        - ./ethernet.sh "${max_response_time_ms}" "${ping_timeout_s}"
+        - ../../utils/send-to-lava.sh ./output/result.txt

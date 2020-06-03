@@ -1,0 +1,45 @@
+##My default DIAG configuration
+
+##########################################################################################
+log_file_name=diag_log.log
+
+##transport operation mode
+##set this parameter for the desired diag IF, options are:
+##DIAG_TRANS_UART=0
+##DIAG_TRANS_SOCKET = 1
+##DIAG_TRANS_USB = 2
+transport_op_mode=1
+
+##UART configuration
+uart_device=/dev/ttyMSM1
+uart_baud_rate=115200
+
+##Socket configuration
+socket_address=10.18.166.176
+socket_port=2500
+
+##USB configuration
+usb_device=/dev/gadget/qdiag
+usb_serial=0123456789
+
+##########################################################################################
+
+##########################################################################################
+##router configuration
+##remoteproc_*** - list all devices to be used
+##options are:
+##remoteproc_data - for data channel
+##remoteproc_ctrl - for control channel
+##remoteproc_cmd  - for command channel
+##remoteproc_client_so - for an extension plugin device
+remoteproc_data=/dev/rpmsg/pronto/APPS_RIVA_DATA
+remoteproc_ctrl=/dev/rpmsg/pronto/APPS_RIVA_CTRL
+remoteproc_data=/dev/rpmsg/hexagon/DIAG
+remoteproc_ctrl=/dev/rpmsg/hexagon/DIAG_CNTL
+remoteproc_cmd=/dev/rpmsg/hexagon/DIAG_CMD
+
+##extension plugins
+#remoteproc_client_so=/usr/lib/ftm_bt.so
+#remoteproc_client_so=/usr/lib/ftm_wlan.so
+
+##########################################################################################

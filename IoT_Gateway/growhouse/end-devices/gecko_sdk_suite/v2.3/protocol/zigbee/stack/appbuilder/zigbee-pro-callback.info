@@ -1,0 +1,105 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+#include EMBER_AF_API_ZIGBEE_PRO
+
+void emberOrphanNotificationHandler(EmberEUI64 longId)
+{
+  return;
+}
+
+/**@brief Invoked by the EmberZNet stack to filter out incoming
+ * application MAC passthrough messages. If this returns true for a message
+ * the complete message will be passed to emberMacPassthroughMessageHandler()
+ * with a type of EMBER_MAC_PASSTHROUGH_APPLICATION.
+ *
+ * Note that this callback may be invoked in ISR context and should execute as
+ * quickly as possible.
+ *
+ * Note that this callback may be called more than once per incoming message.
+ * Therefore, the callback code should not depend on being called only once,
+ * and should return the same value each time it is called with a given header.
+ *
+ * If the application includes this callback, it must define
+ * EMBER_APPLICATION_HAS_MAC_PASSTHROUGH_FILTER_HANDLER in its
+ * CONFIGURATION_HEADER.
+ *
+ * @param macHeader        A pointer to the initial portion of the
+ *     incoming MAC header. This contains the MAC frame control and
+ *     addressing fields. Subsequent MAC fields, and the MAC payload,
+ *     may not be present.
+ * @return true if the messages is an application MAC passthrough message.
+ */
+bool emberMacPassthroughFilterHandler(uint8_t *macHeader)
+{
+  return false;
+}
+
+/** @brief A protocol layer command has been received by the stack.
+ *
+ * This is called when the stack receives a command that is meant
+ * for one of the protocol layers specified in ::EmberZigbeeCommandType.
+ * The implementation can get a flat buffer of bytes representing the
+ * command byte plus the command payload by calling
+ * ::emberCopyFromLinkedBuffers() with a contents array big enough to
+ * hold the command payload.
+ *
+ * The commandType argument is one of the values of the
+ * ::EmberZigbeeCommandType enumeration. If the stack receives an 802.15.4
+ * MAC beacon, it will call this function with the commandType argument
+ * set to ::EMBER_ZIGBEE_COMMAND_TYPE_BEACON.
+ *
+ * The implementation of this callback should <b>not</b> alter the data
+ * contained in the ::EmberMessageBuffer, since the stack will still be
+ * processing the command at the time that this is called.
+ *
+ * @param commandType The type of command received. See
+ * ::EmberZigbeeCommandType.
+ * @param commandBuffer The ::EmberMessageBuffer, for the command payload.
+ * @param indexOfCommand The starting index in the ::EmberMessageBuffer
+ * for the command. This means the first byte at this index will be
+ * the command byte itself, and the reset will be the command payload.
+ * @param data This is a pointer to auxiliary data for the command. ZDO
+ * commands pass the ::EmberApsFrame associated with the packet here. Otherwise,
+ * this value is NULL.
+ */
+void emberIncomingCommandHandler(EmberZigbeeCommandType commandType,
+                                 EmberMessageBuffer commandBuffer,
+                                 uint8_t indexOfCommand,
+                                 void *data)
+{
+}
+
+/** @brief The stack is preparing to send a protocol layer command.
+ *
+ * This is called when the stack is preparing to send a command from one
+ * of the protocol layers specified in ::EmberZigbeeCommandType.
+ * The implementation can get a flat buffer of bytes representing the
+ * command byte plus the command payload by calling
+ * ::emberCopyFromLinkedBuffers() with a contents array big enough to
+ * hold the command payload.
+ *
+ * The commandType argument is one of the values of the
+ * ::EmberZigbeeCommandType enum. If the stack is preparing to send an
+ * 802.15.4 MAC beacon, it will call this function with the commandType
+ * argument set to ::EMBER_ZIGBEE_COMMAND_TYPE_BEACON.
+ *
+ * The implementation of this callback may alter the data contained in the
+ * ::EmberMessageBuffer, modify options and flags in the auxillary data, or
+ * consume the command itself, either sending the command, or discarding
+ * it as it sees fit.
+ *
+ * @param commandType The type of command being sent. See
+ * ::EmberZigbeeCommandType.
+ * @param commandBuffer The ::EmberMessageBuffer for the command payload.
+ * @param indexOfCommand The starting index in the ::EmberMessageBuffer
+ * for the command. This means the first byte at this index will be
+ * the command byte itself, and the rest will be the command payload.
+ * @param data This is a pointer to auxillary data for the command.
+ * The field should be NULL if it is not used.
+ */
+void emberOutgoingCommandHandler(EmberZigbeeCommandType commandType,
+                                 EmberMessageBuffer commandBuffer,
+                                 uint8_t indexOfCommand,
+                                 void *data)
+{
+}

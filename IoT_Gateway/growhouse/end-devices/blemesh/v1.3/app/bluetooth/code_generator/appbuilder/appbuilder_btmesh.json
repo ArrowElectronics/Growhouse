@@ -1,0 +1,2079 @@
+{
+  "codeGenModules": [
+    {
+      "id": "appbuilder-mesh",
+      "name": "APPBUILDER-MESH",
+      "hostCompat": [],
+      "targetCompat": [],
+      "rootDir": "appbuilder",
+      "srcDir": "../../../..",
+      "dstDir": "",
+      "generator": "appbuilder.py",
+      "verbose": "True",
+      "groups": [
+        {
+          "id" : "linker_iar1",
+          "name" : "LINKER iar 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p132f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_1",
+          "name" : "LINKER gcc 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p132f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar2",
+          "name" : "LINKER iar 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p132f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_2",
+          "name" : "LINKER gcc 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p132f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar3",
+          "name" : "LINKER iar 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p232f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_3",
+          "name" : "LINKER gcc 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p232f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar4",
+          "name" : "LINKER iar 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p232f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_4",
+          "name" : "LINKER gcc 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p232f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar5",
+          "name" : "LINKER iar 5",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_5",
+          "name" : "LINKER gcc 5",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar6",
+          "name" : "LINKER iar 6",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_6",
+          "name" : "LINKER gcc 6",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar7",
+          "name" : "LINKER iar 7",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_7",
+          "name" : "LINKER gcc 7",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p332f1024im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar8",
+          "name" : "LINKER iar 8",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p432f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_8",
+          "name" : "LINKER gcc 8",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p432f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar9",
+          "name" : "LINKER iar 9",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p432f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_9",
+          "name" : "LINKER gcc 9",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p432f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar10",
+          "name" : "LINKER iar 10",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p433f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_10",
+          "name" : "LINKER gcc 10",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p433f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar11",
+          "name" : "LINKER iar 11",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p433f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_11",
+          "name" : "LINKER gcc 11",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg12p433f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar12",
+          "name" : "LINKER iar 12",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[532]~flash[512k]~temp[g]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p532f512gm32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_12",
+          "name" : "LINKER gcc 12",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[532]~flash[512k]~temp[g]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p532f512gm32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar13",
+          "name" : "LINKER iar 13",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[532]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p532f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_13",
+          "name" : "LINKER gcc 13",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[532]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p532f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar14",
+          "name" : "LINKER iar 14",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_14",
+          "name" : "LINKER gcc 14",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar15",
+          "name" : "LINKER iar 15",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_15",
+          "name" : "LINKER gcc 15",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar16",
+          "name" : "LINKER iar 16",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm51.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_16",
+          "name" : "LINKER gcc 16",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512gm51.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar17",
+          "name" : "LINKER iar 17",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[i]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512im32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_17",
+          "name" : "LINKER gcc 17",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[i]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512im32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar18",
+          "name" : "LINKER iar 18",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_18",
+          "name" : "LINKER gcc 18",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p632f512im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar19",
+          "name" : "LINKER iar 19",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_19",
+          "name" : "LINKER gcc 19",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar20",
+          "name" : "LINKER iar 20",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_20",
+          "name" : "LINKER gcc 20",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar21",
+          "name" : "LINKER iar 21",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm51.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_21",
+          "name" : "LINKER gcc 21",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p732f512gm51.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar22",
+          "name" : "LINKER iar 22",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p733f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_22",
+          "name" : "LINKER gcc 22",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32bg13p733f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar23",
+          "name" : "LINKER iar 23",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p132f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_23",
+          "name" : "LINKER gcc 23",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p132f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar24",
+          "name" : "LINKER iar 24",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p132f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_24",
+          "name" : "LINKER gcc 24",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[132]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p132f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar25",
+          "name" : "LINKER iar 25",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[231]~flash[1024k]~temp[g]~package[m]~pins[68]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p231f1024gm68.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_25",
+          "name" : "LINKER gcc 25",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[231]~flash[1024k]~temp[g]~package[m]~pins[68]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p231f1024gm68.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar26",
+          "name" : "LINKER iar 26",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p232f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_26",
+          "name" : "LINKER gcc 26",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p232f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar27",
+          "name" : "LINKER iar 27",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p232f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_27",
+          "name" : "LINKER gcc 27",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[232]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p232f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar28",
+          "name" : "LINKER iar 28",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_28",
+          "name" : "LINKER gcc 28",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar29",
+          "name" : "LINKER iar 29",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_29",
+          "name" : "LINKER gcc 29",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar30",
+          "name" : "LINKER iar 30",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_30",
+          "name" : "LINKER gcc 30",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p332f1024im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar31",
+          "name" : "LINKER iar 31",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[431]~flash[1024k]~temp[g]~package[m]~pins[68]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p431f1024gm68.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_31",
+          "name" : "LINKER gcc 31",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[431]~flash[1024k]~temp[g]~package[m]~pins[68]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p431f1024gm68.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar32",
+          "name" : "LINKER iar 32",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_32",
+          "name" : "LINKER gcc 32",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar33",
+          "name" : "LINKER iar 33",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_33",
+          "name" : "LINKER gcc 33",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar34",
+          "name" : "LINKER iar 34",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_34",
+          "name" : "LINKER gcc 34",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p432f1024im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar35",
+          "name" : "LINKER iar 35",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024gl125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_35",
+          "name" : "LINKER gcc 35",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024gl125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar36",
+          "name" : "LINKER iar 36",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_36",
+          "name" : "LINKER gcc 36",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar37",
+          "name" : "LINKER iar 37",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[i]~package[l]~pins[125]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024il125.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_37",
+          "name" : "LINKER gcc 37",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[i]~package[l]~pins[125]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024il125.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar38",
+          "name" : "LINKER iar 38",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_38",
+          "name" : "LINKER gcc 38",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg12p433f1024im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar39",
+          "name" : "LINKER iar 39",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_39",
+          "name" : "LINKER gcc 39",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar40",
+          "name" : "LINKER iar 40",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_40",
+          "name" : "LINKER gcc 40",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar41",
+          "name" : "LINKER iar 41",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm51.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_41",
+          "name" : "LINKER gcc 41",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p632f512gm51.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar42",
+          "name" : "LINKER iar 42",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_42",
+          "name" : "LINKER gcc 42",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar43",
+          "name" : "LINKER iar 43",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_43",
+          "name" : "LINKER gcc 43",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar44",
+          "name" : "LINKER iar 44",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm51.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_44",
+          "name" : "LINKER gcc 44",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512gm51.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar45",
+          "name" : "LINKER iar 45",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[i]~package[m]~pins[32]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512im32.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_45",
+          "name" : "LINKER gcc 45",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[i]~package[m]~pins[32]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512im32.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar46",
+          "name" : "LINKER iar 46",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_46",
+          "name" : "LINKER gcc 46",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p732f512im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar47",
+          "name" : "LINKER iar 47",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p733f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_47",
+          "name" : "LINKER gcc 47",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p733f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar48",
+          "name" : "LINKER iar 48",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p733f512im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_48",
+          "name" : "LINKER gcc 48",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p733f512im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar49",
+          "name" : "LINKER iar 49",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p832f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_49",
+          "name" : "LINKER gcc 49",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p832f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar50",
+          "name" : "LINKER iar 50",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p832f512im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_50",
+          "name" : "LINKER gcc 50",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p832f512im48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar51",
+          "name" : "LINKER iar 51",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[932]~flash[512k]~temp[g]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p932f512gm48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_51",
+          "name" : "LINKER gcc 51",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[932]~flash[512k]~temp[g]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p932f512gm48.ld"
+          ]
+        },
+        {
+          "id" : "linker_iar52",
+          "name" : "LINKER iar 52",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[932]~flash[512k]~temp[i]~package[m]~pins[48]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/IAR",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p932f512im48.icf"
+          ]
+        },
+        {
+          "id" : "linker_gcc_52",
+          "name" : "LINKER gcc 52",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[932]~flash[512k]~temp[i]~package[m]~pins[48]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/bt_mesh/linker/GCC",
+          "dstDir" : "",
+          "files" : [
+            "efr32mg13p932f512im48.ld"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_iar_1",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_gcc_1",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_gcc_1",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR GCC 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_iar_1",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR IAR 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_iar_1",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_gcc_1",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 1",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_iar_2",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_gcc_2",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_gcc_2",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR GCC 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_iar_2",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR IAR 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_iar_2",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/IAR",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_gcc_2",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 2",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG12X/GCC",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_iar_3",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_gcc_3",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_gcc_3",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR GCC 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_iar_3",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR IAR 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_iar_3",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_gcc_3",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 3",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_iar_4",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_stack_gcc_4",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "libbluetooth_mesh.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_gcc_4",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR GCC 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_coex_lib_iar_4",
+          "name" : "PLUGIN MESH PRECOMPILED COEX LIB FOR IAR 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "libcoex.a"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_iar_4",
+          "name" : "PLUGIN MESH PRECOMPILED IAR 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+iar"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/IAR",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id" : "mesh_precompiled_ota_gcc_4",
+          "name" : "PLUGIN MESH PRECOMPILED GCC 4",
+          "hostCompat" : [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]+gcc"
+          ],
+          "command" : "copy",
+          "srcDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "dstDir" : "protocol/bluetooth/lib/EFR32XG13X/GCC",
+          "files" : [
+            "binapploader.o"
+          ]
+        },
+        {
+          "id": "plugin_mesh_sourceFiles",
+          "name": "PLUGIN MESH SOURCEFILES",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "",
+          "dstDir": "",
+          "files": [
+            "protocol/bluetooth/bt_mesh/src/mesh_lib.c",
+            "protocol/bluetooth/bt_mesh/src/mesh_serdeser.c"
+          ]
+        },
+        {
+          "id": "plugin_mesh_headerFiles",
+          "name": "PLUGIN MESH HEADERFILES",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "",
+          "dstDir": "",
+          "files" : [
+             "protocol/bluetooth/bt_mesh/inc/common/bg_compat.h",
+             "protocol/bluetooth/bt_mesh/inc/common/bg_errorcodes.h",
+             "protocol/bluetooth/bt_mesh/inc/common/bg_gattdb_def.h",
+             "protocol/bluetooth/bt_mesh/inc/common/bg_types.h",
+             "protocol/bluetooth/bt_mesh/inc/common/gecko_bgapi.h",
+             "protocol/bluetooth/bt_mesh/inc/common/gecko_configuration.h",
+             "protocol/bluetooth/bt_mesh/inc/common/mesh_memory_config.h",
+             "protocol/bluetooth/bt_mesh/inc/common/mesh_sizes.h",
+             "protocol/bluetooth/bt_mesh/inc/soc/native_gecko.h",
+             "protocol/bluetooth/bt_mesh/inc/soc/ncp_gecko.h",
+             "protocol/bluetooth/bt_mesh/inc/mesh_generic_model_capi_types.h",
+             "protocol/bluetooth/bt_mesh/inc/mesh_lighting_model_capi_types.h",
+             "protocol/bluetooth/bt_mesh/inc/mesh_lib.h", 
+             "protocol/bluetooth/bt_mesh/inc/mesh_serdeser.h"   
+          ]
+        },
+        {
+          "id": "macro_gcc_linker_config",
+          "name": "MACRO GCC CONFIG",
+          "hostCompat": [],
+          "targetCompat": ["gcc"],
+          "command": "macro",
+          "srcDir": "",
+          "dstDir": "",
+          "macros_dashd": [
+           "__STACK_SIZE=0x1000",
+           "__HEAP_SIZE=0x1200"
+          ]
+        },
+        {
+          "id": "sampleapp_soc-btmesh-empty_files",
+          "name": "SOC - Bt Mesh Empty Files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/soc-btmesh-empty",
+          "dstDir": "",
+          "files": [
+            "main.c",
+            "hal-config.h"
+          ]
+        },
+        {
+          "id": "sampleapp_ncp-btmesh-empty-target",
+          "name": "NCP - Bt Mesh Empty Files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/ncp-btmesh-empty-target",
+          "dstDir": "",
+          "files": [
+            "main.c",
+            "hal-config.h"
+          ]
+        },
+        {
+          "id": "sampleapp_soc-btmesh-light_files",
+          "name": "SOC - Bt Mesh Light Files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/soc-btmesh-light",
+          "dstDir": "",
+          "files": [
+            "main.c",
+            "hal-config.h",
+            "displayconfigapp.h",
+            "led_driver.c",
+            "led_driver.h",
+            "led_routeloc.h"
+          ]
+        },
+        {
+          "id": "sampleapp_soc-btmesh-switch_files",
+          "name": "SOC - Bt Mesh Switch Files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/soc-btmesh-switch",
+          "dstDir": "",
+          "files": [
+            "main.c",
+            "hal-config.h",
+            "displayconfigapp.h"
+          ]
+        },
+        {
+          "id": "board_includes",
+          "name": "Board related include files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/common",
+          "dstDir": "",
+          "files": [
+            "board_features.h"
+           ]
+        },
+        {
+          "id": "ota_files",
+          "name": "OTA Files",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "copy",
+          "srcDir": "",
+          "dstDir": "",
+          "files": [
+            "protocol/bluetooth/bt_mesh/src/bg_application_properties.c"
+           ]
+        },
+        {
+          "id": "graphics_files",
+          "name": "GRAPHICS Files",
+          "hostCompat": [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[p]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4100a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4168a",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[233]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150b",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305d",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305e",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305c",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[133]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150c",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+brd4158a",
+            "efr32~family[b]~series[1]~device_configuration[4]~performance[p]~radio[732]~flash[256k]~temp[g]~package[m]~pins[48]+brd4105a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[233]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4164a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[56]+brd4303a",
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4103a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4163a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4162a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[j]~pins[43]+brd4101b",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300areva02",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300areva03",
+            "efr32~family[m]~series[1]~device_configuration[4]~performance[p]~radio[733]~flash[256k]~temp[g]~package[m]~pins[48]+brd4169b",
+            "efr32~family[m]~series[1]~device_configuration[4]~performance[p]~radio[733]~flash[256k]~temp[g]~package[m]~pins[48]+brd4169a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306c",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306b",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306d",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4161a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4159a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[i]~package[m]~pins[48]+brd4165b",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4104a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4151a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[132]~flash[256k]~temp[g]~package[m]~pins[48]+brd4153a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300c",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+brd4304a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+brd4167a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[56]+brd4302a"
+          ],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/common",
+          "dstDir": "",
+          "files": [
+            "graphics.h",
+            "graphics.c"
+           ]
+        },
+        {
+          "id" : "mesh_native_macros",
+          "name" : "PLUGIN Serial VCOM MACROS",
+          "hostCompat" : [],
+          "targetCompat" : [],
+          "command" : "macro",
+          "srcDir" : ".",
+          "dstDir" : ".",
+          "macros_dashd" : [
+            "MESH_LIB_NATIVE"
+          ]
+        },
+        {
+          "id": "dcd_config",
+          "name": "DCD CONFIG",
+          "hostCompat": [],
+          "targetCompat": [],
+          "command": "render",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/common",
+          "dstDir": "",
+          "files": [
+            "dcd.c.template",
+            "mesh_app_memory_config.h.template"
+           ]
+        },
+        {
+          "id": "lcd_driver_files",
+          "name": "LCD DRIVER FILES",
+          "hostCompat": [],
+          "targetCompat" : [
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[p]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4100a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4168a",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[233]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150b",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305d",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305e",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[51]+brd4305c",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[133]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150c",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+brd4158a",
+            "efr32~family[b]~series[1]~device_configuration[4]~performance[p]~radio[732]~flash[256k]~temp[g]~package[m]~pins[48]+brd4105a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[233]~flash[256k]~temp[g]~package[m]~pins[48]+brd4150a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4164a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[56]+brd4303a",
+            "efr32~family[b]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4103a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[433]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4163a",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[332]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4162a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[j]~pins[43]+brd4101b",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300areva02",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300areva03",
+            "efr32~family[m]~series[1]~device_configuration[4]~performance[p]~radio[733]~flash[256k]~temp[g]~package[m]~pins[48]+brd4169b",
+            "efr32~family[m]~series[1]~device_configuration[4]~performance[p]~radio[733]~flash[256k]~temp[g]~package[m]~pins[48]+brd4169a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306c",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306b",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[732]~flash[512k]~temp[g]~package[m]~pins[48]+brd4306d",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[l]~pins[125]+brd4161a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4159a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[832]~flash[512k]~temp[i]~package[m]~pins[48]+brd4165b",
+            "efr32~family[b]~series[1]~device_configuration[3]~performance[p]~radio[632]~flash[512k]~temp[g]~package[m]~pins[48]+brd4104a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4151a",
+            "efr32~family[m]~series[1]~device_configuration[1]~performance[p]~radio[132]~flash[256k]~temp[g]~package[m]~pins[48]+brd4153a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[48]+brd4300c",
+            "efr32~family[m]~series[1]~device_configuration[2]~performance[p]~radio[432]~flash[1024k]~temp[g]~package[m]~pins[48]+brd4304a",
+            "efr32~family[m]~series[1]~device_configuration[3]~performance[p]~radio[733]~flash[512k]~temp[g]~package[m]~pins[48]+brd4167a",
+            "efr32~family[b]~series[1]~device_configuration[1]~performance[b]~radio[232]~flash[256k]~temp[g]~package[m]~pins[56]+brd4302a"
+          ],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/common",
+          "dstDir": "",
+          "files": [
+            "lcd_driver.h",
+            "lcd_driver.c"
+          ]
+        },
+        {
+          "id": "display_interface_files",
+          "name": "DISPLAY INTERFACE FILES",
+          "hostCompat": [],
+          "targetCompat" : [],
+          "command": "copy",
+          "srcDir": "app/bluetooth/appbuilder/sample-apps/common",
+          "dstDir": "",
+          "files": [
+            "display_interface.h",
+            "display_interface.c"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+

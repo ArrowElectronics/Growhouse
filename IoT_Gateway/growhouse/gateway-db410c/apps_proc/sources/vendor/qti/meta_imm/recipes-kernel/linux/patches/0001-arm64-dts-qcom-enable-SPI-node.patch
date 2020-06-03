@@ -1,0 +1,63 @@
+From 60bd8d9fb9dcbf3329ba1d2dd4bf3e974c440740 Mon Sep 17 00:00:00 2001
+From: Alex Fradkin <alexf@codeaurora.org>
+Date: Thu, 23 Jun 2016 12:58:38 +0300
+Subject: [PATCH] arm64: dts: qcom: enable SPI node
+
+The SPI node is only enabled in QTI buils for testing
+purposes.
+
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi  | 7 ++++++-
+ arch/arm64/boot/dts/qcom/msm8916-pins.dtsi | 2 +-
+ drivers/spi/spi-qup.c                      | 2 ++
+ 3 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi b/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
+index c99fc9a63aae..862b4e002a01 100644
+--- a/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
++++ b/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
+@@ -139,7 +139,12 @@
+ 		/* On Low speed expansion */
+ 			label = "LS-SPI0";
+ 			status = "okay";
+-		};
++			spidev@0 {
++				compatible = "spidev";
++				spi-max-frequency = <100000>;
++				reg = <0>;
++				};
++			};
+ 
+ 		leds {
+ 			pinctrl-names = "default";
+diff --git a/arch/arm64/boot/dts/qcom/msm8916-pins.dtsi b/arch/arm64/boot/dts/qcom/msm8916-pins.dtsi
+index d680b0e0530a..82fc40009c71 100644
+--- a/arch/arm64/boot/dts/qcom/msm8916-pins.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8916-pins.dtsi
+@@ -208,7 +208,7 @@
+ 			pins = "gpio16", "gpio17", "gpio19";
+ 		};
+ 		pinmux_cs {
+-			function = "gpio";
++			function = "blsp_spi5";
+ 			pins = "gpio18";
+ 		};
+ 		pinconf {
+diff --git a/drivers/spi/spi-qup.c b/drivers/spi/spi-qup.c
+index 974a8ce58b68..b7e043c1740a 100644
+--- a/drivers/spi/spi-qup.c
++++ b/drivers/spi/spi-qup.c
+@@ -754,6 +754,8 @@ static int spi_qup_io_config(struct spi_device *spi, struct spi_transfer *xfer)
+ 	else
+ 		control &= ~SPI_IO_C_CLK_IDLE_HIGH;
+ 
++	control |= SPI_IO_C_MX_CS_MODE;
++
+ 	writel_relaxed(control, controller->base + SPI_IO_CONTROL);
+ 
+ 	config = readl_relaxed(controller->base + SPI_CONFIG);
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=Ble server application start service
+After=rc-local.service
+Requires=rc-local.service
+
+[Service]
+ExecStart=/usr/sbin/ble-server
+RestartSec=5sec
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

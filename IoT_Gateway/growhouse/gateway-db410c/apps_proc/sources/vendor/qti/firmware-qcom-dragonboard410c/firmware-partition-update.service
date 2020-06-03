@@ -1,0 +1,23 @@
+[Unit]
+Description=Update firmware files from the firmware partition
+After=systemd-remount-fs.service
+Before=wcnss-start.service qdsp-start.service
+
+[Service]
+ExecStart=-/bin/sh -c "\
+echo stop > /sys/class/remoteproc/remoteproc0/state;\
+echo stop > /sys/class/remoteproc/remoteproc1/state;\
+mount /dev/mmcblk0p1 /mnt;\
+[ -f /mnt/image ] && rm /lib/firmware/modem*;\
+rm /lib/firmware/mba*;\
+rm /lib/firmware/wcnss*;\
+cp /mnt/image/m* /lib/firmware/;\
+cp /mnt/image/wcnss* /lib/firmware/;\
+umount /mnt;\
+echo start > /sys/class/remoteproc/remoteproc0/state;\
+echo start > /sys/class/remoteproc/remoteproc1/state;\
+"
+Type=oneshot
+
+[Install]
+WantedBy=gpsd.socket

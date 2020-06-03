@@ -1,0 +1,58 @@
+From 3141ce1363011722ba9521aaf01935a5717b2221 Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Tue, 29 Jan 2019 14:44:49 +0530
+Subject: [PATCH] Gateway-DB410C: MAC address support lk
+
+- Added support to provide serial number to cyusb3610
+  driver using cyusb3610.serialno property in command
+  line.
+
+Test Done:
+----------
+- cyusb3610.serialno property is ammended into kernel
+  command line.
+  cat /proc/cmdline
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/app/aboot/aboot.c b/app/aboot/aboot.c
+index d6f645f..b648af1 100644
+--- a/app/aboot/aboot.c
++++ b/app/aboot/aboot.c
+@@ -140,6 +140,7 @@ static const char *emmc_cmdline = " androidboot.bootdevice=";
+ static const char *emmc_cmdline = " androidboot.emmc=true";
+ #endif
+ static const char *usb_sn_cmdline = " androidboot.serialno=";
++static const char *cyusb_sn_cmdline = " cyusb3610.serialno=";
+ static const char *androidboot_mode = " androidboot.mode=";
+ static const char *alarmboot_cmdline = " androidboot.alarmboot=true";
+ static const char *loglevel         = " quiet";
+@@ -327,6 +328,8 @@ unsigned char *update_cmdline(const char * cmdline)
+ 
+ 	cmdline_len += strlen(usb_sn_cmdline);
+ 	cmdline_len += strlen(sn_buf);
++	cmdline_len += strlen(cyusb_sn_cmdline);
++	cmdline_len += strlen(sn_buf);
+ 	cmdline_len += strlen(scm_downloadmode_cmdline);
+ 
+ #if VERIFIED_BOOT
+@@ -478,6 +481,16 @@ unsigned char *update_cmdline(const char * cmdline)
+ 		if (have_cmdline) --dst;
+ 		have_cmdline = 1;
+ 		while ((*dst++ = *src++));
++
++		src = cyusb_sn_cmdline;
++		if (have_cmdline) --dst;
++		have_cmdline = 1;
++		while ((*dst++ = *src++));
++		src = sn_buf;
++		if (have_cmdline) --dst;
++		have_cmdline = 1;
++		while ((*dst++ = *src++));
++
+ 		if (warm_boot) {
+ 			if (have_cmdline) --dst;
+ 			src = warmboot_cmdline;
+-- 
+2.7.4
+

@@ -1,0 +1,13 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+
+EmberStatus emberAfPluginEzspZigbeeProSetConcentratorCommandCallback(bool on,
+                                                                     uint16_t concentratorType,
+                                                                     uint16_t minTime,
+                                                                     uint16_t maxTime,
+                                                                     uint8_t routeErrorThreshold,
+                                                                     uint8_t deliveryFailureThreshold,
+                                                                     uint8_t maxHops)
+{
+  return EMBER_INVALID_CALL;
+}
