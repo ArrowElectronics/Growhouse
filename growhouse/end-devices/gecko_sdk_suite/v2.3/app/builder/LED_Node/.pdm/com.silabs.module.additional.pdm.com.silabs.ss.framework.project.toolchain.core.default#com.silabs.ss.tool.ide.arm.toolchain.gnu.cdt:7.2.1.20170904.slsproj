@@ -104,7 +104,7 @@
   <macroDefinition name="PHY_RAIL" value="1"/>
   <toolOption toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.configSymbolDefs.v6.2.0" value="APP_GECKO_INFO_PAGE_BTL=1  FLASH_SIZE=524288 RAM_SIZE=65536 SIMEEPROM_SIZE=8192 EMBER_MALLOC_HEAP_SIZE=0"/>
   <toolOption partCompatibility=".*efr32.*" toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="${StudioSdkPath}/platform/base/hal/micro/cortexm3/efm32/iar-cfg.icf"/>
-  <toolOption partCompatibility=".*ember.*" toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="/home/keval/GrowHouse/Studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/gecko_sdk_suite/v2.3/platform/base/hal/micro/cortexm3/em35x/efr32mg13p632f512gm48/iar-cfg.icf"/>
+  <toolOption partCompatibility=".*ember.*" toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/Growhouse/growhouse/end-devices/gecko_sdk_suite/v2.3/platform/base/hal/micro/cortexm3/em35x/efr32mg13p632f512gm48/iar-cfg.icf"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${StudioSdkPath}/platform/base/hal/micro/cortexm3/efm32/gcc-cfg.ld"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="gnu.c.link.option.other">
     <toolListOption partCompatibility=".*efr32.*" value="--defsym=FLASH_SIZE=524288"/>
@@ -162,6 +162,6 @@
     <toolListOption toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904 " value="${StudioSdkPath}/protocol/zigbee/build/cbke-stub-library-cortexm3-gcc-efr32mg13p-rail/cbke-stub-library.a"/>
     <toolListOption toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:7.2.1.20170904 " value="${StudioSdkPath}/protocol/zigbee/build/cbke-library-dsa-sign-stub-cortexm3-gcc-efr32mg13p-rail/cbke-library-dsa-sign-stub.a"/>
   </toolOption>
-  <prebuildStep> sh '/home/keval/GrowHouse/Studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/LED_Node-prebuild.sh' '${BuildArtifactFileBaseName}' '${ProjDirPath}' '${TOOLKIT_DIR}' '/home/keval/GrowHouse/Studio/SimplicityStudio_v4'</prebuildStep>
-  <postbuildStep> sh '/home/keval/GrowHouse/Studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/LED_Node-postbuild.sh' '${BuildArtifactFileBaseName}' '${ProjDirPath}' '${TOOLKIT_DIR}' '/home/keval/GrowHouse/Studio/SimplicityStudio_v4'</postbuildStep>
+  <prebuildStep> sh '/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/Growhouse/growhouse/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/LED_Node-prebuild.sh' '${BuildArtifactFileBaseName}' '${ProjDirPath}' '${TOOLKIT_DIR}' '/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4'</prebuildStep>
+  <postbuildStep> sh '/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/Growhouse/growhouse/end-devices/gecko_sdk_suite/v2.3/app/builder/LED_Node/LED_Node-postbuild.sh' '${BuildArtifactFileBaseName}' '${ProjDirPath}' '${TOOLKIT_DIR}' '/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4'</postbuildStep>
 </project>
