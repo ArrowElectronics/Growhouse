@@ -1,0 +1,161 @@
+From 664e27d3cd09a7cbe8a35c27f2905930f5a6c7ba Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Tue, 29 Jan 2019 18:53:30 +0530
+Subject: [PATCH] Gateway-DB410C: Added cyusb MAC address support
+
+- Added support to Read serial number as module
+  parameter from comamnd line.
+- Added support to generate MAC address based
+  on serial number and set it for eth0 interface.
+
+Test Done:
+----------
+- found unique MAC address for each board after
+  bootup.
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/drivers/net/usb/cyusb3610.c b/drivers/net/usb/cyusb3610.c
+index 478669d..2fc297c 100644
+--- a/drivers/net/usb/cyusb3610.c
++++ b/drivers/net/usb/cyusb3610.c
+@@ -56,6 +56,14 @@ KERN_INFO "Cypress USB Ethernet Adapter:v" DRV_VERSION
+ //	" " __TIME__ " " __DATE__ "\n"
+ "		http://www.cypress.com\n";
+ 
++#define MIN(a, b) (((a) < (b)) ? (a) : (b))
++
++// Serial number buffer lengt lengthh
++#define SN_BUF_LEN 13
++// Serial number buffer
++char sn_buf[SN_BUF_LEN];
++module_param_string(serialno, sn_buf, SN_BUF_LEN, 0);
++
+ static int msg_enable;
+ module_param(msg_enable, int, 0);
+ MODULE_PARM_DESC(msg_enable, "usbnet msg_enable");
+@@ -1338,13 +1346,76 @@ static int cyusb3610_check_ether_addr(struct usbnet *dev)
+ 	return 0;
+ }
+ 
++static unsigned hex2unsigned(const char *x)
++{
++    unsigned n = 0;
++
++    while(*x) {
++        switch(*x) {
++        case '0': case '1': case '2': case '3': case '4':
++        case '5': case '6': case '7': case '8': case '9':
++            n = (n << 4) | (*x - '0');
++            break;
++        case 'a': case 'b': case 'c':
++        case 'd': case 'e': case 'f':
++            n = (n << 4) | (*x - 'a' + 10);
++            break;
++        case 'A': case 'B': case 'C':
++        case 'D': case 'E': case 'F':
++            n = (n << 4) | (*x - 'A' + 10);
++            break;
++        default:
++            return n;
++        }
++        x++;
++    }
++
++    return n;
++}
++
+ static int cyusb3610_get_mac(struct usbnet *dev, u8* buf)
+ {
+ 	int ret, i;
+ 
+-	ret = access_eeprom_mac(dev, buf, 0x0, 0);
+-	if (ret < 0)
+-		goto out;
++	/* Set MAC address based on Serial number */
++	int len;
++	char sn[] = "00000000";
++	unsigned char * mac;
++
++	/* make sure we have exactly 8 char for serialno */
++	len = MIN(strlen(sn_buf), 8);
++	memcpy(&sn[8-len], sn_buf, len);
++
++	printk(KERN_ERR "Serial number : %s\n",sn_buf);
++
++	mac = (unsigned char*) kmalloc(6*sizeof(unsigned char), GFP_KERNEL);
++	if(mac != NULL)
++	{
++		/* fill in the mac with serialno, use locally adminstrated pool */
++		mac[0] = 0x02;
++		mac[1] = 0x02;
++		for (i = 3 ; i >= 0; i--)
++		{
++			mac[i+2] = hex2unsigned(&sn[2*i]);
++			sn[2*i]=0;
++		}
++
++		printk(KERN_ERR "MAC Address : %X:%X:%X:%X:%X:%X", mac[0], mac[1],
++								   mac[2], mac[3],
++								   mac[4], mac[5]);
++		if (mac) {
++			memcpy(dev->net->dev_addr, mac, ETH_ALEN);
++		}
++	}
++	else
++	{
++		netdev_err(dev->net, "Unable to assign memory for MAC");
++	}
++
++	/* Stop reading MAC address from internal eeprom */
++	//ret = access_eeprom_mac(dev, buf, 0x0, 0);
++	//if (ret < 0)
++	//	goto out;
+ 
+ 	if (cyusb3610_check_ether_addr(dev)) {
+ 		ret = access_eeprom_mac(dev, dev->net->dev_addr, 0x0, 1);
+@@ -1409,8 +1480,6 @@ static int cyusb3610_bind(struct usbnet *dev, struct usb_interface *intf)
+ 
+ 	struct cyusb3610_data *cyusb_data = (struct cyusb3610_data *)dev->data;
+ 
+-	printk(KERN_ERR "+++++++++ %s\n",__func__);
+-
+ 	usbnet_get_endpoints(dev, intf);
+ 
+ 	if (msg_enable != 0)
+diff --git a/kernel/configs/distro.config b/kernel/configs/distro.config
+index 9107577..c80eaf9 100644
+--- a/kernel/configs/distro.config
++++ b/kernel/configs/distro.config
+@@ -122,18 +122,19 @@ CONFIG_NEW_LEDS=y
+ 
+ # USB Eth
+ CONFIG_USB_USBNET=y
+-CONFIG_USB_NET_AX88179_178A=y
+-CONFIG_USB_NET_AX8817X=y
++CONFIG_USB_NET_AX88179_178A=n
++CONFIG_USB_NET_AX8817X=n
+ CONFIG_USB_CATC=m
+ CONFIG_USB_KAWETH=m
+ CONFIG_USB_PEGASUS=m
+-CONFIG_USB_RTL8150=y
+-CONFIG_USB_RTL8152=y
+-CONFIG_USB_NET_SR9700=m
+-CONFIG_USB_NET_SR9800=m
+-CONFIG_USB_NET_SMSC75XX=m
+-CONFIG_USB_NET_SMSC95XX=m
+-CONFIG_USB_NET_MCS7830=m
++CONFIG_USB_RTL8150=n
++CONFIG_USB_RTL8152=n
++CONFIG_USB_NET_SR9700=n
++CONFIG_USB_NET_SR9800=n
++CONFIG_USB_NET_CYUSB3610=y
++CONFIG_USB_NET_SMSC75XX=n
++CONFIG_USB_NET_SMSC95XX=n
++CONFIG_USB_NET_MCS7830=n
+ 
+ # USB device class
+ CONFIG_USB_ACM=m
+-- 
+2.7.4
+

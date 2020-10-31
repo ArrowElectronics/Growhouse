@@ -1,0 +1,16 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+
+/** @brief Notifies the application of the status
+ *  of the request for a Link Key. The application should define
+ *  EMBER_APPLICATION_HAS_ZIGBEE_KEY_ESTABLISHMENT_HANDLER to implement
+ *  its own handler.
+ *
+ * @param partner The IEEE address of the partner device or all zeros if
+ *   the Key establishment failed.
+ * @param status The status of the key establishment.
+ */
+void emberZigbeeKeyEstablishmentHandler(EmberEUI64 partner,
+                                        EmberKeyStatus status)
+{
+}

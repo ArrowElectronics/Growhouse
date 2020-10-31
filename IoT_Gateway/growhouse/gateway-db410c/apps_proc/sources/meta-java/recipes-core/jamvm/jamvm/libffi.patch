@@ -1,0 +1,79 @@
+From fcd374ce67c0385ca94b09dfc1b1ddf13c3f631a Mon Sep 17 00:00:00 2001
+From: Henning Heinold <heinold@inf.fu-berlin.de>
+Date: Sat, 12 Nov 2011 20:58:34 +0100
+
+---
+ configure.ac    | 27 ++++++++++++++++++++-------
+ src/Makefile.am |  5 +++--
+ 2 files changed, 23 insertions(+), 9 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 138b7e6..cc1990a 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -272,9 +272,24 @@ if test "$enable_zip" != no; then
+     AC_CHECK_LIB(z,inflate,,AC_MSG_ERROR(zlib is missing))
+ fi
+ 
+-if test "$enable_ffi" != no; then
+-    AC_CHECK_LIB(ffi,ffi_call,,AC_MSG_ERROR(libffi is missing))
++LIBFFI_FOUND=no
++if test "$enable_ffi" = yes
++then
++PKG_CHECK_MODULES([LIBFFI], [libffi], [LIBFFI_FOUND=yes], [LIBFFI_FOUND=no])
++if test "x${LIBFFI_FOUND}" = xno
++then
++  LIBFFI_FOUND=
++  AC_CHECK_HEADER([ffi.h],[LIBFFI_CFLAGS=],[LIBFFI_FOUND=no])
++  AC_SEARCH_LIBS([ffi_call], [ffi],[LIBFFI_LIBS=-lffi],[LIBFFI_FOUND=no])
++  if test "x${LIBFFI_FOUND}" = xno
++    then
++      AC_MSG_ERROR([Could not find libffi headers - \
++      Instal libffi-devel or libffi-dev.])
++ fi
++fi
+ fi
++AC_SUBST(LIBFFI_CFLAGS)
++AC_SUBST(LIBFFI_LIBS)
+ 
+ dnl Checks for header files.
+ AC_HEADER_STDC
+@@ -284,10 +299,6 @@ if test "$enable_zip" != no; then
+     AC_CHECK_HEADER(zlib.h,,AC_MSG_ERROR(zlib.h is missing))
+ fi
+ 
+-if test "$enable_ffi" != no; then
+-    AC_CHECK_HEADER(ffi.h,,AC_MSG_ERROR(ffi.h is missing))
+-fi
+-
+ if test "$enable_zip" != no; then
+     AC_DEFINE([USE_ZIP],1,[use zip])
+     use_zip_yes=
+@@ -301,7 +312,9 @@ AC_SUBST(use_zip_yes)
+ AC_SUBST(use_zip_no)
+ 
+ if test "$enable_ffi" != no; then
+-    AC_DEFINE([USE_FFI],1,[use FFI])
++    if test "$LIBFFI_FOUND" != no; then
++        AC_DEFINE([USE_FFI],1,[use FFI])
++    fi
+ fi
+ 
+ if test "$enable_md_stubs" != no; then
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 1f06fed..9c39edb 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -44,9 +44,10 @@ jamvm_LDADD = libcore.la
+ libjvm_la_LIBADD = libcore.la
+ libjvm_la_LDFLAGS = -avoid-version
+ libcore_la_LIBADD = interp/libinterp.la os/@os@/@arch@/libnative.la \
+-                    os/@os@/libos.la classlib/@classlib@/libclasslib.la
++                    os/@os@/libos.la classlib/@classlib@/libclasslib.la \
++                    $(LIBFFI_LIBS)
+ 
+-AM_CPPFLAGS = -I$(top_srcdir)/src/interp/engine
++AM_CPPFLAGS = -I$(top_srcdir)/src/interp/engine $(LIBFFI_CFLAGS)
+ 
+ DISTCLEANFILES = arch.h classlib.h classlib-defs.h classlib-symbol.h \
+                  classlib-excep.h

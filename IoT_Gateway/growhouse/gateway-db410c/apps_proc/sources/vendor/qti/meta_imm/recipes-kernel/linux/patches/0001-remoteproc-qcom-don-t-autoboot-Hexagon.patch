@@ -1,0 +1,30 @@
+From df2d9f760ad9430713b3b320f46bcb2a99d504bd Mon Sep 17 00:00:00 2001
+From: Ramon Fried <rfried@codeaurora.org>
+Date: Wed, 14 Feb 2018 11:24:06 +0200
+Subject: [PATCH] remoteproc: qcom: don't autoboot Hexagon
+
+rmtfs daemon needs to run before boot is performed.
+Userspace will now boot the Hexagon only after rmtfs is
+running.
+
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ drivers/remoteproc/qcom_q6v5_pil.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/remoteproc/qcom_q6v5_pil.c b/drivers/remoteproc/qcom_q6v5_pil.c
+index 2d3d5ac92c06..c7c77bc32dd5 100644
+--- a/drivers/remoteproc/qcom_q6v5_pil.c
++++ b/drivers/remoteproc/qcom_q6v5_pil.c
+@@ -964,6 +964,7 @@ static int q6v5_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	rproc->fw_ops = &q6v5_fw_ops;
++	rproc->auto_boot = false;
+ 
+ 	qproc = (struct q6v5 *)rproc->priv;
+ 	qproc->dev = &pdev->dev;
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

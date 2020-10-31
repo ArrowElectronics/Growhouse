@@ -1,0 +1,23 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+
+/** @brief Performs any additional initialization required at system startup.
+ *
+ * This function is called when the application starts and can be used to
+ * perform any additional initialization required at system startup.
+ */
+void emberAfMainInitCallback(void)
+{
+}
+
+/** @brief Called in each iteration of the main application loop.
+ *
+ * This function is called in each iteration of the main application loop and
+ * can be used to perform periodic functions. The frequency with which this
+ * function is called depends on how quickly the main loop runs. If the
+ * application blocks at any time during the main loop, this function will not
+ * be called until execution resumes.
+ */
+void emberAfMainTickCallback(void)
+{
+}

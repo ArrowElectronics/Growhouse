@@ -1,0 +1,17 @@
+Index: idlestat-0.5/Makefile
+===================================================================
+--- idlestat-0.5.orig/Makefile
++++ idlestat-0.5/Makefile
+@@ -38,10 +38,10 @@ OBJS =	idlestat.o topology.o trace.o uti
+ default: idlestat
+ 
+ %.o: %.c
+-	$(CROSS_COMPILE)$(CC) -c -o $@ $< $(CFLAGS)
++	$(CROSS_COMPILE)$(CC) -c $(CPPFLAGS) -o $@ $< $(CFLAGS)
+ 
+ idlestat: $(OBJS)
+-	$(CROSS_COMPILE)$(CC) $(CFLAGS) $(OBJS) -o $@
++	$(CROSS_COMPILE)$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
+ 
+ install: idlestat idlestat.1
+ 	install -D -t /usr/local/bin idlestat

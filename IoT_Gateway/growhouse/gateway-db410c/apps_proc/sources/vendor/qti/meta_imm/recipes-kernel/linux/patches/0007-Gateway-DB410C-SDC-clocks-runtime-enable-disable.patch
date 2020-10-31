@@ -1,0 +1,36 @@
+From 279b5a9a9e840a96d2444f2d1fc8b3caa75c6475 Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Mon, 11 Feb 2019 13:22:50 +0530
+Subject: [PATCH] Gateway-DB410C: SDC clocks runtime enable/disable
+
+This change turns on/off SDC1 clocks runtime based
+on activity.
+
+This is achieved by setting PWRON bit to 1.
+
+Tests Performed:-
+-----------------
+- SDC1 (eMMC) clocks are found to be off on scope,
+  when there is no activity.
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/drivers/mmc/host/sdhci-msm.c b/drivers/mmc/host/sdhci-msm.c
+index 92c483e..f2bcdfa 100644
+--- a/drivers/mmc/host/sdhci-msm.c
++++ b/drivers/mmc/host/sdhci-msm.c
+@@ -897,6 +897,11 @@ static int sdhci_msm_execute_tuning(struct mmc_host *mmc, u32 opcode)
+ 
+ 	if (!rc)
+ 		msm_host->tuning_done = true;
++
++	/* Turn power saving on */
++	writel_relaxed((readl_relaxed(host->ioaddr + CORE_VENDOR_SPEC)
++		| CORE_CLK_PWRSAVE), host->ioaddr + CORE_VENDOR_SPEC);
++
+ 	return rc;
+ }
+ 
+-- 
+2.7.4
+

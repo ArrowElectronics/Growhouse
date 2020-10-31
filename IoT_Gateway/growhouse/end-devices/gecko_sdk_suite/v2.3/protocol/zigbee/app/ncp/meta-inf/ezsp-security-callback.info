@@ -1,0 +1,41 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+#include "app/util/ezsp/ezsp-enum.h"
+
+/** @brief Called when emberTrustCenterJoinHandler is called from the stack.
+ *
+ * The NCP will perform initial processing based on the current
+ * ::EZSP_TRUST_CENTER_POLICY value and will pass this callback to the
+ * NCP application. Implementations of this callback should return the
+ * ::EmberJoinDecision value that will dictate the behavior of the trust center
+ * in response to the new device joining or rejoining to the network.
+ *
+ * See documentation on the stack emberTrustCenterJoinHandler callback
+ * for more information.
+ *
+ * @param newNodeId The node ID of the device wishing to join.
+ * @param newNodeEui64 The EUI64 of the device wishing to join.
+ * @param status The ::EmberUpdateDevice status indicating whether the
+ * device is joining/rejoining or leaving, and whether the join/rejoin is
+ * secure (using network encryption) or a trust center rejoin.
+ * @param parentOfNewNode The node ID of the parent of device wishing to join.
+ * @param decisionId The ::EzspDecisionId that the NCP is currently using
+ * as set by the HOST application.
+ * @param joinDecision The current ::EmberJoinDecision that the NCP has chosen
+ * based on the ::EzspDecisionId for the ::EZSP_TRUST_CENTER_POLICY as set by the
+ * HOST application. Implementations of this callback may want to return a
+ * different value based on their desired security.
+ *
+ * @return An ::EmberJoinDecision value that will dictate the behavior of the
+ * trust center in response to the new device joining or rejoining to
+ * the network.
+ */
+EmberJoinDecision emberAfPluginEzspSecurityTrustCenterJoinCallback(EmberNodeId newNodeId,
+                                                                   const EmberEUI64 newNodeEui64,
+                                                                   EmberDeviceUpdate status,
+                                                                   EmberNodeId parentOfNewNode,
+                                                                   EzspDecisionId decisionId,
+                                                                   EmberJoinDecision joinDecision)
+{
+  return joinDecision;
+}

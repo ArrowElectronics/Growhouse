@@ -1,0 +1,16 @@
+[Unit]
+Description=Arrow Connect Gateway
+Requires=rc-local.service
+After=rc-local.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/selene
+ExecStart=/usr/bin/java -DseleneConfig=/opt/selene/config/selene.properties -Dlog4j.configurationFile=/opt/selene/config/log4j2.xml -Djava.library.path=/usr/lib64/jni -Dselene.databaseLogging=false -jar /opt/selene/lib/selene-engine.jar
+User=root
+Group=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=selene.service

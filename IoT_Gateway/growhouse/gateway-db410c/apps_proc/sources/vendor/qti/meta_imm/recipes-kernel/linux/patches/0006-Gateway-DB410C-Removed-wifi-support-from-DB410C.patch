@@ -1,0 +1,26 @@
+From 7083dd436912140d2da6a4aadc192a1cb6dd696b Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Wed, 30 Jan 2019 18:25:16 +0530
+Subject: [PATCH] Gateway DB410C: Removed wifi support from DB410C
+
+- As we will use ethernet for network connectivity
+  and no use of wifi so removed wifi kernel driver.
+
+Test Done:
+----------
+- Wifi driver is not compiled during kernel compilation.
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index f5bf8d4..daf9cc2 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -644,3 +644,4 @@ CONFIG_QRTR=y
+ CONFIG_QRTR_SMD=y
+ CONFIG_RPMSG_CHAR=y
+ CONFIG_USB_NET_CYUSB3610=m
++CONFIG_WCN36XX=n
+-- 
+2.7.4
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=Zigbee coordinator application start service
+After=mosquitto.service
+Requires=mosquitto.service
+
+[Service]
+ExecStart=/etc/zigbee-coordinator/run_zigbee-coordinator.sh
+RestartSec=5sec
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

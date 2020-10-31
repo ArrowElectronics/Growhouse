@@ -1,0 +1,22 @@
+From 6784368eda127da350d8789260c6ff48ee4252b7 Mon Sep 17 00:00:00 2001
+From: einfochips <einfochips@einfochips.com>
+Date: Wed, 9 Jan 2019 12:20:52 +0530
+Subject: [PATCH] Added RPMSG driver support
+
+This driver is required for QRCT application.
+
+Signed-off-by: einfochips <einfochips@einfochips.com>
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 780e410..d96045b 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -642,4 +642,4 @@ CONFIG_CRYPTO_CHACHA20_NEON=m
+ CONFIG_CRYPTO_AES_ARM64_BS=m
+ CONFIG_QRTR=y
+ CONFIG_QRTR_SMD=y
+-
++CONFIG_RPMSG_CHAR=y
+-- 
+2.7.4
+

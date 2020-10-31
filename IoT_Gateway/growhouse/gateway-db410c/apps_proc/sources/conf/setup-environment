@@ -1,0 +1,188 @@
+#!/bin/bash
+#
+# Copyright (C) 2015, Linaro Ltd.
+# Authored-by:  Nicolas Dechesne <nicolas.dechesne@linaro.org>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+if [ "$0" = "$BASH_SOURCE" ]; then
+    echo -e "\nERROR: This script must be sourced instead of executed"
+    exit 1
+fi
+
+# check that we are not root!
+if [ "$(whoami)" = "root" ]; then
+    echo -e "\nERROR: do not use the BSP as root. Exiting..."
+    return 1
+fi
+
+# check that we are where we think we are!
+if [ ! -f "sources/openembedded-core/oe-init-build-env" ]; then
+    echo -e "\nUNABLE TO FIND OPENEMBEDDED !"
+    return 1
+fi
+
+usage () {
+    cat <<EOF
+
+Usage: [MACHINE=<MACHINE>] source $BASH_SOURCE [BUILDDIR]
+If no MACHINE is set, list all possible machines, and ask user to choose.
+If no BUILDIR is set, it will be set to build-MACHINE.
+
+EOF
+}
+
+# only 1 parameter max, <build> folder, or default to build-$machine
+_BUILDDIR=
+if [ $# -gt 1 ]; then
+    usage
+    return 1
+elif [ $# -eq 1 ]; then
+    _BUILDDIR=$1
+    # check if this <build> folder was already configured
+    _CONFIGS_FOUND=
+    if [ -f ${_BUILDDIR}/conf/local.conf ] && \
+        [ -f ${_BUILDDIR}/conf/bblayers.conf ]; then
+        _CONFIGS_FOUND="yes"
+    fi
+fi
+
+# if no MACHINE is set, list all possible machines, and ask user
+if [ -z "$MACHINE" ] && [ -z "$_CONFIGS_FOUND" ]; then
+    PS3='Please enter your choice of machine: '
+    options=$(\ls -1 *{,/*}/conf/machine/*.conf 2>/dev/null | sort | uniq | sed 's|.*/\(.*\)\.conf|\1|')
+    select opt in $options
+    do
+        if [ -z "$opt" ]; then
+            echo "Invalid choice"
+        else
+            MACHINE=$opt
+            break;
+        fi
+    done
+    unset PS3
+fi
+
+# at this point, MACHINE is set, either from env, or explicitely
+# BUILDIR is either set from command line, or needs to be set to build-$MACHINE
+if [ -z "$_BUILDDIR" ]; then
+    _BUILDDIR=build-$MACHINE
+    # check if this build-$MACHINE folder was already configured
+    if [ -f ${_BUILDDIR}/conf/local.conf ] && \
+        [ -f ${_BUILDDIR}/conf/bblayers.conf ]; then
+        _CONFIGS_FOUND="yes"
+    fi
+fi
+
+_PWD_PREV=$(pwd)
+
+# Warning: Sourcing the oe-init-build-env script changes the current directory.
+
+TEMPLATECONF=${_PWD_PREV}/sources/conf source sources/openembedded-core/oe-init-build-env ${_BUILDDIR}
+
+if [ "$_CONFIGS_FOUND" ]; then
+    echo -e "\nConfig files already exist in folder ${_BUILDDIR}/conf/, they were not modified."
+    unset -f usage
+    unset _BUILDDIR _CONFIGS_FOUND _PWD_PREV MACHINE
+    return 0
+fi
+
+# Check the machine type specified
+_VALID_MACHINES=$(\ls -1 ${_PWD_PREV}/*{,/*}/conf/machine/${MACHINE}.conf 2>/dev/null | wc -l)
+if [ "$_VALID_MACHINES" -eq 0 ]; then
+    echo -e "\n##\n## WARNING: No machine configs found for '$MACHINE' !"
+    echo -e "##\n## That looks very suspicious, you should check your configuration"
+    echo -e "##\n## Possible alternatives might be:\n##"
+    ( cd ${_PWD_PREV} && \ls -1 *{,/*}/conf/machine/*.conf 2>/dev/null | sed 's|.*/\(.*\)\.conf|##   \1|' | sort | uniq )
+    echo -e "##"
+elif [ "$_VALID_MACHINES" -gt 1 ]; then
+    echo -e "\n##\n## WARNING: Multiple possible machine configs found for '$MACHINE' !\n##"
+    ( cd ${_PWD_PREV} && \ls -1 *{,/*}/conf/machine/${MACHINE}.conf 2>/dev/null | sed 's|^|##   |' )
+    echo -e "##\n## That looks very suspicious, you should check your source tree\n##"
+fi
+
+# Change settings according environment
+sed -e "s/##MACHINE##/$MACHINE/g" \
+    -i conf/local.conf
+
+# Handle EULA , if needed
+if [ "$MACHINE" == "dragonboard-410c" ]; then
+
+    if [ -n "$QCOM_EULA" ]; then
+        # the QCOM_EULA variable is set in the environment, so we just configure
+        # ACCEPT_QCOM_EULA in local.conf according to $QCOM_EULA.
+        echo "ACCEPT_QCOM_EULA = \"$QCOM_EULA\"" >> conf/local.conf
+    else
+        # so we need to ask user if he/she accepts the QCOM EULA:
+        cat <<EOF
+
+Some BSPs depend on packages and firmware which are covered by an End
+User License Agreement (EULA). To have the right to use these binaries
+in your images, you need to read and accept the following...
+
+EOF
+
+        echo
+        REPLY=
+        while [ -z "$REPLY" ]; do
+            echo -n "Do you read the EULA ? (y/n) "
+            read REPLY
+            case "$REPLY" in
+                y|Y)
+                    READ_EULA=1
+                    ;;
+                n|N)
+                    READ_EULA=0
+                    ;;
+                *)
+                    REPLY=
+                    ;;
+            esac
+        done
+
+        if [ "$READ_EULA" == 1 ]; then
+            more -d ${_PWD_PREV}/sources/meta-qcom/conf/EULA
+            echo
+            REPLY=
+            while [ -z "$REPLY" ]; do
+                echo -n "Do you accept the EULA you just read? (y/n) "
+                read REPLY
+                case "$REPLY" in
+                    y|Y)
+                        echo "EULA has been accepted."
+                        echo "ACCEPT_QCOM_EULA = \"1\"" >> conf/local.conf
+                        ;;
+                    n|N)
+                        echo "EULA has not been accepted."
+                        ;;
+                    *)
+                        REPLY=
+                        ;;
+                esac
+            done
+        fi
+    fi
+fi
+
+cat <<EOF
+
+Configuration files have been created for the following configuration:
+
+ MACHINE: $MACHINE
+
+EOF
+
+# Since this script is sourced, be careful not to pollute caller's environment with temp variables
+unset -f usage
+unset _BUILDDIR _CONFIGS_FOUND _PWD_PREV _VALID_MACHINES  _BSP MACHINE

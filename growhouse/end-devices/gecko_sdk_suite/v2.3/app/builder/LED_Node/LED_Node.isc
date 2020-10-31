@@ -10,7 +10,7 @@ ConfiguratorID:auto-EM35X
 
 #  Output directory which is used as a root for all generated files. The actual
 #  files relative to that directory are defined by individual file name.
-GenerationDirectory:PATH(ABSOLUTE):/home/keval/GrowHouse/Studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/gecko_sdk_suite/v2.3
+GenerationDirectory:PATH(ABSOLUTE):/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/Growhouse/growhouse/end-devices/gecko_sdk_suite/v2.3
 
 #  Unique identifier for this device. This string should be in a form of a C
 #  identifier, as it will be used in both generated variable, macros, as well as

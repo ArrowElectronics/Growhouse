@@ -1,0 +1,62 @@
+From b788583bdf5c19e32cf2f15cc4c0fe35d33d3792 Mon Sep 17 00:00:00 2001
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Fri, 4 Aug 2017 15:21:09 +0530
+Subject: [PATCH] configure.ac: add build options for ilp32
+
+Signed-off-by: Vishal Bhoj <vishal.bhoj@linaro.org>
+---
+ configure.ac | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 9641c04..dcaf7c3 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -592,16 +592,19 @@ case $host in
+ 
+ 
+   arm*-*-* | aarch64*-*-*)
+-    abilist="32"
++    abilist="64 ilp32 32"
+     gcc_cflags="$gcc_cflags $fomit_frame_pointer"
+     gcc_cflags_optlist="arch fpmode neon tune"
+     gcc_64_cflags_optlist="arch tune"
++    gcc_ilp32_cflags_optlist="arch tune"
+     gcc_testlist="gcc-arm-umodsi"
+     gcc_64_testlist=""
+     CALLING_CONVENTIONS_OBJS='arm32call.lo arm32check.lo'
+     CALLING_CONVENTIONS_OBJS_64=""
+     cclist_64="gcc cc"
++    cclist_ilp32="gcc cc"
+     any_32_testlist="sizeof-long-4"
++    any_ilp32_testlist="sizeof-long-4"
+     any_64_testlist="sizeof-long-8"
+ 
+     # This is needed for clang, which is not content with flags like -mfpu=neon
+@@ -737,13 +740,22 @@ case $host in
+ 	gcc_cflags_tune="-mtune=xgene1"
+ 	;;
+       aarch64*)
+-        abilist="64 32"
++        abilist="64 ilp32 32"
+ 	path="arm/v7a/cora15/neon arm/neon arm/v7a/cora15 arm/v6t2 arm/v6 arm/v5 arm"
+ 	path_64="arm64"
++	path_64="generic"
+ 	gcc_cflags_arch="-march=armv8-a"
++	gcc_ilp32_cflags="-mabi=ilp32"
+ 	gcc_cflags_neon="-mfpu=neon"
+ 	gcc_cflags_tune=""
+ 	;;
++      aarch64*_ilp32)
++        abilist="ilp32"
++	path="generic"
++	gcc_cflags_arch="-march=armv8-a"
++	gcc_cflags="-mabi=ilp32"
++	gcc_cflags_tune=""
++	;;
+       *)
+ 	path="arm"
+ 	gcc_cflags_arch="-march=armv4"
+-- 
+2.7.4
+

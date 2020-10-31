@@ -1,0 +1,35 @@
+From 385b3e2f88d94b07471af68a66a838f727e76307 Mon Sep 17 00:00:00 2001
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Fri, 15 Sep 2017 12:04:13 +0100
+Subject: [PATCH] set flag to build in lp64 mode for ilp32 toolchain
+
+Signed-off-by: Vishal Bhoj <vishal.bhoj@linaro.org>
+---
+ BaseTools/Conf/tools_def.template | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/BaseTools/Conf/tools_def.template b/BaseTools/Conf/tools_def.template
+index 1e05d0c959..b0360f12d5 100644
+--- a/BaseTools/Conf/tools_def.template
++++ b/BaseTools/Conf/tools_def.template
+@@ -4323,7 +4323,7 @@ DEFINE GCC_IA32_CC_FLAGS           = DEF(GCC_ALL_CC_FLAGS) -m32 -malign-double -
+ DEFINE GCC_X64_CC_FLAGS            = DEF(GCC_ALL_CC_FLAGS) -mno-red-zone -Wno-address -mno-stack-arg-probe
+ DEFINE GCC_IPF_CC_FLAGS            = DEF(GCC_ALL_CC_FLAGS) -minline-int-divide-min-latency
+ DEFINE GCC_ARM_CC_FLAGS            = DEF(GCC_ALL_CC_FLAGS) -mlittle-endian -mabi=aapcs -fno-short-enums -save-temps -fsigned-char -ffunction-sections -fdata-sections -fomit-frame-pointer -Wno-address -mthumb -mfloat-abi=soft
+-DEFINE GCC_AARCH64_CC_FLAGS        = DEF(GCC_ALL_CC_FLAGS) -mlittle-endian -fno-short-enums -save-temps -fverbose-asm -fsigned-char  -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-builtin -Wno-address -fno-asynchronous-unwind-tables -fno-pic
++DEFINE GCC_AARCH64_CC_FLAGS        = DEF(GCC_ALL_CC_FLAGS) -mlittle-endian -fno-short-enums -save-temps -fverbose-asm -fsigned-char  -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-builtin -Wno-address -fno-asynchronous-unwind-tables -fno-pic -mabi=lp64 -Wno-error
+ DEFINE GCC_DLINK_FLAGS_COMMON      = -nostdlib --pie
+ DEFINE GCC_DLINK2_FLAGS_COMMON     = --script=$(EDK_TOOLS_PATH)/Scripts/GccBase.lds
+ DEFINE GCC_IA32_X64_DLINK_COMMON   = DEF(GCC_DLINK_FLAGS_COMMON) --gc-sections
+@@ -4395,7 +4395,7 @@ DEFINE GCC47_X64_DLINK_FLAGS         = DEF(GCC46_X64_DLINK_FLAGS)
+ DEFINE GCC47_X64_DLINK2_FLAGS        = DEF(GCC46_X64_DLINK2_FLAGS)
+ DEFINE GCC47_ASM_FLAGS               = DEF(GCC46_ASM_FLAGS)
+ DEFINE GCC47_ARM_ASM_FLAGS           = DEF(GCC46_ARM_ASM_FLAGS)
+-DEFINE GCC47_AARCH64_ASM_FLAGS       = $(ARCHASM_FLAGS) $(PLATFORM_FLAGS) DEF(GCC_ASM_FLAGS) -mlittle-endian
++DEFINE GCC47_AARCH64_ASM_FLAGS       = $(ARCHASM_FLAGS) $(PLATFORM_FLAGS) DEF(GCC_ASM_FLAGS) -mlittle-endian -mabi=lp64
+ DEFINE GCC47_ARM_CC_FLAGS            = DEF(GCC46_ARM_CC_FLAGS) -mno-unaligned-access
+ DEFINE GCC47_AARCH64_CC_FLAGS        = $(ARCHCC_FLAGS) $(PLATFORM_FLAGS) DEF(GCC44_ALL_CC_FLAGS) -mcmodel=large DEF(GCC_AARCH64_CC_FLAGS)
+ DEFINE GCC47_ARM_DLINK_FLAGS         = DEF(GCC46_ARM_DLINK_FLAGS)
+--
+2.13.0
+

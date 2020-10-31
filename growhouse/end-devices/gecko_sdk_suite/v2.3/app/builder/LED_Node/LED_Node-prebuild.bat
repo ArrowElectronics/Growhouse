@@ -15,4 +15,4 @@ set "projDir=%projDir:"=%"
 
 set "projDir=%projDir:\=/%"
 set "projDir=%projDir:Z:=%"
-start /unix "%studioInstallationDir%/jre/bin/java" -jar "%studioInstallationDir%/../../../.config/SimplicityStudio/v4/python/jython.jar"  "%projDir%/LED_Node-prebuild.py"
+start /unix "%studioInstallationDir%/jre/bin/java" -jar "%studioInstallationDir%/../../../../.config/SimplicityStudio/v4/python/jython.jar"  "%projDir%/LED_Node-prebuild.py"

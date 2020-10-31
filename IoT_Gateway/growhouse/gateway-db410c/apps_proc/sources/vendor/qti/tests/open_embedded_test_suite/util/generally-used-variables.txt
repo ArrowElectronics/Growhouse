@@ -1,0 +1,64 @@
+#Copyright (c) 2016, The Linux Foundation. All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are
+#met:
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above
+#      copyright notice, this list of conditions and the following
+#      disclaimer in the documentation and/or other materials provided
+#      with the distribution.
+#    * Neither the name of The Linux Foundation nor the names of its
+#      contributors may be used to endorse or promote products derived
+#      from this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+#WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+#ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+#BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+#SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+#BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+#OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+#IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+# this file is run by most scripts to define environment variables
+
+
+CURR_PATH="$(dirname $(readlink -f $0))"
+#relative path from test scripts to util folder
+UTIL_PATH="$CURR_PATH/../../util/"
+
+# changing ralative util path to curr dir
+CURR_DIR=$(echo $CURR_PATH | rev | cut -d"/" -f1 | rev)
+if [ $CURR_DIR = "util" ]; then
+	UTIL_PATH=$CURR_PATH
+elif [ -n "$(ls $CURR_PATH | grep tiny-apts.sh)" ]; then
+	UTIL_PATH="$CURR_PATH/util"
+fi
+
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH:$UTIL_PATH
+GET_ENV_VARS="$UTIL_PATH/get-env-var-val-target.sh"
+BASE_PATH="$($GET_ENV_VARS TARGET_BASE_PATH)"
+TEST_SCRIPTS_PATH="$BASE_PATH/$($GET_ENV_VARS TEST_SCRIPT_DIR)"
+WIFI_TEST_PATH="$TEST_SCRIPTS_PATH/$($GET_ENV_VARS WIFI_TESTS_DIR)"
+DEVICE_UTIL_PATH="$BASE_PATH/$($GET_ENV_VARS UTIL_DIR)"
+CONTENT_PATH="$BASE_PATH/$($GET_ENV_VARS CLIENT_CONTENT_DIR)"
+
+MSG_TO_USER="$CONTENT_PATH/$($GET_ENV_VARS SOUND_FILE_MSG_TO_USER)"
+USER_NAME="$($GET_ENV_VARS TARGET_DEVICE_USER)"
+TARGET_ADDR="root@$($GET_ENV_VARS TARGET_DEVICE_IP)"
+HELPER_ADDR="root@$($GET_ENV_VARS HELPER_DEVICE_IP)"
+CURR_WLAN="$(ifconfig -a | grep wlan | cut -d" " -f1)"
+
+# working station general variables
+WSTATION_TEST_SCRIPTS_PATH="$CURR_PATH/$($GET_ENV_VARS TEST_SCRIPT_DIR)"
+WSTATION_UTIL_PATH="$CURR_PATH/$($GET_ENV_VARS UTIL_DIR)"
+WSTATION_CONTENT_FILE_PATH="$($GET_ENV_VARS CONTENT_FILE_PATH)"
+WSTATION_LOGGER_PATH="$CURR_PATH/logger.sh"
+WSTATION_TEST_ARGS_PATH="$CURR_PATH/selectTestsWithARGS.txt"
+STATION_TEST_SCRIPTS_DIR="$($GET_ENV_VARS STATION_TEST_DIR)"

@@ -1,0 +1,29 @@
+From 46ba8fbf54d86d328e9f6a16bbadf15cffc9adf0 Mon Sep 17 00:00:00 2001
+From: einfochips <einfochips@einfochips.com>
+Date: Thu, 7 Mar 2019 12:56:19 +0530
+Subject: [PATCH] Modified mainloop file.
+
+-> Update mainloop run function to non bloking function and
+   set timeout to 1 second.
+---
+ src/shared/mainloop.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/shared/mainloop.c b/src/shared/mainloop.c
+index 09c46a7..4425a95 100644
+--- a/src/shared/mainloop.c
++++ b/src/shared/mainloop.c
+@@ -147,8 +147,8 @@ int mainloop_run(void)
+ 		struct epoll_event events[MAX_EPOLL_EVENTS];
+ 		int n, nfds;
+ 
+-		nfds = epoll_wait(epoll_fd, events, MAX_EPOLL_EVENTS, -1);
+-		if (nfds < 0)
++		nfds = epoll_wait(epoll_fd, events, MAX_EPOLL_EVENTS, 1000);
++		if (nfds <= 0)
+ 			continue;
+ 
+ 		for (n = 0; n < nfds; n++) {
+-- 
+2.7.4
+
