@@ -1,0 +1,10 @@
+[Unit]
+Description=Ble advertize service
+After=bluetooth.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=/etc/ble-advertise/ble-advertise.sh
+
+[Install]
+WantedBy=multi-user.target

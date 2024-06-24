@@ -1,0 +1,1766 @@
+#
+# This plugin.info file is for stack-related plugins.
+#
+
+plugin(binding-table-library) {
+  name=Binding Table Library
+  description=This library implements the ZDO Binding Table command parsing and storage of binding table entries.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=binding
+  api.binding.header=stack/include/binding-table.h
+
+  requiredApis=ezsp-binding,zigbee-pro
+  api.ezsp-binding.conditions=conf.frameworkMatches("ncp")
+
+  options=bindingTableSize
+
+  bindingTableSize.name=Binding Table Size
+  bindingTableSize.description=The number of entries that the binding table can hold.
+  # 127 is the max size of the indexed token of the SimEEPROM
+  bindingTableSize.type=NUMBER:1,127
+  bindingTableSize.default=2
+  bindingTableSize.define=EMBER_BINDING_TABLE_SIZE
+
+  files(binding-table-library-common) {
+    # STACK_ZIGBEE:BINDING_TABLE
+      stack/zigbee/binding-table.c
+      stack/zigbee/zdo-binding-table.c
+  }
+
+  $binding-table-library-common
+
+  precompiled(efr32) {
+    file=build/binding-table-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/binding-table-library.a
+    $binding-table-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/binding-table-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/binding-table-library.a
+    $binding-table-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/binding-table-library-unix-gcc-simulation-simulation/binding-table-library.a
+    $binding-table-library-common
+  }
+}
+
+plugin(binding-table-stub-library) {
+  name=Binding Table Stub Library
+  description=This library provides stub implementations of Binding Table functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=binding
+  api.binding.header=stack/include/binding-table.h
+
+  files(binding-table-stub-library-common) {
+    # STACK_ZIGBEE:BINDING_TABLE_STUB
+      stack/zigbee/binding-table-stub.c
+  }
+
+  $binding-table-stub-library-common
+
+  precompiled(efr32) {
+    file=build/binding-table-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/binding-table-stub-library.a
+    $binding-table-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/binding-table-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/binding-table-stub-library.a
+    $binding-table-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/binding-table-stub-library-unix-gcc-simulation-simulation/binding-table-stub-library.a
+    $binding-table-stub-library-common
+  }
+}
+
+plugin(cbke-163k1-library) {
+  name=CBKE 163k Library
+  description=Certificate Based Key Exchange (CBKE) functions specfic to the 163k ECC curve used in Smart Energy 1.0 and 1.1.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke, ecc163k1
+
+  providedApis=cbke163k1
+
+  files(cbke-163k1-library-common) {
+    # STACK_SECURITY:CBKE_163K1_LIBRARY
+      stack/security/cbke-crypto-engine-163k1.c
+      stack/security/cbke-crypto-engine-storage.c
+  }
+
+  files(cbke-163k1-library-efr32) {
+    # STACK_SECURITY:CBKE_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-tokens.c
+      stack/security/cbke-crypto-engine-storage-tokens-3xx.c
+  }
+
+  files(cbke-163k1-library-em3xx) {
+    # STACK_SECURITY:CBKE_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-tokens.c
+      stack/security/cbke-crypto-engine-storage-tokens-3xx.c
+  }
+
+  files(cbke-163k1-library-simulation) {
+    # STACK_SECURITY:CBKE_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-simulation.c
+  }
+
+  $cbke-163k1-library-common
+  $cbke-163k1-library-efr32      (efr32)
+  $cbke-163k1-library-em3xx      (em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  $cbke-163k1-library-simulation (simulation)
+
+  precompiled(efr32) {
+    file=build/cbke-163k1-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-163k1-library.a
+    $cbke-163k1-library-common
+    $cbke-163k1-library-efr32
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-163k1-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-163k1-library.a
+    $cbke-163k1-library-common
+    $cbke-163k1-library-em3xx
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-163k1-library-unix-gcc-simulation-simulation/cbke-163k1-library.a
+    $cbke-163k1-library-common
+    $cbke-163k1-library-simulation
+  }
+}
+
+plugin(cbke-163k1-stub-library) {
+  name=CBKE 163k Stub Library
+  description=This library contains stubs for the Certificate Based Key Exchange (CBKE) functionality specific the the 163k1 curve.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke
+
+  providedApis=cbke163k1
+
+  files(cbke-163k1-stub-library-common) {
+    # STACK_SECURITY:CBKE_163K1_STUB_LIBRARY
+      stack/security/cbke-crypto-engine-163k1-stub.c
+  }
+
+  $cbke-163k1-stub-library-common
+
+  precompiled(efr32) {
+    file=build/cbke-163k1-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-163k1-stub-library.a
+    $cbke-163k1-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-163k1-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-163k1-stub-library.a
+    $cbke-163k1-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-163k1-stub-library-unix-gcc-simulation-simulation/cbke-163k1-stub-library.a
+    $cbke-163k1-stub-library-common
+  }
+}
+
+plugin(cbke-283k1-library) {
+  name=CBKE 283k Library
+  description=Certificate Based Key Exchange (CBKE) functions specfic to the 283k ECC curve used in Smart Energy 1.2 and later.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke, ecc283k1
+
+  providedApis=cbke283k1
+
+  files(cbke-283k1-library-common) {
+    # STACK_SECURITY:CBKE_283K1_LIBRARY
+      stack/security/cbke-crypto-engine-283k1.c
+      stack/security/cbke-crypto-engine-storage-283k1.c
+  }
+
+  files(cbke-283k1-library-efr32) {
+    # STACK_SECURITY:CBKE_283K1_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-tokens-283k1.c
+      stack/security/cbke-crypto-engine-storage-tokens-3xx-283k1.c
+  }
+
+  files(cbke-283k1-library-em3xx) {
+    # STACK_SECURITY:CBKE_283K1_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-tokens-283k1.c
+      stack/security/cbke-crypto-engine-storage-tokens-3xx-283k1.c
+  }
+
+  files(cbke-283k1-library-simulation) {
+    # STACK_SECURITY:CBKE_283K1_LIBRARY_TOKENS
+      stack/security/cbke-crypto-engine-storage-simulation-283k1.c
+  }
+
+  $cbke-283k1-library-common
+  $cbke-283k1-library-efr32      (efr32)
+  $cbke-283k1-library-em3xx      (em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  $cbke-283k1-library-simulation (simulation)
+
+  precompiled(efr32) {
+    file=build/cbke-283k1-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-283k1-library.a
+    $cbke-283k1-library-common
+    $cbke-283k1-library-efr32
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-283k1-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-283k1-library.a
+    $cbke-283k1-library-common
+    $cbke-283k1-library-em3xx
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-283k1-library-unix-gcc-simulation-simulation/cbke-283k1-library.a
+    $cbke-283k1-library-common
+    $cbke-283k1-library-simulation
+  }
+}
+
+plugin(cbke-283k1-stub-library) {
+  name=CBKE 283k Stub Library
+  description=This library provides stub implementations of CBKE functionality specific to the 283k ECC curve.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke
+
+  providedApis=cbke283k1
+
+  files(cbke-283k1-stub-library-common) {
+    # STACK_SECURITY:CBKE_283K1_STUB_LIBRARY
+      stack/security/cbke-crypto-engine-283k1-stub.c
+  }
+
+  $cbke-283k1-stub-library-common
+
+  precompiled(efr32) {
+    file=build/cbke-283k1-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-283k1-stub-library.a
+    $cbke-283k1-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-283k1-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-283k1-stub-library.a
+    $cbke-283k1-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-283k1-stub-library-unix-gcc-simulation-simulation/cbke-283k1-stub-library.a
+    $cbke-283k1-stub-library-common
+  }
+}
+
+plugin(cbke-library-core) {
+  name=CBKE Core Library
+  description=Certificate Based Key Exchange Library.  This library provides support for managing the Elliptical Curve Cryptography (ECC) operations.  It provides key agreement and ephemeral key generation interfaces with the ability to save the generated link key key.  It is used by the Smart Energy 1.x Profile to authenticate and authorize devices.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=cbke
+  api.cbke.header=stack/include/cbke-crypto-engine.h
+
+  requiredApis=ezsp-cbke,zigbee-pro
+  api.ezsp-cbke.conditions=conf.frameworkMatches("ncp")
+
+  # Conditions
+  conditions=dependencies
+
+  dependencies.expression=conf.isApiProvided("cbke163k1") || conf.isApiProvided("cbke283k1")
+  dependencies.message=The CBKE Core library requries the selection of either the CBKE 163k1 library, the CBKE 283k1 library, or both libraries.
+
+  files(cbke-library-core-common) {
+    # STACK_SECURITY:CBKE_LIBRARY_COMMON
+      stack/security/cbke-crypto-engine-common.c
+  }
+
+  $cbke-library-core-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-core-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-core.a
+    $cbke-library-core-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-core-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-core.a
+    $cbke-library-core-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-core-unix-gcc-simulation-simulation/cbke-library-core.a
+    $cbke-library-core-common
+  }
+}
+
+plugin(cbke-library-dsa-sign) {
+  name=CBKE DSA Sign Library
+  description=This library is a part of the CBKE library that manages DSA Signing using the ECDSA algorithm.  It is not necessary for ZigBee OTA cluster, and it is no longer required by Smart Energy 1.1.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke163k1
+
+  providedApis=dsa-sign
+
+  files(cbke-library-dsa-sign-common) {
+    # STACK_SECURITY:CBKE_DSA_SIGN
+      stack/security/cbke-crypto-engine-dsa-sign.c
+  }
+
+  $cbke-library-dsa-sign-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-sign-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-sign.a
+    $cbke-library-dsa-sign-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-sign-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-sign.a
+    $cbke-library-dsa-sign-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-sign-unix-gcc-simulation-simulation/cbke-library-dsa-sign.a
+    $cbke-library-dsa-sign-common
+  }
+}
+
+plugin(cbke-library-dsa-sign-stub) {
+  name=CBKE DSA Sign Stub Library
+  description=This library provides stubs for DSA Signing functionality using the ECDSA algorithm.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke163k1
+
+  providedApis=dsa-sign
+
+  files(cbke-library-dsa-sign-stub-common) {
+    # STACK_SECURITY:CBKE_DSA_SIGN_STUB
+      stack/security/cbke-crypto-engine-dsa-sign-stub.c
+  }
+
+  $cbke-library-dsa-sign-stub-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-sign-stub-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-sign-stub.a
+    $cbke-library-dsa-sign-stub-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-sign-stub-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-sign-stub.a
+    $cbke-library-dsa-sign-stub-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-sign-stub-unix-gcc-simulation-simulation/cbke-library-dsa-sign-stub.a
+    $cbke-library-dsa-sign-stub-common
+  }
+}
+
+plugin(cbke-library-dsa-verify) {
+  name=CBKE DSA Verify Library
+  description=This library is a part of the CBKE library that manages DSA Verification using the ECDSA algorithm.  It may used by the ZigBee OTA client cluster to verify signed upgrade images.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke163k1
+
+  providedApis=dsa-verify
+
+  files(cbke-library-dsa-verify-common) {
+    # STACK_SECURITY:CBKE_DSA_VERIFY
+      stack/security/cbke-crypto-engine-dsa-verify.c
+  }
+
+  $cbke-library-dsa-verify-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-verify-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-verify.a
+    $cbke-library-dsa-verify-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-verify-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-verify.a
+    $cbke-library-dsa-verify-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-verify-unix-gcc-simulation-simulation/cbke-library-dsa-verify.a
+    $cbke-library-dsa-verify-common
+  }
+}
+
+plugin(cbke-library-dsa-verify-stub) {
+  name=CBKE DSA Verify Stub Library
+  description=This library provides stubs for managing DSA verification using the ECDSA algorithm.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke163k1
+
+  providedApis=dsa-verify
+
+  files(cbke-library-dsa-verify-stub-common) {
+    # STACK_SECURITY:CBKE_DSA_VERIFY_STUB
+      stack/security/cbke-crypto-engine-dsa-verify-stub.c
+  }
+
+  $cbke-library-dsa-verify-stub-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-verify-stub-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-verify-stub.a
+    $cbke-library-dsa-verify-stub-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-verify-stub-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-verify-stub.a
+    $cbke-library-dsa-verify-stub-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-verify-stub-unix-gcc-simulation-simulation/cbke-library-dsa-verify-stub.a
+    $cbke-library-dsa-verify-stub-common
+  }
+}
+
+plugin(cbke-library-dsa-verify-283k1) {
+  name=CBKE 283k1 DSA Verify Library
+  description=This library is a part of the CBKE library that manages 283k1 curve DSA Verification using the ECDSA algorithm.  It may used by the ZigBee OTA client cluster to verify signed upgrade images.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke283k1
+
+  providedApis=dsa-verify-283k1
+
+  files(cbke-library-dsa-verify-283k1-common) {
+    # STACK_SECURITY:CBKE_DSA_VERIFY_283K1
+      stack/security/cbke-crypto-engine-dsa-verify-283k1.c
+  }
+
+  $cbke-library-dsa-verify-283k1-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-verify-283k1-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-verify-283k1.a
+    $cbke-library-dsa-verify-283k1-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-verify-283k1-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-verify-283k1.a
+    $cbke-library-dsa-verify-283k1-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-verify-283k1-unix-gcc-simulation-simulation/cbke-library-dsa-verify-283k1.a
+    $cbke-library-dsa-verify-283k1-common
+  }
+}
+
+plugin(cbke-library-dsa-verify-283k1-stub) {
+  name=CBKE 283k1 DSA Verify Stub Library
+  description=This library provides stubs for managing 283k1 curve DSA verification using the ECDSA algorithm.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  requiredApis=cbke283k1
+
+  providedApis=dsa-verify-283k1
+
+  files(cbke-library-dsa-verify-283k1-stub-common) {
+    # STACK_SECURITY:CBKE_DSA_VERIFY_STUB_283K1
+      stack/security/cbke-crypto-engine-dsa-verify-283k1-stub.c
+  }
+
+  $cbke-library-dsa-verify-283k1-stub-common
+
+  precompiled(efr32) {
+    file=build/cbke-library-dsa-verify-283k1-stub-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-library-dsa-verify-283k1-stub.a
+    $cbke-library-dsa-verify-283k1-stub-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-library-dsa-verify-283k1-stub-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-library-dsa-verify-283k1-stub.a
+    $cbke-library-dsa-verify-283k1-stub-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-library-dsa-verify-283k1-stub-unix-gcc-simulation-simulation/cbke-library-dsa-verify-283k1-stub.a
+    $cbke-library-dsa-verify-283k1-stub-common
+  }
+}
+
+plugin(cbke-stub-library) {
+  name=CBKE Core Stub Library
+  description=This libraries provides stubs for Certificate Based Key Exchange (CBKE) functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=cbke
+  api.cbke.header=stack/include/cbke-crypto-engine.h
+
+  files(cbke-stub-library-common) {
+    # STACK_SECURITY:CBKE_STUB_LIBRARY
+      stack/security/cbke-crypto-engine-stub.c
+  }
+
+  $cbke-stub-library-common
+
+  precompiled(efr32) {
+    file=build/cbke-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/cbke-stub-library.a
+    $cbke-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/cbke-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/cbke-stub-library.a
+    $cbke-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/cbke-stub-library-unix-gcc-simulation-simulation/cbke-stub-library.a
+    $cbke-stub-library-common
+  }
+}
+
+plugin(debug-basic-library) {
+  name=Debug Basic Library
+  description=Provides basic debug functionality, including reset information.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=debug-basic,virtual-uart
+  api.debug-basic.header=stack/include/ember-debug.h
+  requiredApis=debug-channel
+
+  callbacks=stack/appbuilder/debug-basic-callback.info
+
+  files(debug-basic-library-common) {
+    # STACK_FRAMEWORK:DEBUG_BASIC_FILES
+      stack/framework/debug.c
+  }
+
+  $debug-basic-library-common
+
+  # HAL_PLUGIN:DEBUG
+    # HAL_PLUGIN:DEBUG_RTT
+      $HAL/plugin/debug/rtt/SEGGER_RTT.c (efr32)
+
+  precompiled(efr32) {
+    file=build/debug-basic-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/debug-basic-library.a
+    $debug-basic-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/debug-basic-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/debug-basic-library.a
+    $debug-basic-library-common
+  }
+
+  precompiled(simulation) {
+    file=$FRAMEWORK/../../build/debug-basic-library-unix-gcc-simulation-simulation/debug-basic-library.a
+    $debug-basic-library-common
+  }
+}
+
+plugin(debug-basic-stub-library) {
+  name=Debug Basic Stub Library
+  description=This library provides stub implementations for basic debug functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=debug-basic
+  api.debug-basic.header=stack/include/ember-debug.h
+
+  files(debug-basic-stub-library-common) {
+    # STACK_FRAMEWORK:DEBUG_BASIC_STUB_FILES
+      stack/framework/debug-stub.c
+  }
+
+  $debug-basic-stub-library-common
+
+  precompiled(efr32) {
+    file=build/debug-basic-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/debug-basic-stub-library.a
+    $debug-basic-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/debug-basic-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/debug-basic-stub-library.a
+    $debug-basic-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/debug-basic-stub-library-unix-gcc-simulation-simulation/debug-basic-stub-library.a
+    $debug-basic-stub-library-common
+  }
+}
+
+plugin(debug-extended-library) {
+  name=Debug Extended Library
+  description=Provides extended debug functionality, including API traces and debug statistics.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=debug-extended
+
+  requiredApis=debug-basic,printf
+
+  files(debug-extended-library-common) {
+    # STACK_FRAMEWORK:DEBUG_EXTENDED_FILES
+      stack/framework/debug-extended.c
+  }
+
+  $debug-extended-library-common
+
+  precompiled(efr32) {
+    file=build/debug-extended-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/debug-extended-library.a
+    $debug-extended-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/debug-extended-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/debug-extended-library.a
+    $debug-extended-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/debug-extended-library-unix-gcc-simulation-simulation/debug-extended-library.a
+    $debug-extended-library-common
+  }
+}
+
+plugin(debug-extended-stub-library) {
+  name=Debug Extended Stub Library
+  description=This library provides stub implementations for extended debug functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=debug-extended
+
+  files(debug-extended-stub-library-common) {
+    # STACK_FRAMEWORK:DEBUG_EXTENDED_STUB_FILES
+      stack/framework/debug-extended-stub.c
+  }
+
+  $debug-extended-stub-library-common
+
+  precompiled(efr32) {
+    file=build/debug-extended-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/debug-extended-stub-library.a
+    $debug-extended-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/debug-extended-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/debug-extended-stub-library.a
+    $debug-extended-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/debug-extended-stub-library-unix-gcc-simulation-simulation/debug-extended-stub-library.a
+    $debug-extended-stub-library-common
+  }
+}
+
+plugin(ecc-library-283k1) {
+  name=ECC 283k1 Library
+  description=This plugin provides a place for a user to enter the path to a valid 283k1 Ellipic Curve Cryptography (ECC) library.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=ecc283k1
+
+  options=libraryPath
+
+  libraryPath.name=Library path
+  libraryPath.description=Path to ECC 283k1 Library
+  libraryPath.type=FILE
+  libraryPath.default=PATH(STACK_RELATIVE):/
+  libraryPath.override(simulation)=PATH(STACK_RELATIVE):build/ecc-library-283k1-internal-unix-gcc-simulation-simulation/ecc-library-283k1-internal.a
+
+  conditions=validLibraryPath
+
+  validLibraryPath.expression=conf.architectureMatches("simulation") || !libraryPath.equals("PATH(STACK_RELATIVE):/")
+  validLibraryPath.message="Users must specify a library path for the ECC 283k1 Library."
+
+  setup(additionalFiles) {
+    options=libraryPath
+  }
+}
+
+plugin(ecc-library-163k1) {
+  name=ECC 163k1 Library
+  description=This plugin provides a place for a user to enter the path to a valid 163k1 Ellipic Curve Cryptography library.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=ecc163k1
+
+  options=libraryPath
+
+  libraryPath.name=Library path
+  libraryPath.description=Path to ECC 163k1 Library
+  libraryPath.type=FILE
+  libraryPath.default=PATH(STACK_RELATIVE):/
+  libraryPath.override(simulation)=PATH(STACK_RELATIVE):build/ecc-library-internal-unix-gcc-simulation-simulation/ecc-library-internal.a
+
+  conditions=validLibraryPath
+
+  validLibraryPath.expression=conf.architectureMatches("simulation") || !libraryPath.equals("PATH(STACK_RELATIVE):/")
+  validLibraryPath.message="Users must specify a library path for the ECC 163k1 Library."
+
+  setup(additionalFiles) {
+    options=libraryPath
+  }
+}
+
+plugin(gp-library) {
+  name=GreenPower Stack Library
+  description=This library provides implementations of Green Power functionality.
+  category=Stack Libraries
+  quality=test
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=green-power
+
+  requiredApis=ezsp-gp
+  api.ezsp-gp.conditions=conf.frameworkMatches("ncp")
+
+  files(gp-library-common) {
+    # STACK:GP
+      stack/gp/gp-data.c
+      stack/gp/gp-proxy-table.c
+      stack/gp/gp-util.c
+  }
+
+  $gp-library-common
+
+  precompiled(efr32) {
+    file=build/gp-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/gp-library.a
+    $gp-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/gp-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/gp-library.a
+    $gp-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/gp-library-unix-gcc-simulation-simulation/gp-library.a
+    $gp-library-common
+  }
+}
+
+plugin(gp-stub-library) {
+  name=GreenPower Stack Stub Library
+  description=This library provides stub implementations of Green Power functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=green-power
+
+  files(gp-stub-library-common) {
+    # STACK:GP_STUB
+      stack/gp/gp-stub.c
+  }
+
+  $gp-stub-library-common
+
+  precompiled(efr32) {
+    file=build/gp-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/gp-stub-library.a
+    $gp-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/gp-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/gp-stub-library.a
+    $gp-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/gp-stub-library-unix-gcc-simulation-simulation/gp-stub-library.a
+    $gp-stub-library-common
+  }
+}
+
+plugin(end-device-bind-library) {
+  name=End Device Bind Library
+  description=The End Device Bind library provides support on a coordinator device to answer ZDO End Device Bind requests and respond to them.  End Devices do not need this library.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=end-device-bind
+
+  files(end-device-bind-library-common) {
+    # STACK_ZIGBEE:END_DEVICE_BIND
+      stack/zigbee/end-device-bind.c
+  }
+
+  $end-device-bind-library-common
+
+  precompiled(efr32) {
+    file=build/end-device-bind-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/end-device-bind-library.a
+    $end-device-bind-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/end-device-bind-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/end-device-bind-library.a
+    $end-device-bind-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/end-device-bind-library-unix-gcc-simulation-simulation/end-device-bind-library.a
+    $end-device-bind-library-common
+  }
+}
+
+plugin(end-device-bind-stub-library) {
+  name=End Device Bind Stub Library
+  description=This library provides stub functionality for end device binding routines.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=end-device-bind
+
+  files(end-device-bind-stub-library-common) {
+    # STACK_ZIGBEE:END_DEVICE_BIND_STUB
+      stack/zigbee/end-device-bind-stub.c
+  }
+
+  $end-device-bind-stub-library-common
+
+  precompiled(efr32) {
+    file=build/end-device-bind-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/end-device-bind-stub-library.a
+    $end-device-bind-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/end-device-bind-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/end-device-bind-stub-library.a
+    $end-device-bind-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/end-device-bind-stub-library-unix-gcc-simulation-simulation/end-device-bind-stub-library.a
+    $end-device-bind-stub-library-common
+  }
+}
+
+plugin(zigbee-r22-support-library) {
+  name=Zigbee R22 Support Library
+  description=This library implements the features added in Zigbee Specificaiton Rev22, as of now library supports enhanced beacon request, link power delta and nwk IEEE joining list commands. These features are not yet certifiable within ZigBee.
+  category=Stack Libraries
+  quality=test
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  files(zigbee-r22-support-library-common) {
+    #STACK_ZIGBEE:ZDO_R22
+    stack/zigbee/zdo-r22.c
+    #STACK_ROUTING:CHILD_HANDLING_R22
+    stack/routing/zigbee/child-handling-r22.c
+    # STACK_ROUTING:ENHANCED_BEACON_REQUEST
+      stack/routing/zigbee/enhanced-beacon-request.c
+    # STACK_MAC:INFO_ELEMENT_802.15.4
+      stack/mac/mac-info-element-parsing.c
+  }
+
+  $zigbee-r22-support-library-common
+
+  precompiled(efr32) {
+    file=build/zigbee-r22-support-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/zigbee-r22-support-library.a
+    $zigbee-r22-support-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/zigbee-r22-support-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/zigbee-r22-support-library.a
+    $zigbee-r22-support-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/zigbee-r22-support-library-unix-gcc-simulation-simulation/zigbee-r22-support-library.a
+    $zigbee-r22-support-library-common
+  }
+}
+
+plugin(zigbee-r22-support-stub-library) {
+  name=Zigbee R22 Support Stub Library
+  description=This library provides stub implementation of supported features added in Zigbee Specificaiton Rev22.
+  category=Stack Libraries
+  quality=test
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  files(zigbee-r22-support-stub-library-common) {
+    #STACK_ZIGBEE:ZDO_R22_STUB
+    stack/zigbee/zdo-r22-stub.c
+    # STACK_ROUTING:ENHANCED_BEACON_REQUEST_STUB
+      stack/routing/zigbee/enhanced-beacon-request-stub.c
+    # STACK_MAC:INFO_ELEMENT_802.15.4_STUB
+      stack/mac/mac-info-element-parsing-stub.c
+  }
+
+  $zigbee-r22-support-stub-library-common
+
+  precompiled(efr32) {
+    file=build/zigbee-r22-support-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/zigbee-r22-support-stub-library.a
+    $zigbee-r22-support-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/zigbee-r22-support-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/zigbee-r22-support-stub-library.a
+    $zigbee-r22-support-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/zigbee-r22-support-stub-library-unix-gcc-simulation-simulation/zigbee-r22-support-stub-library.a
+    $zigbee-r22-support-stub-library-common
+  }
+}
+
+plugin(install-code-library) {
+  name=Install Code Library
+  description=The Install code library provides an initial link key based upon an install code manufacturering token in the device.  The key is hashed according to the ZigBee spec and can be used by applications running Smart Energy 1.x profile or Home Automation 1.2 profile.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=install-code
+
+  files(install-code-library-efr32) {
+    # STACK_SECURITY:INSTALL_CODE_LIBRARY
+      stack/security/install-code-tokens.c
+  }
+
+  files(install-code-library-em3xx) {
+    # STACK_SECURITY:INSTALL_CODE_LIBRARY
+      stack/security/install-code-tokens.c
+  }
+
+  files(install-code-library-simulation) {
+    # STACK_SECURITY:INSTALL_CODE_LIBRARY
+      stack/security/install-code-simulation.c
+  }
+
+  $install-code-library-efr32      (efr32)
+  $install-code-library-em3xx      (em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  $install-code-library-simulation (simulation)
+
+  precompiled(efr32) {
+    file=build/install-code-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/install-code-library.a
+    $install-code-library-efr32
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/install-code-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/install-code-library.a
+    $install-code-library-em3xx
+  }
+
+  precompiled(simulation) {
+    file=build/install-code-library-unix-gcc-simulation-simulation/install-code-library.a
+    $install-code-library-simulation
+  }
+}
+
+plugin(install-code-library-stub) {
+  name=Install Code Stub Library
+  description=This library provides stub implementations of Install Code functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=install-code
+
+  files(install-code-library-stub-common) {
+    # STACK_SECURITY:INSTALL_CODE_LIBRARY_STUB
+      stack/security/install-code-stub.c
+  }
+
+  $install-code-library-stub-common
+
+  precompiled(efr32) {
+    file=build/install-code-library-stub-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/install-code-library-stub.a
+    $install-code-library-stub-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/install-code-library-stub-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/install-code-library-stub.a
+    $install-code-library-stub-common
+  }
+
+  precompiled(simulation) {
+    file=build/install-code-library-stub-unix-gcc-simulation-simulation/install-code-library-stub.a
+    $install-code-library-stub-common
+  }
+}
+
+plugin(mfglib-library) {
+  name=Manufacturing Library
+  description=This library provides support for various manufacturing test APIs.
+  category=Stack Libraries
+  quality=production
+  root=$HAL/../phy
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=mfglib
+  api.mfglib.header=$FRAMEWORK/../../stack/include/mfglib.h
+
+  requiredApis=ezsp-mfglib
+  api.ezsp-mfglib.conditions=conf.frameworkMatches("ncp")
+
+  files(mfglib-library-common) {
+    # STACK_PHY:MFGLIB
+      mfglib.c
+  }
+
+  $mfglib-library-common
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/mfglib-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/mfglib-library.a
+    $mfglib-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/mfglib-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/mfglib-library.a
+    $mfglib-library-common
+  }
+
+  precompiled(simulation) {
+    file=$FRAMEWORK/../../build/mfglib-library-unix-gcc-simulation-simulation/mfglib-library.a
+    $mfglib-library-common
+  }
+}
+
+plugin(mfglib-stub-library) {
+  name=Manufacturing Stub Library
+  description=This library provides stub implementations for manufacturing test API functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$HAL/../phy
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=mfglib
+  api.mfglib.header=$FRAMEWORK/../../stack/include/mfglib.h
+
+  files(mfglib-stub-library-common) {
+    # STACK_PHY:MFGLIB_STUB
+      mfglib-stub.c
+  }
+
+  $mfglib-stub-library-common
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/mfglib-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/mfglib-stub-library.a
+    $mfglib-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/mfglib-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/mfglib-stub-library.a
+    $mfglib-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=$FRAMEWORK/../../build/mfglib-stub-library-unix-gcc-simulation-simulation/mfglib-stub-library.a
+    $mfglib-stub-library-common
+  }
+}
+
+plugin(multi-network-library) {
+  name=Multi-Network Library
+  description=This library provides the functionality to support multiple logical networks on one node.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=multi-network
+  api.multi-network.header=stack/include/multi-network.h
+
+  options=supportedNetworks
+
+  supportedNetworks.name=Supported Networks
+  supportedNetworks.description=The number of networks that this node supports.
+  supportedNetworks.type=NUMBER:1,2
+  supportedNetworks.default=2
+  supportedNetworks.define=EMBER_SUPPORTED_NETWORKS
+  supportedNetworks.hidden=true
+
+  files(multi-network-library-common) {
+    # STACK_CORE:MULTI_NETWORK
+      stack/core/ember-multi-network.c
+  }
+
+  $multi-network-library-common
+
+  precompiled(efr32) {
+    file=build/multi-network-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/multi-network-library.a
+    $multi-network-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/multi-network-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/multi-network-library.a
+    $multi-network-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/multi-network-library-unix-gcc-simulation-simulation/multi-network-library.a
+    $multi-network-library-common
+  }
+}
+
+plugin(multi-network-stub-library) {
+  name=Multi-Network Stub Library
+  description=This library provides stub implementations of multi-network functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=multi-network
+  api.multi-network.header=stack/include/multi-network.h
+
+  callbacks=stack/appbuilder/multi-network-callback.info
+
+  options=supportedNetworks
+
+  supportedNetworks.name=Supported Networks
+  supportedNetworks.description=The number of networks that this node supports.
+  supportedNetworks.type=NUMBER:1,2
+  supportedNetworks.default=1
+  supportedNetworks.define=EMBER_SUPPORTED_NETWORKS
+  supportedNetworks.hidden=true
+
+  files(multi-network-stub-library-common) {
+    # STACK_CORE:MULTI_NETWORK_STUB
+      stack/core/ember-multi-network-stub.c
+  }
+
+  $multi-network-stub-library-common
+
+  precompiled(efr32) {
+    file=build/multi-network-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/multi-network-stub-library.a
+    $multi-network-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/multi-network-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/multi-network-stub-library.a
+    $multi-network-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/multi-network-stub-library-unix-gcc-simulation-simulation/multi-network-stub-library.a
+    $multi-network-stub-library-common
+  }
+}
+
+plugin(packet-validate-library) {
+  name=Packet Validate Library
+  description=The Packet Validate library provides validation of all IEEE 802.15.4, ZigBee NWK and ZigBee APS layer messages.  It will insure malformed messages are not processed by dropping any that violate the standard.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  providedApis=packet-validate
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  files(packet-validate-library-common) {
+    # STACK_SECURITY:PACKET_VALIDATE
+      stack/security/packet-validate.c
+  }
+
+  $packet-validate-library-common
+
+  precompiled(efr32) {
+    file=build/packet-validate-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/packet-validate-library.a
+    $packet-validate-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/packet-validate-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/packet-validate-library.a
+    $packet-validate-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/packet-validate-library-unix-gcc-simulation-simulation/packet-validate-library.a
+    $packet-validate-library-common
+  }
+}
+
+plugin(packet-validate-stub-library) {
+  name=Packet Validate Stub Library
+  description=This library provides stub implementations of Packet Validation functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  providedApis=packet-validate
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  files(packet-validate-stub-library-common) {
+    # STACK_SECURITY:PACKET_VALIDATE_STUB
+      stack/security/packet-validate-stub.c
+  }
+
+  $packet-validate-stub-library-common
+
+  precompiled(efr32) {
+    file=build/packet-validate-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/packet-validate-stub-library.a
+    $packet-validate-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/packet-validate-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/packet-validate-stub-library.a
+    $packet-validate-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/packet-validate-stub-library-unix-gcc-simulation-simulation/packet-validate-stub-library.a
+    $packet-validate-stub-library-common
+  }
+}
+
+plugin(security-library-core) {
+  name=ZigBee PRO Core Security Library
+  description=The Security Core Library provides NWK and APS encryption, security policies, and key management.  It is required by all ZigBee PRO profiles.
+  category=Stack Libraries
+  root=$FRAMEWORK/../..
+
+  quality=production
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=security
+
+  requiredApis=install-code,cbke,link-key,ezsp-security
+  api.ezsp-security.conditions=conf.frameworkMatches("ncp")
+
+  options=transientKeyTimeout
+
+  transientKeyTimeout.name=Transient key timeout (in seconds)
+  transientKeyTimeout.description=The amount of time a trust center will store a transient link key that a device can use to join its network.
+  transientKeyTimeout.type=NUMBER:0x0000,0xFFFF
+  transientKeyTimeout.default=300
+  transientKeyTimeout.define=EMBER_TRANSIENT_KEY_TIMEOUT_S
+
+  files(security-library-core-common) {
+    # STACK_ZIGBEE:STANDARD_SECURITY
+      stack/zigbee/aps-security.c
+      stack/zigbee/aps-keys.c
+      stack/zigbee/aps-encryption.c
+      stack/security/aes-mmo.c
+      stack/security/hmac.c
+      stack/security/aps-keys-transient.c
+      stack/zigbee/trust-center-util.c
+      stack/zigbee/aps-no-trust-center.c
+    # STACK_SECURITY:SECURITY_MFG_TOKENS
+      stack/security/security-config-mfg-3xx.c
+  }
+
+  $security-library-core-common
+
+  precompiled(efr32) {
+    file=build/security-library-core-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/security-library-core.a
+    $security-library-core-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/security-library-core-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/security-library-core.a
+    $security-library-core-common
+  }
+
+  precompiled(simulation) {
+    file=build/security-library-core-unix-gcc-simulation-simulation/security-library-core.a
+    $security-library-core-common
+  }
+}
+
+plugin(security-library-link-keys) {
+  name=Security Link Keys Library
+  description=The Security Link Keys library provides managament of APS link keys in the key table.  It is used by a trust center (coordinator) to manage link keys of devices in the network, or by non trust center devices wishing to manage partner link keys.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=link-key
+
+  options=keyTableSize,requestKeyTimeout
+
+  keyTableSize.name=Link Key Table Size
+  keyTableSize.description=The maximum number of link key table entries supported by the stack.
+  # 127 is the max size of the indexed token type in the SimEEPROM token system
+  keyTableSize.type=NUMBER:1,127
+  keyTableSize.default=6
+  keyTableSize.define=EMBER_KEY_TABLE_SIZE
+
+  requestKeyTimeout.name=Request Key Timeout
+  requestKeyTimeout.description=The length of time that a node will wait for a trust center to answer its Application Link Key request.
+  requestKeyTimeout.type=NUMBER:0,10
+  requestKeyTimeout.default=0
+  requestKeyTimeout.define=EMBER_REQUEST_KEY_TIMEOUT
+
+  files(security-library-link-keys-common) {
+    # STACK_ZIGBEE:KEY_TABLE
+      stack/zigbee/aps-keys-full.c
+  }
+
+  $security-library-link-keys-common
+
+  precompiled(efr32) {
+    file=build/security-library-link-keys-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/security-library-link-keys.a
+    $security-library-link-keys-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/security-library-link-keys-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/security-library-link-keys.a
+    $security-library-link-keys-common
+  }
+
+  precompiled(simulation) {
+    file=build/security-library-link-keys-unix-gcc-simulation-simulation/security-library-link-keys.a
+    $security-library-link-keys-common
+  }
+}
+
+plugin(security-library-link-keys-stub) {
+  name=Security Link Keys Stub Library
+  description=This library provides stub implementations for link key table management functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=link-key
+
+  files(security-library-link-keys-stub-common) {
+    # STACK_ZIGBEE:KEY_TABLE_STUB
+      stack/zigbee/aps-keys-full-stub.c
+  }
+
+  $security-library-link-keys-stub-common
+
+  precompiled(efr32) {
+    file=build/security-library-link-keys-stub-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/security-library-link-keys-stub.a
+    $security-library-link-keys-stub-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/security-library-link-keys-stub-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/security-library-link-keys-stub.a
+    $security-library-link-keys-stub-common
+  }
+
+  precompiled(simulation) {
+    file=build/security-library-link-keys-stub-unix-gcc-simulation-simulation/security-library-link-keys-stub.a
+    $security-library-link-keys-stub-common
+  }
+}
+
+plugin(stub-security-library) {
+  name=ZigBee PRO Stub Security Library
+  description=This library provides stubs for ZigBee PRO security functionality. This library exists only to provide stubs to builds that need them, and is not intended to be used in production.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=security
+
+  files(stub-security-library-common) {
+    # STACK_ZIGBEE:STUB_SECURITY
+      stack/zigbee/aps-security-stub.c
+      stack/zigbee/aps-keys-stub.c
+      stack/zigbee/aps-keys-full-stub.c
+      stack/zigbee/aps-encryption-stub.c
+      stack/zigbee/aps-security-policy-stub.c
+      stack/zigbee/aps-no-trust-center-stub.c
+  }
+
+  $stub-security-library-common
+
+  precompiled(efr32) {
+    file=build/stub-security-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/stub-security-library.a
+    $stub-security-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/stub-security-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/stub-security-library.a
+    $stub-security-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/stub-security-library-unix-gcc-simulation-simulation/stub-security-library.a
+    $stub-security-library-common
+  }
+}
+
+plugin(zigbee-pro-stack) {
+  name=Zigbee PRO Stack Library
+  description=The main Zigbee PRO Stack library for parsing, processing, generating and managing the Zigbee PRO stack messages and functionality.
+  category=Stack Libraries
+  root=$FRAMEWORK/../../stack
+
+  quality=production
+
+  # This is needed to pair with EMBER_BROADCAST_TABLE_SIZE
+  setup(macros) {
+    -DEMBER_PARAMETERIZED_BROADCAST_TABLE
+  }
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=zigbee-pro,zigbee-pro-routing,event,buffer,ember-types,byte-utilities,stack
+  api.event.header=include/event.h
+  api.buffer.header=include/packet-buffer.h
+  api.ember-types.header=include/ember-types.h
+  api.byte-utilities.header=include/byte-utilities.h
+  api.stack.header=include/ember.h
+  api.zigbee-pro.header=include/ember.h
+
+  requiredApis=antenna,binding,debug-basic,end-device-bind,ezsp-zigbee-pro,mfglib,multi-network,packet-validate,security,zll,green-power
+  api.ezsp-zigbee-pro.conditions=conf.frameworkMatches("ncp")
+
+  callbacks=appbuilder/zigbee-pro-callback.info
+
+  options=apsMessageQueueSize, childTableSize, endDevicePollTimeoutShift, endDevicePollTimeoutValue, linkPowerDeltaInterval, packetBufferCount, sourceRouteTableSize, broadcastTableSize, neighborTableSize
+
+  apsMessageQueueSize.name=APS Unicast Message Queue Size
+  apsMessageQueueSize.description=The maximum number of APS unicast messages that can be queued up by the stack.  A message is considered queued when emberSendUnicast() is called and is de-queued when the emberMessageSentHandler() is called.
+  apsMessageQueueSize.type=NUMBER:1,255
+  apsMessageQueueSize.define=EMBER_APS_UNICAST_MESSAGE_COUNT
+  apsMessageQueueSize.default=10
+
+  childTableSize.name=Child Table Size
+  childTableSize.description=The maximum number of ZigBee PRO End Devices that can be supported by a single device.
+  # 127 is the max because we have an array of tokens and 127 is the max token array size.
+  # 6 is the ZigBee PRO compliant minimum
+  childTableSize.type=NUMBER:0,127
+  childTableSize.default=6
+  childTableSize.define=EMBER_MAX_END_DEVICE_CHILDREN
+
+  endDevicePollTimeoutShift.name=End Device Timeout Left Shift Value
+  endDevicePollTimeoutShift.description=The shift value that will offset the timeout value described above.  The default of 6 gives a timeout value of 64 seconds, or approximately 1 minute.
+  endDevicePollTimeoutShift.type=NUMBER:1,255
+  endDevicePollTimeoutShift.default=6
+  endDevicePollTimeoutShift.define=EMBER_END_DEVICE_POLL_TIMEOUT_SHIFT
+
+  endDevicePollTimeoutValue.name=End Device Poll Timeout Value
+  endDevicePollTimeoutValue.description=The amount of time that must pass without hearing a MAC data poll from the device before the end device is removed from the child table.  For a router device this applies to its children.  For an end device, this is the amount of time before it automatically times itself out.
+  endDevicePollTimeoutValue.type=NUMBER:1,255
+  endDevicePollTimeoutValue.default=5
+  endDevicePollTimeoutValue.define=EMBER_END_DEVICE_POLL_TIMEOUT
+
+  linkPowerDeltaInterval.name=Link Power Delta Request Interval
+  linkPowerDeltaInterval.description=The amount of time in seconds that pass between link power delta requests.
+  linkPowerDeltaInterval.type=NUMBER:1,65535
+  linkPowerDeltaInterval.default=300
+  linkPowerDeltaInterval.define=EMBER_LINK_POWER_DELTA_INTERVAL
+
+  packetBufferCount.name=Packet Buffer Count
+  packetBufferCount.description=The maximum number of packet buffers supported by the system.  This is limited by the amount of available RAM.
+  packetBufferCount.type=NUMBER:20,254
+  packetBufferCount.default=75
+  packetBufferCount.define=EMBER_PACKET_BUFFER_COUNT
+
+  sourceRouteTableSize.name=Source Route Table Size
+  sourceRouteTableSize.description=The size of the source route table.
+  sourceRouteTableSize.type=NUMBER:0,255
+  sourceRouteTableSize.default=0
+  sourceRouteTableSize.define=EMBER_SOURCE_ROUTE_TABLE_SIZE
+
+  broadcastTableSize.name=Broadcast Table Size
+  broadcastTableSize.description=The size of the parametrized broadcast table.
+  broadcastTableSize.type=NUMBER:15,254
+  broadcastTableSize.default=15
+  broadcastTableSize.define=EMBER_BROADCAST_TABLE_SIZE  
+
+  neighborTableSize.name=Neighbor Table Size
+  neighborTableSize.description=The size of the neighbor table.
+  neighborTableSize.type=LIST:16,26
+  neighborTableSize.default=16
+  neighborTableSize.define=EMBER_NEIGHBOR_TABLE_SIZE
+
+ files(zigbee-pro-stack-common) {
+    $HAL/../phy/child-table.c
+    $HAL/../phy/phy-util.c
+    $HAL/../phy/plugin/duty-cycle/duty-cycle-stub.c
+    config/token-cache.c
+    core/ember-duty-cycle.c
+    core/ember-library.c
+    core/ember-stack-common.c
+    core/ember-version.c
+    core/zigbee-stack.c
+    framework/byte-utilities.c
+    framework/eui64.c
+    framework/event-control.c
+    framework/packet-buffer.c
+    framework/packet-header.c
+    framework/zigbee-packet-header.c
+    mac/command.c
+    mac/lower-mac-efr32.c
+    mac/mac-dispatch.c
+    mac/mac-header.c
+    mac/mac-indirect.c
+    mac/upper-mac.c
+    mac/scan.c
+    routing/neighbor/neighbor-exchange.c
+    routing/neighbor/neighbor.c
+    routing/neighbor/zigbee-neighbor.c
+    routing/util/broadcast.c
+    routing/util/retry.c
+    routing/util/store-forward.c
+    routing/util/unicast-table.c
+    routing/zigbee/association.c
+    routing/zigbee/child-aging.c
+    routing/zigbee/child-handling.c
+    routing/zigbee/child.c
+    routing/zigbee/jit.c
+    routing/zigbee/leave.c
+    routing/zigbee/management.c
+    routing/zigbee/network.c
+    routing/zigbee/random-id.c
+    routing/zigbee/route-discovery.c
+    routing/zigbee/route-error.c
+    routing/zigbee/route-table.c
+    security/crypto.c
+    zigbee/address-table.c
+    zigbee/application-support.c
+    zigbee/aps-retry.c
+    zigbee/zdo-channel.c
+    zigbee/zigbee-device-util.c
+    zigbee/zigbee-device.c
+    zigbee/zigbee-dispatch.c
+  }
+
+  files(zigbee-pro-stack-efr32) {
+    $EMLIB/src/em_crypto.c
+    $HAL/../phy/pro2class/phy-config-MHz.c
+    $HAL/../phy/pro2class/radio_config_em3xxx_2.4GHz.c
+    $HAL/../phy/pro2class/radio_config_Si4468_863MHz.c
+    $HAL/../phy/pro2class/radio_config_Si4468_915MHz.c
+    $HAL/../phy/rail/phy.c
+    $HAL/../phy/rail/symbol-timer.c
+    platform/micro/cortexm3/efm32/aes.c
+  }
+
+  files(zigbee-pro-stack-em3xx) {
+    $HAL/../phy/em250class/analogue-cell-bias.c
+    $HAL/../phy/em250class/analogue-filter.c
+    $HAL/../phy/em250class/analogue-lna.c
+    $HAL/../phy/em250class/analogue-mod-dac.c
+    $HAL/../phy/em250class/analogue-vco.c
+    $HAL/../phy/em250class/analogue.c
+    $HAL/../phy/em250class/phy-common.c
+    $HAL/../phy/em250class/symbol-timer.c
+    $HAL/../phy/em3xx/phy.c
+    platform/micro/cortexm3/aes.c
+    platform/micro/generic/cal-pads.c
+  }
+
+  files(zigbee-pro-stack-simulation) {
+    $HAL/../phy/em250/hardware-mac-sim.c
+    $HAL/../phy/em250/phy.c
+    $HAL/../phy/em250class/phy-common-stub.c
+    $HAL/../phy/em250class/phy-common.c
+    $HAL/../phy/simulation/aes-software.c
+    $HAL/../phy/simulation/security.c
+    core/def-string-sim.c
+    core/parcel.c
+  }
+
+  $zigbee-pro-stack-common
+  $zigbee-pro-stack-efr32      (efr32)
+  $zigbee-pro-stack-em3xx      (em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  $zigbee-pro-stack-simulation (simulation)
+
+  precompiled(efr32) {
+    file=../build/zigbee-pro-stack-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/zigbee-pro-stack.a
+    $zigbee-pro-stack-common
+    $zigbee-pro-stack-efr32
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=../build/zigbee-pro-stack-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/zigbee-pro-stack.a
+    $zigbee-pro-stack-common
+    $zigbee-pro-stack-em3xx
+  }
+
+  precompiled(simulation) {
+    file=../build/zigbee-pro-stack-unix-gcc-simulation-simulation/zigbee-pro-stack.a
+    $zigbee-pro-stack-common
+    $zigbee-pro-stack-simulation
+  }
+
+  # Why we need this?: non-rail phy also use header file(s) from $RAIL_LIB/chip/efr32 for rail_chip_specific.h, $RAIL_LIB/common rail_types.h etc.
+  # We should be able to move it in esf_commmon after having EMZIGBEE-1307 fix.
+  setup(additionalFiles) {
+    (efr32)=$RAIL_LIB/chip/efr32
+    (efr32)=$RAIL_LIB/chip/efr32/rf/common/cortex
+    (efr32)=$RAIL_LIB/common
+  }
+}
+
+plugin(zll-library) {
+  name=ZigBee Light Link Library
+  description=This library provides the functionality to support ZigBee Light Link (ZLL) functionality on a device.
+  category=Stack Libraries
+  quality=production
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=zll
+  api.zll.header=stack/include/zll-api.h
+
+  requiredApis=ezsp-zll
+  api.ezsp-zll.conditions=conf.frameworkMatches("ncp")
+
+  files(zll-library-common) {
+    # STACK:ZLL_FULL
+      stack/zll/zll-address-assignment.c
+      stack/zll/zll-api.c
+      stack/zll/zll-interpan.c
+      stack/zll/zll-security.c
+      stack/zll/zll-tokens.c
+    # STACK_SECURITY:AES_SOFTWARE
+      stack/security/small-aes.c
+  }
+
+  $zll-library-common
+
+  precompiled(efr32) {
+    file=build/zll-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/zll-library.a
+    $zll-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/zll-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/zll-library.a
+    $zll-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/zll-library-unix-gcc-simulation-simulation/zll-library.a
+    $zll-library-common
+  }
+}
+
+plugin(zll-stub-library) {
+  name=ZigBee Light Link Stub Library
+  description=This library provides stub implementations for ZigBee Light Link (ZLL) functionality.
+  category=Stack Libraries
+  quality=stub
+  root=$FRAMEWORK/../..
+
+  architecture=efr32,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=zll
+  api.zll.header=stack/include/zll-api.h
+
+  files(zll-stub-library-common) {
+    # STACK:ZLL_STUBS
+      stack/zll/zll-stubs.c
+  }
+
+  $zll-stub-library-common
+
+  precompiled(efr32) {
+    file=build/zll-stub-library-cortexm3-$--toolchainName--$-$--chipFamily;L--$$--dynamicPhy--$/zll-stub-library.a
+    $zll-stub-library-common
+  }
+
+  precompiled(em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=build/zll-stub-library-cortexm3-$--toolchainName--$-$--partNumber;L--$-em3xx/zll-stub-library.a
+    $zll-stub-library-common
+  }
+
+  precompiled(simulation) {
+    file=build/zll-stub-library-unix-gcc-simulation-simulation/zll-stub-library.a
+    $zll-stub-library-common
+  }
+}

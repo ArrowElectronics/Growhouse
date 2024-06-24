@@ -1,0 +1,52 @@
+From 9bfcbe9c1955aa0e5a152cb7095730e9350e64ca Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Thu, 17 Jan 2019 15:16:02 +0530
+Subject: [PATCH] Gateway-410C: Remove switching to emmc partition
+
+- LK code cloned with r1036 version is found to be not
+  working.
+- We are flashing GPT in partition 1 only and hence
+  removed switching to partition 2 from LK source code.
+
+Test Done:
+---------
+- Flash compiled bootloader from r1036 chipcode and LK,
+  kernel and FileSystem compiled with TAG of r1036
+  release, and DB410C board is able to boot succesfully
+  with compiled image.
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/platform/msm_shared/partition_parser.c b/platform/msm_shared/partition_parser.c
+index 46ebfb664..cec795b00 100644
+--- a/platform/msm_shared/partition_parser.c
++++ b/platform/msm_shared/partition_parser.c
+@@ -109,24 +109,8 @@ static unsigned int _partition_read_table(struct partition_entry ** partition_en
+ 		return 1;
+ 	}
+ 
+-	if (physical_partition == PART_ACCESS_BOOT2)
+-	{
+-		if (mmc_set_active_partition(PART_ACCESS_BOOT2))
+-		{
+-			dprintf(CRITICAL, "Can't switch to BOOT2 Partition\n");
+-			return 1;
+-		}
+-
+-		ret = mmc_boot_read_gpt(block_size, *partition_entries, count);
+-		if (ret) {
+-			dprintf(CRITICAL, "MMC Boot: BOOT2 GPT read failed!\n");
+-			goto end;
+-
+-		}
+-		mmc_set_active_partition(PART_ACCESS_DEFAULT);
+-	}
+ 	/* Read GPT of the card if exist */
+-	else if (gpt_partitions_exist) {
++	if (gpt_partitions_exist) {
+ 		ret = mmc_boot_read_gpt(block_size, *partition_entries, count);
+ 		if (ret) {
+ 			dprintf(CRITICAL, "MMC Boot: GPT read failed!\n");
+-- 
+2.20.1
+

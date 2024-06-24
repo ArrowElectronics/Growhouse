@@ -1,0 +1,288 @@
+From 0e9701583f9ccd521245a93bfa2a9e1869847bfc Mon Sep 17 00:00:00 2001
+From: Alex Fradkin <alexf@codeaurora.org>
+Date: Tue, 28 Feb 2017 17:30:34 +0200
+Subject: [PATCH] rtc: rtc-pm8xxx: Add RTC offset file support
+
+Add RTC offset file support for devices with disabled RTC write.
+
+Signed-off-by: Alex Fradkin <alexf@codeaurora.org>
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ drivers/rtc/rtc-pm8xxx.c | 196 ++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 142 insertions(+), 54 deletions(-)
+
+diff --git a/drivers/rtc/rtc-pm8xxx.c b/drivers/rtc/rtc-pm8xxx.c
+index fac835530671..ff17a3fbab44 100644
+--- a/drivers/rtc/rtc-pm8xxx.c
++++ b/drivers/rtc/rtc-pm8xxx.c
+@@ -18,6 +18,7 @@
+ #include <linux/regmap.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/fs.h>
+ 
+ /* RTC Register offsets from RTC CTRL REG */
+ #define PM8XXX_ALARM_CTRL_OFFSET	0x01
+@@ -30,6 +31,7 @@
+ #define PM8xxx_RTC_ALARM_CLEAR		BIT(0)
+ 
+ #define NUM_8_BIT_RTC_REGS		0x4
++#define RTC_OFFSET_FILE "/etc/rtc_offset"
+ 
+ /**
+  * struct pm8xxx_rtc_regs - describe RTC registers per PMIC versions
+@@ -69,8 +71,93 @@ struct pm8xxx_rtc {
+ 	const struct pm8xxx_rtc_regs *regs;
+ 	struct device *rtc_dev;
+ 	spinlock_t ctrl_reg_lock;
++	/* RTC write is disabled on some chips, so use file to get/set offset */
++	bool rtc_offset_is_valid;
++	long long rtc_offset_seconds;
+ };
+ 
++static int pm8xxx_rtc_read_time(struct device *dev, struct rtc_time *tm)
++{
++	int rc;
++	u8 value[NUM_8_BIT_RTC_REGS];
++	unsigned long secs;
++	unsigned int reg;
++	struct pm8xxx_rtc *rtc_dd = dev_get_drvdata(dev);
++	const struct pm8xxx_rtc_regs *regs = rtc_dd->regs;
++
++	rc = regmap_bulk_read(rtc_dd->regmap, regs->read, value, sizeof(value));
++	if (rc) {
++		dev_err(dev, "RTC read data register failed\n");
++		return rc;
++	}
++
++	/*
++	 * Read the LSB again and check if there has been a carry over.
++	 * If there is, redo the read operation.
++	 */
++	rc = regmap_read(rtc_dd->regmap, regs->read, &reg);
++	if (rc < 0) {
++		dev_err(dev, "RTC read data register failed\n");
++		return rc;
++	}
++
++	if (unlikely(reg < value[0])) {
++		rc = regmap_bulk_read(rtc_dd->regmap, regs->read,
++				      value, sizeof(value));
++		if (rc) {
++			dev_err(dev, "RTC read data register failed\n");
++			return rc;
++		}
++	}
++
++	secs = value[0] | (value[1] << 8) | (value[2] << 16) | (value[3] << 24);
++
++	if (!rtc_dd->allow_set_time && !rtc_dd->rtc_offset_is_valid) {
++		/* read offset from file */
++		struct file *rtc_off_fp = filp_open(RTC_OFFSET_FILE,
++					O_CREAT | O_RDWR,
++					0600);
++		if (IS_ERR(rtc_off_fp))
++			dev_err(dev, "RTC can't open offset file\n");
++		else if (rtc_off_fp->f_mode & FMODE_CAN_READ) {
++			int count = kernel_read(rtc_off_fp, 0,
++					(char *)&rtc_dd->rtc_offset_seconds,
++					sizeof(rtc_dd->rtc_offset_seconds));
++
++			if (count < sizeof(rtc_dd->rtc_offset_seconds))
++				dev_err(dev, "RTC can't read offset file\n");
++			else
++				rtc_dd->rtc_offset_is_valid = true;
++			filp_close(rtc_off_fp, NULL);
++		} else
++			dev_err(dev, "RTC can't read offset file\n");
++
++	}
++
++	if (rtc_dd->rtc_offset_is_valid) {
++		long long total_sec = rtc_dd->rtc_offset_seconds + secs;
++
++		if (total_sec < 0 || total_sec > UINT_MAX)
++			dev_dbg(dev, "Integer overflow decected");
++
++		secs = (unsigned long)total_sec;
++	}
++
++	rtc_time_to_tm(secs, tm);
++
++	rc = rtc_valid_tm(tm);
++	if (rc < 0) {
++		dev_err(dev, "Invalid time read from RTC\n");
++		return rc;
++	}
++
++	dev_dbg(dev, "secs = %lu, h:m:s == %d:%d:%d, d/m/y = %d/%d/%d\n",
++		secs, tm->tm_hour, tm->tm_min, tm->tm_sec,
++		tm->tm_mday, tm->tm_mon, tm->tm_year);
++
++	return 0;
++}
++
+ /*
+  * Steps to write the RTC registers.
+  * 1. Disable alarm if enabled.
+@@ -81,23 +168,62 @@ struct pm8xxx_rtc {
+ static int pm8xxx_rtc_set_time(struct device *dev, struct rtc_time *tm)
+ {
+ 	int rc, i;
+-	unsigned long secs, irq_flags;
++	unsigned long secs, temp_secs, irq_flags;
+ 	u8 value[NUM_8_BIT_RTC_REGS], alarm_enabled = 0;
+ 	unsigned int ctrl_reg;
+ 	struct pm8xxx_rtc *rtc_dd = dev_get_drvdata(dev);
+ 	const struct pm8xxx_rtc_regs *regs = rtc_dd->regs;
+ 
+-	if (!rtc_dd->allow_set_time)
+-		return -EACCES;
+-
+ 	rtc_tm_to_time(tm, &secs);
++	temp_secs = secs;
+ 
+ 	for (i = 0; i < NUM_8_BIT_RTC_REGS; i++) {
+ 		value[i] = secs & 0xFF;
+ 		secs >>= 8;
+ 	}
+ 
++	secs = temp_secs;
++
+ 	dev_dbg(dev, "Seconds value to be written to RTC = %lu\n", secs);
++	if (!rtc_dd->allow_set_time) {
++		struct rtc_time temp;
++		unsigned long temp_sec = 0;
++
++		rc = pm8xxx_rtc_read_time(dev, &temp);
++		if (!rc) {
++			/* convert time to seconds */
++			rtc_tm_to_time(&temp, &temp_sec);
++			/* remove old offset added in read */
++			if (rtc_dd->rtc_offset_is_valid)
++				temp_sec -= rtc_dd->rtc_offset_seconds;
++
++			/* update/set  offset */
++			rtc_dd->rtc_offset_is_valid = true;
++			rtc_dd->rtc_offset_seconds = secs - temp_sec;
++		}
++
++		if (rtc_dd->rtc_offset_is_valid) {
++			struct file *rtc_off_fp = filp_open(RTC_OFFSET_FILE,
++						O_CREAT | O_RDWR, 0600);
++			if (IS_ERR(rtc_off_fp))
++				dev_err(dev, "RTC can't open offset file\n");
++			else if (rtc_off_fp->f_mode & FMODE_CAN_WRITE) {
++				int count = kernel_write(rtc_off_fp,
++					(char *)&rtc_dd->rtc_offset_seconds,
++					sizeof(rtc_dd->rtc_offset_seconds),
++					0);
++
++				if (count < sizeof(rtc_dd->rtc_offset_seconds))
++					dev_err(dev, "RTC can't write offset\n");
++				else
++					rtc_dd->rtc_offset_is_valid = true;
++					filp_close(rtc_off_fp, NULL);
++				return rc;
++			} else
++				dev_err(dev, "RTC can't write offset\n");
++		}
++		return -EACCES;
++	}
+ 
+ 	spin_lock_irqsave(&rtc_dd->ctrl_reg_lock, irq_flags);
+ 
+@@ -152,56 +278,6 @@ static int pm8xxx_rtc_set_time(struct device *dev, struct rtc_time *tm)
+ 	return rc;
+ }
+ 
+-static int pm8xxx_rtc_read_time(struct device *dev, struct rtc_time *tm)
+-{
+-	int rc;
+-	u8 value[NUM_8_BIT_RTC_REGS];
+-	unsigned long secs;
+-	unsigned int reg;
+-	struct pm8xxx_rtc *rtc_dd = dev_get_drvdata(dev);
+-	const struct pm8xxx_rtc_regs *regs = rtc_dd->regs;
+-
+-	rc = regmap_bulk_read(rtc_dd->regmap, regs->read, value, sizeof(value));
+-	if (rc) {
+-		dev_err(dev, "RTC read data register failed\n");
+-		return rc;
+-	}
+-
+-	/*
+-	 * Read the LSB again and check if there has been a carry over.
+-	 * If there is, redo the read operation.
+-	 */
+-	rc = regmap_read(rtc_dd->regmap, regs->read, &reg);
+-	if (rc < 0) {
+-		dev_err(dev, "RTC read data register failed\n");
+-		return rc;
+-	}
+-
+-	if (unlikely(reg < value[0])) {
+-		rc = regmap_bulk_read(rtc_dd->regmap, regs->read,
+-				      value, sizeof(value));
+-		if (rc) {
+-			dev_err(dev, "RTC read data register failed\n");
+-			return rc;
+-		}
+-	}
+-
+-	secs = value[0] | (value[1] << 8) | (value[2] << 16) | (value[3] << 24);
+-
+-	rtc_time_to_tm(secs, tm);
+-
+-	rc = rtc_valid_tm(tm);
+-	if (rc < 0) {
+-		dev_err(dev, "Invalid time read from RTC\n");
+-		return rc;
+-	}
+-
+-	dev_dbg(dev, "secs = %lu, h:m:s == %d:%d:%d, d/m/y = %d/%d/%d\n",
+-		secs, tm->tm_hour, tm->tm_min, tm->tm_sec,
+-		tm->tm_mday, tm->tm_mon, tm->tm_year);
+-
+-	return 0;
+-}
+ 
+ static int pm8xxx_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
+ {
+@@ -214,6 +290,11 @@ static int pm8xxx_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
+ 
+ 	rtc_tm_to_time(&alarm->time, &secs);
+ 
++	if (rtc_dd->rtc_offset_is_valid) {
++		if (secs > rtc_dd->rtc_offset_seconds)
++			secs -= rtc_dd->rtc_offset_seconds;
++	}
++
+ 	for (i = 0; i < NUM_8_BIT_RTC_REGS; i++) {
+ 		value[i] = secs & 0xFF;
+ 		secs >>= 8;
+@@ -269,6 +350,10 @@ static int pm8xxx_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
+ 
+ 	secs = value[0] | (value[1] << 8) | (value[2] << 16) | (value[3] << 24);
+ 
++	if (rtc_dd->rtc_offset_is_valid) {
++		secs += rtc_dd->rtc_offset_seconds;
++	}
++
+ 	rtc_time_to_tm(secs, &alarm->time);
+ 
+ 	rc = rtc_valid_tm(&alarm->time);
+@@ -467,6 +552,9 @@ static int pm8xxx_rtc_probe(struct platform_device *pdev)
+ 	rtc_dd->allow_set_time = of_property_read_bool(pdev->dev.of_node,
+ 						      "allow-set-time");
+ 
++	rtc_dd->rtc_offset_is_valid = false;
++	rtc_dd->rtc_offset_seconds = 0;
++
+ 	rtc_dd->regs = match->data;
+ 	rtc_dd->rtc_dev = &pdev->dev;
+ 
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

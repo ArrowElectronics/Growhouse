@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", SYSFS{idVendor}=="1bbb", SYSFS{idProduct}=="f000", RUN+="/usr/sbin/usb_modeswitch -c /etc/usb-modeswitch-x220d.conf"
+SUBSYSTEM=="usb", SYSFS{idVendor}=="1bbb", SYSFS{idProduct}=="0017", RUN+="/sbin/modprobe usbserial vendor=0x1bbb product=0x0017"

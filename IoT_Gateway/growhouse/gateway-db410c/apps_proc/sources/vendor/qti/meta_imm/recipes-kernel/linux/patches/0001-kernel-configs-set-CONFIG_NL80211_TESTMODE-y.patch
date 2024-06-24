@@ -1,0 +1,24 @@
+From 0903d23e28442a6bab741387b2083e4c7d26c9aa Mon Sep 17 00:00:00 2001
+From: Ramon Fried <rfried@codeaurora.org>
+Date: Tue, 13 Mar 2018 09:29:20 +0200
+Subject: [PATCH] kernel: configs: set CONFIG_NL80211_TESTMODE=y
+
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ kernel/configs/distro.config | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/configs/distro.config b/kernel/configs/distro.config
+index d4f890113384..9107577142d8 100644
+--- a/kernel/configs/distro.config
++++ b/kernel/configs/distro.config
+@@ -445,4 +445,4 @@ CONFIG_MD=y
+ CONFIG_BLK_DEV_DM=m
+ CONFIG_DM_CRYPT=m
+ CONFIG_QCOM_GPS_PROXY=y
+-
++CONFIG_NL80211_TESTMODE=y
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

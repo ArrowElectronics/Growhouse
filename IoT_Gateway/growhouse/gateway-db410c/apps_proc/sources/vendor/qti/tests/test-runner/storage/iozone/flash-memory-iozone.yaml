@@ -1,0 +1,69 @@
+#Copyright (c) 2017, The Linux Foundation. All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are
+#met:
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above
+#      copyright notice, this list of conditions and the following
+#      disclaimer in the documentation and/or other materials provided
+#      with the distribution.
+#    * Neither the name of The Linux Foundation nor the names of its
+#      contributors may be used to endorse or promote products derived
+#      from this software without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+#WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+#ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+#BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+#SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+#BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+#OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+#IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+metadata:
+    format: Lava-Test Test Definition 1.0
+    name: flash-memory-iozone-test
+
+    description: "Checking flash memory (internal storage) iozone benchmarks for read and write operation.
+                  After running iozone utility, result data rates will be compared with KPI
+                  benchmark values given in sctipt params."
+
+    maintainer:
+
+    os:
+        - openembedded
+    scope:
+        - functional
+    devices:
+        - apq8016-sbc
+
+params:
+    # storage_device_type : Must be one of these: onboard_flash, sdcard-HC, sdcard-XC, sdcard-regular, usb
+    # test_type           : Must be one of these: sequential or random
+    # write_KPI_KBps      : write operation iozone threshold KBps. if not given defaults to 0
+    # read_KPI_KBps       : read operation iozone threshold KBps. if not given defaults to 0
+
+    # Note: 
+    #   If write_KPI_KBps/read_KPI_KBps not supplied in script params, 
+    #     1. It's default value will be 0.
+    #     2. Test will always pass because measured data rate will be more than the default value 0.
+    #     3. measured data rate will be printed in final results
+    #     4. test will fail if measured data rate will be less then the given KPI parmater
+
+    #usage e.g: ./storage-iozone.sh -d "${storage_device_type}" -t "${test_type}" 
+    #-w "${write_KPI_KBps}" -r "${read_KPI_KBps}"
+
+    storage_device_type: "onboard_flash"
+    test_type: "random"
+    #write_KPI_KBps: "0"
+    #read_KPI_KBps: "0" 
+
+run:
+    steps:
+        - cd ./automated/linux/storage/iozone
+        - ./storage-iozone.sh -d "${storage_device_type}" -t "${test_type}"
+        - ../../../utils/send-to-lava.sh ./output/result.txt

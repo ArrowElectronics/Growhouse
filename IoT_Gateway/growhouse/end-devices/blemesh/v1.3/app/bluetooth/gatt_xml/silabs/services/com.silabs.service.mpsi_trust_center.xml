@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2016 Silicon Labs, http://www.silabs.com -->
+<Service xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Silicon Labs MPSI Trust Center" type="com.silabs.service.mpsi_trust_center" uuid="9EC88EBD-EF60-48CE-BE01-6E05FD58F45B" last-modified="2017-03-01">
+    <InformativeText>
+        <Abstract>The MPSI Trust Center Service contains information about the Role (Trust Center) of the Device.</Abstract>
+    </InformativeText>
+    <Dependencies>
+        <Dependency>This service has no dependencies on other GATT-based services.</Dependency>
+    </Dependencies>
+    <Transports>
+        <LowEnergy>true</LowEnergy>
+    </Transports>
+</Service>

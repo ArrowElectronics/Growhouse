@@ -1,0 +1,5 @@
+[gerrit]
+host=review.linaro.org
+port=29418
+project=openembedded/meta-linaro
+defaultbranch=rocko

@@ -1,0 +1,30 @@
+From e443490339eb482c53a16c67c961c32561095ece Mon Sep 17 00:00:00 2001
+From: Ramon Fried <rfried@codeaurora.org>
+Date: Wed, 14 Feb 2018 11:39:32 +0200
+Subject: [PATCH] arm64: dts: msm8916: enable hexagon node
+
+Modem firmware is required both for GPS and Hexagon SDK
+task offloading abilities.
+
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ arch/arm64/boot/dts/qcom/msm8916.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/qcom/msm8916.dtsi b/arch/arm64/boot/dts/qcom/msm8916.dtsi
+index 0bd564d760bf..0bf8f3bb6a82 100644
+--- a/arch/arm64/boot/dts/qcom/msm8916.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8916.dtsi
+@@ -1020,7 +1020,7 @@
+ 
+ 			qcom,halt-regs = <&tcsr 0x18000 0x19000 0x1a000>;
+ 
+-			status = "disabled";
++			status = "okay";
+ 
+ 			mba {
+ 				memory-region = <&mba_mem>;
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

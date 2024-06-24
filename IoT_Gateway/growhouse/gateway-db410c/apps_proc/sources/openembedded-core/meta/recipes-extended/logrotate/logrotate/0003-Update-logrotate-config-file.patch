@@ -1,0 +1,68 @@
+From 7e34f27f6d9bad32df875c0be24f082124daef73 Mon Sep 17 00:00:00 2001
+From: Pritesh Shah <pritesh.shah@einfochips.com>
+Date: Thu, 30 May 2019 15:32:51 +0530
+Subject: [PATCH 3/3] Update logrotate config file
+
+- Update config file for logrotate for
+  system generated log.
+---
+ examples/logrotate-default | 37 ++++++++++++++++++++++++++++++++++---
+ 1 file changed, 34 insertions(+), 3 deletions(-)
+
+diff --git a/examples/logrotate-default b/examples/logrotate-default
+index 66f9d4a..b89f0fd 100644
+--- a/examples/logrotate-default
++++ b/examples/logrotate-default
+@@ -9,10 +9,10 @@ rotate 4
+ create
+ 
+ # uncomment this if you want your log files compressed
+-#compress
++compress
+ 
+ # RPM packages drop log rotation information into this directory
+-include /etc/logrotate.d
++#include /etc/logrotate.d/
+ 
+ # no packages own wtmp and btmp -- we'll rotate them here
+ /var/log/wtmp {
+@@ -38,4 +38,35 @@ include /etc/logrotate.d
+     rotate 10
+     compress
+ }
+-# system-specific logs may be also be configured here.
++
++/var/log/syslog
++/var/log/mail.info
++/var/log/mail.warn
++/var/log/mail.err
++/var/log/mail.log
++/var/log/daemon.log
++/var/log/kern.log
++/var/log/auth.log
++/var/log/user.log
++/var/log/lpr.log
++/var/log/cron.log
++/var/log/debug
++/var/log/messages
++{
++    size 5M
++    rotate 5
++    missingok
++    copytruncate
++}
++
++/var/log/dnf.log
++/var/log/dnf.librepo.log
++/var/log/dnf.rpm.log
++/var/log/dnf.plugin.log
++/var/log/hawkey.log {
++    size 5M
++    rotate 4
++    missingok
++    create 0600 root root
++    copytruncate
++}
+-- 
+2.7.4
+

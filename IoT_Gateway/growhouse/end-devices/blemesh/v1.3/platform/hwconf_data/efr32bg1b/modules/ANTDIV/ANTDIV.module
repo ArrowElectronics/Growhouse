@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ASCII'?>
+<module:DocumentRoot xmlns:module="http://www.silabs.com/ss/hwconfig/module.ecore">
+  <module id="efr32.efr32bg1b.antdiv" label="ANTDIV" name="ANTDIV" description="Antenna Diversity" version="efr">
+    <properties>
+      <enumProperty label="SDK is taking control over this module" id="ANTDIV.usedbysdk.BOOL" defaultValueIndex="0" hidden="true" readonly="false">
+        <enumValue label="False" value="0"/>
+        <enumValue label="True" value="1"/>
+      </enumProperty>
+      <enumProperty label="SDK is hiding this module" id="ANTDIV.hiddenbysdk.BOOL" defaultValueIndex="0" hidden="true" readonly="false">
+        <enumValue label="False" value="0"/>
+        <enumValue label="True" value="1"/>
+      </enumProperty>
+      <enumProperty label="Show advanced options" id="ANTDIV.showadvanced.BOOL" defaultValueIndex="0" hidden="true" readonly="false">
+        <enumValue label="False" value="0"/>
+        <enumValue label="True" value="1"/>
+      </enumProperty>
+      <stringProperty label="Owned by" id="ANTDIV.owner.STRING" defaultValue="" hidden="false" readonly="true" transient="true"/>
+      <enumProperty label="Antenna select" description="Pin used to control external antenna switch" id="ANTDIV.BSP_ANTDIV_SEL.PIN" defaultValueIndex="0" hidden="false" readonly="false">
+        <enumValue label="Disabled" value="Disabled"/>
+      </enumProperty>
+      <enumProperty label="Complementary antenna select" description="Pin for inverted external antenna signal" id="ANTDIV.BSP_ANTDIV_NSEL.PIN" defaultValueIndex="0" hidden="false" readonly="false">
+        <enumValue label="Disabled" value="Disabled"/>
+      </enumProperty>
+    </properties>
+    <propertyCategories>
+      <category label="ANTDIV">
+        <subCategory label="">
+          <propertyRef refId="ANTDIV.usedbysdk.BOOL"/>
+          <propertyRef refId="ANTDIV.hiddenbysdk.BOOL"/>
+          <propertyRef refId="ANTDIV.showadvanced.BOOL"/>
+          <propertyRef refId="ANTDIV.owner.STRING"/>
+          <propertyRef refId="ANTDIV.BSP_ANTDIV_SEL.PIN"/>
+          <propertyRef refId="ANTDIV.BSP_ANTDIV_NSEL.PIN"/>
+        </subCategory>
+      </category>
+    </propertyCategories>
+    <signals/>
+  </module>
+</module:DocumentRoot>

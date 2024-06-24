@@ -1,0 +1,12 @@
+{
+  "generators": [
+    {
+      "id": "appbuilder",
+      "path": "appbuilder"
+    },
+    {
+      "id": "cg_test",
+      "path": "cg_test"
+    }
+  ]
+}

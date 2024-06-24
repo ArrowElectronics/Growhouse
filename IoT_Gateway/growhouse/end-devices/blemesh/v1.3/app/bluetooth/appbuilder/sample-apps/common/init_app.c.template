@@ -1,0 +1,103 @@
+{% set arch = context["ARCHITECTURE_ID"].split("+") %}
+{% set features = [] %}
+{% if arch|length == 3 %}
+  {% set board = arch[1]|upper%}
+  {% if board != "NONE" %}
+    {% for element in context["CODEGEN"] if "BOARD_FEATURES" in element %}
+      {% set t = features.extend(element.BOARD_FEATURES[board].Features) %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+/***************************************************************************//**
+ * @file init_app.c
+ *******************************************************************************
+ * # License
+ * <b>Copyright 2017 Silicon Labs, Inc. http://www.silabs.com</b>
+ *******************************************************************************
+ *
+ * This file is licensed under the Silabs License Agreement. See the file
+ * "Silabs_License_Agreement.txt" for details. Before using this software for
+ * any purpose, you must agree to the terms of that agreement.
+ *
+ ******************************************************************************/
+
+#if defined(HAL_CONFIG)
+#include "bsphalconfig.h"
+#include "hal-config.h"
+#else
+#include "bspconfig.h"
+#endif
+
+#include "bsp.h"
+{% if "I2C_SENSOR" in features %}
+#include "i2cspm.h"
+{% endif %}
+{% if "PTI" in features %}
+#include "pti.h"
+{% endif %}
+
+void initApp(void)
+{
+{% if "PTI" in features %}
+  // Enable PTI
+  configEnablePti();
+
+{% endif %}
+{% if "VCOM" in features %}
+#if defined(HAL_VCOM_ENABLE)
+  // Enable VCOM if requested
+  {% if "IOEXPANDER" in features %}
+  BSP_PeripheralAccess(BSP_IOEXP_VCOM, HAL_VCOM_ENABLE);
+  {% else %}
+  GPIO_PinModeSet(BSP_VCOM_ENABLE_PORT, BSP_VCOM_ENABLE_PIN, gpioModePushPull, HAL_VCOM_ENABLE);
+  {% endif %}
+#endif // HAL_VCOM_ENABLE
+
+{% endif %}
+{% if "I2C_SENSOR" in features %}
+#if (HAL_I2CSENSOR_ENABLE)
+  // Initialize I2C peripheral
+  I2CSPM_Init_TypeDef i2cInit = I2CSPM_INIT_DEFAULT;
+  I2CSPM_Init(&i2cInit);
+#endif // HAL_I2CSENSOR_ENABLE
+
+{% endif %}
+{% if "DISPEN_SENSEN_ON_SAME_PIN" in features %}
+#if defined(HAL_I2CSENSOR_ENABLE) || defined(HAL_SPIDISPLAY_ENABLE)
+#if HAL_I2CSENSOR_ENABLE || HAL_SPIDISPLAY_ENABLE
+#define DISPLAY_SENSOR_COMMON_ENABLE 1
+#else
+#define DISPLAY_SENSOR_COMMON_ENABLE 0
+#endif
+  //Enable I2C sensor if requested
+  GPIO_PinModeSet(BSP_I2CSENSOR_ENABLE_PORT, BSP_I2CSENSOR_ENABLE_PIN, gpioModePushPull, DISPLAY_SENSOR_COMMON_ENABLE);
+#endif
+{% else %}
+  {% if "I2C_SENSOR" in features %}
+#if defined(HAL_I2CSENSOR_ENABLE)
+    {% if "IOEXPANDER" in features %}
+  // Enable I2C sensor if requested
+  BSP_PeripheralAccess(BSP_IOEXP_SENSORS, HAL_I2CSENSOR_ENABLE);
+    {% else %}
+      {% if "I2C_SENSOR_HW_EN" in features %}
+  // Note: I2C sensor is hardware enabled on this board.
+      {% else %}
+  // Enable I2C sensor if requested
+  GPIO_PinModeSet(BSP_I2CSENSOR_ENABLE_PORT, BSP_I2CSENSOR_ENABLE_PIN, gpioModePushPull, HAL_I2CSENSOR_ENABLE);
+      {% endif %}
+    {% endif %}
+#endif // HAL_I2CSENSOR_ENABLE
+
+  {% endif %}
+  {% if "LCD" in features %}
+#if defined(HAL_SPIDISPLAY_ENABLE)
+  // Enable SPI display if requested
+    {% if "IOEXPANDER" in features %}
+  BSP_PeripheralAccess(BSP_IOEXP_DISPLAY, HAL_SPIDISPLAY_ENABLE);
+    {% else %}
+  GPIO_PinModeSet(BSP_SPIDISPLAY_ENABLE_PORT, BSP_SPIDISPLAY_ENABLE_PIN, gpioModePushPull, HAL_SPIDISPLAY_ENABLE);
+    {% endif %}
+#endif // HAL_SPIDISPLAY_ENABLE
+  {% endif %}
+{% endif %}
+}

@@ -1,0 +1,2 @@
+include:
+  - ../../../../../app/esf_common/setup/quizz/dynamic-phy-quizz.yaml

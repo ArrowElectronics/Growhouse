@@ -1,0 +1,26 @@
+From c5acb14450719b36e58c2cfefcc8f7d35865776b Mon Sep 17 00:00:00 2001
+From: Ramon Fried <rfried@codeaurora.org>
+Date: Thu, 22 Feb 2018 11:03:09 +0200
+Subject: [PATCH] kernel: configs: enable GPS proxy
+
+Enable gps proxy feature as module.
+
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ kernel/configs/distro.config | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/kernel/configs/distro.config b/kernel/configs/distro.config
+index b287f81b0afc..a0e6eb7455bf 100644
+--- a/kernel/configs/distro.config
++++ b/kernel/configs/distro.config
+@@ -444,3 +444,5 @@ CONFIG_SETEND_EMULATION=y
+ CONFIG_MD=y
+ CONFIG_BLK_DEV_DM=m
+ CONFIG_DM_CRYPT=m
++CONFIG_QCOM_GPS_PROXY=y
++
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

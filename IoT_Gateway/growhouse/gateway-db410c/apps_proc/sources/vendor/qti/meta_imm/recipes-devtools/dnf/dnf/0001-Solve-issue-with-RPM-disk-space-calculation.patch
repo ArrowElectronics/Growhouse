@@ -1,0 +1,28 @@
+From 0d6dd4b8929de7427c0cee5d04525708280299b3 Mon Sep 17 00:00:00 2001
+From: Ramon Fried <rfried@codeaurora.org>
+Date: Tue, 23 Jan 2018 15:04:03 +0200
+Subject: [PATCH] Solve issue with RPM disk space calculation
+
+Change-Id: Ib2e44dc474d47596ea24778c5490c6782ea8ecb2
+Signed-off-by: Ramon Fried <rfried@codeaurora.org>
+---
+ dnf/conf/config.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dnf/conf/config.py b/dnf/conf/config.py
+index 6be38717..e7986037 100644
+--- a/dnf/conf/config.py
++++ b/dnf/conf/config.py
+@@ -692,7 +692,7 @@ class MainConf(BaseConfig):
+         self._add_option('assumeno', BoolOption(False))
+         self._add_option('check_config_file_age', BoolOption(True))
+         self._add_option('defaultyes', BoolOption(False))
+-        self._add_option('diskspacecheck', BoolOption(True))
++        self._add_option('diskspacecheck', BoolOption(False))
+         self._add_option('gpgcheck', BoolOption(False))
+         self._add_option('repo_gpgcheck', BoolOption(False))
+         self._add_option('localpkg_gpgcheck', BoolOption(False))
+-- 
+The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
+a Linux Foundation Collaborative Project
+

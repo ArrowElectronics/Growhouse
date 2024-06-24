@@ -1,0 +1,6 @@
+framework module BluetoothMesh {
+  umbrella header "BluetoothMesh.h"
+
+  export *
+  module * { export * }
+}

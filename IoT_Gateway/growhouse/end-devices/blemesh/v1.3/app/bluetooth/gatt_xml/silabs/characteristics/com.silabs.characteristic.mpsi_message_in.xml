@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Silicon Labs, http://www.silabs.com -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Silicon Labs MPSI Message In" type="com.silabs.characteristic.mpsi_message_in" uuid="1E532E88-610F-42B2-A07E-5505E5329605" last-modified="2017-03-01">
+    <InformativeText>
+        <Abstract>Silicon Labs MPSI Message In.</Abstract>
+    </InformativeText>
+    <Value>
+    <Field name="Data0">
+       <Requirement>Mandatory</Requirement>
+       <Format>uint32</Format>
+    </Field>
+	  <Field name="Data1">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data2">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data3">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data4">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data5">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data6">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data7">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data8">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data9">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data10">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data10">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data11">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data13">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data14">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data15">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data16">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data17">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data18">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data19">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data20">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data21">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data22">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data23">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data24">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data25">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data26">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data27">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data28">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data29">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data30">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data31">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data32">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data33">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data34">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data35">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data36">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data37">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data38">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data39">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data40">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data41">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data42">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data43">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data44">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data45">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data46">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data47">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data48">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data49">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data50">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data51">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data52">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data53">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data54">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data55">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data56">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data57">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data58">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data59">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data60">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data61">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data62">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data64">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint16</Format>
+	  </Field>
+	  <Field name="Data65">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint8</Format>
+	  </Field>
+    </Value>
+</Characteristic>

@@ -1,0 +1,3 @@
+1. test "STA-all-channels-performance-WPA2-TKIP-secure-test.sh"
+test occasionally fails to bring up softap in channel ~8
+can't find text "AP-enabled' in log file

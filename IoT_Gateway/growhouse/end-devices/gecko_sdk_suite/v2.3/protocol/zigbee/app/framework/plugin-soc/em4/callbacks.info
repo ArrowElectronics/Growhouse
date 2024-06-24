@@ -1,0 +1,18 @@
+/** @brief Before em4 sleep
+ *  called from idle-sleep plugin, need to be implemented by app
+ *  to store restart sensitive app variables in RTCC RAM
+ *
+ *  @param sleepDurationMs   A sleep duartion value in
+ *  milliseconds to set up em4 wakeup timer. Ver.: always
+ */
+void emberPluginEM4BeforeEM4Callback(void)
+{
+}
+
+/** @brief After em4 sleep
+ *  called from idle-sleep plugin, need to be implemented by app
+ *  to restore restart sensitive app variables from RTCC RAM
+ */
+void emberPluginEM4AfterEM4Callback(void)
+{
+}

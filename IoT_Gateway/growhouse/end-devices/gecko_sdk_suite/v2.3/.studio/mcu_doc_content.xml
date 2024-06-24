@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems>
+  <contentItemData category="API References" itemURI="http://devtools.silabs.com/dl/documentation/doxygen/5.5/" label="Gecko HAL and Driver API Reference Guide">
+    <description>API reference for CMSIS, EMLIB Peripheral Library, energyAware Driver library, middleware and board support packages.</description>
+  </contentItemData>
+  <contentItemData category="Release Notes" itemURI="../app/mcu_example/MCU_SDK_Release_Notes.pdf" label="32-bit MCU SDK Release Notes">
+    <description>A detailed overview of highlights, fixes and changes in this release.</description>
+  </contentItemData>
+
+</contentItems>

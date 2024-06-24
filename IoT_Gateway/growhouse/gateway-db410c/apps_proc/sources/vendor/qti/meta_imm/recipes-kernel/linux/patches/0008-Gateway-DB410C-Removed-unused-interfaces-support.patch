@@ -1,0 +1,89 @@
+From 385f0e6be082145734d887641e276ca5e85cd363 Mon Sep 17 00:00:00 2001
+From: eInfochips <eInfochips@eInfochips.com>
+Date: Mon, 11 Feb 2019 13:32:24 +0530
+Subject: [PATCH] Gateway-DB410C: Removed unused interfaces support
+
+- Removed DSI, Audio and CSI interfaces support.
+
+Test Done:
+----------
+- Probe function of DSI, Audio and CSI are not
+  executed during bootup of DB410C board.
+
+Signed-off-by: eInfochips <eInfochips@eInfochips.com>
+
+diff --git a/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi b/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
+index 6f861bf..fd22d1d 100644
+--- a/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
++++ b/arch/arm64/boot/dts/qcom/apq8016-sbc.dtsi
+@@ -79,7 +79,7 @@
+ 			status = "okay";
+ 
+ 			adv_bridge: bridge@39 {
+-				status = "okay";
++				status = "disabled";
+ 
+ 				compatible = "adi,adv7533";
+ 				reg = <0x39>;
+@@ -239,11 +239,11 @@
+ 		};
+ 
+ 		lpass@07708000 {
+-			status = "okay";
++			status = "disabled";
+ 		};
+ 
+ 		mdss@1a00000 {
+-			status = "okay";
++			status = "disabled";
+ 
+ 			mdp@1a01000 {
+ 				status = "okay";
+@@ -273,7 +273,7 @@
+ 		};
+ 
+ 		lpass_codec: codec{
+-			status = "okay";
++			status = "disabled";
+ 		};
+ 
+ 		/*
+@@ -296,7 +296,7 @@
+                         reg = <0x07702000 0x4>, <0x07702004 0x4>;
+                         reg-names = "mic-iomux", "spkr-iomux";
+ 
+-                        status = "okay";
++                        status = "disabled";
+                         pinctrl-0 = <&cdc_pdm_lines_act &ext_sec_tlmm_lines_act &ext_mclk_tlmm_lines_act>;
+                         pinctrl-1 = <&cdc_pdm_lines_sus &ext_sec_tlmm_lines_sus &ext_mclk_tlmm_lines_sus>;
+                         pinctrl-names = "default", "sleep";
+@@ -364,7 +364,7 @@
+ 		};
+ 
+ 		cci@1b0c000 {
+-			status = "ok";
++			status = "disabled";
+ 
+ 			camera_rear@3b {
+ 				compatible = "ovti,ov5645";
+@@ -424,7 +424,7 @@
+ 		};
+ 
+ 		camss@1b00000 {
+-			status = "ok";
++			status = "disabled";
+ 			ports {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -492,7 +492,7 @@
+ };
+ 
+ &wcd_codec {
+-        status = "okay";
++        status = "disabled";
+         clocks = <&gcc GCC_CODEC_DIGCODEC_CLK>;
+         clock-names = "mclk";
+ };
+-- 
+2.7.4
+

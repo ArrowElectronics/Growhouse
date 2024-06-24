@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Silicon Labs, http://www.silabs.com -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Silicon Labs MPSI Message Out" type="com.silabs.characteristic.mpsi_message_out" uuid="98732EC1-0B34-4D03-AEA1-0808104499A8" last-modified="2017-03-01">
+    <InformativeText>
+        <Abstract>Silicon Labs MPSI Message Out.</Abstract>
+    </InformativeText>
+    <Value>
+    <Field name="Data0">
+       <Requirement>Mandatory</Requirement>
+       <Format>uint32</Format>
+    </Field>
+	  <Field name="Data1">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data2">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data3">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data4">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data5">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data6">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data7">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data8">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data9">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data10">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data10">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data11">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint32</Format>
+	  </Field>
+	  <Field name="Data12">
+	    <Requirement>Mandatory</Requirement>
+	    <Format>uint16</Format>
+	  </Field>
+    </Value>
+</Characteristic>

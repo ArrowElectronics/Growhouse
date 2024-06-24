@@ -1,0 +1,14 @@
+#! /bin/sh
+
+# Gpio export for reset signal of MGM13P
+/bin/echo 35 > /sys/class/gpio/export
+/bin/echo out > /sys/class/gpio/gpio35/direction
+/bin/echo 1 > /sys/class/gpio/gpio35/value
+
+# Gpio export for Bootloader mode of MGM13P
+/bin/echo 36 > /sys/class/gpio/export
+/bin/echo out > /sys/class/gpio/gpio36/direction
+/bin/echo 1 > /sys/class/gpio/gpio36/value
+
+#start watchdog daemon
+/usr/sbin/watchdogDaemon -t 5 -T 10

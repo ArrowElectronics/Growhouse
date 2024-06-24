@@ -1,0 +1,50 @@
+# This is an example yaml file.
+# Basically you have to create a map of questions.
+# Then each question has a things inside, most importantly the answers.
+#
+# Each answer should have a "description" scalar map, and a
+# "macros" and "files" map to a list of macros and files to add to the
+# project.
+# "default: true" should be put if this is a default answer. If you don't have
+# a default answer, then nothing happens unless user sets an answer.
+#
+# See example below, ask questions if confused.
+#
+
+q1: {
+  description: Select PHY support.,
+  a1: {
+    description: Single Radio with 2.4Ghz only support.,
+    default: true,
+
+    #Turn on/off plugin if selected
+    plugins: [ +rail-library ],
+
+    # Select phy = rail libraries
+    replacement: [ dynamicPhy=-rail ]
+  },
+  a2: {
+    description: Single Radio with switched 2.4Ghz or SubGhz support (Use BRD4150C Rev01 - EFR32 only).,
+    macros: [ -DPHY_EFR32GB ],
+
+    # Select phy = efr32gb libraries
+    replacement: [ dynamicPhy=-efr32gb ],
+
+    #Turn on/off plugin if selected
+    plugins: [ -rail-library, -zigbee-r22-support-stub-library, +zigbee-r22-support-library ]
+  },
+  a3: {
+    description: Dual radio with 2.4Ghz and SubGhz simultaneous support (Use BRD4155A Rev01 - EFR32 + Pro2plus).,
+    macros: [ -DPHY_DUAL ],
+    # Select phy = dual libraries
+    replacement: [ dynamicPhy=-dual ],
+
+    #Turn on/off plugin if selected
+    plugins: [ -rail-library, -zigbee-r22-support-stub-library, +zigbee-r22-support-library ],
+
+    # For 2.4Ghz and SubGhz simultaneous support, we have a phy library for each radio (native:efr32 and pro2plus)
+    # that needs to add in project file.
+    files: [ ../../../../protocol/zigbee/build/phy-native-library-cortexm3-iar-$--chipFamily;L--$-dual/phy-native-library.a,
+             ../../../../protocol/zigbee/build/phy-pro2plus-library-cortexm3-iar-$--chipFamily;L--$-dual/phy-pro2plus-library.a]
+  }
+}

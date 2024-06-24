@@ -1,0 +1,67 @@
+Meta-backports
+================================
+
+Introduction
+-------------------------
+
+This layer is a place for backports against stable OpenEmbedded releases. For
+stable OpenEmbedded releases, only bug fixes are merged by the OE developers,
+and sometimes it might be useful to have newer versions of some components. This
+layer will provide such facility.
+
+We will accept backports from OE-core and meta-oe only, at least to start with.
+
+The meta-backports layer depends on:
+
+	URI: git://git.openembedded.org/openembedded-core
+	layers: meta
+	branch: rocko
+
+	URI: git://git.openembedded.org/meta-openembedded
+	layers: meta-oe
+	branch: rocko
+
+Please follow the recommended setup procedures of your OE distribution. For
+Angstrom that is http://www.angstrom-distribution.org/building-angstrom, other
+distros should have similar online resources.
+
+Notes
+-------------------------
+
+The recipes are organized by 'layer name' in the top level folder, such that
+recipes are parsed (and used) only if the corresponding layer is enabled in your
+current configuration. This is to avoid bringing un-needed (or even unexpected)
+dependencies into your build environment.
+
+Contributing
+-------------------------
+
+If you want to contribute changes, you can send Gerrit merge requests at
+https://review.linaro.org/#/q/project:openembedded/meta-backports, against the
+rocko branch.
+
+Alternatively you can send patches to openembedded@lists.linaro.org, in which
+case, please:
+
+* When creating patches, please use something like:
+
+`git format-patch -s --subject-prefix='meta-backports][PATCH][rocko' origin`
+
+* When sending patches, please use something like:
+
+`git send-email --to openembedded@lists.linaro.org <generated patch>`
+
+You can discuss about this layer, on `#linaro` on FreeNode IRC network.
+
+Reporting bugs
+-------------------------
+
+Please report any issue on:
+https://bugs.linaro.org/enter_bug.cgi?product=Linaro%20OpenEmbedded
+
+Maintainers
+-------------------------
+
+* Koen Kooi <koen.kooi@linaro.org>
+* Nicolas Dechesne <nicolas.dechesne@linaro.org>
+* Fathi Boudra <fathi.boudra@linaro.org>

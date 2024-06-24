@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems>
+  <contentItemData category="API References" itemURI="http://devtools.silabs.com/dl/documentation/doxygen/5.3.2/" label="Gecko HAL and Driver API Reference Guide">
+    <description>Covers CMSIS, EMLIB Peripheral Library, EnergyAware Driver library, middleware and development kit support.</description>
+  </contentItemData>
+  <contentItemData category="Quick Start Guides" itemURI="qsg108-bluetooth-software-getting-started.pdf" label="QSG108: Getting Started with Silicon Labs Bluetooth Software">
+    <description>Introduces the Silicon Labs Bluetooth development environment for Wireless Geckos.</description>
+  </contentItemData>
+  <contentItemData category="Quick Start Guides" itemURI="qsg126-btds.pdf" label="QSG126: Bluetooth Developer Studio Quick Start Guide">
+    <description>Introduces this graphical GATT-based development framework that facilitates building Bluetooth applications on EFR32 devices.</description>
+  </contentItemData>
+  <contentItemData category="Quick Start Guides" itemURI="qsg139-bluetooth-dev-simplicity-studio.pdf" label="QSG139: Bluetooth Development with Simplicity Studio">
+    <description>Describes using the Simplicity Studio IDE and tools for Bluetooth application development.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug136-ble-c-soc-dev-guide.pdf" label="UG136: Silicon Labs Bluetooth C Application Developer's Guide">
+    <description>Covers the Bluetooth stack architecture, application development flow, using the MCU core and peripherals, stack configuration options, and stack resource usage. </description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug118-bluegecko-bt-profile-toolkit.pdf" label="UG118: Blue Gecko Bluetooth Profile Toolkit Developer's Guide">
+    <description>Reviews using this XML-based mark-up language to describe the Bluetooth GATT database, configure access and security properties, and include the GATT database as part of the firmware.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug305-dynamic-multiprotocol-users-guide.pdf" label="UG305: Dynamic Multiprotocol User's Guide">
+    <description>Describes how to implement a dynamic multiprotocol solution.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug266-gecko-bootloader-user-guide.pdf" label="UG266: Silicon Labs Gecko Bootloader User's Guide">
+    <description>Details implementing the Silicon Labs Gecko Bootloader for EFR32 SoCs and NCPs with Silicon Labs wireless protocol stacks.</description>
+  </contentItemData>
+  <contentItemData category="User's Guides" itemURI="ug162-simplicity-commander-reference-guide.pdf" label="UG162: Simplicity Commander Reference Guide">
+    <description>Describes using Simplicity Commander's Command-Line Interface to configure and flash applications, and create binary images of them.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-14-fundamentals-ble.pdf" label="UG103.14: Application Development Fundamentals: Bluetooth Smart Technology">
+    <description>Offers an overview for those new to the Bluetooth low energy technology.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-06-fundamentals-bootloading.pdf" label="UG103.6: Bootloading Fundamentals">
+    <description>Introduces bootloading for Silicon Labs networking devices.</description>
+  </contentItemData>
+  <contentItemData category="Fundamentals" itemURI="ug103-16-multiprotocol-fundamentals.pdf" label="UG103.16: Multiprotocol Fundamentals">
+    <description>Described the four multiprotocol modes, discusses considerations when selecting protocols for multiprotocol implementations, and reviews the Radio Scheduler, a required component of a dynamic multiprotocol solution.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1045-bt-ota-dfu.pdf" label="AN1045: Bluetooth Over-the-Air Device Firmware Update for EFR32xG1 and BGM11x Series Products">
+    <description>Describes the legacy OTA firmware update mechanism used with EFR32xG1 SoCs and BGM11x and BGM121/BGM123 modules.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1053-uart-dfu.pdf" label="AN1053: Bluetooth Device Firmware Update over UART for EFR32xG1 and BGM11x Series Products">
+    <description>Describes the legacy DFU over UART mechanism used with EFR32xG1 SoCs and BGM11x and BGM121/BGM123 modules.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1086-gecko-bootloader-bluetooth.pdf" label="AN1086: Using the Gecko Bootloader with the Silicon Labs Bluetooth Applications">
+    <description>Includes detailed information on using the Silicon Labs Gecko Bootloader with Silicon Labs Bluetooth applications. It supplements the general Gecko Bootloader implementation information provided in UG266: Silicon Labs Gecko Bootloader User's Guide.</description>
+  </contentItemData>
+  <contentItemData category="Application Notes" itemURI="an1114-integrating-bluetooth-applications-with-rtos.pdf" label="AN1114: Integrating Silicon Labs Bluetooth Applications with the Micrium RTOS">
+    <description>Describes how to integrate a Silicon Labs Bluetooth application with an RTOS, using the Thermometer example as an illustration.</description>
+  </contentItemData>
+  <contentItemData category="API References" itemURI="bluetooth-api-reference.pdf" label="Bluetooth Software API Reference Manual">
+    <description>Describes commands, events, enumerations and error codes in the Bluetooth stack and SDK.</description>
+  </contentItemData>
+  <contentItemData category="Release Notes" itemURI="bt-software-release-notes.pdf" label="Bluetooth Software Release Notes">
+    <description>Bluetooth: Lists improvements and fixed and known issues.</description>
+  </contentItemData>
+</contentItems>

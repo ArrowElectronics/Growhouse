@@ -1,0 +1,69 @@
+package gps;
+
+const QMI_GPS_RESULT_SUCCESS = 0;
+const QMI_GPS_RESULT_FAILURE = 1;
+
+const QMI_GPS_ERR_NONE = 0;
+const QMI_GPS_ERR_INTERNAL = 3;
+const QMI_GPS_ERR_MALFORMED_MSG = 1;
+const QMI_GPS_QMI_ERR_NO_MEMORY = 2;
+const QMI_GPS_QMI_ERR_INVALID_HANDLE = 9;	
+
+const QMI_GPS_LOC_START = 0x22;
+const QMI_GPS_LOC_STOP = 0x23;
+const QMI_GPS_LOC_REG_EVENTS = 0x21;
+const QMI_GPS_LOC_NMEA_IND = 0x26;
+
+const QMI_LOC_MAX_APP_ID_NAME_LENGTH_V02 = 32;
+const QMI_LOC_MAX_APP_ID_PROVIDER_LENGTH_V02 = 24;
+const QMI_LOC_MAX_APP_ID_VERSION_LENGTH_V02 = 8;
+
+
+struct qmi_result {
+	u16 result;
+	u16 error;
+};
+
+struct loc_application_id {
+	string application_provider;
+	string application_name;
+	u8 application_version_valid;
+	string application_version;
+};
+
+request loc_start_req {
+	required u8 session_id = 1;
+	optional u32 fix_recurrence = 0x10;
+	optional u32 horizontal_accuracy_level = 0x11;
+	optional u32 intermediate_report_state = 0x12;
+	optional u32 min_interval = 0x13;
+	optional loc_application_id application_id = 0x14;
+	optional u32 config_altitude_assumed = 0x15;
+	optional u32 min_intermediate_position_report_interval = 0x16;
+} = 0x22;
+
+response loc_start_resp {
+	required qmi_result result = 2;
+} = 0x22;
+
+request loc_stop_req {
+	required u8 session_id = 1;
+} = 0x23;
+
+response loc_stop_resp {
+	required qmi_result result = 2;
+} = 0x23;
+
+request loc_reg_events_req {
+	required u64 event_reg_mask = 1;
+} = 0x21;
+
+response loc_reg_events_resp {
+	required qmi_result result = 2;
+} = 0x21;
+
+indication loc_event_nmea_ind {
+	required string nmea = 1;
+} = 0x26;
+
+

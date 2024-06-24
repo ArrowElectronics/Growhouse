@@ -1,0 +1,5 @@
+tests:
+  script:
+    - fastlane tests
+  tags:
+    - iOS

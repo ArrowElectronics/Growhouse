@@ -1,0 +1,35 @@
+From 0e27bed400dab5fcc925911350e342a4ab284ef7 Mon Sep 17 00:00:00 2001
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Fri, 15 Sep 2017 11:15:48 +0100
+Subject: [PATCH] set flag to build in lp64 mode for ilp32 toolchain
+
+Signed-off-by: Vishal Bhoj <vishal.bhoj@linaro.org>
+---
+ core/arch/arm/arm.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/arch/arm/arm.mk b/core/arch/arm/arm.mk
+index 4d8c6f0e..3912d2e7 100644
+--- a/core/arch/arm/arm.mk
++++ b/core/arch/arm/arm.mk
+@@ -47,7 +47,7 @@ ifneq ($(CFG_WITH_ARM_TRUSTED_FW),y)
+ core-platform-subdirs += $(arch-dir)/sm
+ endif
+ 
+-arm64-platform-cppflags += -DARM64=1 -D__LP64__=1
++arm64-platform-cppflags += -DARM64=1 -D__LP64__=1 -mabi=lp64
+ arm32-platform-cppflags += -DARM32=1 -D__ILP32__=1
+ 
+ platform-cflags-generic ?= -g -ffunction-sections -fdata-sections -pipe
+@@ -61,7 +61,7 @@ arm32-platform-aflags-no-hard-float ?=
+ 
+ arm64-platform-cflags-no-hard-float ?= -mgeneral-regs-only
+ arm64-platform-cflags-hard-float ?=
+-arm64-platform-cflags-generic ?= -mstrict-align
++arm64-platform-cflags-generic ?= -mstrict-align -mabi=lp64
+ 
+ ifeq ($(DEBUG),1)
+ platform-cflags-optimization ?=  -O0
+-- 
+2.13.0
+

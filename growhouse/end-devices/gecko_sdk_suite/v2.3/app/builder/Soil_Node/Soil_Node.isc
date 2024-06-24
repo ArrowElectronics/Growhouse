@@ -1,5 +1,5 @@
 #ISD App Configuration:
-# Simplicity Studio version: 5.10.1.201907251122-1229
+# Simplicity Studio version: 5.10.1.201909101330-1247
 #  Directory of framework within the stack, which helps in case there are more
 #  frameworks within a stack.
 FrameworkDirectory:protocol/zigbee/app/framework
@@ -10,7 +10,7 @@ ConfiguratorID:auto-EM35X
 
 #  Output directory which is used as a root for all generated files. The actual
 #  files relative to that directory are defined by individual file name.
-GenerationDirectory:PATH(ABSOLUTE):/home/keval/GrowHouse/Studio/SimplicityStudio_v4/developer/sdks/growhouse/end-devices/gecko_sdk_suite/v2.3
+GenerationDirectory:PATH(ABSOLUTE):/home/dhaval/projects/grow_house/studio/SimplicityStudio_v4/developer/sdks/Growhouse/growhouse/end-devices/gecko_sdk_suite/v2.3
 
 #  Unique identifier for this device. This string should be in a form of a C
 #  identifier, as it will be used in both generated variable, macros, as well as
@@ -750,7 +750,6 @@ CliCommandSet:Full
 
 #  These are the various Command Line Interface (CLI) commands that can be
 #  included, or excluded (if they are included by default), in the application.
-appPlugin:Ph-measurement-server,false
 appPlugin:RGB_intensity_measurement_server,false
 appPlugin:adc,true
 
@@ -927,7 +926,6 @@ appPlugin:meter-snapshot-storage,false
 appPlugin:metering-server,false
 appPlugin:micrium-rtos,false
 appPlugin:mn-price-passthrough,false
-appPlugin:moisture-measurement-server,false
 appPlugin:mpsi,false
 appPlugin:mpsi-ipc,false
 appPlugin:mpsi-storage,false

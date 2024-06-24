@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ 1 != $# ]
+then echo "Unknown command"
+exit -1
+fi
+
+GPS_PID=$(pidof gps_proxy)
+
+if [ "" = "$GPS_PID" ]
+then echo "gps_proxy isn't running"
+exit -1
+fi
+
+if [ "stop" = "$1" ]
+then kill -s SIGUSR1 $GPS_PID
+
+elif [ "start" = "$1" ]
+then kill -s SIGUSR2 $GPS_PID
+
+else
+echo "Unknown command"
+exit -1
+fi

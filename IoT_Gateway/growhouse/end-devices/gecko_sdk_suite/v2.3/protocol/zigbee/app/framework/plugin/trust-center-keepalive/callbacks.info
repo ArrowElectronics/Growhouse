@@ -1,0 +1,27 @@
+/** @brief Timeout
+ *
+ * This function is called by the Trust Center Keepalive plugin when the Trust
+ * Center fails to acknowledge enough keepalive messages. Upon timing out,
+ * the Trust Center Keepalive plugin code will initiate a search for a new
+ * Trust Center, which falls in line with the Trust Center Swapout feature.
+ * Applications may consume this callback and have it return true in order to
+ * prevent the Trust Center Keepalive plugin code from issuing a Trust Center
+ * (insecure) rejoin. Doing so will also give the application a chance to
+ * implement its own rejoin algorithm or logic. If this callback returns false,
+ * the Trust Center Keepalive plugin code will proceed with issuing a Trust
+ * Center rejoin.
+ */
+bool emberAfPluginTrustCenterKeepaliveTimeoutCallback(void)
+{
+  return false;
+}
+
+/** @brief ConnectivityRestored
+ * This function is called by the Trust Center Keepalive plugin when a read
+ * attribute response command from the trust center is received after trust 
+ * center connectivity had previously been lost.
+ */
+ void emberAfPluginTrustCenterKeepaliveConnectivityRestoredCallback(void)
+ {
+   return;
+ }

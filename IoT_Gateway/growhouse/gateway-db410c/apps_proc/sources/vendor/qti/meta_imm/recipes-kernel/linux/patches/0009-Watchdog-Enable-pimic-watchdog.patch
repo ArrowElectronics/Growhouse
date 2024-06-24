@@ -1,0 +1,446 @@
+From 20df23e61fbffa1bee3e2146b88848a2788254e0 Mon Sep 17 00:00:00 2001
+From: einfochips <einfochips@einfochips.com>
+Date: Fri, 7 Dec 2018 11:17:04 +0530
+Subject: [PATCH] Watchdog: Enable pimic watchdog
+
+Add following features by ioctls:
+- enabling the watchdog
+- disabling the watchdog
+- getting the timeout value in sec
+- setting the timeout value in sec
+- ping(pet) the watchdog
+
+Tests Performed
+---------------
+Tested all above ioctls using the provided watchdog daemon.
+
+Signed-off-by: einfochips <einfochips@einfochips.com>
+---
+ arch/arm64/boot/dts/qcom/pm8916.dtsi |   5 +
+ drivers/power/reset/Kconfig          |   8 +
+ drivers/power/reset/Makefile         |   1 +
+ drivers/power/reset/pm8916-wdog.c    | 369 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 383 insertions(+)
+ create mode 100644 drivers/power/reset/pm8916-wdog.c
+
+diff --git a/arch/arm64/boot/dts/qcom/pm8916.dtsi b/arch/arm64/boot/dts/qcom/pm8916.dtsi
+index ea42c11..34f72c7 100644
+--- a/arch/arm64/boot/dts/qcom/pm8916.dtsi
++++ b/arch/arm64/boot/dts/qcom/pm8916.dtsi
+@@ -89,6 +89,11 @@
+ 				reg = <VADC_VDD_VADC>;
+ 			};
+ 		};
++
++		pmic_wdog: pmic_wdog@800 {
++			compatible = "qcom,pm8916-wdog";
++			reg = <0x800>;
++		};
+ 	};
+ 
+ 	pm8916_1: pm8916@1 {
+diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+index ca0de1a..1b0d7a3 100644
+--- a/drivers/power/reset/Kconfig
++++ b/drivers/power/reset/Kconfig
+@@ -227,5 +227,13 @@ config SYSCON_REBOOT_MODE
+ 	  register, then the bootloader can read it to take different
+ 	  action according to the mode.
+ 
++config PM8916_WATCHDOG
++       bool "PM8916 watchdog support"
++       depends on OF
++       depends on REGMAP_SPMI
++       default y
++       help
++         Say y here to enable the PMIC PM8916 watchdog support
++
+ endif
+ 
+diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+index aeb65ed..b4cd3b2 100644
+--- a/drivers/power/reset/Makefile
++++ b/drivers/power/reset/Makefile
+@@ -27,3 +27,4 @@ obj-$(CONFIG_POWER_RESET_RMOBILE) += rmobile-reset.o
+ obj-$(CONFIG_POWER_RESET_ZX) += zx-reboot.o
+ obj-$(CONFIG_REBOOT_MODE) += reboot-mode.o
+ obj-$(CONFIG_SYSCON_REBOOT_MODE) += syscon-reboot-mode.o
++obj-$(CONFIG_PM8916_WATCHDOG) += pm8916-wdog.o
+diff --git a/drivers/power/reset/pm8916-wdog.c b/drivers/power/reset/pm8916-wdog.c
+new file mode 100644
+index 0000000..03bd930
+--- /dev/null
++++ b/drivers/power/reset/pm8916-wdog.c
+@@ -0,0 +1,369 @@
++/*
++ * pm8916-wdog.c
++ * PMIC PM8916 watchdog driver for linux
++ */
++
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/workqueue.h>
++#include <linux/jiffies.h>
++#include <linux/delay.h>
++#include <linux/watchdog.h>
++#include <linux/errno.h>
++#include <linux/uaccess.h>
++
++/* register definations for PMIC watcdog */
++/* pet register */
++#define PON_PMIC_WD_RESET_PET		0x58
++#define PET_WD				0x01
++/* Watchdog reset enable control register */
++#define PON_PMIC_WD_RESET_S2_CTL2	0x57
++#define DISABLED			0x00
++#define ENABLED				0x80
++/* Watchdog reset contorl register */
++#define PON_PMIC_WD_RESET_S2_CTL	0x56
++#define DVDD_HARD_RESET			0x08
++/* Watchdog s1 (bark) timer register */
++#define PON_PMIC_WD_RESET_S1_TIMER	0x54
++/* Watchdog s2 (bite) timer register */
++#define PON_PMIC_WD_RESET_S2_TIMER	0x55
++
++#define PM8916_WD_MIN_TIMER		0
++#define PM8916_WD_MAX_TIMER		127
++
++#define RETRY_REG_WRITE 		3
++
++#define PM8916_DEFAULT_PET		20
++#define PM8916_DEFAULT_TIMEOUT		25
++#define PM8916_WD_RESET_HNDLR_PRIO	128
++
++struct pm8916_wdog {
++	uint32_t baseaddr;
++	struct watchdog_device wdev;
++	struct device *dev;
++	struct regmap *regmap;
++};
++
++static int pm8916_wdog_write_reg(struct pm8916_wdog * wdog, uint32_t offset,
++								uint8_t value)
++{
++	int count = 0;
++	int ret = -1;
++	unsigned int reg = wdog->baseaddr + offset;
++
++	for (count = RETRY_REG_WRITE; count > 0; count--) {
++		ret = regmap_write(wdog->regmap, reg, value);
++		if (ret < 0 && count != 1) {
++			dev_err(wdog->dev, "write reg:0x%x fail, retrying!\n",
++					reg);
++			/* give some time before retry in case of failure */
++			usleep_range(10,20);
++		} else {
++			break;
++		}
++	}
++
++	if (ret < 0) {
++		dev_err(wdog->dev, "write reg: 0x%x failed with error: %d\n",
++								reg, ret);
++	}
++
++	return ret;
++}
++
++static int pm8916_wdog_ping(struct watchdog_device * wdev)
++{
++	int ret = -1;
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++
++	ret = pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_PET, 1);
++
++	if (ret < 0) {
++		dev_err(wdog->dev, "Could not pet watchdog!!!\n");
++	}
++
++	return ret;
++}
++
++static int pm8916_wdog_start(struct watchdog_device * wdev)
++{
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++	int ret = -1;
++	ret = pm8916_wdog_write_reg(wdog,
++				PON_PMIC_WD_RESET_S2_CTL2, ENABLED);
++	if (ret < 0) {
++		dev_err(wdog->dev, "could not start pmic wdog\n");
++	} else {
++		set_bit(WDOG_ACTIVE, &wdev->status);
++		/*Pet the watch dog*/
++		pm8916_wdog_ping(wdev);
++	}
++	return ret;
++}
++
++static int pm8916_wdog_stop(struct watchdog_device * wdev)
++{
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++	int ret = -1;
++	ret = pm8916_wdog_write_reg(wdog,
++				PON_PMIC_WD_RESET_S2_CTL2, DISABLED);
++	if (ret < 0) {
++		dev_err(wdog->dev,
++			"could not stop pmic wdog\n");
++	} else {
++		clear_bit(WDOG_ACTIVE, &wdev->status);
++	}
++	return ret;
++}
++
++static int pm8916_wdog_set_timeout(struct watchdog_device * wdev,
++							unsigned int timeout)
++{
++	int ret = -1;
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++
++	timeout = clamp_t(unsigned int, timeout, 1, PM8916_WD_MAX_TIMER);
++	ret = pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_S2_TIMER, timeout);
++
++	if (ret < 0) {
++		dev_err(wdog->dev, "Could not set timeout\n");
++	}
++
++	wdev->timeout =  timeout;
++
++	return ret;
++}
++
++static int pm8916_wdog_restart(struct watchdog_device * wdev,
++				unsigned long action, void * data)
++{
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++	/* reboot by watchdog in 1 second */
++	pm8916_wdog_set_timeout(wdev, 1);
++	pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_S2_CTL2, ENABLED);
++	pm8916_wdog_ping(wdev);
++	return 0;
++}
++
++static long pm8916_wdog_ioctl(struct watchdog_device * wdev,
++				unsigned int ioctl, unsigned long arg)
++{
++	int ret = 0;
++	struct pm8916_wdog * wdog = watchdog_get_drvdata(wdev);
++	int __user *p = (void __user *)arg;
++	unsigned int val = 0;
++
++	switch (ioctl) {
++		case WDIOC_SETOPTIONS:
++			if (get_user(val, p)) {
++				ret = -EFAULT;
++				break;
++			}
++
++			if (val & WDIOS_DISABLECARD) {
++				ret = pm8916_wdog_write_reg(wdog,
++					PON_PMIC_WD_RESET_S2_CTL2, DISABLED);
++				if (ret < 0) {
++					dev_err(wdog->dev,
++						"could not stop pmic wdog\n");
++				} else {
++					clear_bit(WDOG_ACTIVE, &wdev->status);
++				}
++			} else if (val & WDIOS_ENABLECARD) {
++				ret = pm8916_wdog_write_reg(wdog,
++					PON_PMIC_WD_RESET_S2_CTL2, ENABLED);
++				if (ret < 0) {
++					dev_err(wdog->dev,
++						"could not start pmic wdog\n");
++				} else {
++					set_bit(WDOG_ACTIVE, &wdev->status);
++				}
++			} else {
++				ret = -EINVAL;
++			}
++
++			break;
++		case WDIOC_GETTIMEOUT:
++			ret = copy_to_user((void *)arg, (void *)&wdev->timeout,
++							sizeof(wdev->timeout));
++			if (ret) {
++				dev_err(wdog->dev, "Failed to get timeout");
++			}
++			break;
++
++		default:
++			ret = -ENOIOCTLCMD;
++			break;
++	}
++
++	return ret;
++}
++
++static const struct watchdog_ops pm8916_wdog_ops = {
++	.start		= pm8916_wdog_start,
++	.stop		= pm8916_wdog_stop,
++	.ping		= pm8916_wdog_ping,
++	.set_timeout	= pm8916_wdog_set_timeout,
++	.restart	= pm8916_wdog_restart,
++	.ioctl		= pm8916_wdog_ioctl,
++	.owner		= THIS_MODULE,
++};
++
++static const struct watchdog_info pm8916_wdog_info = {
++	.options	= WDIOF_KEEPALIVEPING
++			| WDIOF_MAGICCLOSE
++			| WDIOF_SETTIMEOUT,
++	.identity	= "qcom-spmi pmic watchdog",
++};
++
++
++static int pm8916_wdog_init(struct pm8916_wdog * wdog)
++{
++	int ret = 0;
++
++	wdog->wdev.info = &pm8916_wdog_info;
++	wdog->wdev.ops = &pm8916_wdog_ops;
++	wdog->wdev.min_timeout = 5;
++	wdog->wdev.max_hw_heartbeat_ms = PM8916_WD_MAX_TIMER * 1000;
++	wdog->wdev.timeout = PM8916_DEFAULT_TIMEOUT;
++	watchdog_set_restart_priority(&wdog->wdev, PM8916_WD_RESET_HNDLR_PRIO);
++
++	ret = watchdog_init_timeout(&wdog->wdev, wdog->wdev.timeout,
++							wdog->wdev.parent);
++	if (ret < 0) {
++		dev_err(wdog->dev, "Could not init watchdog timer\n");
++		goto error;
++	}
++
++	/* disable watchdog initially */
++	ret = pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_S2_CTL2, DISABLED);
++	if (ret < 0 ) {
++		dev_err(wdog->dev, "Could not disable watchdog initially\n");
++		goto error;
++	}
++
++	/* Set S1 timer to 0 */
++	ret = pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_S1_TIMER,
++					PM8916_WD_MIN_TIMER);
++	if (ret < 0) {
++		dev_err(wdog->dev, "S1 timer could not be set to 0\n");
++	}
++
++	ret = pm8916_wdog_set_timeout(&wdog->wdev, PM8916_DEFAULT_TIMEOUT);
++
++	if (ret < 0) {
++		dev_err(wdog->dev, "Could not set timeout\n");
++	}
++error:
++	return ret;
++}
++
++static int pm8916_wdog_deinit(struct pm8916_wdog * wdog)
++{
++	/* set watchdog disable */
++	return pm8916_wdog_write_reg(wdog, PON_PMIC_WD_RESET_S2_CTL2, DISABLED);
++}
++
++static int pm8916_wdog_parse_dt(struct pm8916_wdog * wdog)
++{
++	int ret = 0;
++	struct device_node * np = wdog->dev->of_node;
++
++	ret = of_property_read_u32(np, "reg", &wdog->baseaddr);
++	if (ret < 0) {
++		dev_err(wdog->dev, "%s:%d dev node has no reg property!!!\n",
++				__func__, __LINE__);
++		goto error;
++	}
++
++error:
++	return ret;
++}
++
++static int pm8916_wdog_probe(struct platform_device *pdev)
++{
++	struct regmap * regmap = NULL;
++	struct pm8916_wdog * wdog = NULL;
++	int ret = 0;
++
++	regmap = dev_get_regmap(pdev->dev.parent, NULL);
++	if (!regmap) {
++		dev_err(&pdev->dev, "failed to locate regmap\n");
++		ret = -ENODEV;
++		goto error;
++	}
++
++	wdog = devm_kzalloc(&pdev->dev, sizeof(*wdog), GFP_KERNEL);
++	if (!wdog) {
++		ret = -ENOMEM;
++		goto error;
++	}
++
++	wdog->dev = &pdev->dev;
++	wdog->regmap = regmap;
++	wdog->wdev.parent = &pdev->dev;
++	watchdog_set_drvdata(&wdog->wdev, wdog);
++	platform_set_drvdata(pdev, &wdog->wdev);
++
++	ret = pm8916_wdog_parse_dt(wdog);
++	if (ret < 0) {
++		goto free_wdog;
++	}
++
++	ret = pm8916_wdog_init(wdog);
++	if (ret < 0) {
++		goto free_wdog;
++	}
++
++	ret = watchdog_register_device(&wdog->wdev);
++	if (ret < 0) {
++		dev_err(wdog->dev, "Could not register watchdog device\n");
++		pm8916_wdog_write_reg(wdog,
++					PON_PMIC_WD_RESET_S2_CTL2, DISABLED);
++		goto free_wdog;
++	}
++
++	printk(KERN_INFO "watchdog probe success\n");
++
++	return 0;
++
++free_wdog:
++	devm_kfree(&pdev->dev, wdog);
++error:
++	dev_err(&pdev->dev, "probe failed! could not start watchdog\n");
++
++	return ret;
++}
++
++static int pm8916_wdog_remove(struct platform_device *pdev)
++{
++	struct pm8916_wdog *wdog = platform_get_drvdata(pdev);
++
++	pm8916_wdog_deinit(wdog);
++	watchdog_unregister_device(&wdog->wdev);
++	devm_kfree(&pdev->dev, wdog);
++
++	return 0;
++}
++
++static const struct of_device_id pm8916_watchdog_id_table[] = {
++	{ .compatible = "qcom,pm8916-wdog" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, pm8916_watchdog_id_table);
++
++static struct platform_driver pm8916_watchdog_driver = {
++	.probe = pm8916_wdog_probe,
++	.remove = pm8916_wdog_remove,
++	.driver = {
++		.name = "pm8916-wdog",
++		.of_match_table = of_match_ptr(pm8916_watchdog_id_table),
++	},
++};
++module_platform_driver(pm8916_watchdog_driver);
++
++MODULE_DESCRIPTION("PMIC PM8916 Watchdog driver");
++MODULE_AUTHOR("eInfochips");
+-- 
+2.7.4
+

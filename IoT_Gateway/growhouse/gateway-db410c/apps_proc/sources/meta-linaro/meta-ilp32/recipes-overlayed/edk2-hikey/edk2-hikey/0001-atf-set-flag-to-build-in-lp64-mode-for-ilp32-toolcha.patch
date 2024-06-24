@@ -1,0 +1,31 @@
+From ea77365555ff752735a1507570e737367f235064 Mon Sep 17 00:00:00 2001
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Fri, 15 Sep 2017 12:05:09 +0100
+Subject: [PATCH] atf:set flag to build in lp64 mode for ilp32 toolchain
+
+Signed-off-by: Vishal Bhoj <vishal.bhoj@linaro.org>
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/atf/Makefile b/atf/Makefile
+index 6fb10b76..24016366 100644
+--- a/atf/Makefile
++++ b/atf/Makefile
+@@ -253,11 +253,11 @@ $(eval $(call assert_boolean,TRUSTED_BOARD_BOOT))
+ $(eval $(call add_define,TRUSTED_BOARD_BOOT))
+
+ ASFLAGS			+= 	-nostdinc -ffreestanding -Wa,--fatal-warnings	\
+-				-Werror -Wmissing-include-dirs			\
++				-Wno-error -Wmissing-include-dirs -mabi=lp64	\
+ 				-mgeneral-regs-only -D__ASSEMBLY__		\
+ 				${DEFINES} ${INCLUDES}
+ CFLAGS			+= 	-nostdinc -ffreestanding -Wall			\
+-				-Werror -Wmissing-include-dirs			\
++				-Wno-error -Wmissing-include-dirs -mabi=lp64	\
+ 				-mgeneral-regs-only -mstrict-align		\
+ 				-std=c99 -c -Os	${DEFINES} ${INCLUDES} -fno-pic
+ CFLAGS			+=	-ffunction-sections -fdata-sections		\
+--
+2.13.0
+

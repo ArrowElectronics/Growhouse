@@ -1,0 +1,12 @@
+[Unit]
+Description=Growhouse server application start service
+After=mosquitto.service
+Requires=mosquitto.service
+
+[Service]
+ExecStart=/usr/sbin/growhouse-server
+RestartSec=5sec
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

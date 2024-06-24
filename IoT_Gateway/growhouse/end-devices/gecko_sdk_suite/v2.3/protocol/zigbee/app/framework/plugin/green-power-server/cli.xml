@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<cli>
+  <group id="plugin-green-power-server" name="Plugin Commands: Green Power Server">
+    <description>
+      The Green Power Server plugin contributes CLI commands to the application framework to be used for getting, setting, and displaying information relevant to the Green Power Server cluster.
+    </description>
+  </group>
+  <command cli="plugin green-power-server cryptotest" functionName="emberAfPluginGreenPowerServerCryptoTest" group="plugin-green-power-server">
+    <description>
+      Crypto test
+    </description>
+  </command>
+  <command cli="plugin green-power-server commission" functionName="emberAfPluginGreenPowerServerCommissioningMode" group="plugin-green-power-server">
+    <description>
+      Put the GPS in commissioning mode
+    </description>
+    <arg name="action"    type="INT8U"       description="1 to enter, 2 to leave"       />
+  </command>
+  <command cli="plugin green-power-server table-clear" functionName="emberAfPluginGreenPowerServerCliClearCustomizedTranslationTable" group="plugin-green-power-server">
+    <description>
+      Clear all entries within the customized translation table.
+    </description>
+  </command>
+  <command cli="plugin green-power-server table-set" functionName="emberAfPluginGreenPowerServerCliSetCustomizedTranslationTable" group="plugin-green-power-server">
+    <description>
+      Clear all entries within the customized translation table.
+    </description>
+    <arg name="index"             type="INT8U"       description="index to translation table" />
+    <arg name="valid"             type="BOOLEAN"     description="flag indicating if the entry is valid or not" />
+    <arg name="options"           type="INT8U"        />
+    <arg name="gpdEndpoint"       type="INT8U"        />
+    <arg name="gpdIeeeAddr"       type="IEEE_ADDRESS" />
+    <arg name="sourceId"          type="INT32U"       />
+    <arg name="endpoint"          type="INT8U"       description="the endpoint for which the translation is valid." />
+    <arg name="gpdCommand"        type="INT8U"        />
+    <arg name="zigbeeProfile"     type="INT16U"       />
+    <arg name="zigbeeCluster"     type="INT16U"       />
+    <arg name="zigbeeCommandId"   type="INT16U"       />
+    <arg name="payloadSrc"        type="INT8U"        />
+    <arg name="zclPayloadDefault" type="OCTET_STRING" />
+  </command>
+  
+  <command cli="plugin green-power-server table-print" functionName="emberAfPluginGreenPowerServerCliTablePrint" group="plugin-green-power-server">
+    <description>
+      Clear all entries within the customized translation table.
+    </description>
+  </command>
+</cli>

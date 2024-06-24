@@ -1,0 +1,24 @@
+api(main) {
+  name=Main
+  callbacks=main-callback.info
+}
+
+api(ncp) {
+  name=NCP
+  callbacks=../../em260/ncp-callback.info
+}
+
+api(power-meter) {
+  name=Power Meter
+  callbacks=$PLUGIN/power-meter-callback.info
+}
+
+api(sim-eeprom) {
+  name=Simulated EEPROM
+  callbacks=$HAL/config/sim-eeprom-callback.info
+}
+
+api(stack) {
+  name=Stack
+  callbacks=$FRAMEWORK/../../stack/appbuilder/stack-minimal-callback.info
+}
